@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin — VyraShop</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d0b14;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--red:#f87171}
+body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;padding:24px;max-width:800px;margin:0 auto}
+h1{font-size:1.4rem;font-weight:900;margin-bottom:6px}
+h1 span{color:var(--or)}
+.sub{color:var(--tx);font-size:.85rem;margin-bottom:28px}
+.card{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:22px;margin-bottom:18px}
+.card h2{font-size:.85rem;font-weight:800;color:var(--pl);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+label{display:block;font-size:.78rem;font-weight:700;color:var(--tx);margin-bottom:5px;margin-top:12px}
+input,textarea{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--bord);background:rgba(255,255,255,.05);color:var(--wh);font-size:.9rem;font-family:inherit;outline:none}
+input:focus,textarea:focus{border-color:var(--pu)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.toggle-row:last-child{border:none}
+.toggle-label{font-size:.88rem;color:var(--tx)}
+.toggle{position:relative;width:44px;height:24px;cursor:pointer}
+.toggle input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;background:rgba(255,255,255,.1);border-radius:50px;transition:.3s}
+.slider::before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.3s}
+.toggle input:checked+.slider{background:var(--gr)}
+.toggle input:checked+.slider::before{transform:translateX(20px)}
+.btn{background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border:none;padding:13px 28px;border-radius:50px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;margin-top:14px;transition:opacity .2s}
+.btn:hover{opacity:.9}
+.btn-or{background:linear-gradient(135deg,var(--or),#dc6900)}
+.msg{font-size:.82rem;padding:10px 14px;border-radius:10px;margin-top:12px;display:none}
+.msg.ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);color:var(--gr)}
+.msg.err{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--red)}
+.clients-list{display:flex;flex-direction:column;gap:8px}
+.client-row{background:rgba(255,255,255,.03);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.client-email{font-size:.85rem;font-weight:600}
+.client-tags{display:flex;gap:6px}
+.tag{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.tag-f{background:rgba(138,92,246,.2);color:var(--pl)}
+.tag-s{background:rgba(251,146,60,.2);color:var(--or)}
+.tag-a{background:rgba(74,222,128,.15);color:var(--gr)}
+.edit-btn{font-size:.75rem;color:var(--pl);text-decoration:none;cursor:pointer;background:none;border:none;font-family:inherit}
+</style>
+</head>
+<body>
+<h1>Admin <span>VyraShop</span></h1>
+<p class="sub">Gérer les accès clients et livrer les identifiants TikTok Shop</p>
+
+<!-- GESTION ACCÈS -->
+<div class="card">
+  <h2>Accorder / Modifier un accès client</h2>
+  <label>Email du client</label>
+  <input type="email" id="a-email" placeholder="client@email.com"/>
+  <div style="margin-top:14px">
+    <div class="toggle-row">
+      <span class="toggle-label">📚 Formation TikTok Expert</span>
+      <label class="toggle"><input type="checkbox" id="a-formation"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <span class="toggle-label">🛍️ Accès TikTok Shop</span>
+      <label class="toggle"><input type="checkbox" id="a-shop"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <span class="toggle-label">💬 Accompagnement WhatsApp</span>
+      <label class="toggle"><input type="checkbox" id="a-accomp"/><span class="slider"></span></label>
+    </div>
+  </div>
+  <button class="btn" onclick="saveAccess()">Enregistrer les accès</button>
+  <div class="msg" id="a-msg"></div>
+</div>
+
+<!-- LIVRAISON SHOP -->
+<div class="card">
+  <h2>Livrer les identifiants TikTok Shop</h2>
+  <label>Email du client</label>
+  <input type="email" id="s-email" placeholder="client@email.com"/>
+  <div class="row">
+    <div>
+      <label>Email / Identifiant du compte</label>
+      <input type="text" id="s-login" placeholder="compte@tiktok.com"/>
+    </div>
+    <div>
+      <label>Mot de passe</label>
+      <input type="text" id="s-pwd" placeholder="MotDePasse123"/>
+    </div>
+  </div>
+  <label>Notes (optionnel)</label>
+  <textarea id="s-notes" rows="2" placeholder="Infos complémentaires pour le client…"></textarea>
+  <button class="btn btn-or" onclick="deliverShop()">Livrer les identifiants</button>
+  <div class="msg" id="s-msg"></div>
+</div>
+
+<!-- LISTE CLIENTS -->
+<div class="card">
+  <h2>Liste des clients <button class="edit-btn" onclick="loadClients()" style="font-size:.8rem">↺ Actualiser</button></h2>
+  <div class="clients-list" id="clients-list"><p style="color:var(--tx);font-size:.85rem">Clique sur Actualiser…</p></div>
+</div>
+
+<script>
+const SUPABASE_URL='https://pdprwoskbrsoojtanmze.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_8bOARWbOH9NbbsYbtoaJ8Q_z59Eht4f';
+const ADMIN_KEY='Vyraleya2026';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+
+// Vérification accès admin
+var adminKey=new URLSearchParams(window.location.search).get('admin_key');
+if(adminKey!==ADMIN_KEY){document.body.innerHTML='<div style="text-align:center;padding:60px;color:#f87171">Accès refusé</div>';}
+
+function showMsg(id,type,text){var el=document.getElementById(id);el.className='msg '+(type==='ok'?'ok':'err');el.textContent=text;el.style.display='block';setTimeout(()=>el.style.display='none',4000);}
+
+async function saveAccess(){
+  var email=document.getElementById('a-email').value.trim();
+  if(!email){showMsg('a-msg','err','Entre un email.');return;}
+  var update={
+    email,
+    has_formation:document.getElementById('a-formation').checked,
+    has_shop:document.getElementById('a-shop').checked,
+    has_accompagnement:document.getElementById('a-accomp').checked
+  };
+  var {data:existing}=await sb.from('user_access').select('id').eq('email',email).single();
+  var err;
+  if(existing){({error:err}=await sb.from('user_access').update(update).eq('email',email));}
+  else{({error:err}=await sb.from('user_access').insert(update));}
+  if(err)showMsg('a-msg','err','Erreur : '+err.message);
+  else showMsg('a-msg','ok','Accès enregistrés pour '+email);
+}
+
+async function deliverShop(){
+  var email=document.getElementById('s-email').value.trim();
+  var login=document.getElementById('s-login').value.trim();
+  var pwd=document.getElementById('s-pwd').value.trim();
+  if(!email||!login){showMsg('s-msg','err','Email et identifiant obligatoires.');return;}
+  var {error}=await sb.from('user_access').update({shop_login:login,shop_password:pwd,shop_notes:document.getElementById('s-notes').value}).eq('email',email);
+  if(error)showMsg('s-msg','err','Erreur : '+error.message);
+  else showMsg('s-msg','ok','Identifiants livrés à '+email+' ✅');
+}
+
+async function loadClients(){
+  var {data,error}=await sb.from('user_access').select('*').order('created_at',{ascending:false});
+  var list=document.getElementById('clients-list');
+  if(error||!data||data.length===0){list.innerHTML='<p style="color:var(--tx);font-size:.85rem">Aucun client enregistré.</p>';return;}
+  list.innerHTML=data.map(function(c){
+    return '<div class="client-row"><span class="client-email">'+c.email+'</span><div class="client-tags">'+(c.has_formation?'<span class="tag tag-f">Formation</span>':'')+(c.has_shop?'<span class="tag tag-s">Shop</span>':'')+(c.has_accompagnement?'<span class="tag tag-a">Accomp.</span>':'')+'</div></div>';
+  }).join('');
+}
+</script>
+</body>
+</html>
