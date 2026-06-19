@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Module 3 · Viralité &amp; Croissance — VyraShop</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(74,222,128,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--r:16px;--mod:#4ade80;--modbg:rgba(74,222,128,.1)}
+body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
+#gate{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center}
+.gate-card{background:var(--card);border:1px solid rgba(167,139,250,.22);border-radius:20px;padding:32px;max-width:360px;width:90%;text-align:center}
+.gate-card p{color:var(--tx);font-size:.9rem;margin:10px 0}
+nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--wh)}
+.logo span{color:var(--or)}
+.nav-links{display:flex;gap:12px;align-items:center}
+.nav-links a{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600}
+.mod-hero{background:linear-gradient(135deg,rgba(74,222,128,.15),rgba(74,222,128,.03));border-bottom:1px solid rgba(74,222,128,.25);padding:40px 24px;text-align:center}
+.mod-badge{display:inline-block;background:var(--modbg);border:1px solid var(--mod);color:var(--gr);font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px}
+.mod-hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;margin-bottom:8px}
+.mod-hero h1 span{color:var(--gr)}
+.mod-hero p{color:var(--tx);font-size:.9rem;max-width:480px;margin:0 auto}
+.content{max-width:840px;margin:0 auto;padding:32px 20px 60px}
+.ebook{background:var(--card);border:1px solid rgba(74,222,128,.2);border-radius:20px;margin-bottom:20px;overflow:hidden}
+.ebook-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;gap:14px;user-select:none}
+.ebook-num{background:var(--modbg);border:1px solid var(--mod);color:var(--gr);font-size:.72rem;font-weight:800;padding:4px 12px;border-radius:50px;white-space:nowrap;flex-shrink:0}
+.ebook-title{font-weight:700;font-size:.98rem;flex:1}
+.ebook-arrow{color:var(--gr);font-size:.85rem;transition:transform .25s;flex-shrink:0}
+.ebook.open .ebook-arrow{transform:rotate(180deg)}
+.ebook-body{display:none;padding:0 24px 24px;border-top:1px solid rgba(74,222,128,.15)}
+.ebook.open .ebook-body{display:block}
+.ebook-body h3{font-size:.95rem;font-weight:800;color:var(--gr);margin:20px 0 10px}
+.ebook-body p{color:var(--tx);font-size:.88rem;margin-bottom:12px;line-height:1.6}
+.table-wrap{overflow-x:auto;margin:14px 0;border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:.83rem}
+th{background:rgba(74,222,128,.15);color:var(--gr);padding:10px 14px;text-align:left;font-weight:700;border:1px solid rgba(74,222,128,.25)}
+td{padding:9px 14px;border:1px solid rgba(74,222,128,.15);color:var(--tx);vertical-align:top}
+tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.schema{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.25);border-radius:14px;padding:18px;margin:14px 0}
+.schema-title{font-size:.7rem;font-weight:700;color:var(--gr);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:center}
+.sbox{background:var(--card);border:1px solid rgba(74,222,128,.3);border-radius:10px;padding:9px 14px;font-size:.8rem;font-weight:600;text-align:center;color:var(--gr)}
+.sbox.pu{border-color:rgba(138,92,246,.5);color:var(--pl)}
+.sarr{color:var(--tx);font-weight:700}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:12px}
+.sitem{background:var(--card);border:1px solid rgba(74,222,128,.2);border-radius:12px;padding:12px 8px;text-align:center}
+.sitem .si{font-size:1.4rem;margin-bottom:4px}
+.sitem .sl{font-size:.76rem;font-weight:700;color:var(--wh)}
+.sitem .ss{font-size:.68rem;color:var(--tx);margin-top:2px}
+.checklist{background:rgba(0,0,0,.2);border-radius:14px;padding:16px;margin:14px 0}
+.cl-title{font-size:.7rem;font-weight:800;color:var(--gr);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.cl-item:last-child{border:none}
+.cl-box{width:21px;height:21px;border:2px solid rgba(74,222,128,.4);border-radius:5px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:1px}
+.cl-box.done{background:var(--gr);border-color:var(--gr)}
+.cl-box.done::after{content:"✓";color:#000;font-size:.78rem;font-weight:900}
+.cl-text{font-size:.86rem;color:var(--tx);flex:1}
+.cl-box.done+.cl-text{text-decoration:line-through;opacity:.55}
+.pdf-btn{display:flex;align-items:center;gap:10px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.35);border-radius:12px;padding:13px 18px;margin-top:18px;text-decoration:none;color:var(--gr);font-weight:700;font-size:.88rem;transition:background .2s}
+.pdf-btn:hover{background:rgba(74,222,128,.16)}
+.pdf-btn .pdf-icon{font-size:1.3rem;flex-shrink:0}
+.pdf-btn .pdf-label small{display:block;font-weight:400;color:var(--tx);font-size:.75rem;margin-top:1px}
+.hl{border-radius:12px;padding:14px 18px;margin:14px 0}
+.hl.green{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.3)}
+.hl.orange{background:rgba(251,146,60,.07);border:1px solid rgba(251,146,60,.3)}
+.hl.purple{background:rgba(138,92,246,.09);border:1px solid rgba(138,92,246,.35)}
+.hl-t{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.hl.green .hl-t{color:var(--gr)}
+.hl.orange .hl-t{color:var(--or)}
+.hl.purple .hl-t{color:var(--pl)}
+.hl p{color:var(--tx);font-size:.86rem;margin:0}
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}
+.plan-card{background:var(--card);border:1px solid rgba(74,222,128,.2);border-radius:14px;padding:14px}
+.plan-tag{font-size:.68rem;font-weight:800;color:var(--gr);text-transform:uppercase;margin-bottom:6px}
+.plan-card h4{font-size:.86rem;font-weight:700;margin-bottom:8px}
+.plan-card ul{list-style:none}
+.plan-card ul li{font-size:.78rem;color:var(--tx);padding:2px 0 2px 14px;position:relative}
+.plan-card ul li::before{content:"→";position:absolute;left:0;color:var(--gr);font-size:.72rem}
+.finish{background:linear-gradient(135deg,rgba(74,222,128,.15),rgba(138,92,246,.1));border:1px solid rgba(74,222,128,.3);border-radius:20px;padding:32px 24px;text-align:center;margin-top:32px}
+.finish h3{font-size:1.2rem;font-weight:800;margin-bottom:10px}
+.finish p{color:var(--tx);font-size:.88rem;margin-bottom:22px}
+.finish a{display:inline-block;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;padding:13px 26px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.9rem}
+.nav-mod{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:40px 0 0;padding:24px;background:var(--surf);border-radius:16px}
+.nav-mod a{padding:12px 22px;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;border:1px solid rgba(167,139,250,.22);color:var(--tx)}
+.nav-mod a.active{background:linear-gradient(135deg,var(--gr),#16a34a);color:#000;border-color:transparent}
+.nav-mod a:hover:not(.active){border-color:var(--gr);color:var(--wh)}
+footer{text-align:center;padding:20px;color:var(--tx);font-size:.74rem;border-top:1px solid rgba(167,139,250,.22)}
+footer a{color:var(--gr);text-decoration:none}
+@media(max-width:600px){.flow{flex-direction:column}.ebook-header{padding:14px 16px}.ebook-body{padding:0 16px 18px}.plan{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="gate"><div class="gate-card"><p>Vérification de ton accès…</p></div></div>
+
+<nav>
+  <a href="index.html" class="logo">Vyra<span>Shop</span></a>
+  <div class="nav-links">
+    <a href="module2.html">← Module 2</a>
+    <a href="index.html">🏠 Accueil</a>
+  </div>
+</nav>
+
+<div class="mod-hero">
+  <div class="mod-badge">🔥 Module 3 · 5 ebooks</div>
+  <h1>Viralité &amp; <span>Croissance</span></h1>
+  <p>Décrypte l'algorithme TikTok, crée des hooks irrésistibles et applique une stratégie de posting gagnante.</p>
+</div>
+
+<div class="content">
+
+<!-- EBOOK 11 -->
+<div class="ebook" id="e11">
+  <div class="ebook-header" onclick="toggle('e11')">
+    <span class="ebook-num">Ebook 11 / 15</span>
+    <span class="ebook-title">L'Algorithme TikTok Décrypté</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <div class="schema"><div class="schema-title">📡 Distribution en cercles concentriques</div>
+      <div class="flow">
+        <div class="sbox pu">Cercle 1 · 100–500 vues</div><div class="sarr">→</div>
+        <div class="sbox">Signaux OK → Cercle 2 · 1K–10K</div><div class="sarr">→</div>
+        <div class="sbox">Cercle 3 · 100K+ vues</div>
+      </div>
+    </div>
+    <h3>Signaux positifs vs négatifs</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Signaux positifs ✅</th><th>Impact</th><th>Signaux négatifs ❌</th><th>Impact</th></tr>
+      <tr><td>Watch time > 80%</td><td>⭐⭐⭐⭐⭐</td><td>Vidéo regardée < 20%</td><td>🔴🔴🔴🔴🔴</td></tr>
+      <tr><td>Partages</td><td>⭐⭐⭐⭐⭐</td><td>"Pas intéressé"</td><td>🔴🔴🔴🔴</td></tr>
+      <tr><td>Commentaires</td><td>⭐⭐⭐⭐</td><td>Signalement</td><td>🔴🔴🔴🔴🔴</td></tr>
+      <tr><td>Re-watch</td><td>⭐⭐⭐⭐⭐</td><td>Désabonnement rapide</td><td>🔴🔴🔴</td></tr>
+    </table></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m3-e1"></div></div>
+    <a href="EBOOK11 AlgorithmeTikTok.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 11 complet<small>L'Algorithme TikTok Décrypté · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 12 -->
+<div class="ebook" id="e12">
+  <div class="ebook-header" onclick="toggle('e12')">
+    <span class="ebook-num">Ebook 12 / 15</span>
+    <span class="ebook-title">Créer des Hooks qui Accrochent</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <h3>Les 10 catégories de hooks TikTok</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Catégorie</th><th>Exemple</th><th>Efficacité</th></tr>
+      <tr><td>Curiosité</td><td>"Ce que personne ne te dit sur..."</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>Contraire</td><td>"Arrête de faire X si tu veux Y"</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>Chiffre</td><td>"3 erreurs que font la majorité des créateurs"</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>Identité</td><td>"Si tu fais X, regarde ça"</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>Urgence</td><td>"Avant que TikTok supprime ça..."</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>Promesse</td><td>"En 30 secondes je vais te montrer..."</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>Visuel fort</td><td>Action choc dans les 2 premières secondes</td><td>⭐⭐⭐⭐⭐</td></tr>
+    </table></div>
+    <div class="hl purple"><div class="hl-t">💡 La règle des 3 secondes</div><p>TikTok mesure si l'utilisateur reste après 3 secondes. C'est ce signal qui décide si ta vidéo sera distribuée. Soigne la première image, le premier mot, le premier mouvement.</p></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m3-e2"></div></div>
+    <a href="EBOOK12 HooksQuiAccrochent.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 12 complet<small>Hooks qui Accrochent · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 13 -->
+<div class="ebook" id="e13">
+  <div class="ebook-header" onclick="toggle('e13')">
+    <span class="ebook-num">Ebook 13 / 15</span>
+    <span class="ebook-title">Le Montage Viral — Techniques des Millions de Vues</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <h3>Fondamentaux du montage TikTok</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Élément</th><th>Règle clé</th><th>Erreur courante</th></tr>
+      <tr><td>Rythme des coupes</td><td>1 coupe toutes les 1–3 secondes</td><td>Séquences trop longues</td></tr>
+      <tr><td>Texte à l'écran</td><td>Max 5–7 mots, >40px</td><td>Trop de texte, illisible mobile</td></tr>
+      <tr><td>Musique</td><td>Trending sound adapté à la niche</td><td>Musique sans rapport</td></tr>
+      <tr><td>Sous-titres</td><td>Toujours actifs (60% sans son)</td><td>Pas de sous-titres = -60% rétention</td></tr>
+      <tr><td>Format</td><td>9:16 exclusivement</td><td>Texte caché par l'UI TikTok</td></tr>
+    </table></div>
+    <h3>Workflow de montage efficace</h3>
+    <div class="plan">
+      <div class="plan-card"><div class="plan-tag">Étape 1</div><h4>Import</h4><ul><li>Importer toutes les prises</li><li>Sélectionner les 20% meilleurs</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Étape 2</div><h4>Structure</h4><ul><li>Hook : 0–3 sec</li><li>Corps : 3–40 sec</li><li>CTA : 40–45 sec</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Étape 3</div><h4>Finitions</h4><ul><li>Sous-titres auto CapCut</li><li>Texte d'accroche</li><li>Son trending</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Étape 4</div><h4>Export</h4><ul><li>1080p minimum</li><li>Sans watermark</li><li>Vérifier sur mobile</li></ul></div>
+    </div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m3-e3"></div></div>
+    <a href="EBOOK13 MontageViral.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 13 complet<small>Montage Viral · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 14 -->
+<div class="ebook" id="e14">
+  <div class="ebook-header" onclick="toggle('e14')">
+    <span class="ebook-num">Ebook 14 / 15</span>
+    <span class="ebook-title">Posting Strategy et Timing — Publier au Bon Moment</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <h3>Heures de pic générales</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Créneau</th><th>Heure locale</th><th>Profil audience</th><th>Recommandation</th></tr>
+      <tr><td>Matin</td><td>7h–9h</td><td>Commuters</td><td>✅ Business / niche pro</td></tr>
+      <tr><td>Midi</td><td>12h–14h</td><td>Pause repas</td><td>✅ Polyvalent</td></tr>
+      <tr><td>Après-midi</td><td>15h–17h</td><td>Étudiants</td><td>✅ Lifestyle, mode</td></tr>
+      <tr><td>Soir</td><td>19h–22h</td><td>Grand public</td><td>⭐ Meilleur créneau</td></tr>
+      <tr><td>Nuit</td><td>22h–1h</td><td>Insomniaques</td><td>❌ Volume faible</td></tr>
+    </table></div>
+    <div class="hl orange"><div class="hl-t">⚠️ Règle d'or</div><p>Ces heures sont des points de départ. Consulte tes Analytics TikTok > Audience > Activité des abonnés pour trouver TES créneaux optimaux personnels.</p></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m3-e4"></div></div>
+    <a href="EBOOK14 PostingStrategy.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 14 complet<small>Posting Strategy &amp; Timing · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 15 -->
+<div class="ebook" id="e15">
+  <div class="ebook-header" onclick="toggle('e15')">
+    <span class="ebook-num">Ebook 15 / 15 · ⭐ Final</span>
+    <span class="ebook-title">Passer de 0 à 10 000 Abonnés — Bilan Complet</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <div class="schema"><div class="schema-title">🚀 Les 3 phases de croissance</div>
+      <div class="flow">
+        <div class="sbox pu">Phase 1 · 0→1K<br/><small>Niche + consistance</small></div><div class="sarr">→</div>
+        <div class="sbox">Phase 2 · 1K→5K<br/><small>Engagement + collabs</small></div><div class="sarr">→</div>
+        <div class="sbox">Phase 3 · 5K→10K<br/><small>Viralité + tendances</small></div>
+      </div>
+    </div>
+    <h3>Plan 90 jours post-formation</h3>
+    <div class="plan">
+      <div class="plan-card"><div class="plan-tag">Mois 1</div><h4>Fondations</h4><ul><li>Appliquer la monétisation</li><li>Lancer TikTok Shop</li><li>Publier chaque jour</li><li>Analyser chaque semaine</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Mois 2</div><h4>Accélération</h4><ul><li>Doubler ce qui marche</li><li>Premier Live Shop</li><li>Optimiser hooks et montage</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Mois 3</div><h4>Scale</h4><ul><li>Automatiser le workflow</li><li>Candidater Creator Fund</li><li>Diversifier les revenus</li></ul></div>
+    </div>
+    <div class="hl green"><div class="hl-t">🎓 Formation terminée !</div><p>Tu as maintenant toutes les clés. La différence entre ceux qui réussissent et les autres : l'application. Commence aujourd'hui. Une vidéo à la fois.</p></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions finales</div><div id="cl-m3-e5"></div></div>
+    <a href="EBOOK15 0a10KAbonnes.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 15 complet<small>De 0 à 10 000 Abonnés · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<div class="finish">
+  <h3>🎉 Tu as terminé la Formation !</h3>
+  <p>Tu veux aller encore plus vite avec un accompagnement personnalisé sur ton compte et ta stratégie ?</p>
+  <a href="https://buy.stripe.com/4gM3cxgIPdyfa7l5r893y03">💬 Démarrer l'Accompagnement WhatsApp Premium →</a>
+</div>
+
+<div class="nav-mod">
+  <a href="index.html">🏠 Accueil Formation</a>
+  <a href="module1.html">Module 1 · Monétisation</a>
+  <a href="module2.html">← Module 2 · TikTok Shop</a>
+  <a href="module3.html" class="active">Module 3 · Viralité</a>
+</div>
+
+</div>
+<footer><a href="index.html">← Accueil Formation</a> · <a href="https://vyrashop.com">VyraShop</a></footer>
+
+<script>
+if(localStorage.getItem('vyrashop_access')==='ok'){document.getElementById('gate').style.display='none';}
+else{document.getElementById('gate').innerHTML='<div class="gate-card"><p>Accès non autorisé.</p><a href="index.html" style="color:var(--gr)">← Retour à l\'accueil</a></div>';}
+
+var CL={
+  'cl-m3-e1':['Analyser mes 5 dernières vidéos avec les signaux','Identifier mes erreurs principales','Optimiser le watch time de ma prochaine vidéo','Activer commentaires et réponses'],
+  'cl-m3-e2':['Écrire 10 hooks dans ma niche','Tester 3 hooks différents cette semaine','Analyser les hooks des concurrents','Créer ma banque de 50 hooks'],
+  'cl-m3-e3':['Tester CapCut et le montage automatique','Créer une vidéo avec sous-titres auto','Tester un trending sound','Vérifier l\'affichage sur mobile avant publication'],
+  'cl-m3-e4':['Consulter Analytics > Activité abonnés','Identifier mes 2 meilleurs créneaux','Créer mon calendrier éditorial hebdo','Publier à heure fixe pendant 2 semaines'],
+  'cl-m3-e5':['Définir ma phase de croissance actuelle','Lancer mon plan d\'action 90 jours','Mettre en place ma routine quotidienne','Analyser mes résultats à J+30']
+};
+
+function toggle(id){document.getElementById(id).classList.toggle('open');}
+
+function initCL(){
+  Object.keys(CL).forEach(function(id){
+    var el=document.getElementById(id);if(!el)return;
+    var saved=JSON.parse(localStorage.getItem('vyrashop_'+id)||'{}');
+    el.innerHTML=CL[id].map(function(t,i){
+      var d=saved[i]?'done':'';
+      return '<div class="cl-item"><div class="cl-box '+d+'" onclick="ck(\''+id+'\','+i+',this)"></div><span class="cl-text">'+t+'</span></div>';
+    }).join('');
+  });
+}
+
+function ck(id,i,el){
+  el.classList.toggle('done');
+  var s=JSON.parse(localStorage.getItem('vyrashop_'+id)||'{}');
+  s[i]=el.classList.contains('done');
+  localStorage.setItem('vyrashop_'+id,JSON.stringify(s));
+}
+
+if(localStorage.getItem('vyrashop_access')==='ok')initCL();
+</script>
+</body>
+</html>
