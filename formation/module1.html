@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Module 1 · Monétisation TikTok — VyraShop</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--r:16px;--mod:#8a5cf6;--modbg:rgba(138,92,246,.1)}
+body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
+#gate{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center}
+.gate-card{background:var(--card);border:1px solid var(--bord);border-radius:20px;padding:32px;max-width:360px;width:90%;text-align:center}
+.gate-card p{color:var(--tx);font-size:.9rem;margin:10px 0}
+nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--wh)}
+.logo span{color:var(--or)}
+.nav-links{display:flex;gap:12px;align-items:center}
+.nav-links a{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600}
+.nav-links a:hover{color:var(--wh)}
+.mod-hero{background:linear-gradient(135deg,rgba(138,92,246,.2),rgba(138,92,246,.05));border-bottom:1px solid var(--bord);padding:40px 24px;text-align:center}
+.mod-badge{display:inline-block;background:var(--modbg);border:1px solid var(--mod);color:var(--pl);font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px}
+.mod-hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;margin-bottom:8px}
+.mod-hero h1 span{color:var(--pl)}
+.mod-hero p{color:var(--tx);font-size:.9rem;max-width:480px;margin:0 auto}
+.content{max-width:840px;margin:0 auto;padding:32px 20px 60px}
+.ebook{background:var(--card);border:1px solid var(--bord);border-radius:20px;margin-bottom:20px;overflow:hidden}
+.ebook-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;gap:14px;user-select:none}
+.ebook-num{background:var(--modbg);border:1px solid var(--mod);color:var(--pl);font-size:.72rem;font-weight:800;padding:4px 12px;border-radius:50px;white-space:nowrap;flex-shrink:0}
+.ebook-title{font-weight:700;font-size:.98rem;flex:1}
+.ebook-arrow{color:var(--pl);font-size:.85rem;transition:transform .25s;flex-shrink:0}
+.ebook.open .ebook-arrow{transform:rotate(180deg)}
+.ebook-body{display:none;padding:0 24px 24px;border-top:1px solid var(--bord)}
+.ebook.open .ebook-body{display:block}
+.ebook-body h3{font-size:.95rem;font-weight:800;color:var(--pl);margin:20px 0 10px}
+.ebook-body p{color:var(--tx);font-size:.88rem;margin-bottom:12px;line-height:1.6}
+.table-wrap{overflow-x:auto;margin:14px 0;border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:.83rem}
+th{background:rgba(138,92,246,.2);color:var(--pl);padding:10px 14px;text-align:left;font-weight:700;border:1px solid var(--bord)}
+td{padding:9px 14px;border:1px solid var(--bord);color:var(--tx);vertical-align:top}
+tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.schema{background:rgba(138,92,246,.07);border:1px solid rgba(138,92,246,.28);border-radius:14px;padding:18px;margin:14px 0}
+.schema-title{font-size:.7rem;font-weight:700;color:var(--pl);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:center}
+.sbox{background:var(--card);border:1px solid var(--bord);border-radius:10px;padding:9px 14px;font-size:.8rem;font-weight:600;text-align:center}
+.sbox.pu{border-color:var(--pu);color:var(--pl)}
+.sbox.gr{border-color:rgba(74,222,128,.4);color:var(--gr)}
+.sarr{color:var(--tx);font-weight:700}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:12px}
+.sitem{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:12px 8px;text-align:center}
+.sitem .si{font-size:1.4rem;margin-bottom:4px}
+.sitem .sl{font-size:.76rem;font-weight:700;color:var(--wh)}
+.sitem .ss{font-size:.68rem;color:var(--tx);margin-top:2px}
+.checklist{background:rgba(0,0,0,.2);border-radius:14px;padding:16px;margin:14px 0}
+.cl-title{font-size:.7rem;font-weight:800;color:var(--or);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.cl-item:last-child{border:none}
+.cl-box{width:21px;height:21px;border:2px solid var(--bord);border-radius:5px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:1px}
+.cl-box.done{background:var(--gr);border-color:var(--gr)}
+.cl-box.done::after{content:"✓";color:#000;font-size:.78rem;font-weight:900}
+.cl-text{font-size:.86rem;color:var(--tx);flex:1}
+.cl-box.done+.cl-text{text-decoration:line-through;opacity:.55}
+.pdf-btn{display:flex;align-items:center;gap:10px;background:rgba(138,92,246,.12);border:1px solid rgba(138,92,246,.35);border-radius:12px;padding:13px 18px;margin-top:18px;text-decoration:none;color:var(--pl);font-weight:700;font-size:.88rem;transition:background .2s}
+.pdf-btn:hover{background:rgba(138,92,246,.22)}
+.pdf-btn .pdf-icon{font-size:1.3rem;flex-shrink:0}
+.pdf-btn .pdf-label small{display:block;font-weight:400;color:var(--tx);font-size:.75rem;margin-top:1px}
+.hl{border-radius:12px;padding:14px 18px;margin:14px 0}
+.hl.green{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.3)}
+.hl.orange{background:rgba(251,146,60,.07);border:1px solid rgba(251,146,60,.3)}
+.hl.purple{background:rgba(138,92,246,.09);border:1px solid rgba(138,92,246,.35)}
+.hl-t{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.hl.green .hl-t{color:var(--gr)}
+.hl.orange .hl-t{color:var(--or)}
+.hl.purple .hl-t{color:var(--pl)}
+.hl p{color:var(--tx);font-size:.86rem;margin:0}
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}
+.plan-card{background:var(--card);border:1px solid var(--bord);border-radius:14px;padding:14px}
+.plan-tag{font-size:.68rem;font-weight:800;color:var(--pl);text-transform:uppercase;margin-bottom:6px}
+.plan-card h4{font-size:.86rem;font-weight:700;margin-bottom:8px}
+.plan-card ul{list-style:none}
+.plan-card ul li{font-size:.78rem;color:var(--tx);padding:2px 0 2px 14px;position:relative}
+.plan-card ul li::before{content:"→";position:absolute;left:0;color:var(--pu);font-size:.72rem}
+.nav-mod{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:40px 0 0;padding:24px;background:var(--surf);border-radius:16px}
+.nav-mod a{padding:12px 22px;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;border:1px solid var(--bord);color:var(--tx)}
+.nav-mod a.active{background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border-color:transparent}
+.nav-mod a:hover:not(.active){border-color:var(--pu);color:var(--wh)}
+footer{text-align:center;padding:20px;color:var(--tx);font-size:.74rem;border-top:1px solid var(--bord)}
+footer a{color:var(--pl);text-decoration:none}
+@media(max-width:600px){.flow{flex-direction:column}.ebook-header{padding:14px 16px}.ebook-body{padding:0 16px 18px}.plan{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="gate"><div class="gate-card"><p>Vérification de ton accès…</p></div></div>
+
+<nav>
+  <a href="index.html" class="logo">Vyra<span>Shop</span></a>
+  <div class="nav-links">
+    <a href="index.html">🏠 Accueil</a>
+    <a href="module2.html">Module 2 →</a>
+  </div>
+</nav>
+
+<div class="mod-hero">
+  <div class="mod-badge">📈 Module 1 · 5 ebooks</div>
+  <h1>Monétisation <span>TikTok</span></h1>
+  <p>Toutes les sources de revenus TikTok : Creator Fund, Lives, partenariats et automatisation.</p>
+</div>
+
+<div class="content">
+
+<!-- EBOOK 1 -->
+<div class="ebook" id="e1">
+  <div class="ebook-header" onclick="toggle('e1')">
+    <span class="ebook-num">Ebook 1 / 5</span>
+    <span class="ebook-title">Les Bases de la Monétisation TikTok</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <div class="schema">
+      <div class="schema-title">🗺 Les 5 voies de monétisation</div>
+      <div class="sgrid">
+        <div class="sitem"><div class="si">💰</div><div class="sl">Creator Fund</div><div class="ss">Vues × RPM</div></div>
+        <div class="sitem"><div class="si">🎁</div><div class="sl">Lives</div><div class="ss">Cadeaux virtuels</div></div>
+        <div class="sitem"><div class="si">🛍️</div><div class="sl">TikTok Shop</div><div class="ss">Commissions</div></div>
+        <div class="sitem"><div class="si">🤝</div><div class="sl">Partenariats</div><div class="ss">Marques</div></div>
+        <div class="sitem"><div class="si">📦</div><div class="sl">Offres digitales</div><div class="ss">Formations, guides</div></div>
+      </div>
+    </div>
+    <h3>Conditions pour monétiser</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Programme</th><th>Abonnés min.</th><th>Vues min.</th></tr>
+      <tr><td>Creator Fund</td><td>10 000</td><td>100K / 30 jours</td></tr>
+      <tr><td>TikTok Shop Affiliation</td><td>1 000 (ou accès direct)</td><td>—</td></tr>
+      <tr><td>Lives monétisés</td><td>1 000</td><td>—</td></tr>
+      <tr><td>Partenariats marques</td><td>Aucun minimum officiel</td><td>—</td></tr>
+    </table></div>
+    <h3>Plan d'action 30 jours</h3>
+    <div class="plan">
+      <div class="plan-card"><div class="plan-tag">Semaine 1</div><h4>Audit</h4><ul><li>Analyser son compte</li><li>Identifier sa niche</li><li>Configurer le profil pro</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Semaine 2</div><h4>Contenu</h4><ul><li>2 vidéos/jour</li><li>Tester 3 formats</li><li>Analyser les métriques</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Semaine 3</div><h4>Activation</h4><ul><li>Activer TikTok Shop</li><li>5 premiers produits</li><li>Premier Live 30 min</li></ul></div>
+      <div class="plan-card"><div class="plan-tag">Semaine 4</div><h4>Optimisation</h4><ul><li>Analyser les ventes</li><li>Doubler ce qui marche</li><li>Candidater Creator Fund</li></ul></div>
+    </div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e1"></div></div>
+    <a href="EBOOK1 MonetisationTikTok.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 1 complet<small>Les bases de la monétisation TikTok · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 2 -->
+<div class="ebook" id="e2">
+  <div class="ebook-header" onclick="toggle('e2')">
+    <span class="ebook-num">Ebook 2 / 5</span>
+    <span class="ebook-title">Le Creator Fund — Stratégies Avancées</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <div class="schema">
+      <div class="schema-title">📊 Comment est calculé ton revenu</div>
+      <div class="flow">
+        <div class="sbox pu">Vues totales</div><div class="sarr">×</div>
+        <div class="sbox">Taux admissibilité</div><div class="sarr">=</div>
+        <div class="sbox">Vues admissibles</div><div class="sarr">×</div>
+        <div class="sbox pu">RPM variable</div><div class="sarr">=</div>
+        <div class="sbox gr">Revenus €</div>
+      </div>
+    </div>
+    <h3>Niches les plus rémunératrices</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Niche</th><th>RPM estimé</th><th>Concurrence</th></tr>
+      <tr><td>Finance / Investissement</td><td>€€€€</td><td>Moyenne</td></tr>
+      <tr><td>Business / Entrepreneuriat</td><td>€€€€</td><td>Haute</td></tr>
+      <tr><td>Tech / IA</td><td>€€€</td><td>Moyenne</td></tr>
+      <tr><td>Bien-être / Santé</td><td>€€€</td><td>Haute</td></tr>
+      <tr><td>Lifestyle / Mode</td><td>€€</td><td>Très haute</td></tr>
+    </table></div>
+    <div class="hl green"><div class="hl-t">✅ Clé principale</div><p>Les vidéos de plus d'une minute génèrent davantage de revenus Creator Fund. Le temps de visionnage total est le signal principal pour le calcul des vues admissibles.</p></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e2"></div></div>
+    <a href="EBOOK2 CreatorFundStrategiesAvancees.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 2 complet<small>Creator Fund — Stratégies avancées · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 3 -->
+<div class="ebook" id="e3">
+  <div class="ebook-header" onclick="toggle('e3')">
+    <span class="ebook-num">Ebook 3 / 5</span>
+    <span class="ebook-title">Maîtriser les Lives et les Cadeaux Virtuels</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <div class="schema">
+      <div class="schema-title">💎 Fonctionnement des Diamonds</div>
+      <div class="flow">
+        <div class="sbox">Viewer achète des Coins</div><div class="sarr">→</div>
+        <div class="sbox pu">Envoie un cadeau</div><div class="sarr">→</div>
+        <div class="sbox">Tu reçois des Diamonds</div><div class="sarr">→</div>
+        <div class="sbox gr">Conversion en €</div>
+      </div>
+    </div>
+    <h3>Structure d'un Live rentable</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Phase</th><th>Durée</th><th>Objectif</th><th>Actions clés</th></tr>
+      <tr><td>Warm-up</td><td>0–10 min</td><td>Attirer l'audience</td><td>Accueillir, teaser le contenu</td></tr>
+      <tr><td>Valeur intense</td><td>10–35 min</td><td>Fidéliser</td><td>Contenu premium, Q&A</td></tr>
+      <tr><td>Pic d'activation</td><td>35–50 min</td><td>Maximiser les cadeaux</td><td>Objectifs cadeaux, remerciements</td></tr>
+      <tr><td>Clôture</td><td>50–60 min</td><td>Convertir</td><td>CTA abonnement, teaser prochain Live</td></tr>
+    </table></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e3"></div></div>
+    <a href="EBOOK3 LivesEtCadeauxVirtuels.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 3 complet<small>Lives et Cadeaux Virtuels · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 4 -->
+<div class="ebook" id="e4">
+  <div class="ebook-header" onclick="toggle('e4')">
+    <span class="ebook-num">Ebook 4 / 5</span>
+    <span class="ebook-title">Les Partenariats de Marques sur TikTok</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <h3>Types de partenariats</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Type</th><th>Rémunération typique</th><th>Durée</th></tr>
+      <tr><td>Placement produit</td><td>50–500 €</td><td>1 vidéo</td></tr>
+      <tr><td>Ambassadeur</td><td>500–5 000 €/mois</td><td>3–12 mois</td></tr>
+      <tr><td>Contenu sponsorisé</td><td>200–2 000 €</td><td>1–3 vidéos</td></tr>
+      <tr><td>Affiliation marque</td><td>5–30% commission</td><td>Récurrent</td></tr>
+    </table></div>
+    <h3>Structure du Média Kit</h3>
+    <div class="schema"><div class="sgrid">
+      <div class="sitem"><div class="si">👤</div><div class="sl">Présentation</div><div class="ss">Qui tu es, ta niche</div></div>
+      <div class="sitem"><div class="si">📊</div><div class="sl">Stats</div><div class="ss">Abonnés, vues</div></div>
+      <div class="sitem"><div class="si">👥</div><div class="sl">Audience</div><div class="ss">Âge, genre, pays</div></div>
+      <div class="sitem"><div class="si">🎯</div><div class="sl">Offres</div><div class="ss">Ce que tu proposes</div></div>
+      <div class="sitem"><div class="si">⭐</div><div class="sl">Références</div><div class="ss">Collabs passées</div></div>
+      <div class="sitem"><div class="si">📧</div><div class="sl">Contact</div><div class="ss">Email pro</div></div>
+    </div></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e4"></div></div>
+    <a href="EBOOK4 PartenariatsDeMarques.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 4 complet<small>Partenariats de marques · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- EBOOK 5 -->
+<div class="ebook" id="e5">
+  <div class="ebook-header" onclick="toggle('e5')">
+    <span class="ebook-num">Ebook 5 / 5</span>
+    <span class="ebook-title">Revenus Passifs et Automatisation TikTok</span>
+    <span class="ebook-arrow">▼</span>
+  </div>
+  <div class="ebook-body">
+    <div class="schema"><div class="schema-title">⚙️ Les 5 piliers des revenus passifs</div><div class="sgrid">
+      <div class="sitem"><div class="si">📦</div><div class="sl">Produits digitaux</div><div class="ss">Formations, templates</div></div>
+      <div class="sitem"><div class="si">🛍️</div><div class="sl">TikTok Shop auto</div><div class="ss">Contenu evergreen</div></div>
+      <div class="sitem"><div class="si">🔗</div><div class="sl">Affiliation</div><div class="ss">Liens bio 24h/24</div></div>
+      <div class="sitem"><div class="si">🔄</div><div class="sl">Abonnements</div><div class="ss">Memberships</div></div>
+      <div class="sitem"><div class="si">🤖</div><div class="sl">Automatisation</div><div class="ss">Outils IA</div></div>
+    </div></div>
+    <h3>Outils d'automatisation essentiels</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Outil</th><th>Usage</th><th>Coût</th></tr>
+      <tr><td>CapCut Pro</td><td>Montage IA</td><td>Gratuit/~10€/mois</td></tr>
+      <tr><td>ChatGPT / Claude</td><td>Scripts, légendes</td><td>~20€/mois</td></tr>
+      <tr><td>Buffer / Later</td><td>Planification auto</td><td>~15€/mois</td></tr>
+      <tr><td>ElevenLabs</td><td>Voix off IA</td><td>~5–22€/mois</td></tr>
+      <tr><td>ManyChat</td><td>Auto-réponses DM</td><td>~15€/mois</td></tr>
+    </table></div>
+    <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e5"></div></div>
+    <a href="EBOOK5 RevenusPassifsAutomatisation.pdf" download class="pdf-btn">
+      <span class="pdf-icon">📄</span>
+      <span class="pdf-label">Télécharger l'Ebook 5 complet<small>Revenus Passifs et Automatisation · PDF</small></span>
+    </a>
+  </div>
+</div>
+
+<div class="nav-mod">
+  <a href="index.html">🏠 Accueil Formation</a>
+  <a href="module1.html" class="active">Module 1 · Monétisation</a>
+  <a href="module2.html">Module 2 · TikTok Shop →</a>
+</div>
+
+</div>
+<footer><a href="index.html">← Accueil Formation</a> · <a href="https://vyrashop.com">VyraShop</a></footer>
+
+<script>
+if(localStorage.getItem('vyrashop_access')==='ok'){document.getElementById('gate').style.display='none';}
+else{document.getElementById('gate').innerHTML='<div class="gate-card"><p>Accès non autorisé.</p><a href="index.html" style="color:var(--pl)">← Retour à l\'accueil</a></div>';}
+
+var CL={
+  'cl-m1-e1':['Identifier ma niche principale','Vérifier mes conditions Creator Fund','Publier ma première vidéo optimisée','Analyser mes métriques cette semaine'],
+  'cl-m1-e2':['Analyser mon RPM actuel','Créer une vidéo longue (>1 min)','Optimiser mes 3 meilleures vidéos','Identifier ma niche la plus rémunératrice'],
+  'cl-m1-e3':['Configurer mon setup Live','Planifier mon premier Live structuré','Définir mes objectifs cadeaux','Promouvoir mon Live 24h avant'],
+  'cl-m1-e4':['Créer mon Média Kit de base','Identifier 10 marques compatibles','Envoyer 3 emails de prospection','Définir mes tarifs minimum'],
+  'cl-m1-e5':['Identifier les 3 tâches à automatiser','Tester CapCut IA pour le montage','Programmer mes publications 1 semaine','Créer un premier produit digital simple']
+};
+
+function toggle(id){
+  var el=document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+function initCL(){
+  Object.keys(CL).forEach(function(id){
+    var el=document.getElementById(id);if(!el)return;
+    var saved=JSON.parse(localStorage.getItem('vyrashop_'+id)||'{}');
+    el.innerHTML=CL[id].map(function(t,i){
+      var d=saved[i]?'done':'';
+      return '<div class="cl-item"><div class="cl-box '+d+'" onclick="ck(\''+id+'\','+i+',this)"></div><span class="cl-text">'+t+'</span></div>';
+    }).join('');
+  });
+}
+
+function ck(id,i,el){
+  el.classList.toggle('done');
+  var s=JSON.parse(localStorage.getItem('vyrashop_'+id)||'{}');
+  s[i]=el.classList.contains('done');
+  localStorage.setItem('vyrashop_'+id,JSON.stringify(s));
+}
+
+if(localStorage.getItem('vyrashop_access')==='ok')initCL();
+</script>
+</body>
+</html>
