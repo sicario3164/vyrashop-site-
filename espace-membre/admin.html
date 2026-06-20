@@ -4,7 +4,6 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Admin — VyraShop</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0d0b14;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--red:#f87171}
@@ -29,6 +28,7 @@ input:focus,textarea:focus{border-color:var(--pu)}
 .toggle input:checked+.slider::before{transform:translateX(20px)}
 .btn{background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border:none;padding:13px 28px;border-radius:50px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;margin-top:14px;transition:opacity .2s}
 .btn:hover{opacity:.9}
+.btn:disabled{opacity:.5}
 .btn-or{background:linear-gradient(135deg,var(--or),#dc6900)}
 .msg{font-size:.82rem;padding:10px 14px;border-radius:10px;margin-top:12px;display:none}
 .msg.ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);color:var(--gr)}
@@ -67,7 +67,7 @@ input:focus,textarea:focus{border-color:var(--pu)}
       <label class="toggle"><input type="checkbox" id="a-accomp"/><span class="slider"></span></label>
     </div>
   </div>
-  <button class="btn" onclick="saveAccess()">Enregistrer les accès</button>
+  <button class="btn" onclick="saveAccess()" id="a-btn">Enregistrer les accès</button>
   <div class="msg" id="a-msg"></div>
 </div>
 
@@ -88,7 +88,7 @@ input:focus,textarea:focus{border-color:var(--pu)}
   </div>
   <label>Notes (optionnel)</label>
   <textarea id="s-notes" rows="2" placeholder="Infos complémentaires pour le client…"></textarea>
-  <button class="btn btn-or" onclick="deliverShop()">Livrer les identifiants</button>
+  <button class="btn btn-or" onclick="deliverShop()" id="s-btn">Livrer les identifiants</button>
   <div class="msg" id="s-msg"></div>
 </div>
 
@@ -99,51 +99,91 @@ input:focus,textarea:focus{border-color:var(--pu)}
 </div>
 
 <script>
-const SUPABASE_URL='https://pdprwoskbrsoojtanmze.supabase.co';
-const SUPABASE_ANON_KEY='sb_publishable_8bOARWbOH9NbbsYbtoaJ8Q_z59Eht4f';
-const ADMIN_KEY='Vyraleya2026';
-const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-
-// Vérification accès admin
-var adminKey=new URLSearchParams(window.location.search).get('admin_key');
-if(adminKey!==ADMIN_KEY){document.body.innerHTML='<div style="text-align:center;padding:60px;color:#f87171">Accès refusé</div>';}
-
-function showMsg(id,type,text){var el=document.getElementById(id);el.className='msg '+(type==='ok'?'ok':'err');el.textContent=text;el.style.display='block';setTimeout(()=>el.style.display='none',4000);}
-
-async function saveAccess(){
-  var email=document.getElementById('a-email').value.trim();
-  if(!email){showMsg('a-msg','err','Entre un email.');return;}
-  var update={
-    email,
-    has_formation:document.getElementById('a-formation').checked,
-    has_shop:document.getElementById('a-shop').checked,
-    has_accompagnement:document.getElementById('a-accomp').checked
-  };
-  var {data:existing}=await sb.from('user_access').select('id').eq('email',email).single();
-  var err;
-  if(existing){({error:err}=await sb.from('user_access').update(update).eq('email',email));}
-  else{({error:err}=await sb.from('user_access').insert(update));}
-  if(err)showMsg('a-msg','err','Erreur : '+err.message);
-  else showMsg('a-msg','ok','Accès enregistrés pour '+email);
+var adminKey = new URLSearchParams(window.location.search).get('admin_key');
+if (!adminKey) {
+  document.body.innerHTML = '<div style="text-align:center;padding:60px;color:#f87171">Accès refusé — clé admin manquante dans l\'URL</div>';
 }
 
-async function deliverShop(){
-  var email=document.getElementById('s-email').value.trim();
-  var login=document.getElementById('s-login').value.trim();
-  var pwd=document.getElementById('s-pwd').value.trim();
-  if(!email||!login){showMsg('s-msg','err','Email et identifiant obligatoires.');return;}
-  var {error}=await sb.from('user_access').update({shop_login:login,shop_password:pwd,shop_notes:document.getElementById('s-notes').value}).eq('email',email);
-  if(error)showMsg('s-msg','err','Erreur : '+error.message);
-  else showMsg('s-msg','ok','Identifiants livrés à '+email+' ✅');
+function showMsg(id, type, text) {
+  var el = document.getElementById(id);
+  el.className = 'msg ' + (type === 'ok' ? 'ok' : 'err');
+  el.textContent = text;
+  el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 5000);
 }
 
-async function loadClients(){
-  var {data,error}=await sb.from('user_access').select('*').order('created_at',{ascending:false});
-  var list=document.getElementById('clients-list');
-  if(error||!data||data.length===0){list.innerHTML='<p style="color:var(--tx);font-size:.85rem">Aucun client enregistré.</p>';return;}
-  list.innerHTML=data.map(function(c){
-    return '<div class="client-row"><span class="client-email">'+c.email+'</span><div class="client-tags">'+(c.has_formation?'<span class="tag tag-f">Formation</span>':'')+(c.has_shop?'<span class="tag tag-s">Shop</span>':'')+(c.has_accompagnement?'<span class="tag tag-a">Accomp.</span>':'')+'</div></div>';
-  }).join('');
+async function callFn(payload) {
+  var res = await fetch('/.netlify/functions/admin-access', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.assign({ admin_key: adminKey }, payload))
+  });
+  var data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+  return data;
+}
+
+async function saveAccess() {
+  var btn = document.getElementById('a-btn');
+  var email = document.getElementById('a-email').value.trim();
+  if (!email) { showMsg('a-msg', 'err', 'Entre un email.'); return; }
+  btn.disabled = true; btn.textContent = 'Enregistrement…';
+  try {
+    await callFn({
+      action: 'save_access',
+      email: email,
+      has_formation: document.getElementById('a-formation').checked,
+      has_shop: document.getElementById('a-shop').checked,
+      has_accompagnement: document.getElementById('a-accomp').checked
+    });
+    showMsg('a-msg', 'ok', 'Accès enregistrés pour ' + email + ' ✅');
+  } catch (err) {
+    showMsg('a-msg', 'err', 'Erreur : ' + err.message);
+  }
+  btn.disabled = false; btn.textContent = 'Enregistrer les accès';
+}
+
+async function deliverShop() {
+  var btn = document.getElementById('s-btn');
+  var email = document.getElementById('s-email').value.trim();
+  var login = document.getElementById('s-login').value.trim();
+  if (!email || !login) { showMsg('s-msg', 'err', 'Email et identifiant obligatoires.'); return; }
+  btn.disabled = true; btn.textContent = 'Livraison…';
+  try {
+    await callFn({
+      action: 'deliver_shop',
+      email: email,
+      shop_login: login,
+      shop_password: document.getElementById('s-pwd').value.trim(),
+      shop_notes: document.getElementById('s-notes').value.trim()
+    });
+    showMsg('s-msg', 'ok', 'Identifiants livrés à ' + email + ' ✅');
+  } catch (err) {
+    showMsg('s-msg', 'err', 'Erreur : ' + err.message);
+  }
+  btn.disabled = false; btn.textContent = 'Livrer les identifiants';
+}
+
+async function loadClients() {
+  var list = document.getElementById('clients-list');
+  list.innerHTML = '<p style="color:var(--tx);font-size:.85rem">Chargement…</p>';
+  try {
+    var data = await callFn({ action: 'list' });
+    var clients = data.data || [];
+    if (clients.length === 0) {
+      list.innerHTML = '<p style="color:var(--tx);font-size:.85rem">Aucun client enregistré.</p>';
+      return;
+    }
+    list.innerHTML = clients.map(function(c) {
+      return '<div class="client-row"><span class="client-email">' + c.email + '</span><div class="client-tags">' +
+        (c.has_formation ? '<span class="tag tag-f">Formation</span>' : '') +
+        (c.has_shop ? '<span class="tag tag-s">Shop</span>' : '') +
+        (c.has_accompagnement ? '<span class="tag tag-a">Accomp.</span>' : '') +
+        '</div></div>';
+    }).join('');
+  } catch (err) {
+    list.innerHTML = '<p style="color:#f87171;font-size:.85rem">Erreur : ' + err.message + '</p>';
+  }
 }
 </script>
 </body>
