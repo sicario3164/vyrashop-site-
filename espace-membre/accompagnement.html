@@ -10,8 +10,8 @@
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(74,222,128,.22);--gr:#4ade80;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--pu:#8a5cf6;--pl:#c4b5fd;--red:#f87171}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--wh)}
-.logo span{color:var(--or)}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--or)}
+
 .back-btn{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:600}
 .hero{background:linear-gradient(135deg,rgba(74,222,128,.12),rgba(74,222,128,.02));border-bottom:1px solid var(--bord);padding:36px 24px;text-align:center}
 .hero-badge{display:inline-block;background:rgba(74,222,128,.1);border:1px solid var(--gr);color:var(--gr);font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px}
@@ -45,11 +45,16 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 .renew-info{background:rgba(251,146,60,.07);border:1px solid rgba(251,146,60,.25);border-radius:12px;padding:14px 16px}
 .renew-info p{color:var(--tx);font-size:.84rem;line-height:1.6}
 .renew-info a{color:var(--or)}
+.cancel-zone{margin-top:28px;text-align:center}
+.btn-cancel{background:transparent;border:1.5px solid var(--red);color:var(--red);font-weight:800;font-size:.85rem;padding:13px 26px;border-radius:50px;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}
+.btn-cancel:hover{background:var(--red);color:#1a0d0d}
+.btn-cancel:disabled{opacity:.5;cursor:not-allowed}
+.cancel-note{color:var(--tx);font-size:.76rem;margin-top:10px;line-height:1.5}
 </style>
 </head>
 <body>
 <nav>
-  <a href="/espace-membre/" class="logo">Vyra<span>Shop</span></a>
+  <a href="/espace-membre/" class="logo">VyraShop</a>
   <a href="/espace-membre/" class="back-btn">← Mon espace</a>
 </nav>
 
@@ -99,7 +104,12 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 
   <!-- RÉSILIATION -->
   <div class="renew-info">
-    <p>Pour résilier ton accompagnement, envoie simplement un message à <strong>contact@vyrashop.com</strong> ou sur WhatsApp. La résiliation prend effet à la fin du mois en cours déjà payé. <a href="https://vyrashop.com/cgv.html">Voir les CGV →</a></p>
+    <p>La résiliation prend effet immédiatement. L'accès à l'accompagnement sera coupé dès confirmation. <a href="https://vyrashop.com/cgv.html">Voir les CGV →</a></p>
+  </div>
+
+  <div class="cancel-zone">
+    <button class="btn-cancel" id="cancel-btn" onclick="cancelSubscription()">Résilier mon accompagnement</button>
+    <p class="cancel-note">Action immédiate et définitive. Tu peux aussi nous contacter sur WhatsApp si tu préfères.</p>
   </div>
 
 </div>
@@ -129,6 +139,35 @@ function toggleStep(i,el){
   var saved=JSON.parse(localStorage.getItem('vyrashop_accomp_steps')||'{}');
   saved[i]=el.classList.contains('done');
   localStorage.setItem('vyrashop_accomp_steps',JSON.stringify(saved));
+}
+
+async function cancelSubscription(){
+  if(!confirm('Es-tu sûr de vouloir résilier ton accompagnement ? Cette action est immédiate et définitive.'))return;
+  var btn=document.getElementById('cancel-btn');
+  btn.disabled=true;
+  btn.textContent='Résiliation en cours...';
+  try{
+    var {data:{session}}=await sb.auth.getSession();
+    if(!session){window.location.href='/espace-membre/login.html';return;}
+    var res=await fetch('/.netlify/functions/cancel-subscription',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({access_token:session.access_token})
+    });
+    var data=await res.json();
+    if(!res.ok){
+      alert('Erreur : '+(data.error||'Impossible de résilier. Contacte le support via WhatsApp.'));
+      btn.disabled=false;
+      btn.textContent='Résilier mon accompagnement';
+      return;
+    }
+    alert('Ton accompagnement a bien été résilié.');
+    window.location.href='/espace-membre/';
+  }catch(e){
+    alert('Erreur réseau. Contacte le support via WhatsApp si le problème persiste.');
+    btn.disabled=false;
+    btn.textContent='Résilier mon accompagnement';
+  }
 }
 
 init();
