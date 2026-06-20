@@ -88,8 +88,17 @@ input:focus,textarea:focus{border-color:var(--pu)}
   </div>
   <label>Notes (optionnel)</label>
   <textarea id="s-notes" rows="2" placeholder="Infos complémentaires pour le client…"></textarea>
-  <button class="btn btn-or" onclick="deliverShop()" id="s-btn">Livrer les identifiants</button>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn btn-or" onclick="deliverShop()" id="s-btn">Livrer les identifiants</button>
+    <button class="btn" style="background:transparent;border:1px solid var(--bord);color:var(--tx)" onclick="loadShopCreds()" id="s-load-btn">↺ Charger les identifiants existants</button>
+  </div>
   <div class="msg" id="s-msg"></div>
+</div>
+
+<!-- JOURNAL D'ACTIVITÉ -->
+<div class="card">
+  <h2>Journal d'activité <button class="edit-btn" onclick="loadLogs()" style="font-size:.8rem">↺ Actualiser</button></h2>
+  <div class="clients-list" id="logs-list"><p style="color:var(--tx);font-size:.85rem">Clique sur Actualiser…</p></div>
 </div>
 
 <!-- LISTE CLIENTS -->
@@ -164,7 +173,43 @@ async function deliverShop() {
   btn.disabled = false; btn.textContent = 'Livrer les identifiants';
 }
 
-async function loadClients() {
+async function loadShopCreds() {
+  var btn = document.getElementById('s-load-btn');
+  var email = document.getElementById('s-email').value.trim();
+  if (!email) { showMsg('s-msg', 'err', 'Entre un email d\'abord.'); return; }
+  btn.disabled = true; btn.textContent = 'Chargement…';
+  try {
+    var data = await callFn({ action: 'get_shop_creds', email: email });
+    document.getElementById('s-login').value = data.shop_login || '';
+    document.getElementById('s-pwd').value = data.shop_password || '';
+    document.getElementById('s-notes').value = data.shop_notes || '';
+    showMsg('s-msg', 'ok', data.shop_login ? 'Identifiants chargés ✅' : 'Aucun identifiant enregistré pour cet email.');
+  } catch (err) {
+    showMsg('s-msg', 'err', 'Erreur : ' + err.message);
+  }
+  btn.disabled = false; btn.textContent = '↺ Charger les identifiants existants';
+}
+
+async function loadLogs() {
+  var list = document.getElementById('logs-list');
+  list.innerHTML = '<p style="color:var(--tx);font-size:.85rem">Chargement…</p>';
+  try {
+    var data = await callFn({ action: 'logs' });
+    var logs = data.data || [];
+    if (logs.length === 0) {
+      list.innerHTML = '<p style="color:var(--tx);font-size:.85rem">Aucune activité enregistrée.</p>';
+      return;
+    }
+    var actionLabels = { save_access: 'Accès modifiés', deliver_shop: 'Identifiants livrés', view_shop_creds: 'Identifiants consultés' };
+    list.innerHTML = logs.map(function(l) {
+      var date = new Date(l.created_at).toLocaleString('fr-FR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+      return '<div class="client-row"><span class="client-email">' + (actionLabels[l.action] || l.action) + ' — ' + l.target_email + '</span><span style="font-size:.72rem;color:var(--tx)">' + date + '</span></div>';
+    }).join('');
+  } catch (err) {
+    list.innerHTML = '<p style="color:#f87171;font-size:.85rem">Erreur : ' + err.message + '</p>';
+  }
+}
+
   var list = document.getElementById('clients-list');
   list.innerHTML = '<p style="color:var(--tx);font-size:.85rem">Chargement…</p>';
   try {
