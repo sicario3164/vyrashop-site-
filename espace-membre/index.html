@@ -10,12 +10,13 @@
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--wh)}
-.logo span{color:var(--or)}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--or)}
+
 .nav-right{display:flex;align-items:center;gap:14px}
 .nav-user{font-size:.8rem;color:var(--tx)}
-.btn-logout{background:none;border:1px solid var(--bord);color:var(--tx);padding:7px 16px;border-radius:50px;font-size:.78rem;cursor:pointer;font-family:inherit;transition:all .2s}
-.btn-logout:hover{border-color:var(--pu);color:var(--wh)}
+.btn-logout{background:linear-gradient(135deg,var(--pu),#6d28d9);border:none;color:#fff;padding:14px 28px;border-radius:50px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;transition:opacity .2s;animation:badgePulse 1.6s ease-in-out infinite}
+.btn-logout:hover{opacity:.9}
+@keyframes badgePulse{0%,100%{transform:scale(1);box-shadow:0 0 0 transparent}50%{transform:scale(1.08);box-shadow:0 0 16px rgba(138,92,246,.5)}}
 .hero{padding:40px 24px 32px;max-width:900px;margin:0 auto}
 .hero h1{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:900;margin-bottom:6px}
 .hero h1 span{color:var(--pl)}
@@ -62,9 +63,8 @@ footer a{color:var(--pl);text-decoration:none}
 </head>
 <body>
 <nav>
-  <a href="/espace-membre/" class="logo">Vyra<span>Shop</span></a>
+  <a href="/espace-membre/" class="logo">VyraShop</a>
   <div class="nav-right">
-    <span class="nav-user" id="nav-user">…</span>
     <button class="btn-logout" onclick="logout()">Déconnexion</button>
   </div>
 </nav>
@@ -163,7 +163,6 @@ async function init(){
   var user=session.user;
   var name=(user.user_metadata&&user.user_metadata.full_name)||user.email.split('@')[0];
   document.getElementById('user-name').textContent=name;
-  document.getElementById('nav-user').textContent=user.email;
 
   // Charger les accès depuis Supabase (recherche par email)
   var {data:access}=await sb.from('user_access').select('*').eq('email',user.email.toLowerCase()).single();
