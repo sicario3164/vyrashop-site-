@@ -112,7 +112,7 @@ const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 async function init(){
   var {data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='/espace-membre/login.html';return;}
-  var {data:access}=await sb.from('user_access').select('*').eq('user_id',session.user.id).single();
+  var {data:access}=await sb.from('user_access').select('*').eq('email',session.user.email.toLowerCase()).single();
   if(!access||!access.has_accompagnement){window.location.href='/espace-membre/';return;}
   loadSteps();
 }
