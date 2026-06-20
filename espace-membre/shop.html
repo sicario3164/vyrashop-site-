@@ -10,8 +10,8 @@
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(251,146,60,.22);--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--pu:#8a5cf6;--pl:#c4b5fd}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--wh)}
-.logo span{color:var(--or)}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--or)}
+
 .back-btn{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:600}
 .hero{background:linear-gradient(135deg,rgba(251,146,60,.15),rgba(251,146,60,.03));border-bottom:1px solid var(--bord);padding:36px 24px;text-align:center}
 .hero-badge{display:inline-block;background:rgba(251,146,60,.12);border:1px solid var(--or);color:var(--or);font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px}
@@ -21,13 +21,9 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 .content{max-width:680px;margin:0 auto;padding:32px 20px 60px}
 .status-card{background:var(--card);border:1px solid var(--bord);border-radius:18px;padding:24px;margin-bottom:20px}
 .status-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.status-dot{width:10px;height:10px;border-radius:50%;background:var(--gr);flex-shrink:0;box-shadow:0 0 8px var(--gr)}
+.status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .status-title{font-weight:700;font-size:1rem}
 .status-sub{color:var(--tx);font-size:.82rem}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
-.info-box{background:rgba(255,255,255,.04);border-radius:12px;padding:14px}
-.info-label{font-size:.7rem;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.info-value{font-size:.92rem;font-weight:700;color:var(--wh)}
 .creds-section{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.25);border-radius:14px;padding:20px;margin-bottom:20px}
 .creds-title{font-size:.75rem;font-weight:800;color:var(--or);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
 .cred-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(251,146,60,.12)}
@@ -35,8 +31,7 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 .cred-label{font-size:.8rem;color:var(--tx);font-weight:600}
 .cred-val{font-size:.88rem;font-weight:700;color:var(--wh);font-family:monospace;background:rgba(0,0,0,.3);padding:5px 10px;border-radius:6px;cursor:pointer;transition:background .2s}
 .cred-val:hover{background:rgba(251,146,60,.15)}
-.cred-val.empty{color:var(--tx);font-style:italic;font-family:inherit;background:rgba(0,0,0,.1)}
-.pending-badge{display:inline-block;background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.3);color:var(--or);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.cred-val.empty{color:var(--tx);font-style:italic;font-family:inherit;background:rgba(0,0,0,.1);cursor:default}
 .steps{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
 .step{display:flex;gap:12px;align-items:flex-start}
 .step-num{width:28px;height:28px;background:rgba(251,146,60,.15);border:1px solid var(--or);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:var(--or);flex-shrink:0;margin-top:1px}
@@ -45,7 +40,6 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 .warning{background:rgba(251,146,60,.07);border:1px solid rgba(251,146,60,.3);border-radius:12px;padding:14px 16px;margin-bottom:20px}
 .warning p{color:var(--tx);font-size:.84rem;line-height:1.5}
 .support-btn{display:block;text-align:center;padding:13px;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.35);color:var(--or);transition:background .2s}
-.support-btn:hover{background:rgba(251,146,60,.22)}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--gr);color:#000;padding:10px 20px;border-radius:50px;font-weight:700;font-size:.84rem;display:none;z-index:999}
 </style>
 </head>
@@ -53,7 +47,7 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 <div class="toast" id="toast">✓ Copié !</div>
 
 <nav>
-  <a href="/espace-membre/" class="logo">Vyra<span>Shop</span></a>
+  <a href="/espace-membre/" class="logo">VyraShop</a>
   <a href="/espace-membre/" class="back-btn">← Mon espace</a>
 </nav>
 
@@ -67,33 +61,22 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 
   <div class="status-card">
     <div class="status-header">
-      <div class="status-dot" id="status-dot" style="background:#fb923c;box-shadow:0 0 8px #fb923c"></div>
+      <div class="status-dot" id="status-dot" style="background:#fb923c"></div>
       <div>
-        <div class="status-title" id="status-title">En attente de livraison</div>
-        <div class="status-sub" id="status-sub">Ton accès sera livré sous 48h ouvrées</div>
-      </div>
-    </div>
-    <div class="info-grid">
-      <div class="info-box">
-        <div class="info-label">Statut</div>
-        <div class="info-value" id="status-badge"><span class="pending-badge">⏳ En attente</span></div>
-      </div>
-      <div class="info-box">
-        <div class="info-label">Abonnés du compte</div>
-        <div class="info-value" id="info-followers">~1 500</div>
+        <div class="status-title" id="status-title">Chargement…</div>
+        <div class="status-sub" id="status-sub"></div>
       </div>
     </div>
 
-    <!-- IDENTIFIANTS (remplis par l'admin) -->
     <div class="creds-section" id="creds-section">
       <div class="creds-title">🔐 Identifiants du compte</div>
       <div class="cred-row">
         <span class="cred-label">Email / Identifiant</span>
-        <span class="cred-val empty" id="cred-login">En attente de livraison…</span>
+        <span class="cred-val empty" id="cred-login">Chargement…</span>
       </div>
       <div class="cred-row">
         <span class="cred-label">Mot de passe</span>
-        <span class="cred-val empty" id="cred-pwd">En attente de livraison…</span>
+        <span class="cred-val empty" id="cred-pwd">Chargement…</span>
       </div>
       <div class="cred-row">
         <span class="cred-label">Notes</span>
@@ -104,13 +87,13 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 
   <div class="steps">
     <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Connecte-toi au compte</strong> avec les identifiants ci-dessus sur l'application TikTok. Utilise de préférence un appareil ou navigateur différent de ton compte principal.</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Accède à TikTok Shop</strong> depuis le compte livré — le module Affiliation est déjà activé, tu peux directement rechercher des produits à promouvoir.</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Commence à publier des vidéos</strong> avec le lien produit dans la vidéo. Consulte la Formation TikTok Expert (Module 2) pour les meilleures stratégies.</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-text"><strong>En cas de problème</strong> dans les 30 jours, contacte-nous via le support — la garantie de remplacement s'applique.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Accède à TikTok Shop</strong> depuis le compte livré — le module Affiliation est déjà activé.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Commence à publier des vidéos</strong> avec le lien produit. Consulte la Formation (Module 2) pour les meilleures stratégies.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text"><strong>En cas de problème</strong> dans les 30 jours, contacte le support — la garantie de remplacement s'applique.</div></div>
   </div>
 
   <div class="warning">
-    <p>⚠️ <strong style="color:var(--or)">Important :</strong> Ne modifie pas l'email ou le mot de passe du compte sans nous contacter d'abord. Ne connecte pas ce compte à d'autres services tiers non autorisés. Respecte les Conditions d'Utilisation de TikTok pour préserver l'accès.</p>
+    <p>⚠️ <strong style="color:var(--or)">Important :</strong> Ne modifie pas l'email ou le mot de passe du compte sans nous contacter d'abord.</p>
   </div>
 
   <a href="mailto:contact@vyrashop.com?subject=Support Accès TikTok Shop" class="support-btn">📧 Contacter le support</a>
@@ -126,22 +109,32 @@ async function init(){
   var {data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='/espace-membre/login.html';return;}
 
-  var {data:access}=await sb.from('user_access').select('*').eq('email',session.user.email.toLowerCase()).single();
-  if(!access||!access.has_shop){window.location.href='/espace-membre/';return;}
+  var res=await fetch('/.netlify/functions/get-shop-access',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({access_token:session.access_token})
+  });
+  var data=await res.json();
 
-  // Charger les identifiants si livrés
-  if(access.shop_login){
-    document.getElementById('status-dot').style.cssText='width:10px;height:10px;border-radius:50%;background:var(--gr);flex-shrink:0;box-shadow:0 0 8px var(--gr)';
+  if(!data.has_shop){window.location.href='/espace-membre/';return;}
+
+  if(data.delivered){
+    document.getElementById('status-dot').style.background='#4ade80';
     document.getElementById('status-title').textContent='Accès livré ✅';
     document.getElementById('status-sub').textContent='Clique sur les identifiants pour les copier';
-    document.getElementById('status-badge').innerHTML='<span style="color:var(--gr);font-weight:700">✅ Livré</span>';
     document.getElementById('cred-login').className='cred-val';
-    document.getElementById('cred-login').textContent=access.shop_login;
-    document.getElementById('cred-login').onclick=()=>copy(access.shop_login);
+    document.getElementById('cred-login').textContent=data.shop_login;
+    document.getElementById('cred-login').onclick=()=>copy(data.shop_login);
     document.getElementById('cred-pwd').className='cred-val';
-    document.getElementById('cred-pwd').textContent=access.shop_password||'—';
-    if(access.shop_password)document.getElementById('cred-pwd').onclick=()=>copy(access.shop_password);
-    if(access.shop_notes){document.getElementById('cred-notes').className='cred-val';document.getElementById('cred-notes').textContent=access.shop_notes;}
+    document.getElementById('cred-pwd').textContent=data.shop_password||'—';
+    if(data.shop_password)document.getElementById('cred-pwd').onclick=()=>copy(data.shop_password);
+    if(data.shop_notes){document.getElementById('cred-notes').className='cred-val';document.getElementById('cred-notes').textContent=data.shop_notes;}
+  } else {
+    document.getElementById('status-dot').style.background='#fb923c';
+    document.getElementById('status-title').textContent='En attente de livraison';
+    document.getElementById('status-sub').textContent='Ton accès sera livré sous 48h ouvrées';
+    document.getElementById('cred-login').textContent='En attente de livraison…';
+    document.getElementById('cred-pwd').textContent='En attente de livraison…';
   }
 }
 
