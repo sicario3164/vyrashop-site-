@@ -42,7 +42,11 @@ exports.handler = async function(event) {
     let update = { email };
     if (priceId === PRICE_FORMATION) update.has_formation = true;
     if (priceId === PRICE_SHOP) update.has_shop = true;
-    if (priceId === PRICE_ACCOMPAGNEMENT) update.has_accompagnement = true;
+    if (priceId === PRICE_ACCOMPAGNEMENT) {
+      update.has_accompagnement = true;
+      if (session.customer) update.stripe_customer_id = session.customer;
+      if (session.subscription) update.stripe_subscription_id = session.subscription;
+    }
 
     if (user) {
       update.user_id = user.id;
@@ -70,7 +74,7 @@ exports.handler = async function(event) {
     const customer = await stripe.customers.retrieve(customerId);
     const email = customer.email;
     if (email) {
-      await sb.from('user_access').update({ has_accompagnement: false }).eq('email', email);
+      await sb.from('user_access').update({ has_accompagnement: false, stripe_subscription_id: null }).eq('email', email);
     }
   }
 
