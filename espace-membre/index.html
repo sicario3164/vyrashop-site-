@@ -165,8 +165,8 @@ async function init(){
   document.getElementById('user-name').textContent=name;
   document.getElementById('nav-user').textContent=user.email;
 
-  // Charger les accès depuis Supabase
-  var {data:access}=await sb.from('user_access').select('*').eq('user_id',user.id).single();
+  // Charger les accès depuis Supabase (recherche par email)
+  var {data:access}=await sb.from('user_access').select('*').eq('email',user.email.toLowerCase()).single();
 
   // Appliquer les accès
   if(!access||!access.has_formation){document.getElementById('card-formation').classList.add('locked');}
