@@ -78,5 +78,49 @@ exports.handler = async function(event) {
     }
   }
 
+  // Gestion remboursement : on ne coupe l'accès qu'en cas de remboursement TOTAL
+  // (un remboursement partiel, geste commercial, ne doit pas couper automatiquement l'accès)
+  if (stripeEvent.type === 'charge.refunded') {
+    const charge = stripeEvent.data.object;
+    if (!charge.refunded) {
+      return { statusCode: 200, body: JSON.stringify({ received: true, skipped: 'partial_refund' }) };
+    }
+
+    const email = charge.billing_details && charge.billing_details.email;
+    if (!email) {
+      return { statusCode: 200, body: JSON.stringify({ received: true, skipped: 'no_email' }) };
+    }
+
+    const PRICE_FORMATION = process.env.STRIPE_FORMATION_PRICE_ID;
+    const PRICE_SHOP = process.env.STRIPE_SHOP_PRICE_ID;
+    const PRICE_ACCOMPAGNEMENT = process.env.STRIPE_ACCOMPAGNEMENT_PRICE_ID;
+
+    let update = null;
+    try {
+      if (charge.payment_intent) {
+        // Remonter à la session Checkout d'origine pour identifier le produit acheté,
+        // de la même façon que pour checkout.session.completed
+        const sessions = await stripe.checkout.sessions.list({ payment_intent: charge.payment_intent, limit: 1 });
+        const session = sessions.data[0];
+        if (session) {
+          const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { expand: ['data.price'] });
+          const priceId = lineItems.data[0]?.price?.id;
+          if (priceId === PRICE_FORMATION) update = { has_formation: false };
+          if (priceId === PRICE_SHOP) update = { has_shop: false };
+          if (priceId === PRICE_ACCOMPAGNEMENT) update = { has_accompagnement: false };
+        }
+      }
+    } catch (err) {
+      console.error('Erreur lors de la recherche du produit remboursé:', err.message);
+    }
+
+    // Si on n'a pas pu identifier le produit (ex: remboursement d'une charge de
+    // renouvellement d'abonnement, non rattachée à une session Checkout), on ne
+    // touche à rien automatiquement plutôt que de risquer une mauvaise coupure.
+    if (update) {
+      await sb.from('user_access').update(update).eq('email', email.toLowerCase());
+    }
+  }
+
   return { statusCode: 200, body: JSON.stringify({ received: true }) };
 };
