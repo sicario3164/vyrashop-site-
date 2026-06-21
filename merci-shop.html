@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Merci pour ta commande — VyraShop</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(167,139,250,.22);
+  --pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--r:16px;
+}
+body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.wrap{max-width:480px;margin:0 auto;padding:48px 20px 60px;flex:1;width:100%}
+.logo{font-weight:900;font-size:1.2rem;text-align:center;margin-bottom:32px}
+.logo a{color:var(--wh);text-decoration:none}
+.logo span{color:var(--pl)}
+.card{background:var(--card);border:1px solid var(--bord);border-radius:var(--r);padding:32px 26px;text-align:center}
+.emoji{font-size:2.6rem;margin-bottom:14px}
+h1{font-size:1.35rem;font-weight:800;margin-bottom:10px}
+p.sub{color:var(--tx);font-size:.92rem;margin-bottom:26px}
+.steps{text-align:left;background:var(--surf);border:1px solid var(--bord);border-radius:14px;padding:18px 20px;margin-bottom:24px}
+.steps li{font-size:.85rem;color:var(--tx);margin-bottom:10px;padding-left:4px}
+.steps li:last-child{margin-bottom:0}
+.steps strong{color:var(--wh)}
+.btn-main{display:inline-block;width:100%;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border:none;padding:15px;border-radius:50px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;text-decoration:none}
+.note{font-size:.74rem;color:var(--tx);text-align:center;margin-top:18px;opacity:.8}
+footer{text-align:center;padding:20px;color:var(--tx);font-size:.74rem;opacity:.7}
+footer a{color:var(--pl)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo"><a href="index.html">Vyra<span>Shop</span></a></div>
+
+  <div class="card">
+    <div class="emoji">🛒</div>
+    <h1>Merci pour ta commande !</h1>
+    <p class="sub">Ton Accès TikTok Shop est en cours de préparation.</p>
+
+    <ol class="steps">
+      <li><strong>1. Crée ton compte « Mon compte »</strong> dès maintenant, avec le même email que celui utilisé pour le paiement.</li>
+      <li><strong>2. On prépare ton accès</strong> sous 48h ouvrées maximum.</li>
+      <li><strong>3. Connecte-toi à ton compte</strong> pour récupérer tes identifiants dès qu'ils sont prêts — tu seras notifié par l'état "Accès livré ✅" sur ta page Accès Shop.</li>
+    </ol>
+
+    <a href="/espace-membre/login.html" class="btn-main">Créer mon compte maintenant →</a>
+    <p class="note">Une question avant la livraison ? Écris-nous à contact@vyrashop.com ou sur WhatsApp.</p>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">← Retour à VyraShop</a> ·
+  <a href="cgv.html">CGV</a> ·
+  <a href="politique-confidentialite.html">Confidentialité</a>
+</footer>
+</body>
+</html>
