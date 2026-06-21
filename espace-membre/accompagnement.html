@@ -104,12 +104,12 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 
   <!-- RÉSILIATION -->
   <div class="renew-info">
-    <p>La résiliation prend effet immédiatement. L'accès à l'accompagnement sera coupé dès confirmation. <a href="https://vyrashop.com/cgv.html">Voir les CGV →</a></p>
+    <p>La résiliation prend effet à la fin du mois déjà payé : aucun prélèvement ne sera effectué pour le mois suivant, mais le mois en cours n'est pas remboursé. <a href="https://vyrashop.com/cgv.html">Voir les CGV →</a></p>
   </div>
 
   <div class="cancel-zone">
     <button class="btn-cancel" id="cancel-btn" onclick="cancelSubscription()">Résilier mon accompagnement</button>
-    <p class="cancel-note">Action immédiate et définitive. Tu peux aussi nous contacter sur WhatsApp si tu préfères.</p>
+    <p class="cancel-note">Aucune justification nécessaire. Tu gardes l'accès jusqu'à la fin de la période déjà payée. Tu peux aussi nous contacter sur WhatsApp si tu préfères.</p>
   </div>
 
 </div>
@@ -142,7 +142,7 @@ function toggleStep(i,el){
 }
 
 async function cancelSubscription(){
-  if(!confirm('Es-tu sûr de vouloir résilier ton accompagnement ? Cette action est immédiate et définitive.'))return;
+  if(!confirm('Es-tu sûr de vouloir résilier ? Tu garderas l\'accès jusqu\'à la fin de la période déjà payée, puis aucun prélèvement ne sera effectué.'))return;
   var btn=document.getElementById('cancel-btn');
   btn.disabled=true;
   btn.textContent='Résiliation en cours...';
@@ -161,7 +161,7 @@ async function cancelSubscription(){
       btn.textContent='Résilier mon accompagnement';
       return;
     }
-    alert('Ton accompagnement a bien été résilié.');
+    alert('Résiliation prise en compte. Ton accès reste actif jusqu\'à la fin de la période déjà payée.');
     window.location.href='/espace-membre/';
   }catch(e){
     alert('Erreur réseau. Contacte le support via WhatsApp si le problème persiste.');
