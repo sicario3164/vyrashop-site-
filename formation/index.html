@@ -185,12 +185,18 @@ const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
       .then(function(r){return r.json();})
       .then(function(d){
         if(d.valid){localStorage.setItem('vyrashop_access','ok');document.getElementById('gate').style.display='none';initProg();}
-        else showErr();
-      }).catch(showErr);
+        else showErr(d.reason);
+      }).catch(function(){showErr();});
   }
 
-  function showErr(){
-    document.getElementById('gate-error').style.display='block';
+  function showErr(reason){
+    var msgEl=document.getElementById('gate-error');
+    if(reason==='session_expired'){
+      msgEl.textContent='Ce lien direct a expiré (valable 72h après l\'achat). Crée ton compte espace membre pour un accès permanent.';
+    }else{
+      msgEl.textContent='Accès non confirmé avec ce lien ou cet appareil.';
+    }
+    msgEl.style.display='block';
     document.getElementById('login-btn').style.display='inline-block';
     document.getElementById('support-btn').style.display='inline-block';
   }

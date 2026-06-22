@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Module 1 · Monétisation TikTok — VyraShop</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--r:16px;--mod:#8a5cf6;--modbg:rgba(138,92,246,.1)}
@@ -59,7 +60,7 @@ tr:nth-child(even) td{background:rgba(255,255,255,.02)}
 .cl-box.done::after{content:"✓";color:#000;font-size:.78rem;font-weight:900}
 .cl-text{font-size:.86rem;color:var(--tx);flex:1}
 .cl-box.done+.cl-text{text-decoration:line-through;opacity:.55}
-.pdf-btn{display:flex;align-items:center;gap:10px;background:rgba(138,92,246,.12);border:1px solid rgba(138,92,246,.35);border-radius:12px;padding:13px 18px;margin-top:18px;text-decoration:none;color:var(--pl);font-weight:700;font-size:.88rem;transition:background .2s}
+.pdf-btn{display:flex;align-items:center;gap:10px;background:rgba(138,92,246,.12);border:1px solid rgba(138,92,246,.35);border-radius:12px;padding:13px 18px;margin-top:18px;text-decoration:none;color:var(--pl);font-weight:700;font-size:.88rem;transition:background .2s;cursor:pointer;font-family:inherit;width:100%;text-align:left}
 .pdf-btn:hover{background:rgba(138,92,246,.22)}
 .pdf-btn .pdf-icon{font-size:1.3rem;flex-shrink:0}
 .pdf-btn .pdf-label small{display:block;font-weight:400;color:var(--tx);font-size:.75rem;margin-top:1px}
@@ -142,10 +143,10 @@ footer a{color:var(--pl);text-decoration:none}
       <div class="plan-card"><div class="plan-tag">Semaine 4</div><h4>Optimisation</h4><ul><li>Analyser les ventes</li><li>Doubler ce qui marche</li><li>Candidater Creator Fund</li></ul></div>
     </div>
     <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e1"></div></div>
-    <a href="EBOOK1 MonetisationTikTok.pdf" download class="pdf-btn">
+    <button type="button" onclick="downloadEbook('ebook1','EBOOK1 MonetisationTikTok.pdf',this)" class="pdf-btn">
       <span class="pdf-icon">📄</span>
       <span class="pdf-label">Télécharger l'Ebook 1 complet<small>Les bases de la monétisation TikTok · PDF</small></span>
-    </a>
+    </button>
   </div>
 </div>
 
@@ -178,10 +179,10 @@ footer a{color:var(--pl);text-decoration:none}
     </table></div>
     <div class="hl green"><div class="hl-t">✅ Clé principale</div><p>Les vidéos de plus d'une minute génèrent davantage de revenus Creator Fund. Le temps de visionnage total est le signal principal pour le calcul des vues admissibles.</p></div>
     <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e2"></div></div>
-    <a href="EBOOK2 CreatorFundStrategiesAvancees.pdf" download class="pdf-btn">
+    <button type="button" onclick="downloadEbook('ebook2','EBOOK2 CreatorFundStrategiesAvancees.pdf',this)" class="pdf-btn">
       <span class="pdf-icon">📄</span>
       <span class="pdf-label">Télécharger l'Ebook 2 complet<small>Creator Fund — Stratégies avancées · PDF</small></span>
-    </a>
+    </button>
   </div>
 </div>
 
@@ -211,10 +212,10 @@ footer a{color:var(--pl);text-decoration:none}
       <tr><td>Clôture</td><td>50–60 min</td><td>Convertir</td><td>CTA abonnement, teaser prochain Live</td></tr>
     </table></div>
     <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e3"></div></div>
-    <a href="EBOOK3 LivesEtCadeauxVirtuels.pdf" download class="pdf-btn">
+    <button type="button" onclick="downloadEbook('ebook3','EBOOK3 LivesEtCadeauxVirtuels.pdf',this)" class="pdf-btn">
       <span class="pdf-icon">📄</span>
       <span class="pdf-label">Télécharger l'Ebook 3 complet<small>Lives et Cadeaux Virtuels · PDF</small></span>
-    </a>
+    </button>
   </div>
 </div>
 
@@ -244,10 +245,10 @@ footer a{color:var(--pl);text-decoration:none}
       <div class="sitem"><div class="si">📧</div><div class="sl">Contact</div><div class="ss">Email pro</div></div>
     </div></div>
     <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e4"></div></div>
-    <a href="EBOOK4 PartenariatsDeMarques.pdf" download class="pdf-btn">
+    <button type="button" onclick="downloadEbook('ebook4','EBOOK4 PartenariatsDeMarques.pdf',this)" class="pdf-btn">
       <span class="pdf-icon">📄</span>
       <span class="pdf-label">Télécharger l'Ebook 4 complet<small>Partenariats de marques · PDF</small></span>
-    </a>
+    </button>
   </div>
 </div>
 
@@ -276,10 +277,10 @@ footer a{color:var(--pl);text-decoration:none}
       <tr><td>ManyChat</td><td>Auto-réponses DM</td><td>~15€/mois</td></tr>
     </table></div>
     <div class="checklist"><div class="cl-title">✔ Tes actions</div><div id="cl-m1-e5"></div></div>
-    <a href="EBOOK5 RevenusPassifsAutomatisation.pdf" download class="pdf-btn">
+    <button type="button" onclick="downloadEbook('ebook5','EBOOK5 RevenusPassifsAutomatisation.pdf',this)" class="pdf-btn">
       <span class="pdf-icon">📄</span>
       <span class="pdf-label">Télécharger l'Ebook 5 complet<small>Revenus Passifs et Automatisation · PDF</small></span>
-    </a>
+    </button>
   </div>
 </div>
 
@@ -293,6 +294,48 @@ footer a{color:var(--pl);text-decoration:none}
 <footer><a href="index.html">← Accueil Formation</a> · <a href="https://vyrashop.com">VyraShop</a></footer>
 
 <script>
+// F3 (ÉLEVÉE) : les PDF ne sont plus des fichiers statiques. Chaque téléchargement
+// revérifie le vrai token Supabase via get-formation-pdf.js — le flag localStorage
+// ci-dessous ne sert qu'à l'affichage du gate, jamais à autoriser un téléchargement.
+const SUPABASE_URL='https://pdprwoskbrsoojtanmze.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_8bOARWbOH9NbbsYbtoaJ8Q_z59Eht4f';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+
+async function downloadEbook(id, filename, btn) {
+  btn.style.opacity = '0.6';
+  try {
+    var sessionRes = await sb.auth.getSession();
+    var session = sessionRes.data && sessionRes.data.session;
+    if (!session) {
+      alert("Connecte-toi à ton espace membre pour télécharger cet ebook.");
+      window.location.href = '/espace-membre/login.html';
+      return;
+    }
+    var res = await fetch('/.netlify/functions/get-formation-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ access_token: session.access_token, ebook: id })
+    });
+    if (!res.ok) {
+      alert("Téléchargement impossible. Vérifie que tu as bien accès à la Formation, ou contacte le support.");
+      return;
+    }
+    var blob = await res.blob();
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    alert("Erreur réseau, réessaie dans quelques instants.");
+  } finally {
+    btn.style.opacity = '';
+  }
+}
+
 if(localStorage.getItem('vyrashop_access')==='ok'){document.getElementById('gate').style.display='none';}
 else{document.getElementById('gate').innerHTML='<div class="gate-card"><p>Accès non autorisé.</p><a href="index.html" style="color:var(--pl)">← Retour à l\'accueil</a></div>';}
 
