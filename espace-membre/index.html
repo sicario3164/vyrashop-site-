@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mon Espace Membre — VyraShop</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80}
+body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
+nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:14px 24px;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-size:1.6rem;font-weight:900;text-decoration:none;color:var(--or)}
+
+.nav-right{display:flex;align-items:center;gap:14px}
+.btn-back{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600;border:1px solid var(--bord);padding:8px 14px;border-radius:50px;transition:color .2s,border-color .2s}
+.btn-back:hover{color:var(--wh);border-color:var(--pu)}
+.nav-user{font-size:.8rem;color:var(--tx)}
+.btn-logout{background:linear-gradient(135deg,var(--pu),#6d28d9);border:none;color:#fff;padding:14px 28px;border-radius:50px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;transition:opacity .2s;animation:badgePulse 1.6s ease-in-out infinite}
+.btn-logout:hover{opacity:.9}
+@keyframes badgePulse{0%,100%{transform:scale(1);box-shadow:0 0 0 transparent}50%{transform:scale(1.08);box-shadow:0 0 16px rgba(138,92,246,.5)}}
+.hero{padding:40px 24px 32px;max-width:900px;margin:0 auto}
+.hero h1{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:900;margin-bottom:6px}
+.hero h1 span{color:var(--pl)}
+.hero p{color:var(--tx);font-size:.9rem}
+.section{max-width:900px;margin:0 auto;padding:0 24px 24px}
+.section-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--tx);margin-bottom:14px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:32px}
+.prod-card{background:var(--card);border:1px solid var(--bord);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.prod-card.locked{opacity:.5;pointer-events:none}
+.prod-card.locked::after{content:"🔒 Non acquis";position:absolute;top:12px;right:12px;background:rgba(0,0,0,.6);color:var(--tx);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:50px}
+.prod-icon{font-size:2rem}
+.prod-badge{display:inline-block;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:50px;margin-bottom:2px}
+.badge-pu{background:rgba(138,92,246,.15);color:var(--pl);border:1px solid rgba(138,92,246,.3)}
+.badge-or{background:rgba(251,146,60,.15);color:var(--or);border:1px solid rgba(251,146,60,.3)}
+.badge-gr{background:rgba(74,222,128,.12);color:var(--gr);border:1px solid rgba(74,222,128,.3)}
+.prod-title{font-size:1rem;font-weight:800}
+.prod-desc{color:var(--tx);font-size:.83rem;flex:1}
+.prod-btn{display:block;text-align:center;padding:11px;border-radius:50px;font-weight:700;font-size:.85rem;text-decoration:none;transition:opacity .2s}
+.prod-btn:hover{opacity:.85}
+.btn-pu{background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff}
+.btn-or{background:linear-gradient(135deg,var(--or),#dc6900);color:#fff}
+.btn-gr{background:linear-gradient(135deg,var(--gr),#16a34a);color:#000;font-weight:800}
+.btn-buy{background:var(--surf);border:1px solid var(--bord);color:var(--tx)}
+.prog-section{background:var(--card);border:1px solid var(--bord);border-radius:18px;padding:22px;margin-bottom:24px}
+.prog-title{font-size:.88rem;font-weight:700;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+.prog-pct{color:var(--gr);font-size:.88rem;font-weight:800}
+.prog-bar{background:rgba(255,255,255,.06);border-radius:50px;height:8px;overflow:hidden;margin-bottom:8px}
+.prog-fill{background:linear-gradient(90deg,var(--pu),var(--gr));height:100%;border-radius:50px;transition:width .8s ease}
+.prog-sub{font-size:.76rem;color:var(--tx)}
+.modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.mod-mini{background:rgba(255,255,255,.04);border-radius:10px;padding:10px 12px;font-size:.78rem}
+.mod-mini .mod-name{font-weight:700;margin-bottom:4px}
+.mod-mini .mod-bar{background:rgba(255,255,255,.06);border-radius:50px;height:4px;overflow:hidden}
+.mod-mini .mod-fill{height:100%;border-radius:50px}
+.fill-pu{background:var(--pu)}
+.fill-or{background:var(--or)}
+.fill-gr{background:var(--gr)}
+.mod-mini .mod-pct{font-size:.7rem;color:var(--tx);margin-top:4px}
+.shop-form{background:var(--card);border:1px solid rgba(251,146,60,.25);border-radius:18px;padding:22px;margin-bottom:24px;display:none}
+footer{text-align:center;padding:20px;color:var(--tx);font-size:.74rem;border-top:1px solid var(--bord);margin-top:20px}
+footer a{color:var(--pl);text-decoration:none}
+@media(max-width:600px){.modules-grid{grid-template-columns:1fr}.btn-back{font-size:.72rem;padding:7px 11px}.btn-logout{padding:10px 18px;font-size:.8rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/espace-membre/" class="logo">VyraShop</a>
+  <div class="nav-right">
+    <a href="https://vyrashop.com/" class="btn-back">← Site de vente</a>
+    <button class="btn-logout" onclick="logout()">Déconnexion</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Bonjour <span id="user-name">…</span> 👋</h1>
+  <p>Voici tes produits et ta progression.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Mes produits</div>
+  <div class="products">
+
+    <!-- FORMATION -->
+    <div class="prod-card" id="card-formation">
+      <div class="prod-icon">📚</div>
+      <div>
+        <div class="prod-badge badge-pu">Formation</div>
+        <div class="prod-title">Formation TikTok Expert</div>
+      </div>
+      <div class="prod-desc">15 ebooks · 3 modules complets · Accès à vie</div>
+      <a href="/formation/" class="prod-btn btn-pu">Accéder à la formation →</a>
+    </div>
+
+    <!-- SHOP -->
+    <div class="prod-card" id="card-shop">
+      <div class="prod-icon">🛍️</div>
+      <div>
+        <div class="prod-badge badge-or">Accès Shop</div>
+        <div class="prod-title">Accès TikTok Shop</div>
+      </div>
+      <div class="prod-desc">Compte TikTok Shop prêt à l'emploi · Livraison sous 48h</div>
+      <a href="/espace-membre/shop.html" class="prod-btn btn-or">Voir mes identifiants →</a>
+    </div>
+
+    <!-- ACCOMPAGNEMENT -->
+    <div class="prod-card" id="card-accompagnement">
+      <div class="prod-icon">💬</div>
+      <div>
+        <div class="prod-badge badge-gr">Accompagnement</div>
+        <div class="prod-title">Accompagnement WhatsApp Premium</div>
+      </div>
+      <div class="prod-desc">Suivi personnalisé · 150€/mois · Sans engagement</div>
+      <a href="/espace-membre/accompagnement.html" class="prod-btn btn-gr">Mon suivi →</a>
+    </div>
+
+  </div>
+
+  <!-- PROGRESSION FORMATION -->
+  <div id="prog-section" style="display:none">
+    <div class="section-title">Ma progression — Formation TikTok Expert</div>
+    <div class="prog-section">
+      <div class="prog-title">
+        <span>Progression globale</span>
+        <span class="prog-pct" id="prog-pct">0%</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+      <div class="prog-sub" id="prog-sub">0 actions complétées</div>
+      <div class="modules-grid">
+        <div class="mod-mini">
+          <div class="mod-name">📈 Module 1</div>
+          <div class="mod-bar"><div class="mod-fill fill-pu" id="fill-m1" style="width:0%"></div></div>
+          <div class="mod-pct" id="pct-m1">0%</div>
+        </div>
+        <div class="mod-mini">
+          <div class="mod-name">🛍️ Module 2</div>
+          <div class="mod-bar"><div class="mod-fill fill-or" id="fill-m2" style="width:0%"></div></div>
+          <div class="mod-pct" id="pct-m2">0%</div>
+        </div>
+        <div class="mod-mini">
+          <div class="mod-name">🔥 Module 3</div>
+          <div class="mod-bar"><div class="mod-fill fill-gr" id="fill-m3" style="width:0%"></div></div>
+          <div class="mod-pct" id="pct-m3">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECTION SÉCURITÉ -->
+<div class="section" id="section-securite">
+  <div class="section-title">Sécurité du compte</div>
+  <div class="prog-section" id="mfa-section">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-weight:700;font-size:.95rem;margin-bottom:4px">Double authentification (2FA)</div>
+        <div style="font-size:.82rem;color:var(--tx)" id="mfa-status-text">Chargement…</div>
+      </div>
+      <div id="mfa-actions"></div>
+    </div>
+    <div class="msg" id="mfa-msg" style="margin-top:12px"></div>
+  </div>
+</div>
+
+<footer>
+  <a href="https://vyrashop.com">← VyraShop</a> ·
+  <a href="https://vyrashop.com/cgv.html">CGV</a> ·
+  <a href="mailto:contact@vyrashop.com">Support</a>
+</footer>
+
+<script>
+const SUPABASE_URL='https://pdprwoskbrsoojtanmze.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_8bOARWbOH9NbbsYbtoaJ8Q_z59Eht4f';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+
+async function init(){
+  var {data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='/espace-membre/login.html';return;}
+
+  var user=session.user;
+  var name=(user.user_metadata&&user.user_metadata.full_name)||user.email.split('@')[0];
+  document.getElementById('user-name').textContent=name;
+
+  // Charger les accès depuis Supabase (recherche par email)
+  var {data:access}=await sb.from('user_access').select('*').eq('email',user.email.toLowerCase()).single();
+
+  // Appliquer les accès
+  if(!access||!access.has_formation){document.getElementById('card-formation').classList.add('locked');}
+  else{
+    document.getElementById('prog-section').style.display='block';
+    loadProgress();
+    localStorage.setItem('vyrashop_access','ok');
+  }
+  if(!access||!access.has_shop) document.getElementById('card-shop').classList.add('locked');
+  if(!access||!access.has_accompagnement) document.getElementById('card-accompagnement').classList.add('locked');
+}
+
+function loadProgress(){
+  var CL_COUNTS={m1:5,m2:5,m3:5};
+  var total=0,done=0;
+  var modDone=[0,0,0],modTotal=[0,0,0];
+  ['m1','m2','m3'].forEach(function(m,mi){
+    for(var i=1;i<=5;i++){
+      var s=JSON.parse(localStorage.getItem('vyrashop_cl-'+m+'-e'+i)||'{}');
+      modTotal[mi]+=4;total+=4;
+      for(var j=0;j<4;j++){if(s[j]){done++;modDone[mi]++;}}
+    }
+  });
+  var pct=total?Math.round(done/total*100):0;
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-pct').textContent=pct+'%';
+  document.getElementById('prog-sub').textContent=done+' actions complétées sur '+total;
+  ['m1','m2','m3'].forEach(function(m,i){
+    var p=modTotal[i]?Math.round(modDone[i]/modTotal[i]*100):0;
+    document.getElementById('fill-'+m).style.width=p+'%';
+    document.getElementById('pct-'+m).textContent=p+'%';
+  });
+}
+
+async function logout(){
+  await sb.auth.signOut();
+  localStorage.removeItem('vyrashop_access');
+  window.location.href='/espace-membre/login.html';
+}
+
+async function loadMFAStatus(){
+  var actionsEl=document.getElementById('mfa-actions');
+  var statusEl=document.getElementById('mfa-status-text');
+  try {
+    var {data,error}=await sb.auth.mfa.listFactors();
+    if(error||!data){
+      statusEl.textContent='Double authentification disponible.';
+      actionsEl.innerHTML='<a href="/espace-membre/mfa-setup.html" style="background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;padding:10px 20px;border-radius:50px;font-weight:700;font-size:.82rem;text-decoration:none;display:inline-block">Activer la 2FA →</a>';
+      return;
+    }
+    var verified=data.totp&&data.totp.filter(function(f){return f.status==='verified';});
+    if(verified&&verified.length>0){
+      statusEl.innerHTML='✅ <strong style="color:var(--gr)">Activée</strong> — Ton compte est protégé par un second facteur.';
+      actionsEl.innerHTML='<button onclick="disableMFA(\''+verified[0].id+'\')" style="background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);padding:10px 20px;border-radius:50px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:inherit">Désactiver la 2FA</button>';
+    } else {
+      statusEl.textContent='❌ Non activée — Active la 2FA pour sécuriser ton compte.';
+      actionsEl.innerHTML='<a href="/espace-membre/mfa-setup.html" style="background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;padding:10px 20px;border-radius:50px;font-weight:700;font-size:.82rem;text-decoration:none;display:inline-block">Activer la 2FA →</a>';
+    }
+  } catch(e) {
+    // MFA non activé dans Supabase ou erreur réseau — on masque la section
+    document.getElementById('section-securite').style.display='none';
+  }
+}
+
+async function disableMFA(factorId){
+  if(!confirm('Désactiver la double authentification ? Ton compte sera moins sécurisé.'))return;
+  var {error}=await sb.auth.mfa.unenroll({factorId:factorId});
+  var msgEl=document.getElementById('mfa-msg');
+  if(error){
+    msgEl.className='msg error';msgEl.style.display='block';
+    msgEl.textContent='Erreur lors de la désactivation. Réessaie.';
+  } else {
+    msgEl.className='msg success';msgEl.style.display='block';
+    msgEl.textContent='Double authentification désactivée.';
+    loadMFAStatus();
+  }
+}
+
+init();
+loadMFAStatus();
+</script>
+</body>
+</html>
