@@ -76,6 +76,49 @@ exports.handler = async function(event) {
         await sb.from('user_access').insert(update);
       }
     }
+
+    // FACTURE AUTOMATIQUE — génère une facture PDF conforme et l'envoie par email au client.
+    // Mentions obligatoires auto-entrepreneur exonéré de TVA (art. 293 B du CGI) incluses.
+    // La facture est créée uniquement si le client a un customer_id Stripe (toujours le cas
+    // pour un paiement via Payment Link avec collecte d'adresse activée).
+    try {
+      if (session.customer) {
+        // Nom du produit pour la description de la facture
+        const productNames = {
+          [process.env.STRIPE_FORMATION_PRICE_ID]: 'Formation TikTok Expert — Accès à vie',
+          [process.env.STRIPE_SHOP_PRICE_ID]: 'Accès TikTok Shop Prêt à l\'Emploi',
+          [process.env.STRIPE_ACCOMPAGNEMENT_PRICE_ID]: 'Accompagnement WhatsApp Premium — 1 mois',
+        };
+        const productName = productNames[priceId] || 'Produit VyraShop';
+
+        // Créer l'élément de facture correspondant au paiement
+        await stripe.invoiceItems.create({
+          customer: session.customer,
+          amount: session.amount_total,
+          currency: session.currency,
+          description: productName,
+        });
+
+        // Créer et finaliser la facture — Stripe l'envoie automatiquement par email
+        const invoice = await stripe.invoices.create({
+          customer: session.customer,
+          footer: 'TVA non applicable, art. 293 B du CGI — VyraShop (Auto-entrepreneur)',
+          auto_advance: true,
+          collection_method: 'send_invoice',
+          days_until_due: 0,
+          metadata: {
+            checkout_session_id: session.id,
+            product_price_id: priceId || '',
+          },
+        });
+        await stripe.invoices.finalizeInvoice(invoice.id);
+        await stripe.invoices.sendInvoice(invoice.id);
+        console.log('Facture envoyée:', invoice.id, 'pour', email);
+      }
+    } catch (invoiceErr) {
+      // On ne laisse pas une erreur de facturation bloquer l'accès au produit
+      console.error('Erreur génération facture (non bloquant):', invoiceErr.message);
+    }
   }
 
   // Gestion résiliation accompagnement
