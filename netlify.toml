@@ -1,0 +1,50 @@
+# netlify.toml
+#
+# Historique : ce fichier n'existait pas avant le correctif F3 (PDF protégés). Il intègre
+# maintenant aussi les en-têtes de sécurité recommandés en Phase 3
+# (PHASE3-Audit-Infrastructure-VyraShop.md), jamais appliqués jusqu'ici.
+#
+# IMPORTANT — à lire avant déploiement :
+# Le site utilise massivement du JavaScript et du CSS inline (balises <script>/<style>
+# et attributs style="" directement dans le HTML, sur toutes les pages). Une CSP stricte
+# sans 'unsafe-inline' casserait donc l'intégralité du site en l'état actuel du code.
+# Ceci est le niveau "durci/recommandé" réaliste sans réécriture du code (cf. Phase 3,
+# section 5, pour le niveau "optimal" qui nécessiterait d'externaliser tout le JS/CSS inline
+# — un chantier à part entière, pas un correctif).
+#
+# Recommandation de déploiement : avant de passer ce CSP en mode bloquant, active d'abord
+# Content-Security-Policy-Report-Only (même valeur, sous cet autre nom d'en-tête) pendant
+# quelques jours pour vérifier dans la console navigateur qu'aucune ressource légitime
+# n'est bloquée.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["netlify/functions/_assets/formation/**"]
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), usb=(), payment=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.supabase.co https://api.stripe.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+
+# Les réponses des fonctions contiennent des données sensibles (identifiants Shop déchiffrés,
+# liste de clients, PDF de formation, validation de paiement) : jamais de mise en cache.
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-store, private"
+    X-Content-Type-Options = "nosniff"
+
+# Rappel : le rate limiting applicatif est désormais géré par netlify/functions/_lib/rate-limit.js
+# (compteur Postgres atomique). Le rate limiting réseau natif de Netlify (Firewall Traffic
+# Rules / Rate Limiting) se configure depuis l'UI Netlify, pas depuis ce fichier — voir
+# le rapport Phase 3 pour le détail.
+
