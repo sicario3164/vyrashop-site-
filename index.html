@@ -84,8 +84,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;row-gap:8px;al
 .prod-checks li::before{content:"✅";flex-shrink:0}
 .prod-price{font-size:2rem;font-weight:900;color:var(--wh);margin-bottom:16px}
 .prod-price span{font-size:1rem;color:var(--tx);font-weight:400}
-@keyframes promoAppear{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.promo-price{animation:promoAppear .5s ease;margin-bottom:16px}
 .prod-cta{display:block;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:800;font-size:.95rem;text-align:center;transition:transform .2s,opacity .2s;border:none;cursor:pointer;font-family:inherit;width:100%;animation:badgePulse 1.6s ease-in-out infinite}
 .prod-cta:hover{transform:translateY(-2px);opacity:.92}
 .prod-cta.orange{background:linear-gradient(135deg,var(--or),#dc2626);--glow:rgba(251,146,60,.6)}
@@ -258,12 +256,7 @@ footer .fl{font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:8px}.f
           <li>Pensé pour t'aider à viser tes premières commissions rapidement</li>
           <li>Compatible avec tous les produits TikTok Shop</li>
         </ul>
-        <div class="promo-price">
-          <span style="text-decoration:line-through;color:var(--tx);font-size:1.1rem">199€</span>
-          <span style="color:var(--gr);font-size:2rem;font-weight:900;margin-left:10px">159€</span>
-          <span style="background:var(--gr);color:#000;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:50px;margin-left:8px">-20%</span>
-          <div style="font-size:.9rem;color:var(--tx);margin-top:2px">· livraison 48h</div>
-        </div>
+        <div class="prod-price">199€ <span>· livraison 48h</span></div>
         <label class="consent-check">
           <input type="checkbox" id="consent-shop" onchange="toggleCta('cta-shop')">
           <span>J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a>, ainsi que la note ci-dessus sur la nature de cet accès. Je demande l'exécution immédiate de cette prestation dès le paiement et je renonce, en connaissance de cause, à mon droit de rétractation de 14 jours (art. L221-28, 1° du Code de la consommation).</span>
@@ -295,12 +288,7 @@ footer .fl{font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:8px}.f
           <li>Plan d'action 90 jours semaine par semaine</li>
           <li>Accès à vie · Mises à jour incluses</li>
         </ul>
-        <div class="promo-price">
-          <span style="text-decoration:line-through;color:var(--tx);font-size:1.1rem">247€</span>
-          <span style="color:var(--gr);font-size:2rem;font-weight:900;margin-left:10px">198€</span>
-          <span style="background:var(--gr);color:#000;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:50px;margin-left:8px">-20%</span>
-          <div style="font-size:.9rem;color:var(--tx);margin-top:2px">· accès à vie</div>
-        </div>
+        <div class="prod-price">247€ <span>· accès à vie</span></div>
         <label class="consent-check">
           <input type="checkbox" id="consent-formation" onchange="toggleCta('cta-formation')">
           <span>J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a>. Je demande l'exécution immédiate de ce contenu numérique dès le paiement et je renonce, en connaissance de cause, à mon droit de rétractation de 14 jours (art. L221-28, 13° du Code de la consommation).</span>
@@ -332,12 +320,7 @@ footer .fl{font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:8px}.f
           <li>Sans engagement de durée · annulable à tout moment</li>
           <li>Démarrage sous 48h après le premier paiement</li>
         </ul>
-        <div class="promo-price">
-          <span style="text-decoration:line-through;color:var(--tx);font-size:1.1rem">150€</span>
-          <span style="color:var(--gr);font-size:2rem;font-weight:900;margin-left:10px">120€</span>
-          <span style="background:var(--gr);color:#000;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:50px;margin-left:8px">-20%</span>
-          <div style="font-size:.9rem;color:var(--tx);margin-top:2px">/ mois · sans engagement</div>
-        </div>
+        <div class="prod-price">150€ <span>/ mois · sans engagement</span></div>
         <label class="consent-check">
           <input type="checkbox" id="consent-accompagnement" onchange="toggleCta('cta-accompagnement')">
           <span>J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a>, ainsi que la note ci-dessus sur le fonctionnement de cet accompagnement. Je demande l'exécution immédiate de cette prestation dès le premier paiement et je renonce, en connaissance de cause, à mon droit de rétractation de 14 jours pour ce premier mois (art. L221-28, 1° du Code de la consommation).</span>
