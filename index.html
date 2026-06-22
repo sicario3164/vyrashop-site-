@@ -84,7 +84,8 @@ nav{position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;row-gap:8px;al
 .prod-checks li::before{content:"✅";flex-shrink:0}
 .prod-price{font-size:2rem;font-weight:900;color:var(--wh);margin-bottom:16px}
 .prod-price span{font-size:1rem;color:var(--tx);font-weight:400}
-@keyframes promoAppear{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes promoAppear{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.promo-price{animation:promoAppear .5s ease;margin-bottom:16px}
 .prod-cta{display:block;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:800;font-size:.95rem;text-align:center;transition:transform .2s,opacity .2s;border:none;cursor:pointer;font-family:inherit;width:100%;animation:badgePulse 1.6s ease-in-out infinite}
 .prod-cta:hover{transform:translateY(-2px);opacity:.92}
 .prod-cta.orange{background:linear-gradient(135deg,var(--or),#dc2626);--glow:rgba(251,146,60,.6)}
@@ -231,15 +232,6 @@ footer .fl{font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:8px}.f
   <p class="sec-sub">3 produits conçus pour t'aider à avancer vite sur TikTok, quel que soit ton niveau.</p>
   <div class="div"></div>
 
-  <!-- CHAMP CODE PROMO -->
-  <div id="promo-wrap" style="max-width:420px;margin:0 auto 32px;text-align:center">
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <input type="text" id="promo-input" placeholder="Tu as un code promo ?" autocomplete="off" autocapitalize="characters" style="flex:1;min-width:180px;max-width:260px;background:rgba(255,255,255,.06);border:1.5px solid var(--bord);border-radius:50px;padding:12px 20px;color:var(--wh);font-size:.88rem;font-family:inherit;outline:none;transition:border-color .2s"/>
-      <button onclick="applyPromo()" style="background:var(--pu);color:#fff;border:none;border-radius:50px;padding:12px 24px;font-weight:800;font-size:.88rem;cursor:pointer;font-family:inherit;transition:opacity .2s">Appliquer</button>
-    </div>
-    <div id="promo-msg" style="margin-top:10px;font-size:.82rem;display:none"></div>
-  </div>
-
   <div class="products">
 
     <!-- PRODUIT 1 : TIKTOK SHOP -->
@@ -266,12 +258,11 @@ footer .fl{font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:8px}.f
           <li>Pensé pour t'aider à viser tes premières commissions rapidement</li>
           <li>Compatible avec tous les produits TikTok Shop</li>
         </ul>
-        <div class="prod-price" id="price-shop">199€ <span>· livraison 48h</span></div>
-        <div id="promo-shop" style="display:none;margin-bottom:12px">
+        <div class="promo-price">
           <span style="text-decoration:line-through;color:var(--tx);font-size:1.1rem">199€</span>
-          <span style="color:var(--gr);font-size:1.8rem;font-weight:900;margin-left:10px">159€</span>
+          <span style="color:var(--gr);font-size:2rem;font-weight:900;margin-left:10px">159€</span>
           <span style="background:var(--gr);color:#000;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:50px;margin-left:8px">-20%</span>
-          <div style="font-size:.78rem;color:var(--tx)">· livraison 48h</div>
+          <div style="font-size:.9rem;color:var(--tx);margin-top:2px">· livraison 48h</div>
         </div>
         <label class="consent-check">
           <input type="checkbox" id="consent-shop" onchange="toggleCta('cta-shop')">
@@ -304,12 +295,11 @@ footer .fl{font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:8px}.f
           <li>Plan d'action 90 jours semaine par semaine</li>
           <li>Accès à vie · Mises à jour incluses</li>
         </ul>
-        <div class="prod-price" id="price-formation">247€ <span>· accès à vie</span></div>
-        <div id="promo-formation" style="display:none;margin-bottom:12px">
+        <div class="promo-price">
           <span style="text-decoration:line-through;color:var(--tx);font-size:1.1rem">247€</span>
-          <span style="color:var(--gr);font-size:1.8rem;font-weight:900;margin-left:10px">198€</span>
+          <span style="color:var(--gr);font-size:2rem;font-weight:900;margin-left:10px">198€</span>
           <span style="background:var(--gr);color:#000;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:50px;margin-left:8px">-20%</span>
-          <div style="font-size:.78rem;color:var(--tx)">· accès à vie</div>
+          <div style="font-size:.9rem;color:var(--tx);margin-top:2px">· accès à vie</div>
         </div>
         <label class="consent-check">
           <input type="checkbox" id="consent-formation" onchange="toggleCta('cta-formation')">
@@ -342,12 +332,11 @@ footer .fl{font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:8px}.f
           <li>Sans engagement de durée · annulable à tout moment</li>
           <li>Démarrage sous 48h après le premier paiement</li>
         </ul>
-        <div class="prod-price" id="price-accompagnement">150€ <span>/ mois · sans engagement</span></div>
-        <div id="promo-accompagnement" style="display:none;margin-bottom:12px">
+        <div class="promo-price">
           <span style="text-decoration:line-through;color:var(--tx);font-size:1.1rem">150€</span>
-          <span style="color:var(--gr);font-size:1.8rem;font-weight:900;margin-left:10px">120€</span>
+          <span style="color:var(--gr);font-size:2rem;font-weight:900;margin-left:10px">120€</span>
           <span style="background:var(--gr);color:#000;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:50px;margin-left:8px">-20%</span>
-          <div style="font-size:.78rem;color:var(--tx)">/ mois · sans engagement</div>
+          <div style="font-size:.9rem;color:var(--tx);margin-top:2px">/ mois · sans engagement</div>
         </div>
         <label class="consent-check">
           <input type="checkbox" id="consent-accompagnement" onchange="toggleCta('cta-accompagnement')">
@@ -666,73 +655,6 @@ try{
     <button onclick="cookieChoice('accepted')" style="background:var(--pu);color:#fff;border:none;padding:8px 18px;border-radius:50px;font-weight:700;font-size:.78rem;cursor:pointer;font-family:inherit">Accepter</button>
   </div>
 </div>
-<script>
-// Code promo : validation côté client + effet visuel -20% sur les 3 offres.
-// La réduction réelle est appliquée par Stripe au moment du paiement (code promo
-// activé sur les 3 Payment Links dans le dashboard Stripe).
-var PROMO_CODE = 'VYRASHOP2026';
-var promoActive = false;
-
-// URLs de base des Payment Links (sans promo)
-var BASE_URLS = {
-  shop: 'https://buy.stripe.com/bJe6oJdwDcub93h06O93y01',
-  formation: 'https://buy.stripe.com/14A9AVfELam3cftcTA93y00',
-  accompagnement: 'https://buy.stripe.com/4gM3cxgIPdyfa7l5r893y03'
-};
-
-function applyPromo() {
-  var input = document.getElementById('promo-input');
-  var code = input.value.trim().toUpperCase();
-  var msg = document.getElementById('promo-msg');
-
-  if (code === PROMO_CODE) {
-    if (promoActive) {
-      msg.style.color = 'var(--gr)';
-      msg.textContent = '✅ Code déjà appliqué !';
-      msg.style.display = 'block';
-      return;
-    }
-    promoActive = true;
-    activatePromoVisual();
-    msg.style.color = 'var(--gr)';
-    msg.textContent = '🎉 Code appliqué ! -20% sur toutes les offres.';
-    msg.style.display = 'block';
-    input.style.borderColor = 'var(--gr)';
-    input.disabled = true;
-  } else {
-    msg.style.color = '#f87171';
-    msg.textContent = '❌ Code invalide ou expiré.';
-    msg.style.display = 'block';
-    input.style.borderColor = '#f87171';
-    setTimeout(function() { input.style.borderColor = 'var(--bord)'; }, 2000);
-  }
-}
-
-function activatePromoVisual() {
-  // Masquer les prix normaux, afficher les prix réduits
-  ['shop', 'formation', 'accompagnement'].forEach(function(id) {
-    var normal = document.getElementById('price-' + id);
-    var promo = document.getElementById('promo-' + id);
-    if (normal) normal.style.display = 'none';
-    if (promo) {
-      promo.style.display = 'block';
-      promo.style.animation = 'promoAppear .4s ease';
-    }
-    // Ajouter le code promo dans l'URL du Payment Link
-    var cta = document.getElementById('cta-' + id);
-    if (cta) {
-      var base = BASE_URLS[id];
-      cta.href = base + (base.indexOf('?') > -1 ? '&' : '?') + 'prefilled_promo_code=' + PROMO_CODE;
-    }
-  });
-}
-
-// Permettre la validation avec la touche Entrée
-document.getElementById('promo-input').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') applyPromo();
-});
-</script>
-
 <script>
 // J6 : choix Accepter/Refuser au lieu d'un bouton unique. Aujourd'hui aucun cookie/traceur
 // optionnel n'existe sur le site (Phase 4) donc les deux choix ont le même effet pratique —
