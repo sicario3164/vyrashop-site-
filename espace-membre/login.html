@@ -74,6 +74,10 @@ input:focus{border-color:var(--pu)}
       <label>Mot de passe</label>
       <input type="password" id="reg-pwd" placeholder="8 caractères minimum" autocomplete="new-password"/>
     </div>
+    <div style="display:flex;align-items:flex-start;gap:8px;margin:4px 0">
+      <input type="checkbox" id="reg-cgv" style="margin-top:3px;flex-shrink:0"/>
+      <label for="reg-cgv" style="font-weight:400;font-size:.82rem">J'accepte les <a href="https://vyrashop.com/cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="https://vyrashop.com/politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a></label>
+    </div>
     <button class="btn" onclick="register()" id="reg-btn">Créer mon compte</button>
     <div class="msg" id="reg-msg"></div>
   </div>
@@ -122,6 +126,7 @@ async function register(){
   var pwd=document.getElementById('reg-pwd').value;
   if(!name||!email||!pwd){showMsg('reg-msg','error','Remplis tous les champs.');return;}
   if(pwd.length<8){showMsg('reg-msg','error','Mot de passe trop court (8 caractères minimum).');return;}
+  if(!document.getElementById('reg-cgv').checked){showMsg('reg-msg','error','Tu dois accepter les CGV et la politique de confidentialité.');return;}
   btn.disabled=true;btn.textContent='Création…';
   var {error}=await sb.auth.signUp({email,password:pwd,options:{data:{full_name:name}}});
   if(error){showMsg('reg-msg','error',error.message);btn.disabled=false;btn.textContent='Créer mon compte';}

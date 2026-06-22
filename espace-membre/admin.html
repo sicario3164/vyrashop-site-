@@ -42,9 +42,27 @@ input:focus,textarea:focus{border-color:var(--pu)}
 .tag-s{background:rgba(251,146,60,.2);color:var(--or)}
 .tag-a{background:rgba(74,222,128,.15);color:var(--gr)}
 .edit-btn{font-size:.75rem;color:var(--pl);text-decoration:none;cursor:pointer;background:none;border:none;font-family:inherit}
+#admin-gate{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-card{background:var(--card);border:1px solid var(--bord);border-radius:20px;padding:32px;max-width:340px;width:100%;text-align:center}
+.gate-card h2{font-size:1rem;margin-bottom:18px;color:var(--wh)}
 </style>
 </head>
 <body>
+
+<!-- F4 : la clé admin n'est plus lue depuis l'URL (historique navigateur, logs serveur,
+     en-tête Referer) mais saisie dans ce formulaire et conservée uniquement en sessionStorage
+     (effacée à la fermeture de l'onglet). -->
+<div id="admin-gate">
+  <div class="gate-card">
+    <h2>🔒 Accès admin</h2>
+    <input type="password" id="gate-key" placeholder="Clé admin" autocomplete="off" onkeydown="if(event.key==='Enter')adminLogin()"/>
+    <input type="text" id="gate-totp" placeholder="Code à 6 chiffres (si MFA activée)" autocomplete="off" inputmode="numeric" maxlength="6" style="margin-top:10px;display:none" onkeydown="if(event.key==='Enter')adminLogin()"/>
+    <button class="btn" onclick="adminLogin()" id="gate-btn" style="width:100%">Se connecter</button>
+    <div class="msg" id="gate-msg"></div>
+  </div>
+</div>
+
+<div id="admin-content" style="display:none">
 <h1>Admin <span>VyraShop</span></h1>
 <p class="sub">Gérer les accès clients et livrer les identifiants TikTok Shop</p>
 
@@ -106,11 +124,83 @@ input:focus,textarea:focus{border-color:var(--pu)}
   <h2>Liste des clients <button class="edit-btn" onclick="loadClients()" style="font-size:.8rem">↺ Actualiser</button></h2>
   <div class="clients-list" id="clients-list"><p style="color:var(--tx);font-size:.85rem">Clique sur Actualiser…</p></div>
 </div>
+</div>
 
 <script>
-var adminKey = new URLSearchParams(window.location.search).get('admin_key');
-if (!adminKey) {
-  document.body.innerHTML = '<div style="text-align:center;padding:60px;color:#f87171">Accès refusé — clé admin manquante dans l\'URL</div>';
+var adminKey = sessionStorage.getItem('vyrashop_admin_key') || '';
+
+// Compatibilité : si quelqu'un arrive encore avec ?admin_key=... dans l'URL (ancien lien),
+// on le récupère une seule fois, on le bascule en sessionStorage, puis on nettoie
+// immédiatement l'URL visible pour ne pas le laisser traîner dans l'historique du navigateur.
+(function migrateLegacyUrlKey() {
+  var urlKey = new URLSearchParams(window.location.search).get('admin_key');
+  if (urlKey) {
+    adminKey = urlKey;
+    sessionStorage.setItem('vyrashop_admin_key', urlKey);
+    history.replaceState({}, document.title, window.location.pathname);
+  }
+})();
+
+async function adminLogin() {
+  var input = document.getElementById('gate-key');
+  var key = input.value.trim();
+  if (!key) return;
+  var btn = document.getElementById('gate-btn');
+  btn.disabled = true; btn.textContent = 'Vérification…';
+  adminKey = key;
+  try {
+    // On valide la clé (et le code MFA s'il est requis) avec un appel léger avant d'afficher quoi que ce soit.
+    await callFn({ action: 'list' });
+    sessionStorage.setItem('vyrashop_admin_key', key);
+    document.getElementById('admin-gate').style.display = 'none';
+    document.getElementById('admin-content').style.display = 'block';
+    initDashboard();
+  } catch (e) {
+    if (e.message === 'totp_required') {
+      document.getElementById('gate-totp').style.display = 'block';
+      document.getElementById('gate-msg').className = 'msg err';
+      document.getElementById('gate-msg').textContent = 'Entre le code à 6 chiffres de ton application d\'authentification.';
+      document.getElementById('gate-msg').style.display = 'block';
+      document.getElementById('gate-totp').focus();
+    } else {
+      adminKey = '';
+      sessionStorage.removeItem('vyrashop_admin_key');
+      sessionStorage.removeItem('vyrashop_admin_session');
+      document.getElementById('gate-msg').className = 'msg err';
+      document.getElementById('gate-msg').textContent = 'Clé ou code incorrect, ou trop de tentatives.';
+      document.getElementById('gate-msg').style.display = 'block';
+    }
+  }
+  btn.disabled = false; btn.textContent = 'Se connecter';
+}
+
+// Si une clé est déjà en session (rechargement de page), on la revérifie avant d'afficher
+// le tableau de bord — jamais de confiance aveugle dans sessionStorage.
+if (adminKey) {
+  callFn({ action: 'list' }).then(function() {
+    document.getElementById('admin-gate').style.display = 'none';
+    document.getElementById('admin-content').style.display = 'block';
+    initDashboard();
+  }).catch(function() {
+    adminKey = '';
+    sessionStorage.removeItem('vyrashop_admin_key');
+    sessionStorage.removeItem('vyrashop_admin_session');
+  });
+}
+
+function initDashboard() {
+  // Les listes se chargent à la demande (bouton Actualiser) comme avant ;
+  // rien à initialiser automatiquement ici pour le moment.
+}
+
+// F2 (XSS) : échapper toute donnée provenant de la base avant insertion via innerHTML.
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function showMsg(id, type, text) {
@@ -122,13 +212,17 @@ function showMsg(id, type, text) {
 }
 
 async function callFn(payload) {
+  var sessionToken = sessionStorage.getItem('vyrashop_admin_session') || '';
+  var totpInput = document.getElementById('gate-totp');
+  var totp = totpInput ? totpInput.value.trim() : '';
   var res = await fetch('/.netlify/functions/admin-access', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(Object.assign({ admin_key: adminKey }, payload))
+    body: JSON.stringify(Object.assign({ admin_key: adminKey, admin_totp: totp, admin_session_token: sessionToken }, payload))
   });
   var data = await res.json();
   if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+  if (data.session_token) sessionStorage.setItem('vyrashop_admin_session', data.session_token);
   return data;
 }
 
@@ -203,10 +297,10 @@ async function loadLogs() {
     var actionLabels = { save_access: 'Accès modifiés', deliver_shop: 'Identifiants livrés', view_shop_creds: 'Identifiants consultés' };
     list.innerHTML = logs.map(function(l) {
       var date = new Date(l.created_at).toLocaleString('fr-FR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
-      return '<div class="client-row"><span class="client-email">' + (actionLabels[l.action] || l.action) + ' — ' + l.target_email + '</span><span style="font-size:.72rem;color:var(--tx)">' + date + '</span></div>';
+      return '<div class="client-row"><span class="client-email">' + escapeHtml(actionLabels[l.action] || l.action) + ' — ' + escapeHtml(l.target_email) + '</span><span style="font-size:.72rem;color:var(--tx)">' + date + '</span></div>';
     }).join('');
   } catch (err) {
-    list.innerHTML = '<p style="color:#f87171;font-size:.85rem">Erreur : ' + err.message + '</p>';
+    list.innerHTML = '<p style="color:#f87171;font-size:.85rem">Erreur : ' + escapeHtml(err.message) + '</p>';
   }
 }
 
@@ -221,14 +315,14 @@ async function loadClients() {
       return;
     }
     list.innerHTML = clients.map(function(c) {
-      return '<div class="client-row"><span class="client-email">' + c.email + '</span><div class="client-tags">' +
+      return '<div class="client-row"><span class="client-email">' + escapeHtml(c.email) + '</span><div class="client-tags">' +
         (c.has_formation ? '<span class="tag tag-f">Formation</span>' : '') +
         (c.has_shop ? '<span class="tag tag-s">Shop</span>' : '') +
         (c.has_accompagnement ? '<span class="tag tag-a">Accomp.</span>' : '') +
         '</div></div>';
     }).join('');
   } catch (err) {
-    list.innerHTML = '<p style="color:#f87171;font-size:.85rem">Erreur : ' + err.message + '</p>';
+    list.innerHTML = '<p style="color:#f87171;font-size:.85rem">Erreur : ' + escapeHtml(err.message) + '</p>';
   }
 }
 </script>
