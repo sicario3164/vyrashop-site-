@@ -1,4 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
+const { checkRateLimit } = require('./_lib/rate-limit');
+const { getAuthenticatedEmail } = require('./_lib/auth');
 
 exports.handler = async function(event) {
   const headers = { 'Content-Type': 'application/json' };
@@ -19,13 +21,18 @@ exports.handler = async function(event) {
 
   const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
 
-  // Vérifie le token et récupère l'utilisateur authentifié (espace membre)
-  const { data: userData, error: userErr } = await sb.auth.getUser(body.access_token);
-  if (userErr || !userData || !userData.user) {
-    return { statusCode: 401, headers, body: JSON.stringify({ error: 'Invalid session' }) };
+  // F11 : 30 requêtes / 5 min par IP — généreux pour un usage normal (le gate appelle cette
+  // fonction à chaque chargement de page), mais borne un abus automatisé.
+  const rl = await checkRateLimit(sb, event, 'get-formation-access', 30, 5);
+  if (!rl.allowed) {
+    return { statusCode: 429, headers, body: JSON.stringify({ error: 'Trop de requêtes. Réessaie dans quelques minutes.' }) };
   }
 
-  const email = userData.user.email.toLowerCase();
+  // Vérifie le token et récupère l'utilisateur authentifié (espace membre)
+  const email = await getAuthenticatedEmail(sb, body.access_token);
+  if (!email) {
+    return { statusCode: 401, headers, body: JSON.stringify({ error: 'Invalid session' }) };
+  }
 
   const { data, error } = await sb.from('user_access').select('has_formation').eq('email', email).single();
   if (error || !data) {

@@ -24,7 +24,18 @@ exports.handler = async function(event) {
 
   if (stripeEvent.type === 'checkout.session.completed') {
     const session = stripeEvent.data.object;
-    const email = session.customer_details?.email;
+
+    // F5 (MOYENNE) : ne pas accorder l'accès si le paiement n'est pas confirmé.
+    // checkout.session.completed peut se déclencher avant confirmation pour certains
+    // moyens de paiement asynchrones ; payment_status === 'paid' est la seule garantie réelle.
+    if (session.payment_status !== 'paid') {
+      console.error('checkout.session.completed reçu sans paiement confirmé, ignoré:', session.id);
+      return { statusCode: 200, body: JSON.stringify({ received: true, skipped: 'not_paid' }) };
+    }
+
+    // F10 (FAIBLE) : email normalisé en minuscules dès l'entrée, utilisé tel quel partout
+    // dans ce bloc pour rester cohérent avec le reste du fichier (cf. ligne du remboursement).
+    const email = (session.customer_details?.email || '').toLowerCase();
     if (!email) return { statusCode: 200, body: 'No email' };
 
     // Récupérer les line items pour identifier le produit
@@ -37,7 +48,7 @@ exports.handler = async function(event) {
 
     // Chercher l'utilisateur Supabase par email
     const { data: users } = await sb.auth.admin.listUsers();
-    const user = users?.users?.find(u => u.email === email);
+    const user = users?.users?.find(u => (u.email || '').toLowerCase() === email);
 
     let update = { email };
     if (priceId === PRICE_FORMATION) update.has_formation = true;
@@ -72,7 +83,7 @@ exports.handler = async function(event) {
     const sub = stripeEvent.data.object;
     const customerId = sub.customer;
     const customer = await stripe.customers.retrieve(customerId);
-    const email = customer.email;
+    const email = (customer.email || '').toLowerCase();
     if (email) {
       await sb.from('user_access').update({ has_accompagnement: false, stripe_subscription_id: null }).eq('email', email);
     }
@@ -80,8 +91,28 @@ exports.handler = async function(event) {
 
   // Gestion remboursement : on ne coupe l'accès qu'en cas de remboursement TOTAL
   // (un remboursement partiel, geste commercial, ne doit pas couper automatiquement l'accès)
-  if (stripeEvent.type === 'charge.refunded') {
-    const charge = stripeEvent.data.object;
+  //
+  // Sur les comptes Stripe récents, l'événement à écouter est "refund.updated"
+  // (charge.refunded n'apparaît plus dans le sélecteur d'événements du Dashboard
+  // pour ces comptes — on garde charge.refunded en repli au cas où).
+  if (stripeEvent.type === 'refund.updated' || stripeEvent.type === 'charge.refunded') {
+    let charge = null;
+
+    if (stripeEvent.type === 'refund.updated') {
+      const refund = stripeEvent.data.object;
+      if (refund.status !== 'succeeded' || !refund.charge) {
+        return { statusCode: 200, body: JSON.stringify({ received: true, skipped: 'refund_not_succeeded' }) };
+      }
+      try {
+        charge = await stripe.charges.retrieve(refund.charge);
+      } catch (err) {
+        console.error('Erreur lors de la récupération de la charge remboursée:', err.message);
+        return { statusCode: 200, body: JSON.stringify({ received: true, skipped: 'charge_fetch_failed' }) };
+      }
+    } else {
+      charge = stripeEvent.data.object;
+    }
+
     if (!charge.refunded) {
       return { statusCode: 200, body: JSON.stringify({ received: true, skipped: 'partial_refund' }) };
     }

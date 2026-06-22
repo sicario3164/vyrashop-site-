@@ -1,5 +1,7 @@
 const { createClient } = require('@supabase/supabase-js');
 const crypto = require('crypto');
+const { checkRateLimit } = require('./_lib/rate-limit');
+const { getAuthenticatedEmail } = require('./_lib/auth');
 
 const ALGO = 'aes-256-gcm';
 
@@ -38,13 +40,17 @@ exports.handler = async function(event) {
 
   const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
 
-  // VÃ©rifier le token et rÃ©cupÃ©rer l'utilisateur authentifiÃ©
-  const { data: userData, error: userErr } = await sb.auth.getUser(body.access_token);
-  if (userErr || !userData || !userData.user) {
-    return { statusCode: 401, headers, body: JSON.stringify({ error: 'Invalid session' }) };
+  // F11 : cette fonction renvoie des identifiants déchiffrés, on est plus strict ici.
+  const rl = await checkRateLimit(sb, event, 'get-shop-access', 15, 5);
+  if (!rl.allowed) {
+    return { statusCode: 429, headers, body: JSON.stringify({ error: 'Trop de requêtes. Réessaie dans quelques minutes.' }) };
   }
 
-  const email = userData.user.email.toLowerCase();
+  // Vérifier le token et récupérer l'utilisateur authentifié
+  const email = await getAuthenticatedEmail(sb, body.access_token);
+  if (!email) {
+    return { statusCode: 401, headers, body: JSON.stringify({ error: 'Invalid session' }) };
+  }
 
   const { data, error } = await sb.from('user_access').select('has_shop,shop_login,shop_password,shop_notes').eq('email', email).single();
   if (error || !data || !data.has_shop) {
