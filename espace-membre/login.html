@@ -46,16 +46,30 @@ input:focus{border-color:var(--pu)}
 
   <!-- LOGIN -->
   <div class="form-section active" id="login-form">
-    <div>
-      <label>Email</label>
-      <input type="email" id="login-email" placeholder="ton@email.com" autocomplete="email"/>
+    <div id="login-form-inner">
+      <div>
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="ton@email.com" autocomplete="email"/>
+      </div>
+      <div>
+        <label>Mot de passe</label>
+        <input type="password" id="login-pwd" placeholder="••••••••" autocomplete="current-password"/>
+      </div>
+      <button class="btn" onclick="login()" id="login-btn">Se connecter</button>
+      <div class="forgot"><a href="#" onclick="resetPassword()">Mot de passe oublié ?</a></div>
     </div>
-    <div>
-      <label>Mot de passe</label>
-      <input type="password" id="login-pwd" placeholder="••••••••" autocomplete="current-password"/>
+
+    <!-- Challenge MFA — affiché uniquement si le compte a la 2FA activée -->
+    <div id="mfa-challenge" style="display:none">
+      <p style="color:var(--tx);font-size:.85rem;margin-bottom:16px">🔐 Entre le code à 6 chiffres de ton application d'authentification.</p>
+      <div>
+        <label>Code de vérification</label>
+        <input type="text" id="mfa-code-input" placeholder="000000" inputmode="numeric" maxlength="6" autocomplete="one-time-code" onkeydown="if(event.key==='Enter')verifyMFA()"/>
+      </div>
+      <button class="btn" onclick="verifyMFA()" id="mfa-verify-btn">Valider</button>
+      <div class="msg" id="mfa-msg"></div>
     </div>
-    <button class="btn" onclick="login()" id="login-btn">Se connecter</button>
-    <div class="forgot"><a href="#" onclick="resetPassword()">Mot de passe oublié ?</a></div>
+
     <div class="msg" id="login-msg"></div>
   </div>
 
@@ -114,9 +128,50 @@ async function login(){
   var pwd=document.getElementById('login-pwd').value;
   if(!email||!pwd){showMsg('login-msg','error','Remplis tous les champs.');return;}
   btn.disabled=true;btn.textContent='Connexion…';
-  var {error}=await sb.auth.signInWithPassword({email,password:pwd});
-  if(error){showMsg('login-msg','error','Email ou mot de passe incorrect.');btn.disabled=false;btn.textContent='Se connecter';}
-  else window.location.href='/espace-membre/';
+  var {data,error}=await sb.auth.signInWithPassword({email,password:pwd});
+  if(error){
+    showMsg('login-msg','error','Email ou mot de passe incorrect.');
+    btn.disabled=false;btn.textContent='Se connecter';
+    return;
+  }
+  // MFA : si le compte a le 2FA activé, Supabase renvoie un challenge à résoudre
+  if(data.session===null && data.user===null){
+    // L'auth est à l'état 'authenticating' — challenge MFA requis
+    var factors=await sb.auth.mfa.listFactors();
+    var totpFactor=factors.data&&factors.data.totp&&factors.data.totp[0];
+    if(totpFactor){
+      var {data:challengeData}=await sb.auth.mfa.challenge({factorId:totpFactor.id});
+      if(challengeData){
+        // Afficher le formulaire de saisie du code MFA
+        document.getElementById('mfa-challenge').style.display='block';
+        document.getElementById('login-form-inner').style.display='none';
+        window._mfaFactorId=totpFactor.id;
+        window._mfaChallengeId=challengeData.id;
+        document.getElementById('mfa-code-input').focus();
+        btn.disabled=false;btn.textContent='Se connecter';
+        return;
+      }
+    }
+  }
+  window.location.href='/espace-membre/';
+}
+
+async function verifyMFA(){
+  var code=document.getElementById('mfa-code-input').value.trim();
+  if(!code||code.length!==6){showMsg('mfa-msg','error','Entre un code à 6 chiffres.');return;}
+  var btn=document.getElementById('mfa-verify-btn');
+  btn.disabled=true;btn.textContent='Vérification…';
+  var {error}=await sb.auth.mfa.verify({
+    factorId:window._mfaFactorId,
+    challengeId:window._mfaChallengeId,
+    code:code
+  });
+  if(error){
+    showMsg('mfa-msg','error','Code incorrect ou expiré. Réessaie.');
+    btn.disabled=false;btn.textContent='Valider';
+  } else {
+    window.location.href='/espace-membre/';
+  }
 }
 
 async function register(){
