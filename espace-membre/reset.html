@@ -9,7 +9,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0d0b14;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--red:#f87171}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
-.logo{font-size:1.4rem;font-weight:900;margin-bottom:32px;text-decoration:none;color:var(--or)}
+.logo{font-size:1.4rem;font-weight:900;margin-bottom:32px;text-decoration:none;}
 .card{background:var(--card);border:1px solid var(--bord);border-radius:20px;padding:36px 28px;width:100%;max-width:420px}
 .card h2{font-size:1.15rem;font-weight:800;margin-bottom:8px}
 .card p.intro{color:var(--tx);font-size:.85rem;margin-bottom:24px}
@@ -25,10 +25,18 @@ input:focus{border-color:var(--pu)}
 .msg.success{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);color:var(--gr)}
 .back{display:block;text-align:center;margin-top:24px;color:var(--tx);font-size:.8rem;text-decoration:none}
 .back:hover{color:var(--wh)}
+
+/* VyraShop brand purple gradient */
+.logo-vyra,.logo,.brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 </style>
 </head>
 <body>
-<a href="/" class="logo">VyraShop</a>
+<a href="/" class="logo"><span class="logo-vyra">VyraShop</span></a>
 
 <div class="card">
   <div id="form-step">

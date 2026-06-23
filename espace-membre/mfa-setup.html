@@ -10,7 +10,7 @@
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--or)}
+.logo{font-size:1.4rem;font-weight:900;text-decoration:none;}
 .btn-back{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600;border:1px solid var(--bord);padding:8px 14px;border-radius:50px}
 .wrap{max-width:480px;margin:40px auto;padding:0 24px}
 .card{background:var(--card);border:1px solid var(--bord);border-radius:20px;padding:28px}
@@ -32,11 +32,19 @@ input{width:100%;background:rgba(255,255,255,.06);border:1.5px solid var(--bord)
 .recovery-codes p{font-size:.78rem;color:var(--tx);margin-bottom:10px}
 .codes-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .code-item{font-family:monospace;font-size:.82rem;background:rgba(255,255,255,.05);padding:6px 10px;border-radius:8px;text-align:center}
+
+/* VyraShop brand purple gradient */
+.logo-vyra,.logo,.brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 </style>
 </head>
 <body>
 <nav>
-  <a href="/espace-membre/" class="logo">VyraShop</a>
+  <a href="/espace-membre/" class="logo"><span class="logo-vyra">VyraShop</span></a>
   <a href="/espace-membre/" class="btn-back">← Mon compte</a>
 </nav>
 

@@ -10,7 +10,7 @@
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:14px 24px;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.6rem;font-weight:900;text-decoration:none;color:var(--or)}
+.logo{font-size:1.6rem;font-weight:900;text-decoration:none;}
 
 .nav-right{display:flex;align-items:center;gap:14px}
 .btn-back{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600;border:1px solid var(--bord);padding:8px 14px;border-radius:50px;transition:color .2s,border-color .2s}
@@ -61,11 +61,19 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:14
 footer{text-align:center;padding:20px;color:var(--tx);font-size:.74rem;border-top:1px solid var(--bord);margin-top:20px}
 footer a{color:var(--pl);text-decoration:none}
 @media(max-width:600px){.modules-grid{grid-template-columns:1fr}.btn-back{font-size:.72rem;padding:7px 11px}.btn-logout{padding:10px 18px;font-size:.8rem}}
+
+/* VyraShop brand purple gradient */
+.logo-vyra,.logo,.brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 </style>
 </head>
 <body>
 <nav>
-  <a href="/espace-membre/" class="logo">VyraShop</a>
+  <a href="/espace-membre/" class="logo"><span class="logo-vyra">VyraShop</span></a>
   <div class="nav-right">
     <a href="https://vyrashop.com/" class="btn-back">← Site de vente</a>
     <button class="btn-logout" onclick="logout()">Déconnexion</button>

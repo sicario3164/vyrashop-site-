@@ -10,7 +10,7 @@
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(74,222,128,.22);--gr:#4ade80;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--pu:#8a5cf6;--pl:#c4b5fd;--red:#f87171}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--or)}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;}
 
 .back-btn{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:600}
 .hero{background:linear-gradient(135deg,rgba(74,222,128,.12),rgba(74,222,128,.02));border-bottom:1px solid var(--bord);padding:36px 24px;text-align:center}
@@ -50,11 +50,19 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 .btn-cancel:hover{background:var(--red);color:#1a0d0d}
 .btn-cancel:disabled{opacity:.5;cursor:not-allowed}
 .cancel-note{color:var(--tx);font-size:.76rem;margin-top:10px;line-height:1.5}
+
+/* VyraShop brand purple gradient */
+.logo-vyra,.logo,.brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 </style>
 </head>
 <body>
 <nav>
-  <a href="/espace-membre/" class="logo">VyraShop</a>
+  <a href="/espace-membre/" class="logo"><span class="logo-vyra">VyraShop</span></a>
   <a href="/espace-membre/" class="back-btn">← Mon espace</a>
 </nav>
 

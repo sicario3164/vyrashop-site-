@@ -10,7 +10,7 @@
 :root{--bg:#0d0b14;--surf:#16112a;--card:#1e1733;--bord:rgba(251,146,60,.22);--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--pu:#8a5cf6;--pl:#c4b5fd}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--or)}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;}
 
 .back-btn{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:600}
 .hero{background:linear-gradient(135deg,rgba(251,146,60,.15),rgba(251,146,60,.03));border-bottom:1px solid var(--bord);padding:36px 24px;text-align:center}
@@ -41,13 +41,21 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid rgba(167,139,250,.22);
 .warning p{color:var(--tx);font-size:.84rem;line-height:1.5}
 .support-btn{display:block;text-align:center;padding:13px;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.35);color:var(--or);transition:background .2s}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--gr);color:#000;padding:10px 20px;border-radius:50px;font-weight:700;font-size:.84rem;display:none;z-index:999}
+
+/* VyraShop brand purple gradient */
+.logo-vyra,.logo,.brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 </style>
 </head>
 <body>
 <div class="toast" id="toast">✓ Copié !</div>
 
 <nav>
-  <a href="/espace-membre/" class="logo">VyraShop</a>
+  <a href="/espace-membre/" class="logo"><span class="logo-vyra">VyraShop</span></a>
   <a href="/espace-membre/" class="back-btn">← Mon espace</a>
 </nav>
 
