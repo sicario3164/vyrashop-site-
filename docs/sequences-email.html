@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VyraShop Academy — Séquences Email Brevo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',sans-serif;background:#f8f9fa;color:#1a1a2e;font-size:15px;line-height:1.65}
+.page{max-width:900px;margin:0 auto;padding:40px 24px}
+h1{font-size:2rem;font-weight:900;margin-bottom:8px;color:#1a1a2e}
+.subtitle{color:#6b7280;margin-bottom:40px;font-size:1rem}
+/* SETUP SECTION */
+.setup{background:#fff;border-radius:16px;padding:28px;margin-bottom:40px;border:1px solid #e5e7eb;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.setup h2{font-size:1.2rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.step-list{list-style:none}
+.step-list li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6}
+.step-list li:last-child{border-bottom:none}
+.step-num{width:28px;height:28px;background:#8a5cf6;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex-shrink:0;margin-top:1px}
+.step-text{font-size:.93rem}
+.step-text strong{color:#1a1a2e}
+.step-text code{background:#f3f0ff;color:#7c3aed;padding:2px 6px;border-radius:4px;font-size:.85rem}
+/* ENV VARS */
+.env-block{background:#1e1b4b;border-radius:10px;padding:16px 20px;margin-top:14px;font-family:monospace;font-size:.83rem;color:#c4b5fd;line-height:1.9}
+.env-block .key{color:#fb923c}
+.env-block .val{color:#4ade80}
+/* SEQUENCE BLOCKS */
+.seq-header{background:linear-gradient(135deg,#1e1733,#16112a);color:#fff;border-radius:16px 16px 0 0;padding:20px 28px;display:flex;align-items:center;gap:12px}
+.seq-icon{font-size:1.8rem}
+.seq-info h2{font-size:1.15rem;font-weight:900;margin-bottom:3px}
+.seq-info p{font-size:.83rem;color:#c4b5fd;opacity:.8}
+.seq-body{background:#fff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 16px 16px;margin-bottom:36px}
+.email-card{padding:24px 28px;border-bottom:1px solid #f3f4f6}
+.email-card:last-child{border-bottom:none}
+.email-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.day-badge{background:#f3f0ff;color:#7c3aed;font-weight:800;font-size:.75rem;padding:4px 12px;border-radius:50px;white-space:nowrap}
+.day-badge.urgent{background:#fff7ed;color:#c2410c}
+.day-badge.green{background:#f0fdf4;color:#15803d}
+.email-subject{font-size:.85rem;color:#6b7280}
+.email-subject strong{color:#374151}
+.email-from{font-size:.8rem;color:#9ca3af;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:2px 8px}
+.email-body{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:20px 22px;font-size:.88rem;line-height:1.75;color:#374151}
+.email-body h3{font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:6px}
+.email-body .hi{color:#7c3aed;font-weight:700}
+.email-body .cta-line{margin:16px 0;padding:12px 16px;background:#f3f0ff;border-left:3px solid #8a5cf6;border-radius:0 8px 8px 0;font-weight:600;color:#5b21b6}
+.email-body .cta-btn{display:inline-block;background:linear-gradient(135deg,#8a5cf6,#6d28d9);color:#fff;padding:11px 24px;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;margin:8px 0}
+.email-body .ps{font-size:.82rem;color:#9ca3af;margin-top:12px;font-style:italic}
+.email-body hr{border:none;border-top:1px solid #e5e7eb;margin:14px 0}
+.note{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#92400e;margin-top:8px}
+.brevo-tip{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#1e40af;margin-top:8px}
+.tag{display:inline-block;background:#e0e7ff;color:#3730a3;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:4px;margin:2px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>📧 Séquences Email — VyraShop Academy</h1>
+<p class="subtitle">Copy complète prête à coller dans Brevo · 2 séquences · 14 emails</p>
+
+<!-- ══ SETUP BREVO ══════════════════════════════ -->
+<div class="setup">
+  <h2>⚙️ Setup Brevo — Étapes à faire 1 seule fois</h2>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><span class="step-text"><strong>Crée un compte Brevo gratuit</strong> sur <a href="https://www.brevo.com" target="_blank">brevo.com</a> (plan gratuit = 300 emails/jour, automation incluse)</span></li>
+    <li><span class="step-num">2</span><span class="step-text"><strong>Crée 4 listes de contacts :</strong><br/>
+      <span class="tag">Lead Magnet</span> (ID 2) —
+      <span class="tag">Acheteurs Formation</span> (ID 3) —
+      <span class="tag">Acheteurs TikTok Shop</span> (ID 4) —
+      <span class="tag">Acheteurs Accompagnement</span> (ID 5)<br/>
+      <em>Note les IDs exacts affichés dans Brevo — ils peuvent être différents</em></span></li>
+    <li><span class="step-num">3</span><span class="step-text"><strong>Récupère ta clé API Brevo</strong> : Settings → API keys → Generate a new API key</span></li>
+    <li><span class="step-num">4</span><span class="step-text"><strong>Ajoute ces variables d'environnement dans Netlify</strong> : Site → Site configuration → Environment variables<br/>
+    <div class="env-block">
+      <span class="key">BREVO_API_KEY</span>=<span class="val">ta-cle-api-brevo-ici</span><br/>
+      <span class="key">BREVO_LEADMAGNET_LIST</span>=<span class="val">2</span><br/>
+      <span class="key">BREVO_FORMATION_LIST</span>=<span class="val">3</span><br/>
+      <span class="key">BREVO_SHOP_LIST</span>=<span class="val">4</span><br/>
+      <span class="key">BREVO_ACCOMPAGNEMENT_LIST</span>=<span class="val">5</span>
+    </div></span></li>
+    <li><span class="step-num">5</span><span class="step-text"><strong>Crée les automations Brevo</strong> : Automation → Create a workflow → "Contact added to a list" comme trigger.<br/>Une automation par liste = une séquence. Copie-colle les emails ci-dessous.</span></li>
+    <li><span class="step-num">6</span><span class="step-text"><strong>Configure ton expéditeur</strong> : Settings → Senders & IPs → Add a sender : <code>VyraShop Academy</code> / <code>contact@vyrashop.com</code> + valide le domaine</span></li>
+    <li><span class="step-num">7</span><span class="step-text"><strong>Mets le PDF de l'ebook en ligne</strong> : push <code>ebook_tiktok_performance.pdf</code> à la racine de ton repo GitHub. L'URL sera <code>https://vyrashop.com/ebook_tiktok_performance.pdf</code></span></li>
+  </ol>
+</div>
+
+<!-- ══ SÉQUENCE 1 : LEAD MAGNET ══════════════════════════════ -->
+<div class="seq-header">
+  <div class="seq-icon">📥</div>
+  <div class="seq-info">
+    <h2>Séquence 1 — Lead Magnet (Ebook)</h2>
+    <p>Trigger : Contact ajouté à la liste "Lead Magnet" · 7 emails · 14 jours</p>
+  </div>
+</div>
+<div class="seq-body">
+
+  <!-- J0 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge green">⚡ J0 — Immédiat</span>
+      <span class="email-from">De : VyraShop Academy</span>
+      <span class="email-subject">Objet : <strong>📥 Ton guide TikTok Performance est là, {{contact.PRENOM}}</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">Salut {{contact.PRENOM}} 👋</p>
+      <p>Ton guide est prêt.</p>
+      <br/>
+      <p>Clique sur le bouton ci-dessous pour le télécharger :</p>
+      <div class="cta-line">📥 → <a class="cta-btn" href="https://vyrashop.com/ebook_tiktok_performance.pdf">Télécharger le Guide TikTok Performance</a></div>
+      <hr/>
+      <p><strong>Ce que tu vas trouver dedans :</strong></p>
+      <p>✓ Les 4 signaux que l'algorithme TikTok mesure vraiment<br/>
+      ✓ 5 types de hooks avec exemples concrets<br/>
+      ✓ Les 6 formats qui performent en 2025<br/>
+      ✓ Un plan d'action 7 jours applicable immédiatement</p>
+      <br/>
+      <p>Prends le temps de le lire — il y a des choses que la plupart des créateurs ignorent encore.</p>
+      <br/>
+      <p>À très vite,<br/><strong>L'équipe VyraShop Academy</strong></p>
+      <p class="ps">PS : Si tu as des questions, réponds directement à cet email. On lit tout.</p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 0 minutes · type "email transactionnel de bienvenue"</div>
+  </div>
+
+  <!-- J1 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">📖 J1 — Valeur</span>
+      <span class="email-subject">Objet : <strong>Le chapitre sur les hooks change tout (vraiment)</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>As-tu eu le temps de lire le guide ?</p>
+      <br/>
+      <p>Si tu n'as fait qu'une chose, lis le <strong>Chapitre 2 — Les 5 Types de Hooks</strong>.</p>
+      <br/>
+      <p>Voici pourquoi :</p>
+      <p>La majorité des créateurs TikTok passent des heures à créer du contenu — et négligent les 3 premières secondes. C'est une erreur fatale. L'algorithme décide dans les premières secondes si ta vidéo mérite d'être distribuée plus largement.</p>
+      <br/>
+      <p>Un hook efficace, c'est la différence entre 200 vues et 20 000 vues sur la même vidéo.</p>
+      <br/>
+      <p><strong>Exercice pratique pour aujourd'hui :</strong><br/>
+      Prends le dernier contenu que tu voulais publier. Réécris son introduction avec ces 3 formats :<br/>
+      — Une question provocatrice<br/>
+      — Un chiffre choc<br/>
+      — Une contre-intuition<br/><br/>
+      Teste le premier qui te semble le plus fort. Reviens-moi avec tes stats.</p>
+      <br/>
+      <p>À demain,<br/><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 1 jour après J0</div>
+  </div>
+
+  <!-- J3 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">🔍 J3 — Insight</span>
+      <span class="email-subject">Objet : <strong>Ce que notre compte TikTok produit en 60 jours (chiffres réels)</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>On ne te vend pas des méthodes théoriques.</p>
+      <br/>
+      <p>Voici ce que notre propre compte TikTok a produit en 60 jours, en appliquant exactement ce qui est dans le guide :</p>
+      <br/>
+      <p>📈 <strong>3,1 millions de vues</strong><br/>
+      👥 <strong>+9 900 nouveaux abonnés</strong><br/>
+      👁️ <strong>1,2 million de spectateurs uniques</strong><br/>
+      💜 <strong>129 000 j'aime</strong></p>
+      <br/>
+      <p>Ces chiffres viennent directement de l'analytics TikTok. Pas des estimations. Pas des projections.</p>
+      <br/>
+      <p>La différence entre ces résultats et un compte qui stagne ? Ce n'est pas la chance. Ce n'est pas le fait d'avoir un million d'abonnés au départ. C'est la méthode.</p>
+      <br/>
+      <p>L'algorithme, les hooks, les formats, la fréquence — tout ça répond à des règles précises. Et ces règles, tu les as maintenant dans ton guide.</p>
+      <br/>
+      <p>La question est : est-ce que tu veux juste les lire, ou est-ce que tu veux aller plus loin ?</p>
+      <br/>
+      <p>On en reparle dans quelques jours.<br/><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 3 jours après J0</div>
+  </div>
+
+  <!-- J5 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">💡 J5 — Objection</span>
+      <span class="email-subject">Objet : <strong>"Mais je ne veux pas montrer mon visage sur TikTok..."</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>C'est l'objection qu'on entend le plus souvent.</p>
+      <br/>
+      <p>Et c'est une bonne nouvelle : <strong>tu n'as pas besoin de montrer ton visage</strong> pour monétiser TikTok.</p>
+      <br/>
+      <p>Le format "faceless" est en pleine explosion en 2025 :</p>
+      <p>— Screen recordings avec voix off<br/>
+      — Vidéos texte + musique de fond<br/>
+      — Contenu généré par IA<br/>
+      — Revues de produits en plan rapproché (mains uniquement)<br/>
+      — Compilations avec narration</p>
+      <br/>
+      <p>Plusieurs de ces méthodes sont couvertes en détail dans notre formation complète — avec des exemples de comptes faceless qui génèrent des revenus réels grâce à TikTok Shop et à l'affiliation.</p>
+      <br/>
+      <p>Et si tu veux démarrer sur TikTok Shop sans même créer ton propre compte depuis zéro, on a aussi une solution pour ça.</p>
+      <br/>
+      <p>Si tu veux en savoir plus :</p>
+      <div class="cta-line">→ <a href="https://vyrashop.com/#offres">Voir les offres VyraShop Academy</a></div>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 5 jours après J0</div>
+  </div>
+
+  <!-- J7 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge urgent">🎯 J7 — Offre</span>
+      <span class="email-subject">Objet : <strong>{{contact.PRENOM}}, tu veux aller plus loin ?</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Il y a 7 jours, tu as téléchargé le guide sur les méthodes TikTok.</p>
+      <br/>
+      <p>Le guide, c'est une introduction. Il te donne les bases — l'algorithme, les hooks, les formats.</p>
+      <br/>
+      <p>Mais monétiser TikTok, ça va beaucoup plus loin. Il y a 6 méthodes de revenus concrètes :</p>
+      <p>→ TikTok Shop & affiliation<br/>
+      → Creator Fund<br/>
+      → Lives et cadeaux virtuels<br/>
+      → UGC (User Generated Content)<br/>
+      → Partenariats de marque<br/>
+      → Automatisation & revenus passifs</p>
+      <br/>
+      <p>Notre formation <strong>"Faire de l'argent avec TikTok"</strong> couvre tout ça en 15 ebooks — du débutant complet aux stratégies avancées, avec des scripts prêts à l'emploi et un plan d'action 90 jours.</p>
+      <br/>
+      <div class="cta-line">📚 → <a href="https://vyrashop.com/#offres">Voir la Formation Academy (247€ · accès à vie)</a></div>
+      <p>Et si tu veux démarrer sur TikTok Shop immédiatement, sans attendre d'être éligible, on a aussi un accès clé en main à 199€.</p>
+      <br/>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+      <p class="ps">PS : Tu as des questions avant de décider ? Réponds à cet email, on te répond directement.</p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 7 jours après J0</div>
+  </div>
+
+  <!-- J10 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge urgent">🔥 J10 — Follow-up</span>
+      <span class="email-subject">Objet : <strong>Une question directe, {{contact.PRENOM}}</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Est-ce qu'il y a quelque chose qui te retient ?</p>
+      <br/>
+      <p>Les raisons les plus courantes qu'on entend :</p>
+      <p>"Je ne sais pas si c'est pour moi" → La formation commence de zéro. Si tu sais utiliser TikTok comme utilisateur, tu as tout ce qu'il faut.</p>
+      <br/>
+      <p>"Je n'ai pas le temps" → Le guide que tu as lu, tu peux l'appliquer en 30 minutes par jour. La formation est à ton rythme, accès à vie.</p>
+      <br/>
+      <p>"Je ne suis pas sûr des résultats" → On ne garantit pas de résultats financiers. Ce qu'on garantit : des méthodes concrètes, testées sur notre propre compte, avec 3,1 millions de vues en 60 jours comme preuve d'application.</p>
+      <br/>
+      <p>Si aucune de ces raisons n'est la tienne, dis-le-moi. Réponds à cet email.</p>
+      <br/>
+      <div class="cta-line">→ <a href="https://vyrashop.com/#offres">Voir toutes les offres</a></div>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 10 jours après J0</div>
+  </div>
+
+  <!-- J14 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge urgent">⏰ J14 — Dernier contact</span>
+      <span class="email-subject">Objet : <strong>Dernier email de ma part, {{contact.PRENOM}}</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>C'est mon dernier email de relance.</p>
+      <br/>
+      <p>Je ne veux pas te spammer — si VyraShop Academy n'est pas fait pour toi en ce moment, c'est tout à fait normal.</p>
+      <br/>
+      <p>Mais si tu te demandes encore comment générer des revenus avec TikTok, sache que :</p>
+      <p>— La formation est à accès à vie. Tu peux commencer aujourd'hui et avancer à ton rythme.<br/>
+      — L'accès TikTok Shop te donne un point de départ immédiat, sans attendre 1 500 abonnés.<br/>
+      — L'accompagnement est sans engagement, résiliable à tout moment.</p>
+      <br/>
+      <p>Et le guide gratuit que tu as téléchargé ? Il restera disponible à <a href="https://vyrashop.com/ebook_tiktok_performance.pdf">cette adresse</a>.</p>
+      <br/>
+      <p>Quoi qu'il en soit, bonne continuation sur TikTok.<br/><strong>L'équipe VyraShop Academy</strong></p>
+      <p class="ps">PS : Si tu changes d'avis, tu sais où nous trouver → vyrashop.com</p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 14 jours après J0. Dernier email de la séquence lead magnet.</div>
+  </div>
+
+</div><!-- /seq-body lead magnet -->
+
+
+<!-- ══ SÉQUENCE 2A : ACHETEURS FORMATION ══════════════════ -->
+<div class="seq-header" style="background:linear-gradient(135deg,#1a2e1e,#0d2014)">
+  <div class="seq-icon">📚</div>
+  <div class="seq-info">
+    <h2>Séquence 2A — Acheteurs Formation</h2>
+    <p>Trigger : Contact ajouté à "Acheteurs Formation" via Stripe webhook · 5 emails · 30 jours</p>
+  </div>
+</div>
+<div class="seq-body">
+
+  <!-- J0 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge green">⚡ J0 — Bienvenue</span>
+      <span class="email-subject">Objet : <strong>Bienvenue dans la Formation, {{contact.PRENOM}} 🎓</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Ta commande est confirmée. Bienvenue dans la Formation "Faire de l'argent avec TikTok".</p>
+      <br/>
+      <p><strong>Comment accéder à ta formation :</strong><br/>
+      1. Va sur <a href="https://vyrashop.com/espace-membre/">vyrashop.com/espace-membre/</a><br/>
+      2. Connecte-toi avec l'email que tu as utilisé pour payer<br/>
+      3. Tous tes ebooks sont disponibles immédiatement dans ton espace</p>
+      <br/>
+      <p><strong>Par où commencer ?</strong><br/>
+      On te recommande de commencer par le <strong>Module 1 — Ebook 1 : Monétisation TikTok</strong>. Il pose les bases de toutes les méthodes que tu vas apprendre.</p>
+      <br/>
+      <p>Ensuite, suis le <strong>Plan d'action 90 jours</strong> (dernier ebook du module 3) — il structure tout ton apprentissage semaine par semaine.</p>
+      <br/>
+      <p>Des questions ? Réponds à cet email ou écris-nous à contact@vyrashop.com.</p>
+      <br/>
+      <p>Bonne formation,<br/><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 0 minutes · Email transactionnel d'onboarding</div>
+  </div>
+
+  <!-- J2 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">📖 J2 — Activation</span>
+      <span class="email-subject">Objet : <strong>As-tu commencé le Module 1 ? (+ 1 conseil bonus)</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Il y a 2 jours tu as rejoint la formation. Est-ce que tu as eu le temps de commencer le Module 1 ?</p>
+      <br/>
+      <p>Si oui, super. Si non, voici la méthode pour avancer même avec peu de temps :</p>
+      <br/>
+      <p><strong>La règle des 20 minutes :</strong><br/>
+      Un ebook par session de 20 minutes. Lis, souligne ce qui s'applique à toi, note 1 action concrète à faire dans les 24h. Répète.</p>
+      <br/>
+      <p>En 15 ebooks, tu auras un plan d'action complet sur toutes les méthodes TikTok.</p>
+      <br/>
+      <p><strong>Conseil bonus :</strong><br/>
+      Commence à créer ton contenu en parallèle de la formation. L'apprentissage actif (apprendre + appliquer immédiatement) est 3x plus efficace que la lecture passive.</p>
+      <br/>
+      <p>Accède à ta formation : <a href="https://vyrashop.com/espace-membre/">vyrashop.com/espace-membre/</a></p>
+      <br/>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 2 jours après J0</div>
+  </div>
+
+  <!-- J7 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge urgent">🛒 J7 — Upsell Shop</span>
+      <span class="email-subject">Objet : <strong>La formation + l'accès Shop, c'est le combo gagnant</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Une semaine dans la formation. Tu commences à voir comment tout ça s'articule.</p>
+      <br/>
+      <p>Dans le Module 2, tu as appris comment TikTok Shop fonctionne et comment générer des commissions en affiliation.</p>
+      <br/>
+      <p>Mais il y a un obstacle que beaucoup rencontrent à ce stade : <strong>l'éligibilité TikTok Shop nécessite 1 000 à 5 000 abonnés selon les régions</strong>. Et construire une audience prend du temps.</p>
+      <br/>
+      <p>Notre Accès TikTok Shop résout ça directement : tu reçois un compte TikTok avec ~1 500 abonnés et TikTok Shop Affiliation déjà activé. Tu peux appliquer ce que tu apprends dans le Module 2 immédiatement.</p>
+      <br/>
+      <div class="cta-line">🛒 → <a href="https://vyrashop.com/#offres">Voir l'Accès TikTok Shop (199€ · livraison 48h)</a></div>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+      <p class="ps">PS : L'accès inclut une garantie de remplacement 30 jours.</p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 7 jours après J0</div>
+  </div>
+
+  <!-- J14 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge urgent">💬 J14 — Upsell Accompagnement</span>
+      <span class="email-subject">Objet : <strong>{{contact.PRENOM}}, tu veux un regard extérieur sur ta stratégie ?</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>2 semaines dans la formation. Tu as les méthodes. Tu as les outils.</p>
+      <br/>
+      <p>Mais une chose que même la meilleure formation ne peut pas faire : <strong>regarder TON compte spécifiquement et te dire exactement ce qui ne fonctionne pas</strong>.</p>
+      <br/>
+      <p>C'est ce que fait notre Accompagnement Premium.</p>
+      <p>— Retours personnalisés sur tes vidéos<br/>
+      — Analyse de ta stratégie de contenu<br/>
+      — Réponses à tes questions sur WhatsApp<br/>
+      — Du lundi au vendredi, réponse en 24-48h</p>
+      <br/>
+      <p>150€/mois. Sans engagement. Résiliable quand tu veux.</p>
+      <br/>
+      <div class="cta-line">💬 → <a href="https://vyrashop.com/#accompagnement">Démarrer l'accompagnement (150€/mois)</a></div>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 14 jours après J0</div>
+  </div>
+
+  <!-- J30 -->
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">⭐ J30 — Témoignage</span>
+      <span class="email-subject">Objet : <strong>1 mois — comment tu t'en sors, {{contact.PRENOM}} ?</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Ça fait 1 mois que tu as rejoint la formation.</p>
+      <br/>
+      <p>On aimerait vraiment savoir comment tu t'en sors. Est-ce que tu as :</p>
+      <p>— Publié tes premières vidéos ?<br/>
+      — Commencé sur TikTok Shop ?<br/>
+      — Obtenu tes premières vues, tes premiers abonnés ?</p>
+      <br/>
+      <p>Si tu veux partager ton expérience, réponds à cet email. On lit chaque retour, et avec ton accord, ton témoignage pourra apparaître sur le site.</p>
+      <br/>
+      <p>Et si tu bloques encore sur quelque chose, dis-le-nous aussi. On est là.</p>
+      <br/>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 30 jours après J0. Fin de la séquence Formation.</div>
+  </div>
+
+</div><!-- /seq formation -->
+
+
+<!-- ══ SÉQUENCE 2B : ACHETEURS TIKTOK SHOP ════════════════ -->
+<div class="seq-header" style="background:linear-gradient(135deg,#2d1a0e,#1a0f08)">
+  <div class="seq-icon">🛒</div>
+  <div class="seq-info">
+    <h2>Séquence 2B — Acheteurs TikTok Shop</h2>
+    <p>Trigger : Contact ajouté à "Acheteurs TikTok Shop" · 4 emails · 10 jours</p>
+  </div>
+</div>
+<div class="seq-body">
+
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge green">⚡ J0 — Confirmation</span>
+      <span class="email-subject">Objet : <strong>Ton accès TikTok Shop est en cours de préparation, {{contact.PRENOM}} 🛒</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Commande confirmée. Ton Accès TikTok Shop est en cours de préparation.</p>
+      <br/>
+      <p><strong>Délai :</strong> maximum 48h ouvrées.</p>
+      <p><strong>Comment tu le reçois :</strong> connecte-toi à ton espace client sur <a href="https://vyrashop.com/espace-membre/">vyrashop.com/espace-membre/</a> — les identifiants apparaîtront automatiquement dès que l'accès est prêt.</p>
+      <br/>
+      <p>On t'envoie un email de confirmation quand c'est prêt.</p>
+      <br/>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 0 minutes</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">🚀 J2 — Premiers pas</span>
+      <span class="email-subject">Objet : <strong>Ton accès est prêt — voici par où commencer</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Ton accès TikTok Shop est disponible dans ton espace client.</p>
+      <br/>
+      <p><strong>Les 3 premières choses à faire :</strong></p>
+      <p>1. <strong>Connecte-toi au compte</strong> avec les identifiants fournis. Prends le temps de te familiariser avec l'interface.</p>
+      <p>2. <strong>Choisis ta niche produit</strong>. Va dans TikTok Shop → Vitrine → Cherche des produits avec 4+ étoiles et déjà beaucoup de commissions.</p>
+      <p>3. <strong>Crée ta première vidéo produit</strong>. Format recommandé : 20-30 secondes, montre le produit en action, hook direct ("Ce produit m'a choqué..."), call to action clair.</p>
+      <br/>
+      <p>Des questions sur la prise en main ? Réponds à cet email.</p>
+      <br/>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 2 jours. Déclenche manuellement si l'accès a été livré, sinon ajuste le délai.</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge urgent">📚 J5 — Upsell Formation</span>
+      <span class="email-subject">Objet : <strong>Tu as l'accès Shop — maintenant la méthode complète ?</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Tu as maintenant un compte TikTok Shop opérationnel.</p>
+      <br/>
+      <p>Pour maximiser tes commissions, il y a des stratégies précises à connaître :</p>
+      <p>— Quels produits choisir (et lesquels éviter)<br/>
+      — Comment structurer tes vidéos pour convertir<br/>
+      — Comment analyser tes stats pour doubler ce qui marche<br/>
+      — Les hooks qui fonctionnent spécifiquement pour TikTok Shop</p>
+      <br/>
+      <p>Notre <strong>formation complète</strong> couvre tout ça dans les Modules 2 et 3 — avec des scripts prêts à l'emploi et 20 templates de vidéos TikTok Shop.</p>
+      <br/>
+      <div class="cta-line">📚 → <a href="https://vyrashop.com/#offres">Voir la Formation Academy (247€ · accès à vie)</a></div>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 5 jours après J0</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge urgent">💬 J10 — Upsell Accompagnement</span>
+      <span class="email-subject">Objet : <strong>Comment ça se passe avec TikTok Shop, {{contact.PRENOM}} ?</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>10 jours avec ton accès TikTok Shop.</p>
+      <br/>
+      <p>Est-ce que tu as publié des vidéos ? Est-ce que tu vois tes premières vues ?</p>
+      <br/>
+      <p>Si tu as l'impression de ne pas aller dans la bonne direction, ou si tu veux simplement aller plus vite, notre Accompagnement Premium est fait pour toi.</p>
+      <br/>
+      <p>Un regard extérieur sur ta stratégie, tes vidéos et ton compte — directement sur WhatsApp. 150€/mois, sans engagement.</p>
+      <br/>
+      <div class="cta-line">💬 → <a href="https://vyrashop.com/#accompagnement">Démarrer l'accompagnement</a></div>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 10 jours après J0. Fin de la séquence TikTok Shop.</div>
+  </div>
+
+</div><!-- /seq shop -->
+
+
+<!-- ══ SÉQUENCE 2C : ACHETEURS ACCOMPAGNEMENT ════════════ -->
+<div class="seq-header" style="background:linear-gradient(135deg,#0d2014,#0a1a10)">
+  <div class="seq-icon">💬</div>
+  <div class="seq-info">
+    <h2>Séquence 2C — Acheteurs Accompagnement</h2>
+    <p>Trigger : Contact ajouté à "Acheteurs Accompagnement" · 3 emails · 14 jours</p>
+  </div>
+</div>
+<div class="seq-body">
+
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge green">⚡ J0 — Bienvenue</span>
+      <span class="email-subject">Objet : <strong>Bienvenue dans l'Accompagnement, {{contact.PRENOM}} 💬</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Bienvenue dans l'Accompagnement Premium VyraShop Academy.</p>
+      <br/>
+      <p>On va te contacter directement sur WhatsApp dans les 48h pour démarrer.</p>
+      <br/>
+      <p>En attendant, si tu ne l'as pas encore fait, prépare ces éléments pour notre premier échange :</p>
+      <p>— Ton handle TikTok (ou les identifiants si tu utilises l'Accès Shop)<br/>
+      — Ce que tu essaies de faire sur TikTok (niche, objectif, méthode visée)<br/>
+      — Ce qui bloque en ce moment</p>
+      <br/>
+      <p>À très vite,<br/><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 0 minutes</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">📋 J7 — Check-in</span>
+      <span class="email-subject">Objet : <strong>1 semaine — comment ça avance, {{contact.PRENOM}} ?</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>Une semaine dans l'accompagnement.</p>
+      <br/>
+      <p>Si tu as des sujets supplémentaires que tu veux aborder — stratégie, contenu, monétisation — n'hésite pas à nous en parler sur WhatsApp ou en répondant à cet email.</p>
+      <br/>
+      <p>On est là pour t'aider à avancer dans la bonne direction.</p>
+      <br/>
+      <p><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 7 jours après J0</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta">
+      <span class="day-badge">⭐ J14 — Avis</span>
+      <span class="email-subject">Objet : <strong>Ton retour compte beaucoup pour nous, {{contact.PRENOM}}</strong></span>
+    </div>
+    <div class="email-body">
+      <p class="hi">{{contact.PRENOM}},</p>
+      <p>2 semaines dans l'accompagnement.</p>
+      <br/>
+      <p>On aimerait savoir ce qui a été le plus utile pour toi jusqu'ici. Un retour honnête, même court, nous aide à améliorer l'accompagnement pour tous nos membres.</p>
+      <br/>
+      <p>Et si tu es satisfait(e), ton témoignage (avec ton accord) pourrait aider d'autres personnes à franchir le pas. Il suffit de répondre à cet email.</p>
+      <br/>
+      <p>Merci pour ta confiance.<br/><strong>L'équipe VyraShop Academy</strong></p>
+    </div>
+    <div class="brevo-tip">💡 Brevo : délai = 14 jours après J0. Fin de la séquence Accompagnement.</div>
+  </div>
+
+</div><!-- /seq accompagnement -->
+
+<div style="background:#fff;border-radius:12px;padding:20px 24px;border:1px solid #e5e7eb;margin-top:8px;font-size:.85rem;color:#6b7280">
+  <strong style="color:#374151">✅ Récapitulatif des variables Brevo à utiliser dans les emails :</strong><br/>
+  <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px">{{contact.PRENOM}}</code> — Prénom du contact ·
+  <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px">{{contact.EMAIL}}</code> — Email ·
+  Ces variables sont remplies automatiquement par Brevo avec les données envoyées via l'API.
+</div>
+
+</div><!-- /page -->
+</body>
+</html>
