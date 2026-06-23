@@ -14,7 +14,7 @@ body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',R
 .gate-card p{color:var(--tx);font-size:.9rem;margin:10px 0}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{font-size:1.1rem;font-weight:900;text-decoration:none;color:var(--wh)}
-.logo span{color:var(--or)}
+.logo span{color:inherit}
 .nav-links{display:flex;gap:12px;align-items:center}
 .nav-links a{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600}
 .nav-links a:hover{color:var(--wh)}
@@ -87,13 +87,21 @@ tr:nth-child(even) td{background:rgba(255,255,255,.02)}
 footer{text-align:center;padding:20px;color:var(--tx);font-size:.74rem;border-top:1px solid var(--bord)}
 footer a{color:var(--pl);text-decoration:none}
 @media(max-width:600px){.flow{flex-direction:column}.ebook-header{padding:14px 16px}.ebook-body{padding:0 16px 18px}.plan{grid-template-columns:1fr 1fr}}
+
+/* VyraShop brand purple gradient */
+.logo-vyra,.logo,.brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 </style>
 </head>
 <body>
 <div id="gate"><div class="gate-card"><p>Vérification de ton accès…</p></div></div>
 
 <nav>
-  <a href="index.html" class="logo">Vyra<span>Shop</span></a>
+  <a href="index.html" class="logo"><span class="logo-vyra">Vyra<span style="-webkit-text-fill-color:inherit;color:inherit">Shop</span></span></a>
   <div class="nav-links">
     <a href="/espace-membre/">🏠 Mon espace</a>
     <a href="index.html">📚 Accueil formation</a>

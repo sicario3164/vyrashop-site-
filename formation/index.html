@@ -17,7 +17,7 @@ body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',R
 .btn{display:inline-block;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;cursor:pointer;border:none;font-family:inherit}
 nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{font-size:1.2rem;font-weight:900;text-decoration:none;color:var(--wh)}
-.logo span{color:var(--or)}
+.logo span{color:inherit}
 .nav-tag{background:rgba(138,92,246,.15);border:1px solid var(--bord);color:var(--pl);font-size:.7rem;font-weight:700;padding:5px 14px;border-radius:50px}
 .hero{text-align:center;padding:60px 24px 40px;max-width:800px;margin:0 auto}
 .badge{display:inline-block;background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.35);color:var(--gr);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 18px;border-radius:50px;margin-bottom:18px}
@@ -51,6 +51,14 @@ nav{background:rgba(13,11,20,.97);border-bottom:1px solid var(--bord);padding:14
 .mod3{border-top:3px solid var(--gr)}
 footer{text-align:center;padding:20px;color:var(--tx);font-size:.74rem;border-top:1px solid var(--bord)}
 footer a{color:var(--pl);text-decoration:none}
+
+/* VyraShop brand purple gradient */
+.logo-vyra,.logo,.brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 </style>
 </head>
 <body>
@@ -66,7 +74,7 @@ footer a{color:var(--pl);text-decoration:none}
 </div>
 
 <nav>
-  <a href="index.html" class="logo">Vyra<span>Shop</span></a>
+  <a href="index.html" class="logo"><span class="logo-vyra">Vyra<span style="-webkit-text-fill-color:inherit;color:inherit">Shop</span></span></a>
   <div class="nav-tag">⭐ Formation TikTok Expert</div>
   <a href="/espace-membre/" style="color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:600">🏠 Mon espace</a>
 </nav>
