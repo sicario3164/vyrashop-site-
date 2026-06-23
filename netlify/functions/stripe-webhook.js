@@ -77,6 +77,40 @@ exports.handler = async function(event) {
       }
     }
 
+
+    // BREVO — ajoute l'acheteur à la liste email correspondante pour déclencher
+    // la séquence automatisée (J0, J3, J7, J14...).
+    // Variables requises : BREVO_API_KEY, BREVO_FORMATION_LIST, BREVO_SHOP_LIST, BREVO_ACCOMPAGNEMENT_LIST
+    try {
+      const brevoKey = process.env.BREVO_API_KEY;
+      if (brevoKey && priceId) {
+        const brevoLists = {
+          [process.env.STRIPE_FORMATION_PRICE_ID]:      parseInt(process.env.BREVO_FORMATION_LIST      || '3', 10),
+          [process.env.STRIPE_SHOP_PRICE_ID]:           parseInt(process.env.BREVO_SHOP_LIST           || '4', 10),
+          [process.env.STRIPE_ACCOMPAGNEMENT_PRICE_ID]: parseInt(process.env.BREVO_ACCOMPAGNEMENT_LIST || '5', 10),
+        };
+        const brevoListId = brevoLists[priceId];
+        if (brevoListId) {
+          const rawName = session.customer_details?.name || '';
+          const prenom  = rawName.split(' ')[0] || '';
+          await fetch('https://api.brevo.com/v3/contacts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'api-key': brevoKey },
+            body: JSON.stringify({
+              email,
+              attributes: { PRENOM: prenom, NOM: rawName },
+              listIds: [brevoListId],
+              updateEnabled: true,
+            }),
+          });
+          console.log('Brevo: contact ajouté liste', brevoListId, 'pour', email);
+        }
+      }
+    } catch (brevoErr) {
+      // Non bloquant — l'accès produit est déjà accordé
+      console.error('Erreur Brevo (non bloquant):', brevoErr.message);
+    }
+
     // FACTURE AUTOMATIQUE — génère une facture PDF conforme et l'envoie par email au client.
     // Mentions obligatoires auto-entrepreneur exonéré de TVA (art. 293 B du CGI) incluses.
     // La facture est créée uniquement si le client a un customer_id Stripe (toujours le cas
