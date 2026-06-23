@@ -61,17 +61,10 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .proof-lbl{font-size:.67rem;color:var(--tx);margin-top:3px;line-height:1.3}
 
 /* ── STATS BLOCK ── */
-.stats-section{padding:64px 20px;max-width:1040px;margin:0 auto}
 .eyebrow{display:block;font-size:.67rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--or);margin-bottom:10px}
 .sec-title{font-size:clamp(1.55rem,3.4vw,2.1rem);font-weight:900;margin-bottom:8px;line-height:1.15}
 .sec-sub{color:var(--tx);font-size:.9rem;margin-bottom:32px;max-width:520px;line-height:1.6}
 .divider{width:44px;height:3px;background:linear-gradient(90deg,var(--pu),var(--or));border-radius:2px;margin-bottom:28px}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:20px}
-.stat-card{background:var(--card);border:1px solid var(--bord);border-radius:14px;padding:22px 18px;text-align:center}
-.stat-card.highlight{border-color:rgba(138,92,246,.45);background:linear-gradient(135deg,rgba(138,92,246,.08),var(--card))}
-.stat-big{font-size:2rem;font-weight:900;color:var(--pl);line-height:1}
-.stat-label{font-size:.7rem;color:var(--tx);margin-top:5px;line-height:1.35}
-.stat-period{font-size:.64rem;color:rgba(196,181,253,.45);margin-top:3px}
 .stats-source{background:rgba(138,92,246,.07);border:1px solid var(--bord);border-radius:10px;padding:12px 16px;font-size:.75rem;color:var(--tx);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
 
 /* ── WHY TIKTOK ── */
@@ -169,7 +162,7 @@ footer img{height:42px;display:block;margin:0 auto 8px}
 @media(max-width:768px){
   nav{padding:11px 16px}
   .logo img{height:36px}
-  .btn-ghost{display:none}
+  
   .hero{padding:52px 16px 44px}
   .hero-brand{font-size:2.8rem}
   .proof-item{padding:8px 14px}
@@ -178,14 +171,62 @@ footer img{height:42px;display:block;margin:0 auto 8px}
   .tier-card.featured{order:-1}
   .parcours-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr 1fr}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .sec,.stats-section{padding:52px 16px}
-}
+  .sec,}
 @media(max-width:480px){
   .hero-brand{font-size:2.2rem}
   .why-grid{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr 1fr}
   .hero-objections{gap:8px}
+}
+
+/* ── LEAD MAGNET BANNER ── */
+.lm-banner{background:linear-gradient(135deg,rgba(138,92,246,.14),rgba(251,146,60,.08));border-top:1px solid var(--bord);border-bottom:1px solid var(--bord);padding:48px 20px;text-align:center}
+.lm-banner h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:900;margin-bottom:10px}
+.lm-banner p{color:var(--tx);max-width:480px;margin:0 auto 22px;font-size:.92rem;line-height:1.6}
+.lm-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;padding:15px 36px;border-radius:50px;font-weight:900;font-size:1rem;cursor:pointer;border:none;font-family:inherit;transition:transform .2s,opacity .2s;text-decoration:none}
+.lm-btn:hover{transform:translateY(-2px);opacity:.92}
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal-box{background:var(--surf);border:1px solid var(--bord);border-radius:20px;padding:36px 32px;width:100%;max-width:460px;position:relative;transform:translateY(20px);transition:transform .3s}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--tx);font-size:1.3rem;cursor:pointer;line-height:1;padding:4px 8px}
+.modal-close:hover{color:var(--wh)}
+.modal-badge{display:inline-block;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);color:var(--gr);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:16px}
+.modal-title{font-size:1.35rem;font-weight:900;margin-bottom:8px}
+.modal-sub{font-size:.88rem;color:var(--tx);margin-bottom:22px;line-height:1.55}
+.modal-field{margin-bottom:14px}
+.modal-field label{display:block;font-size:.78rem;font-weight:700;color:var(--pl);margin-bottom:6px;letter-spacing:.5px}
+.modal-field input{width:100%;background:var(--card);border:1px solid var(--bord);border-radius:10px;padding:12px 14px;color:var(--wh);font-family:inherit;font-size:.95rem;outline:none;transition:border-color .2s}
+.modal-field input:focus{border-color:var(--pu)}
+.modal-field input::placeholder{color:rgba(226,217,243,.3)}
+.modal-submit{width:100%;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border:none;padding:15px;border-radius:50px;font-weight:900;font-size:1rem;cursor:pointer;font-family:inherit;transition:transform .2s,opacity .2s;margin-top:4px}
+.modal-submit:hover{transform:translateY(-2px);opacity:.92}
+.modal-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.modal-legal{font-size:.68rem;color:rgba(226,217,243,.38);text-align:center;margin-top:10px;line-height:1.5}
+.modal-success{text-align:center;display:none}
+.modal-success .s-icon{font-size:3rem;margin-bottom:12px}
+.modal-success h3{font-size:1.2rem;font-weight:900;margin-bottom:8px}
+.modal-success p{font-size:.88rem;color:var(--tx);margin-bottom:20px;line-height:1.55}
+.modal-dl-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gr),#16a34a);color:#fff;padding:13px 28px;border-radius:50px;font-weight:800;font-size:.95rem;text-decoration:none;transition:transform .2s}
+.modal-dl-btn:hover{transform:translateY(-2px)}
+.modal-error{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);color:#fca5a5;border-radius:8px;padding:10px 14px;font-size:.82rem;margin-bottom:12px;display:none}
+
+/* ── SCREENSHOTS GALLERY ── */
+.screens-scroll{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--bord) transparent;-webkit-overflow-scrolling:touch}
+.screens-scroll::-webkit-scrollbar{height:5px}
+.screens-scroll::-webkit-scrollbar-track{background:transparent}
+.screens-scroll::-webkit-scrollbar-thumb{background:var(--bord);border-radius:4px}
+.screen-card{flex-shrink:0;width:220px;background:var(--card);border:1px solid var(--bord);border-radius:14px;overflow:hidden}
+.screen-label{font-size:.7rem;font-weight:700;color:var(--pl);padding:9px 12px;background:rgba(138,92,246,.08);border-bottom:1px solid var(--bord)}
+.screen-card img{width:100%;height:auto;display:block}
+@media(max-width:600px){.screen-card{width:180px}}
+
+/* VyraShop brand multi-purple gradient */
+.logo-vyra,.nav-brand-vyra{
+  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
@@ -259,47 +300,80 @@ footer img{height:42px;display:block;margin:0 auto 8px}
   </div>
 </div>
 
+
+<!-- ── LEAD MAGNET ── -->
+<div class="lm-banner">
+  <div style="max-width:700px;margin:0 auto">
+    <span class="eyebrow" style="display:block;margin-bottom:10px">📥 Guide Gratuit</span>
+    <h2>Télécharge le Guide TikTok Performance</h2>
+    <p>8 pages de méthodes concrètes — algorithme TikTok, hooks qui accrochent, formats qui performent et plan d'action 7 jours. <strong style="color:var(--wh)">100% gratuit.</strong></p>
+    <button class="lm-btn" onclick="openLeadModal()">📥 Obtenir le guide gratuit →</button>
+    <p style="margin-top:12px;font-size:.76rem;color:rgba(226,217,243,.4)">Pas de spam · Désabonnement en 1 clic · Livré par email immédiatement</p>
+  </div>
+</div>
+
+<!-- ── MODAL LEAD MAGNET ── -->
+<div id="leadModal" class="modal-overlay" onclick="closeLeadModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLeadModal()">✕</button>
+
+    <!-- FORM STATE -->
+    <div id="modalForm">
+      <div class="modal-badge">📥 Guide Gratuit · 8 pages</div>
+      <h2 class="modal-title">Le Guide TikTok Performance</h2>
+      <p class="modal-sub">Renseigne ton prénom et ton email — le guide t'est envoyé <strong style="color:var(--wh)">immédiatement</strong>.</p>
+      <div id="modalError" class="modal-error"></div>
+            <div class="modal-field">
+        <label>Numéro de téléphone *</label>
+        <input type="tel" id="lmPhone" placeholder="06 XX XX XX XX" autocomplete="tel" inputmode="tel"/>
+      </div>
+      <div class="modal-field">
+        <label>Email *</label>
+ *</label>
+        <input type="email" id="lmEmail" placeholder="ton@email.com" autocomplete="email"/>
+      </div>
+      <button class="modal-submit" id="lmSubmit" onclick="submitLeadForm()">📥 Recevoir le guide gratuit</button>
+      <p class="modal-legal">En soumettant ce formulaire, tu acceptes de recevoir des emails de VyraShop Academy. Désabonnement possible à tout moment via le lien en bas de chaque email. <a href="politique-confidentialite.html" style="color:rgba(196,181,253,.5)">Politique de confidentialité</a></p>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="modalSuccess" class="modal-success">
+      <div class="s-icon">🎉</div>
+      <h3>C'est dans ta boîte mail !</h3>
+      <p>Le guide t'a été envoyé à l'adresse indiquée. Pense à vérifier tes spams si tu ne le vois pas dans les 2 minutes.</p>
+      <a href="/ebook_tiktok_performance.pdf" download class="modal-dl-btn">📥 Téléchargement direct</a>
+      <p style="margin-top:14px;font-size:.8rem;color:var(--tx)">Et si tu veux aller plus loin →</p>
+      <a href="#offres" onclick="closeLeadModal()" style="display:inline-block;margin-top:6px;font-size:.88rem;color:var(--pl);text-decoration:underline">Découvrir les offres VyraShop Academy</a>
+    </div>
+  </div>
+</div>
 <!-- ── SOCIAL PROOF : STATS RÉELLES ── -->
 <section class="stats-section">
   <span class="eyebrow">Preuves concrètes</span>
   <h2 class="sec-title">Des méthodes qu'on applique<br/>nous-mêmes, en temps réel</h2>
   <p class="sec-sub">Ces statistiques viennent de notre propre compte TikTok. On n'enseigne pas ce qu'on ne fait pas.</p>
   <div class="divider"></div>
-  <div class="stats-grid">
-    <div class="stat-card highlight reveal">
-      <div class="stat-big">3,1 M</div>
-      <div class="stat-label">Vues de publication</div>
-      <div class="stat-period">60 jours · 23 avr. – 21 juin</div>
+  <div class="screens-scroll reveal">
+    <div class="screen-card">
+      <div class="screen-label">📊 60 jours — Vue d'ensemble</div>
+      <img src="/assets/stats/stat-60-jours-overview.jpg" alt="Analytics TikTok 60 jours vue densemble" loading="lazy"/>
     </div>
-    <div class="stat-card reveal">
-      <div class="stat-big">1,2 M</div>
-      <div class="stat-label">Spectateurs uniques</div>
-      <div class="stat-period">60 jours · 23 avr. – 21 juin</div>
+    <div class="screen-card">
+      <div class="screen-label">👥 60 jours — Spectateurs</div>
+      <img src="/assets/stats/stat-60-jours-spectateurs.jpg" alt="Analytics TikTok 60 jours spectateurs" loading="lazy"/>
     </div>
-    <div class="stat-card reveal">
-      <div class="stat-big">+9 900</div>
-      <div class="stat-label">Nouveaux abonnés</div>
-      <div class="stat-period">60 jours · 23 avr. – 21 juin</div>
+    <div class="screen-card">
+      <div class="screen-label">📈 60 jours — Followers</div>
+      <img src="/assets/stats/stat-60-jours-followers.jpg" alt="Analytics TikTok 60 jours followers" loading="lazy"/>
     </div>
-    <div class="stat-card reveal">
-      <div class="stat-big">30 844</div>
-      <div class="stat-label">Abonnés au total</div>
-      <div class="stat-period">Depuis le début du compte</div>
+    <div class="screen-card">
+      <div class="screen-label">📅 28 jours — Vue d'ensemble</div>
+      <img src="/assets/stats/stat-28-jours.jpg" alt="Analytics TikTok 28 jours" loading="lazy"/>
     </div>
-    <div class="stat-card reveal">
-      <div class="stat-big">129 K</div>
-      <div class="stat-label">J'aime reçus</div>
-      <div class="stat-period">60 jours · 23 avr. – 21 juin</div>
+    <div class="screen-card">
+      <div class="screen-label">🗓️ 7 jours — Vue d'ensemble</div>
+      <img src="/assets/stats/stat-7-jours.jpg" alt="Analytics TikTok 7 jours" loading="lazy"/>
     </div>
-    <div class="stat-card reveal">
-      <div class="stat-big">25,4 K</div>
-      <div class="stat-label">Partages</div>
-      <div class="stat-period">60 jours · +15,1% vs période précédente</div>
-    </div>
-  </div>
-  <div class="stats-source reveal" style="margin-top:16px">
-    <span>📊</span>
-    <span><strong style="color:var(--wh)">Source :</strong> Analytics TikTok du compte @VyraShop, captures extraites le 21 juin 2026. Ces résultats sont ceux de notre propre compte — ils démontrent que nos méthodes fonctionnent, sans constituer une promesse de résultats identiques pour nos clients.</span>
   </div>
 </section>
 
@@ -585,7 +659,7 @@ footer img{height:42px;display:block;margin:0 auto 8px}
 <!-- ── FOOTER ── -->
 <footer>
   <img src="logo.png" alt="VyraShop Academy" width="42" height="42"/>
-  <div class="footer-brand">VyraShop <span>Academy</span></div>
+  <div class="footer-brand"><span class="logo-vyra">VyraShop</span> <span style="color:var(--pl)">Academy</span></div>
   <p>© 2026 VyraShop · Tous droits réservés</p>
   <div class="footer-links">
     <a href="mentions-legales.html">Mentions légales</a>
@@ -669,6 +743,59 @@ try{
     revealEls.forEach(function(el){el.classList.add('in-view');});
   },2200);
 }catch(e){}
+
+/* ── LEAD MAGNET MODAL ── */
+function openLeadModal(){
+  document.getElementById('leadModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){document.getElementById('lmPrenom').focus();},300);
+}
+function closeLeadModal(){
+  document.getElementById('leadModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeLeadModalOutside(e){
+  if(e.target===document.getElementById('leadModal'))closeLeadModal();
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLeadModal();});
+
+async function submitLeadForm(){
+  var phone  = document.getElementById('lmPhone').value.trim();
+  var email  = document.getElementById('lmEmail').value.trim();
+  var errEl  = document.getElementById('modalError');
+  var btn    = document.getElementById('lmSubmit');
+
+  errEl.style.display='none';
+
+  if(!phone){errEl.textContent='Ton numéro de téléphone est requis.';errEl.style.display='block';document.getElementById('lmPhone').focus();return;}
+  if(!email||!/^[^@]+@[^@]+\.[^@]+$/.test(email)){errEl.textContent='Adresse email invalide.';errEl.style.display='block';document.getElementById('lmEmail').focus();return;}
+
+  btn.disabled=true;
+  btn.textContent='Envoi en cours...';
+
+  try{
+    var res = await fetch('/.netlify/functions/subscribe',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({phone:phone,email:email})
+    });
+    var data = await res.json();
+    if(data.success){
+      document.getElementById('modalForm').style.display='none';
+      document.getElementById('modalSuccess').style.display='block';
+    } else {
+      errEl.textContent='Une erreur est survenue. Réessaie ou contacte-nous.';
+      errEl.style.display='block';
+      btn.disabled=false;
+      btn.textContent='📥 Recevoir le guide gratuit';
+    }
+  }catch(e){
+    errEl.textContent='Erreur réseau. Vérifie ta connexion et réessaie.';
+    errEl.style.display='block';
+    btn.disabled=false;
+    btn.textContent='📥 Recevoir le guide gratuit';
+  }
+}
 </script>
 
 <!-- ── COOKIE BANNER ── -->
