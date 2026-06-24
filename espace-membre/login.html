@@ -96,10 +96,10 @@ input:focus{border-color:var(--pu)}
       <label>Mot de passe</label>
       <input type="password" id="reg-pwd" placeholder="8 caractères minimum" autocomplete="new-password"/>
     </div>
-    <div style="display:flex;align-items:flex-start;gap:8px;margin:4px 0">
-      <input type="checkbox" id="reg-cgv" style="margin-top:3px;flex-shrink:0"/>
-      <label for="reg-cgv" style="font-weight:400;font-size:.82rem">J'accepte les <a href="https://vyrashop.com/cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="https://vyrashop.com/politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a></label>
-    </div>
+    <label for="reg-cgv" style="display:flex;align-items:flex-start;gap:10px;margin:8px 0;cursor:pointer;padding:10px 12px;background:rgba(138,92,246,.07);border:1px solid rgba(138,92,246,.2);border-radius:10px">
+      <input type="checkbox" id="reg-cgv" style="margin-top:2px;flex-shrink:0;width:16px;height:16px;accent-color:#8a5cf6;cursor:pointer"/>
+      <span style="font-size:.82rem;font-weight:400;color:#c4b5fd;line-height:1.5">J'accepte les <a href="https://vyrashop.com/cgv.html" target="_blank" rel="noopener" style="color:#fb923c">CGV</a> et la <a href="https://vyrashop.com/politique-confidentialite.html" target="_blank" rel="noopener" style="color:#fb923c">politique de confidentialité</a></span>
+    </label>
     <button class="btn" onclick="register()" id="reg-btn">Créer mon compte</button>
     <div class="msg" id="reg-msg"></div>
   </div>
