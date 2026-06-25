@@ -294,8 +294,8 @@ footer img{height:42px;display:block;margin:0 auto 8px}
       <p class="modal-sub">Renseigne ton prénom et ton email — le guide t'est envoyé <strong style="color:var(--wh)">immédiatement</strong>.</p>
       <div id="modalError" class="modal-error"></div>
             <div class="modal-field">
-        <label>Numéro de téléphone *</label>
-        <input type="tel" id="lmPhone" placeholder="06 XX XX XX XX" autocomplete="tel" inputmode="tel"/>
+        <label>Prénom *</label>
+        <input type="text" id="lmPrenom" placeholder="Ton prénom" autocomplete="given-name"/>
       </div>
       <div class="modal-field">
         <label>Email *</label>
@@ -730,14 +730,14 @@ function closeLeadModalOutside(e){
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLeadModal();});
 
 async function submitLeadForm(){
-  var phone  = document.getElementById('lmPhone').value.trim();
+  var prenom = document.getElementById('lmPrenom').value.trim();
   var email  = document.getElementById('lmEmail').value.trim();
   var errEl  = document.getElementById('modalError');
   var btn    = document.getElementById('lmSubmit');
 
   errEl.style.display='none';
 
-  if(!phone){errEl.textContent='Ton numéro de téléphone est requis.';errEl.style.display='block';document.getElementById('lmPhone').focus();return;}
+  if(!prenom){errEl.textContent='Ton prénom est requis.';errEl.style.display='block';document.getElementById('lmPrenom').focus();return;}
   if(!email||!/^[^@]+@[^@]+\.[^@]+$/.test(email)){errEl.textContent='Adresse email invalide.';errEl.style.display='block';document.getElementById('lmEmail').focus();return;}
 
   btn.disabled=true;
@@ -747,7 +747,7 @@ async function submitLeadForm(){
     var res = await fetch('/.netlify/functions/subscribe',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({phone:phone,email:email})
+      body:JSON.stringify({prenom:prenom,email:email})
     });
     var data = await res.json();
     if(data.success){
