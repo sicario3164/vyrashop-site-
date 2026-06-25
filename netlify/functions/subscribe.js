@@ -25,17 +25,17 @@ exports.handler = async function (event) {
   }
 
   /* ── Parse body ── */
-  let phone, email;
+  let prenom, email;
   try {
-    ({ phone, email } = JSON.parse(event.body));
+    ({ prenom, email } = JSON.parse(event.body));
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: 'JSON invalide' }) };
   }
 
-  if (!email || !phone) {
+  if (!email || !prenom) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: 'email et telephone sont requis' }),
+      body: JSON.stringify({ error: 'email et prenom sont requis' }),
     };
   }
 
@@ -58,8 +58,7 @@ exports.handler = async function (event) {
       body: JSON.stringify({
         email: email.toLowerCase().trim(),
         attributes: {
-          SMS: phone.trim(),
-          WHATSAPP: phone.trim(),
+          PRENOM: prenom.trim(),
         },
         listIds: [listId],
         updateEnabled: true,   // met à jour si le contact existe déjà
