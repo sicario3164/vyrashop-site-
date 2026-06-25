@@ -293,9 +293,15 @@ footer img{height:42px;display:block;margin:0 auto 8px}
       <h2 class="modal-title">Le Guide TikTok Performance</h2>
       <p class="modal-sub">Renseigne ton prénom et ton email — le guide t'est envoyé <strong style="color:var(--wh)">immédiatement</strong>.</p>
       <div id="modalError" class="modal-error"></div>
-            <div class="modal-field">
-        <label>Prénom *</label>
-        <input type="text" id="lmPrenom" placeholder="Ton prénom" autocomplete="given-name"/>
+            <div style="display:flex;gap:12px">
+        <div class="modal-field" style="flex:1">
+          <label>Prénom *</label>
+          <input type="text" id="lmPrenom" placeholder="Prénom" autocomplete="given-name"/>
+        </div>
+        <div class="modal-field" style="flex:1">
+          <label>Nom</label>
+          <input type="text" id="lmNom" placeholder="Nom" autocomplete="family-name"/>
+        </div>
       </div>
       <div class="modal-field">
         <label>Email *</label>
@@ -747,7 +753,7 @@ async function submitLeadForm(){
     var res = await fetch('/.netlify/functions/subscribe',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prenom:prenom,email:email})
+      body:JSON.stringify({prenom:prenom,nom:document.getElementById('lmNom')?document.getElementById('lmNom').value.trim():'',email:email})
     });
     var data = await res.json();
     if(data.success){
