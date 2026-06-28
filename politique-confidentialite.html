@@ -2,24 +2,36 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Politique de confidentialité — VyraShop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.7;color:#1f1b2e;background:#fff;font-size:16px}
-.wrap{max-width:760px;margin:0 auto;padding:40px 24px 80px}
-.back{display:inline-block;margin-bottom:24px;color:#6d28d9;text-decoration:none;font-weight:600;font-size:.9rem}
-h1{font-size:1.7rem;font-weight:800;margin-bottom:6px;color:#16112a}
-.updated{color:#6b6478;font-size:.85rem;margin-bottom:32px}
-h2{font-size:1.1rem;font-weight:700;margin:32px 0 10px;color:#16112a}
-p{margin-bottom:12px;font-size:.95rem}
-.todo{background:#fff4e5;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;font-size:.85rem;margin:10px 0}
-.todo strong{color:#92400e}
-ul{margin:0 0 12px 22px}
-li{margin-bottom:6px;font-size:.95rem}
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88rem}
-td,th{border:1px solid #e3dcf7;padding:8px 10px;text-align:left;vertical-align:top}
-a{color:#6d28d9}
+body{font-family:'Inter',system-ui,sans-serif;line-height:1.75;color:#1f1b2e;background:#fff;font-size:16px}
+.wrap{max-width:760px;margin:0 auto;padding:48px 24px 96px}
+.back{display:inline-flex;align-items:center;gap:6px;margin-bottom:28px;color:#7c3aed;text-decoration:none;font-weight:700;font-size:.85rem;padding:9px 18px;border-radius:9999px;border:1.5px solid rgba(124,58,237,.25);transition:all .22s;display:inline-flex;align-items:center;gap:6px}
+.back:hover{background:rgba(124,58,237,.06);border-color:rgba(124,58,237,.45)}
+h1{font-size:1.9rem;font-weight:900;margin-bottom:6px;color:#100d23;letter-spacing:-.02em}
+.updated{color:#6b6478;font-size:.85rem;margin-bottom:36px}
+h2{font-size:1.1rem;font-weight:800;margin:40px 0 12px;color:#100d23;letter-spacing:-.01em}
+h3{font-size:.98rem;font-weight:700;margin:20px 0 8px;color:#2a2245}
+p{margin-bottom:14px;font-size:.95rem;color:#3d3655;line-height:1.75}
+.box{background:#f6f4fb;border:1px solid #e3dcf7;border-radius:12px;padding:18px 22px;margin:16px 0;font-size:.9rem;color:#3d3655;line-height:1.75}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px 20px;margin:16px 0;font-size:.85rem;color:#78350f;line-height:1.7}
+.note strong{color:#92400e}
+ul{margin:10px 0 14px 24px;padding:0}
+li{margin-bottom:8px;font-size:.93rem;color:#3d3655;line-height:1.7}
+a{color:#7c3aed;text-decoration:none}
+a:hover{text-decoration:underline}
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:10px;border:1px solid #e3dcf7;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:rgba(124,58,237,.1);color:#5b21b6;padding:11px 14px;text-align:left;font-weight:700;border-bottom:1px solid #e3dcf7;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+td{padding:10px 14px;border-bottom:1px solid #f0ecfb;color:#3d3655;vertical-align:top;line-height:1.6;font-size:.88rem}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#faf9ff}
+.divider{border:none;border-top:1px solid #e3dcf7;margin:40px 0}
 </style>
 </head>
 <body>
@@ -28,56 +40,115 @@ a{color:#6d28d9}
   <h1>Politique de confidentialité</h1>
   <p class="updated">Dernière mise à jour : 21 juin 2026</p>
 
-
   <h2>1. Responsable du traitement</h2>
-  <p>Jérémy Cases, entreprise individuelle, SIRET 927 873 018 00018, 17 chemin de Chala, 64100 Bayonne, est responsable du traitement des données personnelles collectées via le site VyraShop. Pour toute question relative à vos données, vous pouvez nous contacter à : contact@vyrashop.com.</p>
+  <p>Jérémy Cases, entreprise individuelle, SIRET 927 873 018 00018, 17 chemin de Chala, 64100 Bayonne, est responsable du traitement des données personnelles collectées via le site VyraShop. Pour toute question relative à vos données, contactez-nous à : <a href="mailto:contact@vyrashop.com">contact@vyrashop.com</a>.</p>
+
+  <hr class="divider"/>
 
   <h2>2. Données collectées et finalités</h2>
-  <table>
-    <tr><th>Donnée</th><th>Origine</th><th>Finalité</th><th>Base légale</th></tr>
-    <tr><td>Nom, email, adresse, données de paiement</td><td>Tunnel de paiement Stripe</td><td>Traitement de la commande, facturation</td><td>Exécution du contrat (art. 6.1.b RGPD)</td></tr>
-    <tr><td>Email et mot de passe (compte espace client)</td><td>Création du compte « Mon compte » sur le Site, gérée via le prestataire Supabase</td><td>Authentification du Client et accès sécurisé à ses produits (formation, accès TikTok Shop, accompagnement)</td><td>Exécution du contrat (art. 6.1.b RGPD)</td></tr>
-    <tr><td>Identifiants du compte TikTok Shop livré (email/identifiant et mot de passe du compte transmis)</td><td>Saisis par VyraShop lors de la livraison, stockés de façon chiffrée via Supabase</td><td>Mise à disposition de l'Accès TikTok Shop Prêt à l'Emploi dans l'espace client du Client</td><td>Exécution du contrat (art. 6.1.b RGPD)</td></tr>
-    <tr><td>Numéro de téléphone (WhatsApp)</td><td>Transmis directement par le Client lors de la souscription à l'Accompagnement WhatsApp Premium</td><td>Fourniture du service d'accompagnement personnalisé</td><td>Exécution du contrat (art. 6.1.b RGPD)</td></tr>
-    <tr><td>Adresse email</td><td>Formulaire de liste d'attente (produit en rupture de stock)</td><td>Information lors de la remise en disponibilité</td><td>Consentement (art. 6.1.a RGPD)</td></tr>
-    <tr><td>Adresse IP</td><td>Connexions et actions effectuées sur l'espace d'administration du Site</td><td>Sécurité du Site, prévention des accès non autorisés (journal des tentatives de connexion administrateur et des actions administratives)</td><td>Intérêt légitime — sécurité du système d'information (art. 6.1.f RGPD)</td></tr>
-    <tr><td>Données de navigation</td><td>Cookies techniques (voir section 6)</td><td>Bon fonctionnement du site et du paiement</td><td>Intérêt légitime / nécessité technique</td></tr>
-  </table>
-  <p class="todo"><strong>À vérifier avant publication :</strong> la ligne « liste d'attente » ci-dessus décrit un traitement qui n'a pas été retrouvé dans le code source audité (aucun formulaire ni aucune logique correspondante). Si cette fonctionnalité n'existe plus ou n'a jamais été mise en service, retirez cette ligne du tableau ; si elle existe ailleurs (ex. autre outil non inclus dans cette archive), conservez-la mais vérifiez qu'elle reflète le mécanisme réel.</p>
+  <div class="table-wrap"><table>
+    <tr>
+      <th>Donnée</th>
+      <th>Origine</th>
+      <th>Finalité</th>
+      <th>Base légale</th>
+    </tr>
+    <tr>
+      <td>Nom, email, adresse, données de paiement</td>
+      <td>Tunnel de paiement Stripe</td>
+      <td>Traitement de la commande, facturation</td>
+      <td>Exécution du contrat (art. 6.1.b RGPD)</td>
+    </tr>
+    <tr>
+      <td>Email et mot de passe (compte espace client)</td>
+      <td>Création du compte « Mon compte » via Supabase</td>
+      <td>Authentification et accès sécurisé aux produits achetés</td>
+      <td>Exécution du contrat (art. 6.1.b RGPD)</td>
+    </tr>
+    <tr>
+      <td>Identifiants du compte TikTok Shop livré</td>
+      <td>Saisis par VyraShop lors de la livraison, stockés chiffrés via Supabase</td>
+      <td>Mise à disposition de l'Accès TikTok Shop dans l'espace client</td>
+      <td>Exécution du contrat (art. 6.1.b RGPD)</td>
+    </tr>
+    <tr>
+      <td>Numéro de téléphone WhatsApp</td>
+      <td>Transmis par le Client lors de la souscription à l'Accompagnement Premium</td>
+      <td>Fourniture du service d'accompagnement personnalisé</td>
+      <td>Exécution du contrat (art. 6.1.b RGPD)</td>
+    </tr>
+    <tr>
+      <td>Adresse email</td>
+      <td>Formulaire de liste d'attente (produit en rupture de stock)</td>
+      <td>Information lors de la remise en disponibilité</td>
+      <td>Consentement (art. 6.1.a RGPD)</td>
+    </tr>
+    <tr>
+      <td>Adresse IP</td>
+      <td>Connexions à l'espace d'administration du Site</td>
+      <td>Sécurité, prévention des accès non autorisés</td>
+      <td>Intérêt légitime — sécurité (art. 6.1.f RGPD)</td>
+    </tr>
+    <tr>
+      <td>Données de navigation</td>
+      <td>Cookies techniques</td>
+      <td>Bon fonctionnement du site et du paiement</td>
+      <td>Intérêt légitime / nécessité technique</td>
+    </tr>
+  </table></div>
+  <div class="note">
+    <strong>Note à vérifier avant publication :</strong> la ligne « liste d'attente » décrit un traitement non retrouvé dans le code source audité (aucun formulaire ni logique correspondante). Si cette fonctionnalité n'existe plus, retirez cette ligne ; si elle existe ailleurs, vérifiez qu'elle reflète le mécanisme réel.
+  </div>
+
+  <hr class="divider"/>
 
   <h2>3. Destinataires des données et transferts hors UE</h2>
-  <p>Vos données de paiement sont traitées par <strong>Stripe</strong>, prestataire de services de paiement, agissant en qualité de sous-traitant au sens de l'article 28 du RGPD. VyraShop n'a pas accès à vos données bancaires complètes. Stripe Payments Europe, Ltd est notre cocontractant pour les utilisateurs européens ; certains traitements peuvent toutefois impliquer des transferts vers les États-Unis au sein du groupe Stripe. Ces transferts sont encadrés par les clauses contractuelles types adoptées par la Commission européenne, conformément aux engagements publiés par Stripe dans sa documentation de conformité RGPD (disponible sur stripe.com/legal/privacy-center).</p>
-  <p>Le site lui-même est hébergé par <strong>Netlify, Inc.</strong> (101 2nd Street, San Francisco, CA 94105, États-Unis), qui agit en qualité d'hébergeur et de sous-traitant technique. Cet hébergement implique un transfert de données (notamment les données techniques de navigation et les adresses IP) vers les États-Unis. Netlify encadre ces transferts par ses propres clauses contractuelles types, décrites dans sa Data Processing Addendum (disponible sur netlify.com/dpa).</p>
-  <p>L'espace client du Site (authentification et stockage des données de compte, ainsi que des identifiants TikTok Shop livrés) est géré via <strong>Supabase</strong>, prestataire de base de données et d'authentification, agissant en qualité de sous-traitant au sens de l'article 28 du RGPD. Ce traitement peut impliquer un hébergement et des transferts de données encadrés par les clauses contractuelles types de Supabase (disponibles sur supabase.com/privacy). Les identifiants du compte TikTok Shop sont stockés de façon chiffrée et ne sont accessibles qu'au Client concerné, après authentification, et à VyraShop dans le cadre strict de la gestion du service.</p>
+  <p>Vos données de paiement sont traitées par <strong>Stripe</strong>, prestataire de services de paiement, agissant en qualité de sous-traitant au sens de l'article 28 du RGPD. VyraShop n'a pas accès à vos données bancaires complètes. Stripe Payments Europe, Ltd est notre cocontractant pour les utilisateurs européens ; certains traitements peuvent impliquer des transferts vers les États-Unis au sein du groupe Stripe, encadrés par les clauses contractuelles types de la Commission européenne.</p>
+  <p>Le site est hébergé par <strong>Netlify, Inc.</strong> (101 2nd Street, San Francisco, CA 94105, États-Unis), agissant en qualité d'hébergeur et sous-traitant technique. Cet hébergement implique un transfert de données techniques vers les États-Unis, encadré par la Data Processing Addendum de Netlify.</p>
+  <p>L'espace client (authentification, stockage des identifiants TikTok Shop) est géré via <strong>Supabase</strong>, agissant en qualité de sous-traitant au sens de l'article 28 du RGPD. Les identifiants TikTok Shop sont stockés de façon chiffrée et ne sont accessibles qu'au Client concerné après authentification, et à VyraShop dans le cadre strict de la gestion du service.</p>
+  <p>Si vous souscrivez à l'Accompagnement WhatsApp Premium, les échanges ont lieu via <strong>WhatsApp</strong>, opérée par WhatsApp Ireland Limited (groupe Meta), soumis à la politique de confidentialité de WhatsApp. VyraShop ne contrôle pas les conditions de traitement appliquées par WhatsApp.</p>
   <p>Aucune de vos données n'est vendue, louée, ou transmise à des tiers à des fins commerciales ou publicitaires.</p>
-  <p>Si vous souscrivez à l'Accompagnement WhatsApp Premium, les échanges ont lieu via l'application <strong>WhatsApp</strong>, opérée par WhatsApp Ireland Limited (groupe Meta). Ces échanges sont soumis à la politique de confidentialité de WhatsApp, que nous vous invitons à consulter sur whatsapp.com/legal. VyraShop ne contrôle pas les conditions de traitement des données appliquées par WhatsApp à l'intérieur de son application.</p>
+
+  <hr class="divider"/>
 
   <h2>4. Durée de conservation</h2>
   <ul>
-    <li><strong>Données de commande et de facturation</strong> (nom, email, adresse, montant) : conservées pendant la durée de la relation commerciale, puis archivées 10 ans à compter de la clôture de l'exercice comptable concerné, conformément aux obligations comptables et fiscales (article L123-22 du Code de commerce).</li>
-    <li><strong>Données de compte (email, mot de passe chiffré)</strong> : conservées pendant toute la durée d'utilisation du compte client, puis supprimées dans un délai de 3 ans à compter de la dernière connexion ou de la clôture du compte à la demande du Client.</li>
-    <li><strong>Identifiants du compte TikTok Shop livré</strong> (chiffrés) : conservés pendant la durée de fourniture du service, puis supprimés dans un délai de 3 ans après la fin de la relation commerciale, sauf demande de suppression anticipée du Client.</li>
-    <li><strong>Numéro de téléphone WhatsApp</strong> : conservé pendant la durée de l'Accompagnement WhatsApp Premium, puis supprimé dans un délai de 12 mois après la résiliation de l'abonnement.</li>
-    <li><strong>Journaux d'administration</strong> (adresses IP et actions effectuées sur l'espace d'administration) : conservés 12 mois à compter de leur création, à des fins de sécurité, puis supprimés automatiquement.</li>
-    <li><strong>Adresses email collectées via le formulaire de liste d'attente</strong> (sous réserve de l'existence réelle de cette fonctionnalité, voir section 2) : conservées jusqu'à désinscription, ou 24 mois maximum sans interaction de votre part, après quoi elles sont supprimées.</li>
-    <li><strong>Cookie de mémorisation du bandeau d'information</strong> : conservé 6 mois sur votre navigateur, puis le bandeau s'affiche à nouveau.</li>
-    <li><strong>Échanges avec le support</strong> (emails à contact@vyrashop.com) : conservés 3 ans à compter du dernier contact, à des fins de preuve et de suivi de la relation client.</li>
+    <li><strong>Données de commande et de facturation</strong> (nom, email, adresse, montant) : conservées pendant la durée de la relation commerciale, puis archivées 10 ans à compter de la clôture de l'exercice comptable (art. L123-22 du Code de commerce).</li>
+    <li><strong>Données de compte</strong> (email, mot de passe chiffré) : conservées pendant la durée d'utilisation du compte, puis supprimées dans un délai de 3 ans à compter de la dernière connexion ou de la clôture du compte.</li>
+    <li><strong>Identifiants TikTok Shop livrés</strong> (chiffrés) : conservés pendant la durée de fourniture du service, puis supprimés dans un délai de 3 ans après la fin de la relation commerciale.</li>
+    <li><strong>Numéro de téléphone WhatsApp</strong> : conservé pendant la durée de l'Accompagnement, puis supprimé dans les 12 mois suivant la résiliation.</li>
+    <li><strong>Journaux d'administration</strong> (adresses IP et actions) : conservés 12 mois, puis supprimés automatiquement.</li>
+    <li><strong>Emails de liste d'attente</strong> (si fonctionnalité active) : conservés jusqu'à désinscription, ou 24 mois maximum sans interaction.</li>
+    <li><strong>Cookie de mémorisation du bandeau</strong> : conservé 6 mois sur votre navigateur.</li>
+    <li><strong>Échanges avec le support</strong> (contact@vyrashop.com) : conservés 3 ans à compter du dernier contact.</li>
   </ul>
-  <p class="todo"><strong>À vérifier avant publication :</strong> les durées indiquées pour les données de compte, les identifiants Shop, le numéro WhatsApp et les journaux d'administration sont des durées par défaut raisonnables proposées dans le cadre de cet audit ; elles doivent être validées (et ajustées si nécessaire) par le responsable du traitement en fonction de ses besoins réels et, le cas échéant, de l'avis d'un professionnel du droit.</p>
+  <div class="note">
+    <strong>Note à vérifier avant publication :</strong> les durées indiquées sont des durées par défaut raisonnables proposées dans le cadre de cet audit. Elles doivent être validées par le responsable du traitement en fonction de ses besoins réels et, le cas échéant, de l'avis d'un professionnel du droit.
+  </div>
+
+  <hr class="divider"/>
 
   <h2>5. Vos droits et procédure d'exercice</h2>
-  <p>Conformément au RGPD, vous disposez des droits suivants sur vos données personnelles : accès, rectification, effacement, limitation, opposition, et portabilité.</p>
-  <p>Pour exercer l'un de ces droits, envoyez une demande à contact@vyrashop.com en précisant le droit que vous souhaitez exercer et en joignant un justificatif d'identité si nécessaire pour vérifier votre identité. Nous nous engageons à répondre dans un délai d'un mois à compter de la réception de votre demande, délai pouvant être porté à trois mois pour les demandes complexes ou nombreuses, conformément à l'article 12 du RGPD ; vous en serez informé le cas échéant.</p>
-  <p>Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous disposez du droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr ou 3 Place de Fontenoy, 75007 Paris).</p>
+  <p>Conformément au RGPD, vous disposez des droits suivants sur vos données personnelles : <strong>accès, rectification, effacement, limitation, opposition et portabilité</strong>.</p>
+  <p>Pour exercer l'un de ces droits, envoyez une demande à <a href="mailto:contact@vyrashop.com">contact@vyrashop.com</a> en précisant le droit que vous souhaitez exercer et en joignant un justificatif d'identité si nécessaire. Nous nous engageons à répondre dans un délai d'un mois (pouvant être porté à trois mois pour les demandes complexes, conformément à l'article 12 du RGPD).</p>
+  <p>Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous disposez du droit d'introduire une réclamation auprès de la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a> — 3 Place de Fontenoy, 75007 Paris).</p>
+
+  <hr class="divider"/>
 
   <h2>6. Cookies et traceurs</h2>
-  <p>Le site utilise uniquement, à ce jour, des cookies techniques nécessaires au bon fonctionnement du paiement (déposés par Stripe lors de la redirection vers le tunnel de paiement) et un cookie de mémorisation de votre acceptation du bandeau d'information sur les cookies. Le site utilise également le stockage local de votre navigateur (« localStorage »), une technologie similaire aux cookies, pour mémoriser par exemple votre statut d'accès à la formation ou votre progression dans les modules : ces données restent stockées uniquement sur votre appareil et ne sont jamais transmises à VyraShop. Aucun cookie ni traceur publicitaire ou de mesure d'audience n'est déposé sans consentement préalable. Si des outils de mesure d'audience ou des pixels publicitaires (Meta, TikTok, Google Analytics...) sont ajoutés à l'avenir, cette politique sera mise à jour et un recueil de consentement préalable sera mis en place conformément à la réglementation ePrivacy.</p>
+  <p>Le site utilise uniquement des <strong>cookies techniques</strong> nécessaires au bon fonctionnement du paiement (déposés par Stripe) et un cookie de mémorisation de votre acceptation du bandeau d'information.</p>
+  <p>Le site utilise également le <strong>localStorage</strong> (stockage local) de votre navigateur pour mémoriser votre statut d'accès à la formation et votre progression dans les modules. Ces données restent stockées uniquement sur votre appareil et ne sont jamais transmises à VyraShop.</p>
+  <p>Aucun cookie ni traceur publicitaire ou de mesure d'audience n'est déposé sans consentement préalable. Si des outils de mesure d'audience sont ajoutés à l'avenir, cette politique sera mise à jour et un recueil de consentement préalable sera mis en place.</p>
+
+  <hr class="divider"/>
 
   <h2>7. Sécurité</h2>
   <p>VyraShop met en œuvre les mesures techniques et organisationnelles raisonnables pour protéger vos données contre toute perte, accès non autorisé ou divulgation. Le paiement est exclusivement traité par Stripe, certifié PCI-DSS.</p>
 
+  <hr class="divider"/>
+
   <h2>8. Modifications</h2>
-  <p>Cette politique de confidentialité peut être mise à jour. La date de dernière mise à jour figure en haut de cette page.</p>
+  <p>Cette politique de confidentialité peut être mise à jour à tout moment. La date de dernière mise à jour figure en haut de cette page. Nous vous invitons à la consulter régulièrement.</p>
 </div>
 </body>
 </html>
