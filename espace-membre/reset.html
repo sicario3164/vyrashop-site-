@@ -8,32 +8,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#060412;--card:#0d0b1f;--pu:#7c3aed;--pu-light:#8b5cf6;--pl:#c4b5fd;--cy:#22d3ee;--cy-light:#67e8f9;--or:#f97316;--gr:#34d399;--red:#f87171;--tx:#8b7cb4;--tx-bright:#cdc3ea;--wh:#fff;--bord:rgba(139,92,246,.09);--bord-mid:rgba(139,92,246,.22);--r:14px;--r-xl:28px;--r-pill:9999px}
-body{background:radial-gradient(ellipse 700px 500px at 20% -10%,rgba(124,58,237,.12),transparent 60%),radial-gradient(ellipse 400px 400px at 85% 80%,rgba(34,211,238,.06),transparent 55%),var(--bg);color:var(--wh);font-family:'Inter',system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;overflow:hidden}
+:root{--bg:#09090d;--card:#121218;--pu:#fe2c55;--pu-light:#fc5674;--pl:#a8faf8;--cy:#25f4ee;--cy-light:#67f9f4;--or:#1af5ee;--gr:#27e0da;--red:#f87171;--tx:#91919f;--tx-bright:#d4d4d9;--wh:#fff;--bord:rgba(252,86,116,.09);--bord-mid:rgba(252,86,116,.22);--r:14px;--r-xl:28px;--r-pill:9999px}
+body{background:radial-gradient(ellipse 700px 500px at 20% -10%,rgba(254,44,85,.12),transparent 60%),radial-gradient(ellipse 400px 400px at 85% 80%,rgba(37,244,238,.06),transparent 55%),var(--bg);color:var(--wh);font-family:'Inter',system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;overflow:hidden}
 .logo{font-size:1.4rem;font-weight:900;margin-bottom:36px;text-decoration:none}
-.logo-vyra{background:linear-gradient(100deg,#c4b5fd 0%,#8b5cf6 40%,#22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.card{background:var(--card);border:1px solid transparent;background-clip:padding-box;outline:1px solid rgba(139,92,246,.2);border-radius:var(--r-xl);padding:38px 32px;width:100%;max-width:430px;box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 80px rgba(124,58,237,.07)}
+.logo-vyra{background:linear-gradient(100deg,#25f4ee 0%,#ffffff 50%,#fe2c55 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.card{background:var(--card);border:1px solid transparent;background-clip:padding-box;outline:1px solid rgba(252,86,116,.2);border-radius:var(--r-xl);padding:38px 32px;width:100%;max-width:430px;box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 80px rgba(254,44,85,.07)}
 .card h2{font-size:1.2rem;font-weight:900;margin-bottom:8px;letter-spacing:-.01em}
 .card p.intro{color:var(--tx-bright);font-size:.86rem;margin-bottom:28px;line-height:1.65}
 label{display:block;font-size:.79rem;font-weight:700;color:var(--cy-light);margin-bottom:7px;letter-spacing:.02em;text-transform:uppercase}
 input[type="password"]{width:100%;padding:14px 18px;border-radius:var(--r);border:1.5px solid var(--bord);background:rgba(255,255,255,.04);color:var(--wh);font-size:.95rem;font-family:'Inter',inherit;margin-bottom:18px;outline:none;transition:border-color .2s,box-shadow .2s}
-input[type="password"]:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(34,211,238,.12)}
+input[type="password"]:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(37,244,238,.12)}
 input[type="password"]::placeholder{color:var(--tx);opacity:.5}
-.btn{width:100%;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border:none;padding:15px;border-radius:var(--r-pill);font-size:1rem;font-weight:800;cursor:pointer;font-family:'Inter',inherit;margin-top:4px;transition:all .22s;box-shadow:0 4px 18px rgba(124,58,237,.35)}
-.btn:hover{transform:translateY(-1px);box-shadow:0 6px 26px rgba(124,58,237,.5)}
+.btn{width:100%;background:linear-gradient(135deg,var(--pu),#fb0633);color:#fff;border:none;padding:15px;border-radius:var(--r-pill);font-size:1rem;font-weight:800;cursor:pointer;font-family:'Inter',inherit;margin-top:4px;transition:all .22s;box-shadow:0 4px 18px rgba(254,44,85,.35)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 26px rgba(254,44,85,.5)}
 .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
 .btn-sec{display:block;width:100%;text-align:center;background:rgba(255,255,255,.04);color:var(--tx-bright);border:1px solid var(--bord);padding:14px;border-radius:var(--r-pill);font-size:.92rem;font-weight:700;text-decoration:none;margin-top:12px;transition:all .2s}
-.btn-sec:hover{border-color:rgba(34,211,238,.3);color:var(--cy-light)}
+.btn-sec:hover{border-color:rgba(37,244,238,.3);color:var(--cy-light)}
 .msg{font-size:.83rem;padding:12px 16px;border-radius:var(--r);margin-top:16px;display:none;line-height:1.5}
 .msg.error{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--red)}
-.msg.success{background:rgba(52,211,153,.09);border:1px solid rgba(52,211,153,.3);color:var(--gr)}
+.msg.success{background:rgba(39,224,218,.09);border:1px solid rgba(39,224,218,.3);color:var(--gr)}
 .back{display:block;text-align:center;margin-top:24px;color:var(--tx);font-size:.8rem;text-decoration:none;transition:color .2s}
 .back:hover{color:var(--wh)}
 @media(max-width:480px){.card{padding:28px 22px}}
 </style>
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
 </head>
 <body>
-<a href="/" class="logo"><span class="logo-vyra">VyraShop</span></a>
+<a href="/" class="logo"><img src="/assets/brand/logo-icone-144.png" alt="" width="30" height="30" style="width:30px;height:30px;vertical-align:middle;margin-right:8px;display:inline-block"><span class="logo-vyra">VyraShop</span></a>
 <div class="card">
   <div id="form-step">
     <h2>Choisis un nouveau mot de passe</h2>

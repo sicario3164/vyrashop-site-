@@ -11,30 +11,30 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#060412;--card:#0d0b1f;--card-hover:#131030;
-  --pu:#7c3aed;--pu-light:#8b5cf6;--pl:#c4b5fd;
-  --cy:#22d3ee;--cy-light:#67e8f9;--pk:#e879f9;
-  --or:#f97316;--gr:#34d399;--red:#f87171;
-  --wh:#fff;--tx:#8b7cb4;--tx-bright:#cdc3ea;
-  --bord:rgba(139,92,246,.09);--bord-mid:rgba(139,92,246,.22);--bord-strong:rgba(139,92,246,.45);
+  --bg:#09090d;--card:#121218;--card-hover:#1c1c24;
+  --pu:#fe2c55;--pu-light:#fc5674;--pl:#a8faf8;
+  --cy:#25f4ee;--cy-light:#67f9f4;--pk:#fd758e;
+  --or:#1af5ee;--gr:#27e0da;--red:#f87171;
+  --wh:#fff;--tx:#91919f;--tx-bright:#d4d4d9;
+  --bord:rgba(252,86,116,.09);--bord-mid:rgba(252,86,116,.22);--bord-strong:rgba(252,86,116,.45);
   --r:14px;--r-lg:20px;--r-xl:28px;--r-pill:9999px;
 }
 body{
   background:
-    radial-gradient(ellipse 900px 600px at 15% -5%,rgba(124,58,237,.1),transparent 60%),
-    radial-gradient(ellipse 600px 500px at 90% 8%,rgba(34,211,238,.06),transparent 55%),
+    radial-gradient(ellipse 900px 600px at 15% -5%,rgba(254,44,85,.1),transparent 60%),
+    radial-gradient(ellipse 600px 500px at 90% 8%,rgba(37,244,238,.06),transparent 55%),
     var(--bg);
   color:var(--wh);font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;
 }
-nav{background:rgba(6,4,18,.93);border-bottom:1px solid var(--bord);padding:14px 28px;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-.logo-vyra{background:linear-gradient(100deg,#c4b5fd 0%,#8b5cf6 40%,#22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+nav{background:rgba(9,9,13,.93);border-bottom:1px solid var(--bord);padding:14px 28px;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.logo-vyra{background:linear-gradient(100deg,#25f4ee 0%,#ffffff 50%,#fe2c55 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .nav-logo{font-size:1.5rem;font-weight:900;text-decoration:none}
 .nav-right{display:flex;align-items:center;gap:12px}
 .btn-back{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600;border:1px solid var(--bord-mid);padding:8px 16px;border-radius:var(--r-pill);transition:all .2s}
-.btn-back:hover{color:var(--cy-light);border-color:rgba(34,211,238,.3)}
+.btn-back:hover{color:var(--cy-light);border-color:rgba(37,244,238,.3)}
 .nav-user{font-size:.8rem;color:var(--tx)}
-.btn-logout{background:linear-gradient(135deg,var(--pu),#6d28d9);border:none;color:#fff;padding:10px 22px;border-radius:var(--r-pill);font-size:.84rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 2px 14px rgba(124,58,237,.35)}
-.btn-logout:hover{transform:translateY(-1px);box-shadow:0 6px 26px rgba(124,58,237,.55)}
+.btn-logout{background:linear-gradient(135deg,var(--pu),#fb0633);border:none;color:#fff;padding:10px 22px;border-radius:var(--r-pill);font-size:.84rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 2px 14px rgba(254,44,85,.35)}
+.btn-logout:hover{transform:translateY(-1px);box-shadow:0 6px 26px rgba(254,44,85,.55)}
 .hero{padding:48px 28px 32px;max-width:920px;margin:0 auto}
 .hero-greeting{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;letter-spacing:-.5px;margin-bottom:8px}
 .hero-greeting span{background:linear-gradient(90deg,var(--pl),var(--cy-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -54,25 +54,25 @@ nav{background:rgba(6,4,18,.93);border-bottom:1px solid var(--bord);padding:14px
 .prod-card.locked::after{content:"🔒 Non acquis";position:absolute;top:14px;right:14px;background:rgba(0,0,0,.7);color:var(--tx);font-size:.68rem;font-weight:700;padding:4px 12px;border-radius:var(--r-pill);border:1px solid var(--bord)}
 /* Colored top stripe per card */
 .prod-card:nth-child(1)::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pu),var(--pu-light),var(--cy))}
-.prod-card:nth-child(2)::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),#fb923c,#fbbf24)}
-.prod-card:nth-child(3)::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gr),#10b981,var(--cy))}
+.prod-card:nth-child(2)::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),#40f7f1,#29f6ef)}
+.prod-card:nth-child(3)::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gr),#10b9b3,var(--cy))}
 .prod-icon{font-size:2rem;display:block}
 .prod-badge{display:inline-block;font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 11px;border-radius:var(--r-pill);margin-bottom:2px}
-.badge-pu{background:rgba(139,92,246,.14);color:var(--pl);border:1px solid rgba(139,92,246,.28)}
-.badge-or{background:rgba(249,115,22,.14);color:var(--or);border:1px solid rgba(249,115,22,.28)}
-.badge-gr{background:rgba(52,211,153,.12);color:var(--gr);border:1px solid rgba(52,211,153,.28)}
+.badge-pu{background:rgba(252,86,116,.14);color:var(--pl);border:1px solid rgba(252,86,116,.28)}
+.badge-or{background:rgba(26,245,238,.14);color:var(--or);border:1px solid rgba(26,245,238,.28)}
+.badge-gr{background:rgba(39,224,218,.12);color:var(--gr);border:1px solid rgba(39,224,218,.28)}
 .prod-title{font-size:1.02rem;font-weight:800;line-height:1.25}
 .prod-desc{color:var(--tx);font-size:.84rem;flex:1;line-height:1.55}
 .prod-btn{display:block;text-align:center;padding:12px;border-radius:var(--r-pill);font-weight:700;font-size:.86rem;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:inherit}
 .prod-btn:hover{transform:translateY(-1px)}
-.btn-pu{background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;box-shadow:0 3px 14px rgba(124,58,237,.35)}
-.btn-or{background:linear-gradient(135deg,var(--or),#ea580c);color:#fff;box-shadow:0 3px 14px rgba(249,115,22,.3)}
-.btn-gr{background:linear-gradient(135deg,var(--gr),#059669);color:#fff;box-shadow:0 3px 14px rgba(52,211,153,.25)}
+.btn-pu{background:linear-gradient(135deg,var(--pu),#fb0633);color:#fff;box-shadow:0 3px 14px rgba(254,44,85,.35)}
+.btn-or{background:linear-gradient(135deg,var(--or),#0ceae3);color:#fff;box-shadow:0 3px 14px rgba(26,245,238,.3)}
+.btn-gr{background:linear-gradient(135deg,var(--gr),#069590);color:#fff;box-shadow:0 3px 14px rgba(39,224,218,.25)}
 .prog-section{
   background:var(--card);
   border:1px solid transparent;
   background-clip:padding-box;
-  outline:1px solid rgba(139,92,246,.15);
+  outline:1px solid rgba(252,86,116,.15);
   border-radius:var(--r-xl);padding:26px;margin-bottom:24px;box-shadow:0 2px 14px rgba(0,0,0,.4);
 }
 .prog-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px;flex-wrap:wrap}
@@ -87,7 +87,7 @@ nav{background:rgba(6,4,18,.93);border-bottom:1px solid var(--bord);padding:14px
 .mod-mini .mod-bar{background:rgba(255,255,255,.06);border-radius:var(--r-pill);height:4px;overflow:hidden}
 .mod-mini .mod-fill{height:100%;border-radius:var(--r-pill)}
 .fill-pu{background:linear-gradient(90deg,var(--pu),var(--pu-light))}
-.fill-or{background:linear-gradient(90deg,var(--or),#fb923c)}
+.fill-or{background:linear-gradient(90deg,var(--or),#40f7f1)}
 .fill-gr{background:linear-gradient(90deg,var(--gr),var(--cy))}
 .mod-mini .mod-pct{font-size:.7rem;color:var(--tx);margin-top:5px}
 .mfa-card{
@@ -98,22 +98,24 @@ nav{background:rgba(6,4,18,.93);border-bottom:1px solid var(--bord);padding:14px
 }
 .mfa-info-title{font-weight:700;font-size:.95rem;margin-bottom:4px}
 .mfa-info-sub{font-size:.82rem;color:var(--tx)}
-.btn-2fa{display:inline-block;text-decoration:none;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;padding:10px 20px;border-radius:var(--r-pill);font-weight:700;font-size:.82rem;transition:all .2s;border:none;cursor:pointer;font-family:inherit;box-shadow:0 2px 12px rgba(124,58,237,.3)}
-.btn-2fa:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(124,58,237,.5)}
+.btn-2fa{display:inline-block;text-decoration:none;background:linear-gradient(135deg,var(--pu),#fb0633);color:#fff;padding:10px 20px;border-radius:var(--r-pill);font-weight:700;font-size:.82rem;transition:all .2s;border:none;cursor:pointer;font-family:inherit;box-shadow:0 2px 12px rgba(254,44,85,.3)}
+.btn-2fa:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(254,44,85,.5)}
 .btn-2fa-off{background:rgba(248,113,113,.1);color:var(--red);border:1px solid rgba(248,113,113,.25);box-shadow:none}
 .btn-2fa-off:hover{background:rgba(248,113,113,.2);box-shadow:none}
 .msg{font-size:.82rem;padding:10px 14px;border-radius:var(--r);display:none;line-height:1.5}
 .msg.error{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--red)}
-.msg.success{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--gr)}
+.msg.success{background:rgba(39,224,218,.1);border:1px solid rgba(39,224,218,.3);color:var(--gr)}
 footer{text-align:center;padding:24px;color:var(--tx);font-size:.74rem;border-top:1px solid var(--bord);margin-top:12px}
 footer a{color:var(--cy-light);text-decoration:none;transition:color .15s}
 footer a:hover{color:var(--wh)}
 @media(max-width:600px){.modules-grid{grid-template-columns:1fr}.btn-back{font-size:.73rem;padding:7px 12px}.btn-logout{padding:9px 16px;font-size:.8rem}.hero{padding:36px 20px 24px}.content{padding:0 20px 36px}}
 </style>
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
 </head>
 <body>
 <nav>
-  <a href="/espace-membre/" class="nav-logo"><span class="logo-vyra">VyraShop</span></a>
+  <a href="/espace-membre/" class="nav-logo"><img src="/assets/brand/logo-icone-144.png" alt="" width="30" height="30" style="width:30px;height:30px;vertical-align:middle;margin-right:8px;display:inline-block"><span class="logo-vyra">VyraShop</span></a>
   <div class="nav-right">
     <a href="/" class="btn-back">← Site de vente</a>
     <button class="btn-logout" onclick="logout()">Déconnexion</button>

@@ -11,20 +11,20 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#060412;--card:#0d0b1f;
-  --pu:#7c3aed;--pu-light:#8b5cf6;--pl:#c4b5fd;
-  --cy:#22d3ee;--cy-light:#67e8f9;--pk:#e879f9;--pk-light:#f0abfc;
-  --or:#f97316;--gr:#34d399;--red:#f87171;
-  --wh:#fff;--tx:#8b7cb4;--tx-bright:#cdc3ea;
-  --bord:rgba(139,92,246,.09);--bord-mid:rgba(139,92,246,.22);
+  --bg:#09090d;--card:#121218;
+  --pu:#fe2c55;--pu-light:#fc5674;--pl:#a8faf8;
+  --cy:#25f4ee;--cy-light:#67f9f4;--pk:#fd758e;--pk-light:#ffa8b8;
+  --or:#1af5ee;--gr:#27e0da;--red:#f87171;
+  --wh:#fff;--tx:#91919f;--tx-bright:#d4d4d9;
+  --bord:rgba(252,86,116,.09);--bord-mid:rgba(252,86,116,.22);
   --r:14px;--r-lg:20px;--r-xl:28px;--r-pill:9999px;
 }
 html{height:100%}
 body{
   background:
-    radial-gradient(ellipse 700px 500px at 20% -10%,rgba(124,58,237,.12),transparent 60%),
-    radial-gradient(ellipse 500px 400px at 85% 10%,rgba(34,211,238,.07),transparent 55%),
-    radial-gradient(ellipse 400px 400px at 10% 80%,rgba(232,121,249,.05),transparent 60%),
+    radial-gradient(ellipse 700px 500px at 20% -10%,rgba(254,44,85,.12),transparent 60%),
+    radial-gradient(ellipse 500px 400px at 85% 10%,rgba(37,244,238,.07),transparent 55%),
+    radial-gradient(ellipse 400px 400px at 10% 80%,rgba(253,117,142,.05),transparent 60%),
     var(--bg);
   color:var(--wh);
   font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
@@ -33,14 +33,14 @@ body{
 }
 .page-wrap{width:100%;max-width:430px}
 .logo-link{display:block;text-align:center;margin-bottom:36px;text-decoration:none;font-size:1.6rem;font-weight:900}
-.logo-vyra{background:linear-gradient(100deg,#c4b5fd 0%,#8b5cf6 40%,#22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-vyra{background:linear-gradient(100deg,#25f4ee 0%,#ffffff 50%,#fe2c55 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .card{
   background:var(--card);
   border:1px solid transparent;
   background-clip:padding-box;
-  outline:1px solid rgba(139,92,246,.2);
+  outline:1px solid rgba(252,86,116,.2);
   border-radius:var(--r-xl);padding:36px 32px;width:100%;
-  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 80px rgba(124,58,237,.08);
+  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 80px rgba(254,44,85,.08);
 }
 .tabs{display:flex;gap:0;margin-bottom:28px;background:rgba(0,0,0,.35);border-radius:12px;padding:4px}
 .tab{flex:1;padding:10px;text-align:center;font-size:.87rem;font-weight:700;cursor:pointer;border-radius:9px;color:var(--tx);transition:all .22s cubic-bezier(.4,0,.2,1)}
@@ -49,31 +49,33 @@ body{
 .form-section.active{display:block}
 .form-label{display:block;font-size:.77rem;font-weight:700;color:var(--cy-light);margin-bottom:7px;letter-spacing:.3px}
 .form-input{width:100%;padding:13px 16px;border-radius:var(--r);border:1.5px solid var(--bord-mid);background:rgba(255,255,255,.04);color:var(--wh);font-size:.95rem;font-family:inherit;margin-bottom:16px;outline:none;transition:border-color .2s,box-shadow .2s}
-.form-input:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(34,211,238,.12)}
-.form-input::placeholder{color:rgba(196,181,253,.22)}
-.btn{width:100%;background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border:none;padding:15px;border-radius:var(--r-pill);font-size:.97rem;font-weight:800;cursor:pointer;font-family:inherit;margin-top:4px;transition:all .22s;box-shadow:0 4px 20px rgba(124,58,237,.38)}
-.btn:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(124,58,237,.58)}
+.form-input:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(37,244,238,.12)}
+.form-input::placeholder{color:rgba(168,250,248,.22)}
+.btn{width:100%;background:linear-gradient(135deg,var(--pu),#fb0633);color:#fff;border:none;padding:15px;border-radius:var(--r-pill);font-size:.97rem;font-weight:800;cursor:pointer;font-family:inherit;margin-top:4px;transition:all .22s;box-shadow:0 4px 20px rgba(254,44,85,.38)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(254,44,85,.58)}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 .msg{font-size:.83rem;padding:12px 16px;border-radius:var(--r);margin-top:16px;display:none;line-height:1.5}
 .msg.error{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--red)}
-.msg.success{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--gr)}
+.msg.success{background:rgba(39,224,218,.1);border:1px solid rgba(39,224,218,.3);color:var(--gr)}
 .forgot{text-align:center;margin-top:14px;font-size:.8rem;color:var(--tx)}
 .forgot a{color:var(--cy-light);text-decoration:none;transition:color .15s}
 .forgot a:hover{color:var(--wh)}
-.consent-box{display:flex;align-items:flex-start;gap:10px;margin:8px 0 16px;cursor:pointer;padding:11px 13px;background:rgba(139,92,246,.05);border:1px solid var(--bord);border-radius:var(--r);transition:border-color .2s}
+.consent-box{display:flex;align-items:flex-start;gap:10px;margin:8px 0 16px;cursor:pointer;padding:11px 13px;background:rgba(252,86,116,.05);border:1px solid var(--bord);border-radius:var(--r);transition:border-color .2s}
 .consent-box:hover{border-color:var(--bord-mid)}
 .consent-box input{margin-top:2px;flex-shrink:0;width:15px;height:15px;accent-color:var(--cy);cursor:pointer}
-.consent-box span{font-size:.78rem;color:rgba(196,181,253,.45);line-height:1.5}
-.consent-box span a{color:rgba(249,115,22,.75);text-decoration:underline}
+.consent-box span{font-size:.78rem;color:rgba(168,250,248,.45);line-height:1.5}
+.consent-box span a{color:rgba(26,245,238,.75);text-decoration:underline}
 .form-sub{color:var(--tx);font-size:.84rem;margin-bottom:20px;line-height:1.55}
-.mfa-info{color:var(--tx-bright);font-size:.85rem;margin-bottom:18px;line-height:1.55;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.2);border-radius:var(--r);padding:13px 16px}
+.mfa-info{color:var(--tx-bright);font-size:.85rem;margin-bottom:18px;line-height:1.55;background:rgba(37,244,238,.07);border:1px solid rgba(37,244,238,.2);border-radius:var(--r);padding:13px 16px}
 .back-link{display:block;text-align:center;margin-top:24px;color:var(--tx);font-size:.8rem;text-decoration:none;transition:color .15s}
 .back-link:hover{color:var(--wh)}
 </style>
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
 </head>
 <body>
 <div class="page-wrap">
-  <a href="/" class="logo-link"><span class="logo-vyra">VyraShop</span></a>
+  <a href="/" class="logo-link"><img src="/assets/brand/logo-icone-144.png" alt="" width="30" height="30" style="width:30px;height:30px;vertical-align:middle;margin-right:8px;display:inline-block"><span class="logo-vyra">VyraShop</span></a>
   <div class="card">
     <div class="tabs">
       <div class="tab active" onclick="switchTab('login')">Connexion</div>
@@ -121,7 +123,7 @@ body{
         <input type="password" id="reg-pwd" class="form-input" placeholder="8 caractères minimum" autocomplete="new-password"/>
       </div>
       <label for="reg-cgv" class="consent-box">
-        <input type="checkbox" id="reg-cgv" style="margin-top:2px;flex-shrink:0;width:15px;height:15px;accent-color:#22d3ee;cursor:pointer"/>
+        <input type="checkbox" id="reg-cgv" style="margin-top:2px;flex-shrink:0;width:15px;height:15px;accent-color:#25f4ee;cursor:pointer"/>
         <span>J'accepte les <a href="/cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="/politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a></span>
       </label>
       <button class="btn" onclick="register()" id="reg-btn">Créer mon compte</button>
