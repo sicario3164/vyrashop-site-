@@ -6,49 +6,49 @@
 <title>VyraShop Academy — Séquences Email Brevo</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,'Segoe UI',sans-serif;background:#f8f9fa;color:#1a1a2e;font-size:15px;line-height:1.65}
+body{font-family:-apple-system,'Segoe UI',sans-serif;background:#f9f9f9;color:#1f1f29;font-size:15px;line-height:1.65}
 .page{max-width:900px;margin:0 auto;padding:40px 24px}
-h1{font-size:2rem;font-weight:900;margin-bottom:8px;color:#1a1a2e}
-.subtitle{color:#6b7280;margin-bottom:40px;font-size:1rem}
+h1{font-size:2rem;font-weight:900;margin-bottom:8px;color:#1f1f29}
+.subtitle{color:#6d6d7e;margin-bottom:40px;font-size:1rem}
 /* SETUP SECTION */
-.setup{background:#fff;border-radius:16px;padding:28px;margin-bottom:40px;border:1px solid #e5e7eb;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.setup{background:#fff;border-radius:16px;padding:28px;margin-bottom:40px;border:1px solid #e6e6ea;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .setup h2{font-size:1.2rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .step-list{list-style:none}
-.step-list li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6}
+.step-list li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f4f4f5}
 .step-list li:last-child{border-bottom:none}
-.step-num{width:28px;height:28px;background:#8a5cf6;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex-shrink:0;margin-top:1px}
+.step-num{width:28px;height:28px;background:#fc5674;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex-shrink:0;margin-top:1px}
 .step-text{font-size:.93rem}
-.step-text strong{color:#1a1a2e}
-.step-text code{background:#f3f0ff;color:#7c3aed;padding:2px 6px;border-radius:4px;font-size:.85rem}
+.step-text strong{color:#1f1f29}
+.step-text code{background:#f6f6f9;color:#fe2c55;padding:2px 6px;border-radius:4px;font-size:.85rem}
 /* ENV VARS */
-.env-block{background:#1e1b4b;border-radius:10px;padding:16px 20px;margin-top:14px;font-family:monospace;font-size:.83rem;color:#c4b5fd;line-height:1.9}
-.env-block .key{color:#fb923c}
-.env-block .val{color:#4ade80}
+.env-block{background:#2f2f37;border-radius:10px;padding:16px 20px;margin-top:14px;font-family:monospace;font-size:.83rem;color:#a8faf8;line-height:1.9}
+.env-block .key{color:#40f7f1}
+.env-block .val{color:#44e4df}
 /* SEQUENCE BLOCKS */
-.seq-header{background:linear-gradient(135deg,#1e1733,#16112a);color:#fff;border-radius:16px 16px 0 0;padding:20px 28px;display:flex;align-items:center;gap:12px}
+.seq-header{background:linear-gradient(135deg,#20202a,#191922);color:#fff;border-radius:16px 16px 0 0;padding:20px 28px;display:flex;align-items:center;gap:12px}
 .seq-icon{font-size:1.8rem}
 .seq-info h2{font-size:1.15rem;font-weight:900;margin-bottom:3px}
-.seq-info p{font-size:.83rem;color:#c4b5fd;opacity:.8}
-.seq-body{background:#fff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 16px 16px;margin-bottom:36px}
-.email-card{padding:24px 28px;border-bottom:1px solid #f3f4f6}
+.seq-info p{font-size:.83rem;color:#a8faf8;opacity:.8}
+.seq-body{background:#fff;border:1px solid #e6e6ea;border-top:none;border-radius:0 0 16px 16px;margin-bottom:36px}
+.email-card{padding:24px 28px;border-bottom:1px solid #f4f4f5}
 .email-card:last-child{border-bottom:none}
 .email-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-.day-badge{background:#f3f0ff;color:#7c3aed;font-weight:800;font-size:.75rem;padding:4px 12px;border-radius:50px;white-space:nowrap}
-.day-badge.urgent{background:#fff7ed;color:#c2410c}
-.day-badge.green{background:#f0fdf4;color:#15803d}
-.email-subject{font-size:.85rem;color:#6b7280}
-.email-subject strong{color:#374151}
-.email-from{font-size:.8rem;color:#9ca3af;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:2px 8px}
-.email-body{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:20px 22px;font-size:.88rem;line-height:1.75;color:#374151}
-.email-body h3{font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:6px}
-.email-body .hi{color:#7c3aed;font-weight:700}
-.email-body .cta-line{margin:16px 0;padding:12px 16px;background:#f3f0ff;border-left:3px solid #8a5cf6;border-radius:0 8px 8px 0;font-weight:600;color:#5b21b6}
-.email-body .cta-btn{display:inline-block;background:linear-gradient(135deg,#8a5cf6,#6d28d9);color:#fff;padding:11px 24px;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;margin:8px 0}
-.email-body .ps{font-size:.82rem;color:#9ca3af;margin-top:12px;font-style:italic}
-.email-body hr{border:none;border-top:1px solid #e5e7eb;margin:14px 0}
-.note{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#92400e;margin-top:8px}
-.brevo-tip{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#1e40af;margin-top:8px}
-.tag{display:inline-block;background:#e0e7ff;color:#3730a3;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:4px;margin:2px}
+.day-badge{background:#f6f6f9;color:#fe2c55;font-weight:800;font-size:.75rem;padding:4px 12px;border-radius:50px;white-space:nowrap}
+.day-badge.urgent{background:#f4f4f8;color:#0cc2bc}
+.day-badge.green{background:#f4f4f9;color:#13827f}
+.email-subject{font-size:.85rem;color:#6d6d7e}
+.email-subject strong{color:#3f3f49}
+.email-from{font-size:.8rem;color:#9f9fac;background:#fafafa;border:1px solid #e6e6ea;border-radius:6px;padding:2px 8px}
+.email-body{background:#fafafa;border:1px solid #e6e6ea;border-radius:10px;padding:20px 22px;font-size:.88rem;line-height:1.75;color:#3f3f49}
+.email-body h3{font-size:1rem;font-weight:700;color:#1f1f29;margin-bottom:6px}
+.email-body .hi{color:#fe2c55;font-weight:700}
+.email-body .cta-line{margin:16px 0;padding:12px 16px;background:#f6f6f9;border-left:3px solid #fc5674;border-radius:0 8px 8px 0;font-weight:600;color:#d40329}
+.email-body .cta-btn{display:inline-block;background:linear-gradient(135deg,#fc5674,#fb0633);color:#fff;padding:11px 24px;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;margin:8px 0}
+.email-body .ps{font-size:.82rem;color:#9f9fac;margin-top:12px;font-style:italic}
+.email-body hr{border:none;border-top:1px solid #e6e6ea;margin:14px 0}
+.note{background:#f4f4f8;border:1px solid #acfcf9;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#0e6f6b;margin-top:8px}
+.brevo-tip{background:#f5f5f9;border:1px solid #c1fcfa;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#1ab3ae;margin-top:8px}
+.tag{display:inline-block;background:#ececf3;color:#d00329;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:4px;margin:2px}
 </style>
 </head>
 <body>
@@ -295,7 +295,7 @@ h1{font-size:2rem;font-weight:900;margin-bottom:8px;color:#1a1a2e}
 
 
 <!-- ══ SÉQUENCE 2A : ACHETEURS FORMATION ══════════════════ -->
-<div class="seq-header" style="background:linear-gradient(135deg,#1a2e1e,#0d2014)">
+<div class="seq-header" style="background:linear-gradient(135deg,#1f1f29,#13131a)">
   <div class="seq-icon">📚</div>
   <div class="seq-info">
     <h2>Séquence 2A — Acheteurs Formation</h2>
@@ -435,7 +435,7 @@ h1{font-size:2rem;font-weight:900;margin-bottom:8px;color:#1a1a2e}
 
 
 <!-- ══ SÉQUENCE 2B : ACHETEURS TIKTOK SHOP ════════════════ -->
-<div class="seq-header" style="background:linear-gradient(135deg,#2d1a0e,#1a0f08)">
+<div class="seq-header" style="background:linear-gradient(135deg,#191922,#0f0f13)">
   <div class="seq-icon">🛒</div>
   <div class="seq-info">
     <h2>Séquence 2B — Acheteurs TikTok Shop</h2>
@@ -532,7 +532,7 @@ h1{font-size:2rem;font-weight:900;margin-bottom:8px;color:#1a1a2e}
 
 
 <!-- ══ SÉQUENCE 2C : ACHETEURS ACCOMPAGNEMENT ════════════ -->
-<div class="seq-header" style="background:linear-gradient(135deg,#0d2014,#0a1a10)">
+<div class="seq-header" style="background:linear-gradient(135deg,#13131a,#0f0f15)">
   <div class="seq-icon">💬</div>
   <div class="seq-info">
     <h2>Séquence 2C — Acheteurs Accompagnement</h2>
@@ -600,10 +600,10 @@ h1{font-size:2rem;font-weight:900;margin-bottom:8px;color:#1a1a2e}
 
 </div><!-- /seq accompagnement -->
 
-<div style="background:#fff;border-radius:12px;padding:20px 24px;border:1px solid #e5e7eb;margin-top:8px;font-size:.85rem;color:#6b7280">
-  <strong style="color:#374151">✅ Récapitulatif des variables Brevo à utiliser dans les emails :</strong><br/>
-  <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px">{{contact.PRENOM}}</code> — Prénom du contact ·
-  <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px">{{contact.EMAIL}}</code> — Email ·
+<div style="background:#fff;border-radius:12px;padding:20px 24px;border:1px solid #e6e6ea;margin-top:8px;font-size:.85rem;color:#6d6d7e">
+  <strong style="color:#3f3f49">✅ Récapitulatif des variables Brevo à utiliser dans les emails :</strong><br/>
+  <code style="background:#f4f4f5;padding:2px 6px;border-radius:4px">{{contact.PRENOM}}</code> — Prénom du contact ·
+  <code style="background:#f4f4f5;padding:2px 6px;border-radius:4px">{{contact.EMAIL}}</code> — Email ·
   Ces variables sont remplies automatiquement par Brevo avec les données envoyées via l'API.
 </div>
 

@@ -6,7 +6,7 @@
 <title>Admin — VyraShop</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0d0b14;--card:#1e1733;--bord:rgba(167,139,250,.22);--pu:#8a5cf6;--pl:#c4b5fd;--or:#fb923c;--wh:#fff;--tx:#e2d9f3;--gr:#4ade80;--red:#f87171}
+:root{--bg:#0d0d12;--card:#20202a;--bord:rgba(253,136,157,.22);--pu:#fc5674;--pl:#a8faf8;--or:#40f7f1;--wh:#fff;--tx:#e4e4e8;--gr:#44e4df;--red:#f87171}
 body{background:var(--bg);color:var(--wh);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;padding:24px;max-width:800px;margin:0 auto}
 h1{font-size:1.4rem;font-weight:900;margin-bottom:6px}
 h1 span{color:var(--or)}
@@ -26,21 +26,21 @@ input:focus,textarea:focus{border-color:var(--pu)}
 .slider::before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.3s}
 .toggle input:checked+.slider{background:var(--gr)}
 .toggle input:checked+.slider::before{transform:translateX(20px)}
-.btn{background:linear-gradient(135deg,var(--pu),#6d28d9);color:#fff;border:none;padding:13px 28px;border-radius:50px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;margin-top:14px;transition:opacity .2s}
+.btn{background:linear-gradient(135deg,var(--pu),#fb0633);color:#fff;border:none;padding:13px 28px;border-radius:50px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;margin-top:14px;transition:opacity .2s}
 .btn:hover{opacity:.9}
 .btn:disabled{opacity:.5}
-.btn-or{background:linear-gradient(135deg,var(--or),#dc6900)}
+.btn-or{background:linear-gradient(135deg,var(--or),#09d3cc)}
 .msg{font-size:.82rem;padding:10px 14px;border-radius:10px;margin-top:12px;display:none}
-.msg.ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);color:var(--gr)}
+.msg.ok{background:rgba(68,228,223,.1);border:1px solid rgba(68,228,223,.3);color:var(--gr)}
 .msg.err{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--red)}
 .clients-list{display:flex;flex-direction:column;gap:8px}
 .client-row{background:rgba(255,255,255,.03);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .client-email{font-size:.85rem;font-weight:600}
 .client-tags{display:flex;gap:6px}
 .tag{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px}
-.tag-f{background:rgba(138,92,246,.2);color:var(--pl)}
-.tag-s{background:rgba(251,146,60,.2);color:var(--or)}
-.tag-a{background:rgba(74,222,128,.15);color:var(--gr)}
+.tag-f{background:rgba(252,86,116,.2);color:var(--pl)}
+.tag-s{background:rgba(64,247,241,.2);color:var(--or)}
+.tag-a{background:rgba(68,228,223,.15);color:var(--gr)}
 .edit-btn{font-size:.75rem;color:var(--pl);text-decoration:none;cursor:pointer;background:none;border:none;font-family:inherit}
 #admin-gate{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;padding:24px}
 .gate-card{background:var(--card);border:1px solid var(--bord);border-radius:20px;padding:32px;max-width:340px;width:100%;text-align:center}
@@ -48,7 +48,7 @@ input:focus,textarea:focus{border-color:var(--pu)}
 
 /* VyraShop brand purple gradient */
 .logo-vyra,.logo,.brand-vyra{
-  background:linear-gradient(100deg,#8a5cf6 0%,#c4b5fd 55%,#7c3aed 100%);
+  background:linear-gradient(100deg,#fc5674 0%,#a8faf8 55%,#fe2c55 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
