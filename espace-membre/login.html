@@ -122,13 +122,13 @@ body{
       </div>
       <label for="reg-cgv" class="consent-box">
         <input type="checkbox" id="reg-cgv" style="margin-top:2px;flex-shrink:0;width:15px;height:15px;accent-color:#22d3ee;cursor:pointer"/>
-        <span>J'accepte les <a href="https://vyrashop.com/cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="https://vyrashop.com/politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a></span>
+        <span>J'accepte les <a href="/cgv.html" target="_blank" rel="noopener">CGV</a> et la <a href="/politique-confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a></span>
       </label>
       <button class="btn" onclick="register()" id="reg-btn">Créer mon compte</button>
       <div class="msg" id="reg-msg"></div>
     </div>
   </div>
-  <a href="https://vyrashop.com" class="back-link">← Retour à VyraShop</a>
+  <a href="/" class="back-link">← Retour à VyraShop</a>
 </div>
 <script>
 const SUPABASE_URL = 'https://pdprwoskbrsoojtanmze.supabase.co';
@@ -187,7 +187,7 @@ async function register(){
   if(pwd.length<8){showMsg('reg-msg','error','Mot de passe trop court (8 caractères minimum).');return;}
   if(!document.getElementById('reg-cgv').checked){showMsg('reg-msg','error','Tu dois accepter les CGV et la politique de confidentialité.');return;}
   btn.disabled=true;btn.textContent='Création…';
-  var {error}=await sb.auth.signUp({email,password:pwd,options:{data:{full_name:name}}});
+  var {error}=await sb.auth.signUp({email,password:pwd,options:{data:{full_name:name},emailRedirectTo:window.location.origin+'/espace-membre/'}});
   if(error){showMsg('reg-msg','error',error.message);btn.disabled=false;btn.textContent='Créer mon compte';}
   else showMsg('reg-msg','success','Compte créé ! Vérifie ta boîte email pour confirmer, puis connecte-toi.');
   btn.disabled=false;btn.textContent='Créer mon compte';
@@ -195,7 +195,7 @@ async function register(){
 async function resetPassword(){
   var email=document.getElementById('login-email').value.trim();
   if(!email){showMsg('login-msg','error','Entre ton email d\'abord.');return;}
-  await sb.auth.resetPasswordForEmail(email,{redirectTo:'https://vyrashop.com/espace-membre/reset.html'});
+  await sb.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+'/espace-membre/reset.html'});
   showMsg('login-msg','success','Email de réinitialisation envoyé !');
 }
 document.addEventListener('keydown',function(e){if(e.key==='Enter'){var active=document.querySelector('.form-section.active');if(active.id==='login-form')login();else register();}});
