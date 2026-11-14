@@ -414,12 +414,85 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
   .btn-lg{width:100%;max-width:320px;text-align:center}
   .hero-trust{gap:14px}
 }
+/* ═══ ANIMATIONS D'ENGAGEMENT (public mobile venu des réseaux sociaux) ═══ */
+.reveal{transition:opacity .3s ease,transform .3s ease}
+.reveal:not(.in-view){transform:translateY(14px)}
+/* 1 — progression de lecture */
+#readProgress{position:fixed;top:0;left:0;height:3px;width:0;z-index:300;background:linear-gradient(90deg,var(--cy),#fff,var(--pu));box-shadow:0 0 12px rgba(254,44,85,.55);pointer-events:none}
+/* 2 — accroche tournante */
+.rot{display:block;position:relative;height:1.5em;overflow:hidden;margin-top:2px}
+.rot span{position:absolute;left:0;right:0;text-align:center;transform:translateY(110%);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;font-weight:900;font-size:1.25em;background:linear-gradient(90deg,var(--cy),var(--pu));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rot span.on{transform:none;opacity:1}
+.rot span.out{transform:translateY(-110%);opacity:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* 3 — compteurs */
+.count-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:520px;margin:0 auto 26px}
+.count-tile{background:var(--card);border:1px solid var(--bord-mid);border-radius:var(--r);padding:16px 6px;text-align:center}
+.count-tile strong{display:block;font-size:1.9rem;font-weight:900;color:var(--wh);font-variant-numeric:tabular-nums;line-height:1.1}
+.count-tile span{font-size:.72rem;color:var(--tx)}
+.hero-trust b{font-variant-numeric:tabular-nums}
+/* 4 — statistiques en story */
+.story{position:relative;width:min(100%,340px);aspect-ratio:480/940;margin:0 auto;border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--bord-mid);box-shadow:var(--shadow-lg);user-select:none;-webkit-user-select:none}
+.story-bars{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:4px;z-index:3}
+.story-bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden}
+.story-bars b{display:block;height:100%;width:0;background:#fff}
+.story-slide{position:absolute;inset:0;opacity:0;transition:opacity .25s}
+.story-slide.on{opacity:1}
+.story-slide img{width:100%;height:100%;object-fit:contain;display:block}
+.story-label{position:absolute;top:22px;left:12px;z-index:3;font-size:.72rem;font-weight:700;color:#fff;background:rgba(9,9,13,.82);padding:5px 10px;border-radius:999px;max-width:calc(100% - 24px)}
+.story-nav{all:unset;position:absolute;top:0;bottom:0;z-index:2;cursor:pointer}
+.story-nav.prev{left:0;width:35%}.story-nav.next{right:0;width:65%}
+.story-nav:focus-visible{outline:2px solid var(--cy);outline-offset:-4px}
+.story-hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.68rem;color:#fff;background:rgba(9,9,13,.82);padding:5px 12px;border-radius:999px;z-index:3;pointer-events:none}
+.story-cta{display:block;text-align:center;margin-top:16px}
+/* 5 — quiz profil */
+.quiz{max-width:520px;margin:0 auto 34px;background:var(--card);border:1px solid var(--bord-mid);border-radius:var(--r-lg);padding:22px 18px}
+.quiz-bar{height:4px;border-radius:2px;background:rgba(255,255,255,.08);margin-bottom:16px;overflow:hidden}
+.quiz-bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cy),var(--pu));transition:width .35s}
+.quiz h3{font-size:1.08rem;color:var(--wh);text-align:center;margin-bottom:14px;font-weight:800}
+.quiz-step{font-size:.7rem;text-align:center;color:var(--tx);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase}
+.quiz-opts{display:grid;gap:8px}
+.quiz-opt{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surf);border:1px solid var(--bord-mid);border-radius:var(--r);padding:14px 16px;color:var(--wh);font-weight:600;font-size:.9rem;transition:transform .15s,border-color .2s,background .2s;text-align:left}
+.quiz-opt:active{transform:scale(.97)}
+.quiz-opt:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
+.quiz-opt.pick{border-color:var(--cy);background:rgba(37,244,238,.08)}
+.quiz-result{text-align:center;display:grid;gap:10px;justify-items:center;animation:quizPop .4s cubic-bezier(.2,1.4,.4,1)}
+.quiz-result .qr-title{font-size:1.35rem;font-weight:900;color:var(--wh)}
+.quiz-result .qr-price{color:var(--cy);font-weight:800}
+.quiz-again{all:unset;cursor:pointer;font-size:.78rem;color:var(--tx);text-decoration:underline}
+@keyframes quizPop{from{transform:scale(.88);opacity:0}to{transform:none;opacity:1}}
+/* 6 — bouton vivant + cœurs */
+.btn-like{position:relative;overflow:hidden}
+.btn-like::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);animation:btnShine 3.4s ease-in-out infinite;pointer-events:none}
+@keyframes btnShine{0%,70%{left:-60%}100%{left:130%}}
+.heart-fx{position:fixed;pointer-events:none;font-size:1.3rem;z-index:400;animation:heartUp 1s ease-out forwards}
+@keyframes heartUp{to{transform:translateY(-90px) scale(1.4);opacity:0}}
+/* 7 — bandeau défilant */
+.marquee{overflow:hidden;white-space:nowrap;border-block:1px solid var(--bord-mid);padding-block:12px;background:var(--surf)}
+.marquee-track{display:inline-block;animation:marquee 22s linear infinite}
+.marquee-track span{color:var(--wh);font-weight:800;font-size:.86rem;margin-right:24px}
+.marquee-track em{font-style:normal;color:var(--pu);margin-left:24px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+/* 8 — barre d'achat collante (mobile surtout) */
+.sticky-buy{position:fixed;left:0;right:0;bottom:0;z-index:150;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(9,9,13,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--bord-mid);transform:translateY(110%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.sticky-buy.show{transform:none}
+.sticky-buy .sb-in{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.sticky-buy small{display:block;font-size:.68rem;color:var(--tx)}
+.sticky-buy strong{color:var(--wh);font-size:.95rem}
+.sticky-buy .btn{margin-left:auto;white-space:nowrap}
+@media (prefers-reduced-motion: reduce){
+  .btn-like::after,.marquee-track,.btn-hero-main{animation:none!important}
+  .rot span,.reveal,.story-slide,.sticky-buy,.quiz-bar b{transition:none!important}
+  .quiz-result{animation:none}
+}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
 </head>
 <body>
+
+<div id="readProgress" aria-hidden="true"></div>
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -448,7 +521,9 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
       <span class="brand-name">VyraShop</span><br/><span class="brand-accent">Academy</span>
     </h1>
     <p class="hero-headline">
-      <strong>Apprends à générer des revenus sur TikTok</strong><br/>
+      <strong>Apprends à générer des revenus sur TikTok avec</strong>
+      <span class="rot" id="heroRot" aria-hidden="true"><span class="on">TikTok Shop</span><span>tes lives</span><span>les partenariats</span><span>le Creator Fund</span></span>
+      <span class="sr-only">TikTok Shop, les lives, les partenariats et le Creator Fund,</span>
       avec les méthodes qu'on applique nous-mêmes, du débutant au niveau avancé.
     </p>
     <div class="hero-objections">
@@ -457,12 +532,12 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
       <span class="hero-obj">✓ Sans audience existante</span>
     </div>
     <div class="hero-ctas">
-      <a href="#offres" class="btn btn-main btn-lg btn-hero-main">Découvrir les offres →</a>
+      <a href="#offres" class="btn btn-main btn-lg btn-hero-main btn-like">Découvrir les offres →</a>
       <a href="#parcours" class="btn btn-outline">Quel profil es-tu ?</a>
     </div>
     <div class="hero-trust">
-      <span><span class="ck">✓</span> 15 ebooks exclusifs</span>
-      <span><span class="ck">✓</span> 6 méthodes de monétisation</span>
+      <span><span class="ck">✓</span> <b data-count="15">15</b> ebooks exclusifs</span>
+      <span><span class="ck">✓</span> <b data-count="6">6</b> méthodes de monétisation</span>
       <span><span class="ck">✓</span> Accès à vie</span>
       <span><span class="ck">🔒</span> Paiement sécurisé Stripe</span>
     </div>
@@ -517,34 +592,36 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
   </div>
 </div>
 
+<!-- BANDEAU DÉFILANT -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>15 ebooks<em>✦</em></span><span>Accès à vie<em>✦</em></span><span>Sans montrer ton visage<em>✦</em></span><span>Paiement sécurisé Stripe<em>✦</em></span><span>Accès sous 48h<em>✦</em></span><span>Garantie 30 jours<em>✦</em></span>
+  <span>15 ebooks<em>✦</em></span><span>Accès à vie<em>✦</em></span><span>Sans montrer ton visage<em>✦</em></span><span>Paiement sécurisé Stripe<em>✦</em></span><span>Accès sous 48h<em>✦</em></span><span>Garantie 30 jours<em>✦</em></span>
+</div></div>
+
 <!-- SOCIAL PROOF / STATS -->
 <section class="stats-section">
   <span class="eyebrow">Preuves concrètes</span>
   <h2 class="sec-title">Des méthodes qu'on applique<br/>nous-mêmes, en temps réel</h2>
   <p class="sec-sub">Ces statistiques viennent de notre propre compte TikTok. On n'enseigne pas ce qu'on ne fait pas.</p>
   <div class="divider"></div>
-  <div class="screens-scroll reveal">
-    <div class="screen-card">
-      <div class="screen-label">📊 60 jours — Vue d'ensemble</div>
-      <img src="/assets/stats/stat-60-jours-overview.jpg" alt="Analytics TikTok 60 jours vue d'ensemble" loading="lazy"/>
-    </div>
-    <div class="screen-card">
-      <div class="screen-label">👥 60 jours — Spectateurs</div>
-      <img src="/assets/stats/stat-60-jours-spectateurs.jpg" alt="Analytics TikTok 60 jours spectateurs" loading="lazy"/>
-    </div>
-    <div class="screen-card">
-      <div class="screen-label">📈 60 jours — Followers</div>
-      <img src="/assets/stats/stat-60-jours-followers.jpg" alt="Analytics TikTok 60 jours followers" loading="lazy"/>
-    </div>
-    <div class="screen-card">
-      <div class="screen-label">📅 28 jours — Vue d'ensemble</div>
-      <img src="/assets/stats/stat-28-jours.jpg" alt="Analytics TikTok 28 jours" loading="lazy"/>
-    </div>
-    <div class="screen-card">
-      <div class="screen-label">🗓️ 7 jours — Vue d'ensemble</div>
-      <img src="/assets/stats/stat-7-jours.jpg" alt="Analytics TikTok 7 jours" loading="lazy"/>
-    </div>
+  <div class="count-tiles reveal" id="countTiles">
+    <div class="count-tile"><strong data-count="15">15</strong><span>ebooks</span></div>
+    <div class="count-tile"><strong data-count="400" data-suffix="+">400+</strong><span>pages</span></div>
+    <div class="count-tile"><strong data-count="6">6</strong><span>méthodes</span></div>
   </div>
+  <div class="story reveal" id="statsStory" role="region" aria-roledescription="carrousel" aria-label="Statistiques de notre compte TikTok">
+    <div class="story-bars" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <div class="story-label" id="storyLabel" aria-live="polite">📊 60 jours — Vue d'ensemble</div>
+    <div class="story-slide on" data-label="📊 60 jours — Vue d'ensemble"><img src="/assets/stats/stat-60-jours-overview.jpg" alt="Analytics TikTok 60 jours vue d'ensemble" loading="eager" width="480" height="940"/></div>
+    <div class="story-slide" data-label="👥 60 jours — Spectateurs"><img src="/assets/stats/stat-60-jours-spectateurs.jpg" alt="Analytics TikTok 60 jours spectateurs" loading="lazy" width="480" height="940"/></div>
+    <div class="story-slide" data-label="📈 60 jours — Followers"><img src="/assets/stats/stat-60-jours-followers.jpg" alt="Analytics TikTok 60 jours followers" loading="lazy" width="480" height="940"/></div>
+    <div class="story-slide" data-label="📅 28 jours — Vue d'ensemble"><img src="/assets/stats/stat-28-jours.jpg" alt="Analytics TikTok 28 jours" loading="lazy" width="480" height="940"/></div>
+    <div class="story-slide" data-label="🗓️ 7 jours — Vue d'ensemble"><img src="/assets/stats/stat-7-jours.jpg" alt="Analytics TikTok 7 jours" loading="lazy" width="480" height="940"/></div>
+    <button class="story-nav prev" type="button" aria-label="Capture précédente"></button>
+    <button class="story-nav next" type="button" aria-label="Capture suivante"></button>
+    <div class="story-hint" aria-hidden="true">Touche à droite pour avancer</div>
+  </div>
+  <a href="#offres" class="story-cta btn btn-outline">Découvrir la méthode →</a>
 </section>
 
 <!-- WHY TIKTOK -->
@@ -695,10 +772,13 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
   <span class="eyebrow">Par où commencer ?</span>
   <h2 class="sec-title">Le parcours recommandé<br/>selon ton profil</h2>
   <p class="sec-sub">Pas besoin de tout prendre d'un coup. Commence où tu en es — et construis ton écosystème progressivement.</p>
+  <div class="quiz reveal" id="profilQuiz" aria-live="polite">
+    <noscript><p style="text-align:center">Compare les trois parcours ci-dessous pour choisir le tien.</p></noscript>
+  </div>
   <div class="parcours-grid">
 
     <div class="parcours-card reveal">
-      <div class="parcours-profile" style="color:var(--or)">🟠 Débutant</div>
+      <div class="parcours-profile" style="color:var(--or)">● Débutant</div>
       <div class="parcours-title">Tu découvres TikTok et la monétisation</div>
       <ul class="parcours-list">
         <li>Formation complète (15 ebooks)</li>
@@ -711,7 +791,7 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
     </div>
 
     <div class="parcours-card reveal">
-      <div class="parcours-profile" style="color:var(--pl)">🟣 Intermédiaire</div>
+      <div class="parcours-profile" style="color:var(--pl)">● Intermédiaire</div>
       <div class="parcours-title">Tu veux passer à l'action sur TikTok Shop</div>
       <ul class="parcours-list">
         <li>Formation + Accès TikTok Shop</li>
@@ -724,7 +804,7 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
     </div>
 
     <div class="parcours-card reveal">
-      <div class="parcours-profile" style="color:var(--gr)">🟢 Ambitieux</div>
+      <div class="parcours-profile" style="color:var(--gr)">● Ambitieux</div>
       <div class="parcours-title">Tu veux progresser le plus vite possible</div>
       <ul class="parcours-list">
         <li>Formation + Accès Shop + Accompagnement</li>
@@ -820,7 +900,7 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
   <h2>Lance-toi sur TikTok<br/>dès aujourd'hui</h2>
   <p>Choisis ton niveau. Commence là où tu en es. La seule vraie différence entre ceux qui réussissent sur TikTok et les autres, c'est qu'ils ont commencé.</p>
   <div class="cta-btns">
-    <a href="#offres" class="btn btn-main btn-lg">🚀 Voir les offres</a>
+    <a href="#offres" class="btn btn-main btn-lg btn-like">🚀 Voir les offres</a>
     <a href="mailto:contact@vyrashop.com" class="btn btn-outline">💬 Nous contacter</a>
   </div>
   <p style="position:relative;margin-top:20px;font-size:.77rem;color:var(--tx)">🔒 Paiement sécurisé Stripe · Accès sous 48h · Garantie 30 jours</p>
@@ -837,6 +917,14 @@ footer img.footer-logo{height:auto;width:240px;max-width:70%}
   </div>
   <p class="footer-disclaimer">Les résultats mentionnés sur ce site sont des exemples individuels, non représentatifs et non garantis. Ils dépendent notamment de la régularité de publication et de facteurs externes (algorithme TikTok, marché). Les statistiques du compte VyraShop sont présentées à titre de démonstration de la méthode, et non comme une projection de tes propres résultats.</p>
 </footer>
+
+<!-- BARRE D'ACHAT COLLANTE -->
+<div class="sticky-buy" id="stickyBuy" aria-hidden="true">
+  <div class="sb-in">
+    <div><small>Formation TikTok Expert</small><strong>147 € · accès à vie</strong></div>
+    <a href="#offres" class="btn btn-main btn-like" tabindex="-1">Voir les offres</a>
+  </div>
+</div>
 
 <!-- COOKIE BANNER -->
 <div id="cookieBanner" style="position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin:0 auto;background:var(--card);border:1px solid rgba(37,244,238,.2);border-radius:var(--r-lg);padding:18px 22px;font-size:.79rem;color:var(--tx-bright);box-shadow:var(--shadow-lg);z-index:200;display:none">
@@ -980,5 +1068,133 @@ try{
 }catch(e){}
 </script>
 
+<!-- ANIMATIONS D'ENGAGEMENT -->
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  /* 1 + 8 : barre de progression de lecture et barre d'achat collante */
+  var bar = document.getElementById('readProgress');
+  var sticky = document.getElementById('stickyBuy');
+  var heroEl = document.querySelector('.hero-wrap');
+  var cookie = document.getElementById('cookieBanner');
+  var hideZones = [document.getElementById('offres'), document.querySelector('.cta-final'), document.querySelector('footer')].filter(Boolean);
+  var inHideZone = {};
+  if (hasIO) {
+    var zio = new IntersectionObserver(function(es){ es.forEach(function(e){ inHideZone[hideZones.indexOf(e.target)] = e.isIntersecting; }); onScroll(); }, {threshold:0});
+    hideZones.forEach(function(z){ zio.observe(z); });
+  }
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (bar) bar.style.width = (h > 0 ? Math.min(window.scrollY / h, 1) * 100 : 0) + '%';
+    if (!sticky) return;
+    var pastHero = heroEl ? heroEl.getBoundingClientRect().bottom < 0 : window.scrollY > 600;
+    var hidden = Object.keys(inHideZone).some(function(k){ return inHideZone[k]; });
+    var cookieOpen = cookie && cookie.style.display === 'block';
+    var show = pastHero && !hidden && !cookieOpen;
+    sticky.classList.toggle('show', show);
+    sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+    var a = sticky.querySelector('a'); if (a) a.tabIndex = show ? 0 : -1;
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* 2 : accroche tournante */
+  var rot = document.querySelectorAll('#heroRot span'), ri = 0;
+  if (rot.length && !reduce) setInterval(function(){
+    var cur = rot[ri]; cur.classList.remove('on'); cur.classList.add('out');
+    ri = (ri + 1) % rot.length; var nx = rot[ri]; nx.classList.remove('out'); void nx.offsetWidth; nx.classList.add('on');
+    setTimeout(function(){ cur.classList.remove('out'); }, 400);
+  }, 2200);
+
+  /* 3 : compteurs, lancés quand ils deviennent visibles */
+  function runCount(el){
+    var to = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '';
+    if (reduce) { el.textContent = to + suf; return; }
+    var t0 = performance.now(), d = 1100;
+    (function tick(t){
+      var k = Math.min((t - t0) / d, 1), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+      el.textContent = v + (k === 1 ? suf : '');
+      if (k < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  var counters = document.querySelectorAll('[data-count]');
+  if (hasIO && !reduce) {
+    var cio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ cio.unobserve(e.target); runCount(e.target); } }); }, {threshold:.5});
+    counters.forEach(function(c){ c.textContent = '0'; cio.observe(c); });
+  }
+
+  /* 4 : statistiques en format story */
+  var story = document.getElementById('statsStory');
+  if (story) {
+    var slides = story.querySelectorAll('.story-slide'), fills = story.querySelectorAll('.story-bars b');
+    var label = document.getElementById('storyLabel'), si = 0, elapsed = 0, last = null, visible = false, DUR = 4000;
+    function show(n){
+      si = (n + slides.length) % slides.length; elapsed = 0;
+      slides.forEach(function(s, i){ s.classList.toggle('on', i === si); });
+      if (label) label.textContent = slides[si].getAttribute('data-label');
+      var nxt = slides[(si + 1) % slides.length].querySelector('img'); if (nxt) nxt.loading = 'eager';
+      paint();
+    }
+    function paint(){ fills.forEach(function(f, i){ f.style.width = (i < si ? 100 : i === si ? elapsed / DUR * 100 : 0) + '%'; }); }
+    function loop(t){
+      if (last !== null && visible && !reduce && !document.hidden) { elapsed += t - last; if (elapsed >= DUR) show(si + 1); else paint(); }
+      last = t; requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+    story.querySelector('.story-nav.next').addEventListener('click', function(){ show(si + 1); });
+    story.querySelector('.story-nav.prev').addEventListener('click', function(){ show(si - 1); });
+    if (hasIO) new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }, {threshold:.5}).observe(story);
+    else visible = true;
+  }
+
+  /* 5 : quiz « Quel profil es-tu ? » */
+  var quiz = document.getElementById('profilQuiz');
+  if (quiz) {
+    var Q = [
+      {q:"Tu en es où sur TikTok ?", o:["Je débute complètement","J'ai un compte mais peu de vues","Je poste déjà régulièrement"]},
+      {q:"Ce qui t'intéresse le plus ?", o:["Comprendre toutes les méthodes","Vendre avec TikTok Shop","Être accompagné pas à pas"]},
+      {q:"Combien de temps peux-tu y consacrer ?", o:["Moins d'1 h par jour","1 à 2 h par jour","Plus de 2 h par jour"]}
+    ];
+    var R = [
+      {t:"Profil Débutant", d:"Commence par la Formation TikTok Expert : 15 ebooks pour tout apprendre de A à Z, à ton rythme.", p:"147 € · accès à vie", href:"#offres", cta:"Voir la formation →"},
+      {t:"Profil Intermédiaire", d:"La formation + l'Accès TikTok Shop prêt à l'emploi : la méthode et l'outil pour vendre sans attendre.", p:"346 € au total", href:"#offres", cta:"Voir les deux offres →"},
+      {t:"Profil Ambitieux", d:"Le pack complet avec l'Accompagnement WhatsApp Premium : un suivi personnalisé pour avancer plus vite.", p:"346 € + 297 €/mois", href:"#accompagnement", cta:"Voir l'accompagnement →"}
+    ];
+    var qi = 0, ans = [];
+    function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function render(){
+      if (qi === Q.length) {
+        var r = R[ans[1]];
+        quiz.innerHTML = '<div class="quiz-result"><span class="eyebrow">Ton résultat</span><span class="qr-title">' + esc(r.t) + '</span><p>' + esc(r.d) + '</p><span class="qr-price">' + esc(r.p) + '</span><a class="btn btn-main btn-like" href="' + r.href + '">' + esc(r.cta) + '</a><button class="quiz-again" type="button">Refaire le quiz</button></div>';
+        quiz.querySelector('.quiz-again').onclick = function(){ qi = 0; ans = []; render(); };
+        return;
+      }
+      var it = Q[qi];
+      quiz.innerHTML = '<div class="quiz-bar"><b style="width:' + (qi / Q.length * 100) + '%"></b></div><div class="quiz-step">Question ' + (qi + 1) + ' / ' + Q.length + '</div><h3>' + esc(it.q) + '</h3><div class="quiz-opts">' +
+        it.o.map(function(o, i){ return '<button class="quiz-opt" type="button" data-i="' + i + '">' + esc(o) + '</button>'; }).join('') + '</div>';
+      requestAnimationFrame(function(){ var b = quiz.querySelector('.quiz-bar b'); if (b) b.style.width = ((qi + 1) / Q.length * 100) + '%'; });
+      quiz.querySelectorAll('.quiz-opt').forEach(function(btn){
+        btn.onclick = function(){ btn.classList.add('pick'); ans[qi] = +btn.getAttribute('data-i'); setTimeout(function(){ qi++; render(); }, reduce ? 0 : 280); };
+      });
+    }
+    render();
+  }
+
+  /* 6 : cœurs au toucher sur les boutons principaux */
+  if (!reduce) document.addEventListener('click', function(e){
+    var btn = e.target.closest && e.target.closest('.btn-like'); if (!btn) return;
+    var rect = btn.getBoundingClientRect(), x = e.clientX || rect.left + rect.width / 2, y = e.clientY || rect.top + rect.height / 2;
+    for (var i = 0; i < 6; i++) (function(i){
+      var h = document.createElement('span'); h.className = 'heart-fx'; h.setAttribute('aria-hidden', 'true');
+      h.textContent = i % 2 ? '💗' : '🩵';
+      h.style.left = (x - 10 + (Math.random() * 60 - 30)) + 'px'; h.style.top = (y - 12) + 'px'; h.style.animationDelay = (i * 60) + 'ms';
+      document.body.appendChild(h); setTimeout(function(){ h.remove(); }, 1300);
+    })(i);
+  });
+})();
+</script>
 </body>
 </html>
