@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.sql.bak
+backup-*.sql
+.netlify/
