@@ -28,7 +28,7 @@ body{background:radial-gradient(ellipse 700px 500px at 15% -5%,rgba(254,44,85,.1
 .gate-card p{color:var(--tx-bright);font-size:.9rem;margin:10px 0}
 
 nav{background:rgba(8,8,11,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bord-pu);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.1rem;font-weight:900;text-decoration:none}
+.logo{font-size:1.1rem;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0}
 .logo-vyra{background:linear-gradient(100deg,#25f4ee 0%,#ffffff 50%,#fe2c55 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .nav-links{display:flex;gap:8px;align-items:center}
 .nav-links a{color:var(--tx);text-decoration:none;font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:var(--r-pill);border:1px solid transparent;transition:all .2s}
@@ -127,12 +127,14 @@ footer a:hover{opacity:1}
   .mod-hero{padding:36px 20px 32px}
 }
 </style>
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
 </head>
 <body>
 <div id="gate"><div class="gate-card"><p>Vérification de ton accès…</p></div></div>
 
 <nav>
-  <a href="index.html" class="logo"><span class="logo-vyra">VyraShop</span></a>
+  <a href="index.html" class="logo"><img src="/assets/brand/logo-icone-144.png" alt="" width="30" height="30" style="width:30px;height:30px;vertical-align:middle;margin-right:8px;display:inline-block"><span class="logo-vyra">VyraShop</span></a>
   <div class="nav-links">
     <a href="/espace-membre/">🏠 Mon espace</a>
     <a href="module1.html">← Module 1</a>
