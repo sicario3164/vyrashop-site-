@@ -1101,11 +1101,12 @@ try{
 
   /* 2 : accroche tournante */
   var rot = document.querySelectorAll('#heroRot span'), ri = 0;
-  if (rot.length && !reduce) setInterval(function(){
+  /* Avec « réduire les animations », le texte change quand même, mais sans glissement (transitions coupées en CSS). */
+  if (rot.length > 1) setInterval(function(){
     var cur = rot[ri]; cur.classList.remove('on'); cur.classList.add('out');
     ri = (ri + 1) % rot.length; var nx = rot[ri]; nx.classList.remove('out'); void nx.offsetWidth; nx.classList.add('on');
     setTimeout(function(){ cur.classList.remove('out'); }, 400);
-  }, 2200);
+  }, reduce ? 3000 : 2200);
 
   /* 3 : compteurs, lancés quand ils deviennent visibles */
   function runCount(el){
@@ -1138,7 +1139,7 @@ try{
     }
     function paint(){ fills.forEach(function(f, i){ f.style.width = (i < si ? 100 : i === si ? elapsed / DUR * 100 : 0) + '%'; }); }
     function loop(t){
-      if (last !== null && visible && !reduce && !document.hidden) { elapsed += t - last; if (elapsed >= DUR) show(si + 1); else paint(); }
+      if (last !== null && visible && !document.hidden) { elapsed += t - last; if (elapsed >= DUR) show(si + 1); else paint(); }
       last = t; requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
