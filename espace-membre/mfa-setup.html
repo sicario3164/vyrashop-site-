@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Activer la 2FA — VyraShop</title>
+<title>Activer la 2FA · VyraShop</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="stylesheet" href="/assets/fonts/fonts.css"/>
 <style>
@@ -49,6 +49,7 @@ input[type="text"]:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(37,244
 </style>
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/assets/vs-espace.css"/>
 </head>
 <body>
 <nav>
@@ -57,7 +58,7 @@ input[type="text"]:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(37,244
 </nav>
 <div class="wrap">
   <div class="card" id="setup-card">
-    <h1>🔐 Activer la 2FA</h1>
+    <h1>Activer la 2FA</h1>
     <p class="sub">Protège ton compte avec une double authentification. En cas de vol de mot de passe, un attaquant ne pourra pas se connecter sans ton téléphone.</p>
     <div id="step1" class="step">
       <span class="step-num">Étape 1</span>
@@ -75,13 +76,13 @@ input[type="text"]:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(37,244
     </div>
   </div>
   <div class="card" id="recovery-card" style="display:none;margin-top:16px">
-    <h1 style="margin-bottom:8px">✅ 2FA activée !</h1>
+    <h1 style="margin-bottom:8px">2FA activée !</h1>
     <p class="sub">Note ces codes de récupération dans un endroit sûr. Ils te permettront de te connecter si tu perds ton téléphone. <strong style="color:var(--red)">Chaque code ne fonctionne qu'une seule fois.</strong></p>
     <div class="recovery-codes">
-      <p>📋 Tes codes de récupération :</p>
+      <p>Tes codes de récupération :</p>
       <div class="codes-grid" id="recovery-codes-grid"></div>
     </div>
-    <button onclick="copyRecoveryCodes()" class="btn-copy">📋 Copier les codes</button>
+    <button onclick="copyRecoveryCodes()" class="btn-copy">Copier les codes</button>
     <a href="/espace-membre/" class="btn btn-link" style="text-decoration:none">Retour à mon compte →</a>
   </div>
 </div>
@@ -107,7 +108,7 @@ async function verifySetup(){
   document.getElementById('setup-card').style.display='none';document.getElementById('recovery-card').style.display='block';
   var codes=[];for(var i=0;i<8;i++){var c=Math.random().toString(36).substring(2,6).toUpperCase()+'-'+Math.random().toString(36).substring(2,6).toUpperCase();codes.push(c);}
   window._recoveryCodes=codes;var grid=document.getElementById('recovery-codes-grid');codes.forEach(function(c){var div=document.createElement('div');div.className='code-item';div.textContent=c;grid.appendChild(div);});
-  var info=document.createElement('p');info.style.cssText='font-size:.74rem;color:var(--tx);margin-top:12px';info.textContent='⚠️ Si tu perds ton téléphone, contacte le support pour désactiver la 2FA.';document.getElementById('recovery-codes-grid').after(info);
+  var info=document.createElement('p');info.style.cssText='font-size:.74rem;color:var(--tx);margin-top:12px';info.textContent='Si tu perds ton téléphone, contacte le support pour désactiver la 2FA.';document.getElementById('recovery-codes-grid').after(info);
 }
 function copyRecoveryCodes(){if(!window._recoveryCodes)return;navigator.clipboard.writeText(window._recoveryCodes.join('\n')).then(function(){alert('Codes copiés !');});}
 function showMsg(text,type){var el=document.getElementById('setup-msg');el.className='msg '+type;el.textContent=text;el.style.display='block';}

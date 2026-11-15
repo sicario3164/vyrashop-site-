@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Mon Accès TikTok Shop — VyraShop</title>
+<title>Mon Accès TikTok Shop · VyraShop</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="stylesheet" href="/assets/fonts/fonts.css"/>
 <style>
@@ -54,6 +54,7 @@ nav{background:rgba(9,9,13,.93);backdrop-filter:blur(24px);-webkit-backdrop-filt
 </style>
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/assets/vs-espace.css"/>
 </head>
 <body>
 <div class="toast" id="toast">✓ Copié !</div>
@@ -62,7 +63,7 @@ nav{background:rgba(9,9,13,.93);backdrop-filter:blur(24px);-webkit-backdrop-filt
   <a href="/espace-membre/" class="back-btn">← Mon espace</a>
 </nav>
 <div class="hero">
-  <div class="hero-badge">🛍️ Accès TikTok Shop</div>
+  <div class="hero-badge">Accès TikTok Shop</div>
   <h1>Mon Accès <span>TikTok Shop</span></h1>
   <p>Compte prêt à l'emploi · TikTok Shop Affiliation activé</p>
 </div>
@@ -73,7 +74,7 @@ nav{background:rgba(9,9,13,.93);backdrop-filter:blur(24px);-webkit-backdrop-filt
       <div><div class="status-title" id="status-title">Chargement…</div><div class="status-sub" id="status-sub"></div></div>
     </div>
     <div class="creds-section" id="creds-section">
-      <div class="creds-title">🔐 Identifiants du compte</div>
+      <div class="creds-title">Identifiants du compte</div>
       <div class="cred-row"><span class="cred-label">Email / Identifiant</span><span class="cred-val empty" id="cred-login">Chargement…</span></div>
       <div class="cred-row"><span class="cred-label">Mot de passe</span><span class="cred-val empty" id="cred-pwd">Chargement…</span></div>
       <div class="cred-row"><span class="cred-label">Notes</span><span class="cred-val empty" id="cred-notes">—</span></div>
@@ -81,12 +82,12 @@ nav{background:rgba(9,9,13,.93);backdrop-filter:blur(24px);-webkit-backdrop-filt
   </div>
   <div class="steps">
     <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Connecte-toi au compte</strong> avec les identifiants ci-dessus sur l'application TikTok. Utilise de préférence un appareil ou navigateur différent de ton compte principal.</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Accède à TikTok Shop</strong> depuis le compte livré — le module Affiliation est déjà activé.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Accède à TikTok Shop</strong> depuis le compte livré : le module Affiliation est déjà activé.</div></div>
     <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Commence à publier des vidéos</strong> avec le lien produit. Consulte la Formation (Module 2) pour les meilleures stratégies.</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-text"><strong>En cas de problème</strong> dans les 30 jours, contacte le support — la garantie de remplacement s'applique.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text"><strong>En cas de problème</strong> dans les 30 jours, contacte le support : la garantie de remplacement s'applique.</div></div>
   </div>
-  <div class="warning"><p>⚠️ <strong style="color:var(--or-light)">Important :</strong> Ne modifie pas l'email ou le mot de passe du compte sans nous contacter d'abord.</p></div>
-  <a href="mailto:contact@vyrashop.com?subject=Support Accès TikTok Shop" class="support-btn">📧 Contacter le support</a>
+  <div class="warning"><p><strong style="color:var(--or-light)">Important :</strong> Ne modifie pas l'email ou le mot de passe du compte sans nous contacter d'abord.</p></div>
+  <a href="mailto:contact@vyrashop.com?subject=Support Accès TikTok Shop" class="support-btn">Contacter le support</a>
 </div>
 <script>
 const SUPABASE_URL='https://pdprwoskbrsoojtanmze.supabase.co';
@@ -100,7 +101,7 @@ async function init(){
   if(!data.has_shop){window.location.href='/espace-membre/';return;}
   if(data.delivered){
     document.getElementById('status-dot').style.background='#27e0da';document.getElementById('status-dot').style.color='#27e0da';
-    document.getElementById('status-title').textContent='Accès livré ✅';document.getElementById('status-sub').textContent='Clique sur les identifiants pour les copier';
+    document.getElementById('status-title').textContent='Accès livré';document.getElementById('status-sub').textContent='Clique sur les identifiants pour les copier';
     document.getElementById('cred-login').className='cred-val';document.getElementById('cred-login').textContent=data.shop_login;document.getElementById('cred-login').onclick=()=>copy(data.shop_login);
     document.getElementById('cred-pwd').className='cred-val';document.getElementById('cred-pwd').textContent=data.shop_password||'—';if(data.shop_password)document.getElementById('cred-pwd').onclick=()=>copy(data.shop_password);
     if(data.shop_notes){document.getElementById('cred-notes').className='cred-val';document.getElementById('cred-notes').textContent=data.shop_notes;}

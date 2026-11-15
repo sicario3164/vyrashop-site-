@@ -1,0 +1,54 @@
+/* vs-espace.css — style commun de l'espace membre et de la formation, aligné sur la page d'accueil.
+   Chargé APRÈS les styles propres à chaque page : il ne fait que les surcharger (aucune logique touchée).
+   Principe : fond noir uni, titres en Archivo condensé majuscule, rose pour agir, cyan pour souligner,
+   pas de halos, pas de dégradés décoratifs, pas de pastilles. */
+
+:root{
+  --vs-bg:#09090d;--vs-card:#121218;--vs-line:#22222b;--vs-line2:#2e2e39;
+  --vs-rose:#fe2c55;--vs-cyan:#25f4ee;--vs-wh:#ffffff;--vs-tx:#b9b9c4;--vs-mute:#8a8a98;
+  --vs-display:"Archivo",Impact,"Arial Narrow",sans-serif;
+  --vs-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+/* Fond uni, sans halos */
+html body{background:var(--vs-bg)!important;font-family:var(--vs-body)}
+.hero::before,.hero::after,.mod-hero::before,.mod-hero::after,.hero-orb{display:none!important}
+
+/* Titres */
+h1,.hero-greeting,.mod-hero h1,.hero h1{font-family:var(--vs-display)!important;font-stretch:80%;font-weight:900!important;text-transform:uppercase;letter-spacing:-.01em!important;line-height:.98!important;color:var(--vs-wh)}
+h1 span,.hero-greeting span,.hero h1 span,.mod-hero h1 span{background:none!important;-webkit-text-fill-color:currentColor!important;color:var(--vs-rose)!important}
+h2,h3,.prod-title,.mod-title,.status-title,.card-title{font-family:var(--vs-display);font-stretch:85%;letter-spacing:0}
+
+/* Logo texte du menu : blanc uni, comme un titre */
+.logo-vyra{background:none!important;-webkit-text-fill-color:currentColor!important;color:var(--vs-wh)!important;font-family:var(--vs-display);font-stretch:80%;font-weight:900;text-transform:uppercase;letter-spacing:0}
+
+/* Pastilles et étiquettes : deviennent du texte simple */
+.hero-badge,.mod-badge,.badge,.nav-tag,.prod-badge,.badge-pu,.badge-or,.badge-gr,.step-badge,.tag{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:0!important;text-transform:none!important;letter-spacing:0!important;font-size:.8rem!important;font-weight:700!important;color:var(--vs-cyan)!important}
+.section-label,.schema-title,.cl-title,.plan-tag,.creds-title{background:none!important;-webkit-text-fill-color:currentColor!important;text-transform:none!important;letter-spacing:0!important;font-size:.9rem!important;font-weight:700!important;color:var(--vs-wh)!important}
+.section-label{font-family:var(--vs-display);font-stretch:80%;font-size:1.5rem!important;text-transform:uppercase!important;font-weight:900!important}
+
+/* Boutons : rose uni, sans ombre lumineuse */
+.btn,.btn-pu,.btn-or,.btn-gr,.btn-2fa,.btn-logout,.mod-btn,.mod1 .mod-btn,.mod2 .mod-btn,.mod3 .mod-btn,.support-btn,.wa-btn,.pdf-btn.primary,.submit,.btn-primary,button[type="submit"],.nav-mod a.active{background:var(--vs-rose)!important;background-image:none!important;color:#fff!important;box-shadow:none!important;border-color:transparent!important}
+.btn-ghost,.btn-secondary,.btn-outline{background:transparent!important;border:1.5px solid var(--vs-line2)!important;color:var(--vs-wh)!important;box-shadow:none!important}
+
+/* Cartes : filet en haut sobre (rose pour la première, gris ensuite), pas de lueur */
+[class*="card"],.prod-card,.mod,.ebook,.status-box,.creds-box,.mfa-box,.box{box-shadow:none!important}
+.prod-card::before,.mod::before,.mod1::before,.mod2::before,.mod3::before{background:var(--vs-line2)!important;height:2px!important}
+.prod-card:nth-child(1)::before,.mod1::before{background:var(--vs-rose)!important}
+
+/* Barres de progression : cyan uni */
+.prog-fill,.fill-pu,.fill-or,.fill-gr,.progress-fill,[class*="prog-fill"]{background:var(--vs-cyan)!important}
+.prog-pct{background:none!important;-webkit-text-fill-color:currentColor!important;color:var(--vs-cyan)!important;font-family:var(--vs-display);font-stretch:75%;font-weight:900}
+
+/* Liens d'accent */
+a{text-underline-offset:3px}
+
+/* Numéros d'étape / d'ebook / de module : texte simple, plus de pastilles */
+.step-num,.ebook-num,.mod-num{background:none!important;border:0!important;padding:0!important;border-radius:0!important;box-shadow:none!important;text-transform:none!important;letter-spacing:0!important;font-size:.8rem!important;font-weight:700!important;color:var(--vs-cyan)!important;font-family:var(--vs-body)}
+.ebook-num{font-family:var(--vs-display);font-stretch:75%;font-size:1rem!important;font-weight:900!important;color:var(--vs-rose)!important;min-width:3.2em}
+
+/* Logo du menu : icône et nom sur la même ligne */
+.logo,.nav-logo,.logo-link{display:inline-flex!important;align-items:center;white-space:nowrap;flex-shrink:0}
+
+/* Étiquette du menu de la formation : redondante avec le titre de la page */
+.nav-tag{display:none!important}

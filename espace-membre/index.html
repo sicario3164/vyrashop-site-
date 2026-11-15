@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Mon Espace Membre — VyraShop</title>
+<title>Mon Espace Membre · VyraShop</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="stylesheet" href="/assets/fonts/fonts.css"/>
 <style>
@@ -110,6 +110,7 @@ footer a:hover{color:var(--wh)}
 </style>
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/assets/vs-espace.css"/>
 </head>
 <body>
 <nav>
@@ -120,26 +121,26 @@ footer a:hover{color:var(--wh)}
   </div>
 </nav>
 <div class="hero">
-  <div class="hero-greeting">Bonjour <span id="user-name">…</span> 👋</div>
+  <div class="hero-greeting">Bonjour <span id="user-name">…</span></div>
   <p class="hero-sub">Voici tes produits et ta progression.</p>
 </div>
 <div class="content">
   <div class="section-label-wrap"><span class="section-label">Mes produits</span></div>
   <div class="products">
     <div class="prod-card" id="card-formation">
-      <span class="prod-icon">📚</span>
+      
       <div><div class="prod-badge badge-pu">Formation</div><div class="prod-title">Formation TikTok Expert</div></div>
       <div class="prod-desc">15 ebooks · 3 modules complets · Accès à vie</div>
       <a href="/formation/" class="prod-btn btn-pu">Accéder à la formation →</a>
     </div>
     <div class="prod-card" id="card-shop">
-      <span class="prod-icon">🛍️</span>
+      
       <div><div class="prod-badge badge-or">Accès Shop</div><div class="prod-title">Accès TikTok Shop</div></div>
       <div class="prod-desc">Compte TikTok Shop prêt à l'emploi · Livraison sous 48h</div>
       <a href="/espace-membre/shop.html" class="prod-btn btn-or">Voir mes identifiants →</a>
     </div>
     <div class="prod-card" id="card-accompagnement">
-      <span class="prod-icon">💬</span>
+      
       <div><div class="prod-badge badge-gr">Accompagnement</div><div class="prod-title">Accompagnement WhatsApp Premium</div></div>
       <div class="prod-desc">Suivi personnalisé · 297€/mois · Sans engagement</div>
       <a href="/espace-membre/accompagnement.html" class="prod-btn btn-gr">Mon suivi →</a>
@@ -147,7 +148,7 @@ footer a:hover{color:var(--wh)}
   </div>
   <!-- PROGRESSION -->
   <div id="prog-section" style="display:none">
-    <div class="section-label-wrap"><span class="section-label">Ma progression — Formation TikTok Expert</span></div>
+    <div class="section-label-wrap"><span class="section-label">Ma progression</span></div>
     <div class="prog-section">
       <div class="prog-header">
         <span class="prog-title-text">Progression globale</span>
@@ -156,9 +157,9 @@ footer a:hover{color:var(--wh)}
       <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
       <div class="prog-sub" id="prog-sub">0 actions complétées</div>
       <div class="modules-grid">
-        <div class="mod-mini"><div class="mod-name">📈 Module 1</div><div class="mod-bar"><div class="mod-fill fill-pu" id="fill-m1" style="width:0%"></div></div><div class="mod-pct" id="pct-m1">0%</div></div>
-        <div class="mod-mini"><div class="mod-name">🛍️ Module 2</div><div class="mod-bar"><div class="mod-fill fill-or" id="fill-m2" style="width:0%"></div></div><div class="mod-pct" id="pct-m2">0%</div></div>
-        <div class="mod-mini"><div class="mod-name">🔥 Module 3</div><div class="mod-bar"><div class="mod-fill fill-gr" id="fill-m3" style="width:0%"></div></div><div class="mod-pct" id="pct-m3">0%</div></div>
+        <div class="mod-mini"><div class="mod-name">Module 1</div><div class="mod-bar"><div class="mod-fill fill-pu" id="fill-m1" style="width:0%"></div></div><div class="mod-pct" id="pct-m1">0%</div></div>
+        <div class="mod-mini"><div class="mod-name">Module 2</div><div class="mod-bar"><div class="mod-fill fill-or" id="fill-m2" style="width:0%"></div></div><div class="mod-pct" id="pct-m2">0%</div></div>
+        <div class="mod-mini"><div class="mod-name">Module 3</div><div class="mod-bar"><div class="mod-fill fill-gr" id="fill-m3" style="width:0%"></div></div><div class="mod-pct" id="pct-m3">0%</div></div>
       </div>
     </div>
   </div>
@@ -211,9 +212,9 @@ async function loadMFAStatus(){
     if(error||!data){statusEl.textContent='Double authentification disponible.';actionsEl.innerHTML='<a href="/espace-membre/mfa-setup.html" class="btn-2fa">Activer la 2FA →</a>';return;}
     var verified=data.totp&&data.totp.filter(function(f){return f.status==='verified';});
     if(verified&&verified.length>0){
-      statusEl.innerHTML='✅ <strong style="color:var(--gr)">Activée</strong> — Ton compte est protégé par un second facteur.';
+      statusEl.innerHTML='<strong style="color:var(--gr)">Activée</strong> — Ton compte est protégé par un second facteur.';
       actionsEl.innerHTML='<button onclick="disableMFA(\''+verified[0].id+'\')" class="btn-2fa btn-2fa-off">Désactiver la 2FA</button>';
-    }else{statusEl.textContent='❌ Non activée — Active la 2FA pour sécuriser ton compte.';actionsEl.innerHTML='<a href="/espace-membre/mfa-setup.html" class="btn-2fa">Activer la 2FA →</a>';}
+    }else{statusEl.textContent='Non activée. Active la 2FA pour sécuriser ton compte.';actionsEl.innerHTML='<a href="/espace-membre/mfa-setup.html" class="btn-2fa">Activer la 2FA →</a>';}
   }catch(e){document.getElementById('section-securite').style.display='none';}
 }
 async function disableMFA(factorId){

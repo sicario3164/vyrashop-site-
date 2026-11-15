@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Espace Membre — VyraShop</title>
+<title>Espace Membre · VyraShop</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="stylesheet" href="/assets/fonts/fonts.css"/>
 <style>
@@ -70,6 +70,7 @@ body{
 </style>
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/assets/vs-espace.css"/>
 </head>
 <body>
 <div class="page-wrap">
@@ -95,7 +96,7 @@ body{
       </div>
       <!-- MFA Challenge -->
       <div id="mfa-challenge" style="display:none">
-        <div class="mfa-info">🔐 Entre le code à 6 chiffres de ton application d'authentification.</div>
+        <div class="mfa-info">Entre le code à 6 chiffres de ton application d'authentification.</div>
         <div>
           <label class="form-label">Code de vérification</label>
           <input type="text" id="mfa-code-input" class="form-input" placeholder="000000" inputmode="numeric" maxlength="6" autocomplete="one-time-code" onkeydown="if(event.key==='Enter')verifyMFA()"/>
