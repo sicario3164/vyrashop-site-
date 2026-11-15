@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Outils · VyraShop</title>
+<meta name="robots" content="noindex"/>
+<meta name="theme-color" content="#09090d"/>
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/assets/fonts/fonts.css"/>
+<link rel="stylesheet" href="/assets/formation/app.css"/>
+</head>
+<body>
+<nav>
+  <div class="col">
+    <a href="/" aria-label="Accueil VyraShop"><img src="/assets/brand/logo-icone-144.png" alt="VyraShop" width="34" height="34"/></a>
+    <span class="sp"></span>
+    <a href="/formation/">Parcours</a>
+    <a href="/formation/outils.html" class="on">Outils</a>
+    <a href="/espace-membre/">Mon espace</a>
+  </div>
+</nav>
+
+<main class="col" id="app">
+  <p class="loading">Chargement des outils…</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/formation/app.js"></script>
+<script>
+(async function () {
+  var app = document.getElementById('app');
+  var o;
+  try { o = await VS.api('outils'); } catch (e) { VS.afficherAcces(app, e.code); return; }
+
+  var niches = []; o.hooks.forEach(function (h) { if (niches.indexOf(h.niche) < 0) niches.push(h.niche); });
+  var onglet = (location.hash || '#hooks').slice(1); if (['hooks', 'scripts', 'modeles'].indexOf(onglet) < 0) onglet = 'hooks';
+  var niche = 'Toutes', recherche = '';
+
+  app.innerHTML = '<header class="page-head"><span class="kicker">Boîte à outils</span><h1>Copie, <span>adapte,</span> publie</h1>' +
+    '<p class="sub">Remplace ce qui est entre crochets par tes vraies informations. Ne promets jamais un résultat que tu ne peux pas montrer.</p>' +
+    '<div class="tabs" role="tablist"><button class="tab" data-t="hooks" role="tab">100 hooks</button><button class="tab" data-t="scripts" role="tab">20 scripts</button><button class="tab" data-t="modeles" role="tab">7 modèles</button></div></header>' +
+    '<section id="zone"></section>';
+  var zone = document.getElementById('zone');
+
+  function texteScript(s) { return s.titre.toUpperCase() + ' (' + s.format + ')\n\n' + s.etapes.map(function (e) { return e.t + ' : ' + e.x; }).join('\n'); }
+
+  function afficher() {
+    document.querySelectorAll('.tab').forEach(function (t) { var on = t.dataset.t === onglet; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); });
+    var h = '';
+    if (onglet === 'hooks') {
+      h += '<div class="chips">' + ['Toutes'].concat(niches).map(function (n) { return '<button class="chip' + (n === niche ? ' on' : '') + '" type="button" data-n="' + VS.esc(n) + '">' + VS.esc(n) + '</button>'; }).join('') + '</div>';
+      h += '<input class="search" id="q" type="search" placeholder="Chercher un mot (ex. : routine, testé, erreur)" value="' + VS.esc(recherche) + '" aria-label="Chercher un hook"/>';
+      var liste = o.hooks.filter(function (x) { return (niche === 'Toutes' || x.niche === niche) && (!recherche || x.texte.toLowerCase().indexOf(recherche.toLowerCase()) >= 0); });
+      h += '<ul class="items">' + liste.map(function (x) { return '<li class="item"><div><span class="t">' + VS.esc(x.texte) + '</span><small>' + VS.esc(x.niche) + '</small></div><button class="copy" type="button" data-copy="' + VS.esc(x.texte) + '">Copier</button></li>'; }).join('') +
+        (liste.length ? '' : '<li class="item"><span>Aucun hook ne correspond.</span></li>') + '</ul>';
+    } else if (onglet === 'scripts') {
+      h += '<div class="items">' + o.scripts.map(function (s, i) {
+        return '<article class="script"><div class="script-head"><div><h3>' + (i + 1) + '. ' + VS.esc(s.titre) + '</h3><p class="fmt">' + VS.esc(s.format) + '</p></div><button class="copy" type="button" data-script="' + i + '">Copier</button></div>' +
+          '<ol class="steps">' + s.etapes.map(function (e) { return '<li><b>' + VS.esc(e.t) + ' :</b> ' + VS.esc(e.x) + '</li>'; }).join('') + '</ol></article>';
+      }).join('') + '</div>';
+    } else {
+      h += '<div class="items">' + o.modeles.map(function (m, i) {
+        return '<article class="script"><div class="script-head"><div><h3>' + VS.esc(m.titre) + '</h3><p class="fmt">' + VS.esc(m.usage) + '</p></div><button class="copy" type="button" data-modele="' + i + '">Copier</button></div><pre class="tpl">' + VS.esc(m.texte) + '</pre></article>';
+      }).join('') + '</div>';
+    }
+    zone.innerHTML = h;
+    var q = document.getElementById('q');
+    if (q) q.addEventListener('input', function () { recherche = q.value; var pos = q.selectionStart; afficher(); var nq = document.getElementById('q'); nq.focus(); nq.setSelectionRange(pos, pos); });
+  }
+
+  document.querySelector('.tabs').addEventListener('click', function (e) { var t = e.target.closest('.tab'); if (!t) return; onglet = t.dataset.t; history.replaceState(null, '', '#' + onglet); afficher(); });
+  zone.addEventListener('click', function (e) {
+    var c = e.target.closest('.chip'); if (c) { niche = c.dataset.n; afficher(); return; }
+    var b = e.target.closest('.copy'); if (!b) return;
+    if (b.dataset.copy) VS.copier(b.dataset.copy, b);
+    else if (b.dataset.script) VS.copier(texteScript(o.scripts[+b.dataset.script]), b);
+    else if (b.dataset.modele) VS.copier(o.modeles[+b.dataset.modele].texte, b);
+  });
+  window.addEventListener('hashchange', function () { var t = location.hash.slice(1); if (['hooks', 'scripts', 'modeles'].indexOf(t) >= 0) { onglet = t; afficher(); } });
+  afficher();
+})();
+</script>
+</body>
+</html>

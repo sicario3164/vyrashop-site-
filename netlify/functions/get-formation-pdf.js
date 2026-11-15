@@ -22,7 +22,7 @@ const { getAuthenticatedEmail } = require('./_lib/auth');
 // Empêche toute tentative de path traversal via un identifiant arbitraire.
 const EBOOKS = {
   ebook1: 'EBOOK1 MonetisationTikTok.pdf',
-  ebook2: 'EBOOK2 CreatorFundStrategiesAvancees.pdf',
+  ebook2: 'EBOOK2 CreatorRewardsProgram.pdf',
   ebook3: 'EBOOK3 LivesEtCadeauxVirtuels.pdf',
   ebook4: 'EBOOK4 PartenariatsDeMarques.pdf',
   ebook5: 'EBOOK5 RevenusPassifsAutomatisation.pdf',

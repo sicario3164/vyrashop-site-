@@ -1,0 +1,1687 @@
+{
+ "version": "2026-11",
+ "modules": [
+  {
+   "id": "m0",
+   "titre": "Commence ici",
+   "sous": "Comment marche la formation, et ton point de départ.",
+   "lecons": [
+    {
+     "id": "m0-1",
+     "ebook": null,
+     "titre": "Comment marche cette formation",
+     "duree": 3,
+     "resume": "Le parcours, une action par jour, et où trouver tes outils.",
+     "corps": "Tu n'as pas besoin de tout lire d'un coup. La formation est découpée en **leçons de 3 à 5 minutes**, rangées dans l'ordre où tu en as besoin.\n\n## Le principe : une leçon, une action\nChaque leçon se termine par **une seule action concrète**. Tu la fais, tu coches « C'est fait », et tu passes à la suivante. Ta progression est enregistrée dans ton compte : tu reprends là où tu t'es arrêté, sur ton téléphone ou ton ordinateur.\n\n## Les 5 parties\n- **Commence ici** : ton point de départ (tu y es).\n- **Gagner de l'argent sur TikTok** : les façons de monétiser et comment les débloquer.\n- **TikTok Shop** : vendre des produits sans stock, en affiliation.\n- **Viralité et croissance** : hooks, montage, publication, abonnés.\n- **Côté légal et argent** : déclarer tes revenus et rester dans les règles.\n\n## Ta boîte à outils\nDans **Outils**, tu trouves les **100 hooks**, les **20 scripts** et les **modèles** (calendrier, message aux marques, suivi des ventes). Chaque élément a un bouton **Copier**.\n\n> Le rythme conseillé : une leçon tous les deux jours, et le jour entre les deux pour appliquer. Le parcours complet tient en 90 jours.\n\n!! Les règles de TikTok changent souvent (seuils d'abonnés, conditions des programmes). Quand une leçon donne un chiffre officiel, vérifie-le dans ton appli avant de t'y fier.",
+     "action": "Active les notifications de ton téléphone pour TikTok Studio et note la date d'aujourd'hui : c'est ton jour 1.",
+     "jour": 1,
+     "module": "m0"
+    },
+    {
+     "id": "m0-2",
+     "ebook": 15,
+     "titre": "Ton point de départ",
+     "duree": 5,
+     "resume": "Choisir ta niche et préparer ton compte avant de publier.",
+     "corps": "Avant de chercher à gagner de l'argent, il faut que TikTok comprenne **à qui montrer tes vidéos**. C'est le rôle de ta niche.\n\n## Choisir ta niche en 3 questions\n1. **De quoi peux-tu parler 50 fois sans t'ennuyer ?** Beauté, sport, cuisine, organisation, business, gaming…\n2. **Est-ce que des gens achètent dans ce domaine ?** Si tu vois déjà des vidéos avec des produits TikTok Shop ou des partenariats, oui.\n3. **Peux-tu le faire sans montrer ton visage, si tu le souhaites ?** Mains, voix off, écran, produits filmés : beaucoup de niches s'y prêtent.\n\nChoisis **une** niche pour les 30 prochains jours. Tu pourras élargir plus tard, quand TikTok saura déjà qui tu es.\n\n## Préparer ton compte\n- **Passe en compte professionnel** (Paramètres > Compte > Passer à un compte professionnel). Tu débloques les statistiques.\n- **Photo de profil** : nette, lisible en tout petit.\n- **Nom et bio** : dis ce qu'on gagne à te suivre, en une phrase. Exemple : « Des produits beauté testés pour de vrai, sans filtre. »\n- **Un seul thème** dans tes 9 premières vidéos : c'est ce qu'un visiteur regarde avant de s'abonner.\n\n> Tu as déjà un compte avec des vidéos sur plein de sujets ? Garde-le si tu y tiens, mais publie désormais uniquement dans ta niche. Après une vingtaine de vidéos, TikTok recalibre ton audience.",
+     "action": "Écris ta niche en une phrase et mets à jour ta bio avec ce que les gens gagnent à te suivre.",
+     "jour": 3,
+     "module": "m0"
+    }
+   ]
+  },
+  {
+   "id": "m1",
+   "titre": "Gagner de l'argent sur TikTok",
+   "sous": "Les façons de monétiser, et comment les débloquer.",
+   "lecons": [
+    {
+     "id": "m1-1",
+     "ebook": 1,
+     "titre": "Les 5 façons de gagner de l'argent sur TikTok",
+     "duree": 5,
+     "resume": "Vue d'ensemble : ce qui paie, et à partir de quand.",
+     "corps": "Il n'y a pas une seule façon de gagner de l'argent sur TikTok, mais cinq. La plupart des créateurs qui en vivent en combinent deux ou trois.\n\n## 1. Le Creator Rewards Program\nTikTok te rémunère selon les **vues qualifiées** de tes vidéos de plus d'une minute. Il a remplacé l'ancien « Creator Fund », qui n'existe plus depuis fin 2023. Conditions les plus citées en France : 18 ans, 10 000 abonnés, 100 000 vues sur les 30 derniers jours.\n\n## 2. Les lives et les cadeaux\nPendant un live, les spectateurs t'envoient des cadeaux virtuels, convertis en argent. Il faut avoir **18 ans** pour en recevoir, et en général **1 000 abonnés** pour lancer un live.\n\n## 3. TikTok Shop (affiliation)\nTu mets en avant des produits vendus par des marques, et tu touches une **commission** sur chaque vente. Pas de stock, pas d'envoi. Le seuil d'abonnés varie selon les comptes et les périodes : regarde dans ton appli si l'option t'est proposée.\n\n## 4. Les partenariats de marques\nUne marque te paie pour une vidéo. Il n'y a **pas de minimum officiel d'abonnés** : une audience précise et engagée compte plus qu'un gros chiffre.\n\n## 5. Tes propres produits\nUn guide, un modèle, un accompagnement : tu vends ce que tu sais faire. C'est la source la plus rentable par vente, et elle ne dépend d'aucun seuil.\n\n!! Tous ces seuils viennent de TikTok et changent régulièrement. La référence, c'est **TikTok Studio** dans ton appli : c'est là que les programmes auxquels tu as droit s'affichent.\n\n> Par où commencer ? Si tu as moins de 1 000 abonnés, les options ouvertes tout de suite sont les partenariats et tes propres produits. TikTok Shop et les lives viennent ensuite, Creator Rewards en dernier.",
+     "action": "Ouvre TikTok Studio et note les programmes de monétisation qui te sont déjà proposés.",
+     "jour": 5,
+     "module": "m1"
+    },
+    {
+     "id": "m1-2",
+     "ebook": 1,
+     "titre": "Ce que l'algorithme regarde vraiment",
+     "duree": 4,
+     "resume": "Pourquoi une vidéo est poussée, et pourquoi une autre s'arrête.",
+     "corps": "Sur TikTok, ce n'est pas ton nombre d'abonnés qui décide de tes vues. C'est la réaction des premières personnes qui voient ta vidéo.\n\n## Comment une vidéo est distribuée\nTikTok montre d'abord ta vidéo à un **petit groupe** de personnes intéressées par ton sujet. S'ils la regardent jusqu'au bout, la likent, la partagent ou la commentent, elle est montrée à un groupe plus large. Et ainsi de suite, jusqu'à ce que les réactions baissent.\n\nC'est pour ça qu'une vidéo peut décoller deux jours après sa publication : elle continue d'être testée tant qu'elle performe.\n\n## Les signaux qui comptent le plus\n- **Le visionnage complet** : les gens restent-ils jusqu'à la fin ? C'est le signal le plus fort.\n- **Les revisionnages** : une vidéo regardée deux fois vaut plus qu'une vidéo abandonnée.\n- **Les partages et les enregistrements** : ils montrent que ta vidéo est utile.\n- **Les commentaires** : surtout ceux qui lancent une conversation.\n\n## Ce que ça change pour toi\nTon travail n'est pas d'avoir des abonnés, c'est de **garder l'attention** des premières secondes jusqu'à la fin. Toute la partie « Viralité et croissance » est construite là-dessus.\n\n> On le voit sur notre propre compte : sur 60 jours, une seule vidéo a fait un énorme pic de vues, alors que les autres tournaient bien plus bas. Une vidéo qui accroche peut valoir plus qu'un mois de publications.",
+     "action": "Regarde ta vidéo la plus vue et note à quelle seconde les gens décrochent (TikTok Studio > ta vidéo > Rétention).",
+     "jour": 6,
+     "module": "m1"
+    },
+    {
+     "id": "m1-3",
+     "ebook": 1,
+     "titre": "Les erreurs qui bloquent la monétisation",
+     "duree": 4,
+     "resume": "Ce qui fait stagner la plupart des débutants.",
+     "corps": "La plupart des comptes qui ne décollent pas font les mêmes erreurs. Les éviter te fait gagner des mois.\n\n## 1. Changer de sujet tout le temps\nTikTok ne sait pas à qui montrer tes vidéos. Reste sur ta niche au moins 30 jours.\n\n## 2. Publier puis disparaître\nUne vidéo par semaine ne suffit pas pour apprendre ce qui marche. Vise **une vidéo par jour** au début, même simple.\n\n## 3. Copier sans comprendre\nReprendre une tendance, c'est bien. La reprendre sans l'adapter à ta niche, c'est invisible. Ajoute toujours ton angle.\n\n## 4. Acheter des abonnés ou des vues\nLes faux comptes ne regardent pas tes vidéos : ton taux de visionnage s'effondre, et TikTok te pousse moins. Tu risques aussi la suppression du compte.\n\n## 5. Promettre des résultats\n« Gagne 3 000 € par mois », « perds 10 kg en une semaine » : TikTok retire ce type de vidéos, et en France c'est une pratique commerciale trompeuse. Montre ce que tu fais, sans promettre de résultat.\n\n## 6. Abandonner trop tôt\nLes premières semaines servent à apprendre. Tes 30 premières vidéos sont un entraînement, pas un examen.",
+     "action": "Relis tes 5 dernières vidéos et note celle qui sort de ta niche : c'est le type de vidéo à arrêter.",
+     "jour": 8,
+     "module": "m1"
+    },
+    {
+     "id": "m1-4",
+     "ebook": 2,
+     "titre": "Le Creator Rewards Program",
+     "duree": 5,
+     "resume": "Le programme qui paie les vidéos de plus d'une minute.",
+     "corps": "Le **Creator Rewards Program** est le programme de TikTok qui te rémunère directement pour tes vidéos. Il a remplacé le « Creator Fund » fin 2023.\n\n## Les conditions (les plus citées pour la France)\n- avoir **18 ans** ou plus ;\n- **10 000 abonnés** ;\n- **100 000 vues** sur les 30 derniers jours ;\n- un compte personnel en règle avec les règles de la communauté.\n\n!! Vérifie les conditions exactes dans **TikTok Studio > Creator Rewards Program** : elles peuvent changer, et c'est là que tu postules.\n\n## Comment tu es payé\n- Seules les vidéos de **plus d'une minute** comptent.\n- Seules les **vues qualifiées** comptent : en général, celles qui viennent du fil « Pour toi » et dépassent les premières secondes.\n- Le montant pour 1 000 vues qualifiées **varie** selon le pays des spectateurs, le sujet et l'engagement. TikTok ne garantit aucun montant.\n\n## Ce qu'il faut en retenir\nC'est une source de revenu **complémentaire**, rarement la principale. Elle récompense surtout les créateurs qui savent faire des vidéos longues regardées jusqu'au bout. La leçon suivante t'apprend à le faire.",
+     "action": "Vérifie dans TikTok Studio si tu remplis les conditions, et note ce qu'il te manque.",
+     "jour": 10,
+     "module": "m1"
+    },
+    {
+     "id": "m1-5",
+     "ebook": 2,
+     "titre": "Des vidéos de plus d'une minute qui tiennent",
+     "duree": 5,
+     "resume": "Structurer une vidéo longue pour garder l'attention.",
+     "corps": "Une vidéo d'une minute trente est beaucoup plus dure à faire regarder qu'une vidéo de 15 secondes. Voici une structure qui tient.\n\n## La structure en 4 temps\n1. **0 à 3 s, le hook** : la promesse de la vidéo, dite tout de suite.\n2. **3 à 15 s, le pourquoi** : pourquoi rester ? Annonce ce qu'on va apprendre ou voir.\n3. **15 s à la fin moins 10 s, le contenu** : en étapes courtes, avec un changement d'image toutes les 2 à 4 secondes.\n4. **Les 10 dernières secondes, la chute** : le résultat, la réponse, ou une question qui fait commenter.\n\n## Les formats qui tiennent naturellement plus d'une minute\n- **Les tutoriels** en plusieurs étapes.\n- **Les classements** (« les 5 meilleurs… ») : on reste pour voir le numéro 1.\n- **Les histoires** vécues, avec une chute.\n- **Les tests** d'un produit ou d'une méthode, du début au résultat.\n\n> Garde une promesse ouverte jusqu'à la fin. Si tu annonces « le numéro 1 va te surprendre », les gens attendent.\n\n## À éviter\n- Rallonger artificiellement : les gens le sentent et partent.\n- Les longues introductions : commence directement par le sujet.",
+     "action": "Écris le plan en 4 temps d'une vidéo d'une minute trente sur ta niche.",
+     "jour": 12,
+     "module": "m1"
+    },
+    {
+     "id": "m1-6",
+     "ebook": 2,
+     "titre": "Choisir des sujets qui rapportent plus",
+     "duree": 4,
+     "resume": "Pourquoi certains sujets paient mieux que d'autres.",
+     "corps": "À nombre de vues égal, tous les sujets ne rapportent pas autant, que ce soit en Creator Rewards, en partenariats ou en affiliation.\n\n## Pourquoi\nLes annonceurs paient plus cher pour toucher certaines audiences. Les sujets où l'on **dépense de l'argent** attirent donc des rémunérations plus élevées.\n\n## Les sujets généralement mieux payés\n- argent, business, emploi ;\n- technologie et outils numériques ;\n- santé, sport, bien-être (avec prudence, voir plus bas) ;\n- beauté et soins ;\n- maison et équipement.\n\n## Les sujets généralement moins bien payés\nLe divertissement pur (humour, danse, tendances sans thème) fait beaucoup de vues, mais il est plus difficile à rentabiliser.\n\n## Comment l'utiliser sans changer de passion\nTu n'as pas à abandonner ta niche. Cherche **l'angle qui fait dépenser** : un compte cuisine peut parler du matériel, un compte gaming des accessoires, un compte humour peut faire des avis produits drôles.\n\n!! Santé et finance sont surveillées de près par TikTok. Ne donne jamais de conseil médical ou d'investissement présenté comme sûr : partage ton expérience et renvoie vers un professionnel.",
+     "action": "Trouve dans ta niche 3 idées de vidéos où ton audience pourrait dépenser de l'argent.",
+     "jour": 14,
+     "module": "m1"
+    },
+    {
+     "id": "m1-7",
+     "ebook": 3,
+     "titre": "Lives et cadeaux : comment ça marche",
+     "duree": 4,
+     "resume": "Pièces, cadeaux, diamants : le circuit de l'argent en live.",
+     "corps": "Pendant un live, tes spectateurs peuvent t'envoyer des **cadeaux virtuels**. Voici le circuit.\n\n## Le circuit\n1. Le spectateur achète des **pièces** avec son argent.\n2. Il les utilise pour t'envoyer un **cadeau** pendant le live.\n3. Tu reçois des **diamants**.\n4. Tu convertis tes diamants en argent, depuis l'appli.\n\nTikTok garde une part importante au passage : ne compte pas chaque pièce comme un euro.\n\n## Les conditions\n- **18 ans** pour recevoir des cadeaux, c'est la règle la plus constante.\n- En général **1 000 abonnés** pour lancer un live, mais TikTok ouvre parfois l'accès plus tôt ou plus tard selon les comptes.\n\n!! Vérifie dans ton appli (bouton + > LIVE) si l'option t'est proposée, et les conditions affichées.\n\n## Ce qui fait vraiment donner\nLes gens n'envoient pas de cadeaux à un live vide. Ils donnent pour **participer** : être cités, voir un objectif avancer, influencer ce qui se passe. Un live rentable est un live où il se passe quelque chose.",
+     "action": "Regarde 2 lives de créateurs de ta niche pendant 10 minutes et note ce qui fait réagir les spectateurs.",
+     "jour": 16,
+     "module": "m1"
+    },
+    {
+     "id": "m1-8",
+     "ebook": 3,
+     "titre": "Préparer et structurer un live d'une heure",
+     "duree": 5,
+     "resume": "Le matériel minimum et le déroulé qui marche.",
+     "corps": "## Le matériel minimum\n- ton téléphone, posé sur un **support** stable ;\n- une **lumière** face à toi (une fenêtre de jour suffit) ;\n- une bonne **connexion** wifi ;\n- un **sujet** annoncé à l'avance dans une vidéo ou ta bio.\n\n## Le déroulé en 4 phases\n1. **0 à 10 min, l'accueil** : salue les arrivants par leur pseudo, annonce ce qui va se passer.\n2. **10 à 35 min, le contenu** : ce que tu as promis (démonstration, questions-réponses, test, défi).\n3. **35 à 50 min, le temps fort** : un objectif collectif, un vote, un défi ; c'est souvent là que les cadeaux arrivent.\n4. **50 à 60 min, la clôture** : remercie, annonce le prochain live, invite à s'abonner.\n\n## Le rythme\nFais tes lives **aux mêmes jours et heures** chaque semaine. Ton audience prend l'habitude de venir.\n\n> Commence par 30 minutes, deux fois par semaine. Allonge quand tu te sens à l'aise.",
+     "action": "Choisis un jour et une heure fixes pour ton premier live, et annonce-le dans ta bio.",
+     "jour": 17,
+     "module": "m1"
+    },
+    {
+     "id": "m1-9",
+     "ebook": 3,
+     "titre": "Animer un live sans gêne",
+     "duree": 4,
+     "resume": "Parler à des inconnus en direct, et les faire revenir.",
+     "corps": "Le plus dur dans un live, ce sont les premières minutes devant 3 personnes. C'est normal, et ça se travaille.\n\n## Les réflexes qui changent tout\n- **Dis le pseudo** de chaque personne qui arrive ou commente. Les gens restent quand on les voit.\n- **Pose des questions fermées** : « Plutôt A ou B ? Réponds 1 ou 2. » C'est facile d'y répondre.\n- **Répète le sujet** toutes les 5 minutes pour ceux qui arrivent en cours de route.\n- **Ne t'excuse pas** du faible nombre de spectateurs. Parle comme si la salle était pleine.\n\n## Sans montrer ton visage\nUn live peut montrer tes mains, un écran, un produit, un jeu. Ce qui compte, c'est ta voix et l'interaction.\n\n## Faire revenir les gens\n- Termine toujours en annonçant **le prochain live** et son sujet.\n- Remercie nommément ceux qui ont participé.\n- Publie une courte vidéo avec le meilleur moment du live.\n\n!! Pendant un live, ne promets jamais de gains, ne fais pas de jeu d'argent et ne vends rien qui sorte des règles de TikTok : les lives sont modérés en direct.",
+     "action": "Écris 5 questions fermées à poser pendant ton premier live.",
+     "jour": 19,
+     "module": "m1"
+    },
+    {
+     "id": "m1-10",
+     "ebook": 4,
+     "titre": "Comment les marques choisissent les créateurs",
+     "duree": 4,
+     "resume": "Ce que les marques regardent avant de te contacter.",
+     "corps": "Les marques ne cherchent pas forcément de gros comptes. Elles cherchent des créateurs **qui font vendre** auprès d'une audience précise.\n\n## Ce qu'elles regardent\n- **Ta niche** : est-ce que ton audience correspond à leurs clients ?\n- **Ton engagement** : les gens commentent-ils, posent-ils des questions ?\n- **La qualité de tes vidéos** : lumière, son, clarté.\n- **Ta régularité** : publies-tu souvent, depuis longtemps ?\n- **Ton image** : ton contenu est-il compatible avec leur marque ?\n\n## Les types de collaboration\n- **Envoi de produit** contre une vidéo, souvent pour démarrer.\n- **Vidéo payée** : un tarif fixe pour une ou plusieurs vidéos.\n- **Affiliation** : une commission sur les ventes faites avec ton lien ou ton code.\n- **Ambassadeur** : plusieurs vidéos sur plusieurs mois.\n\n> Un petit compte très ciblé (par exemple 3 000 abonnés passionnés de course à pied) peut intéresser une marque de chaussures plus qu'un compte de 100 000 abonnés sans thème.",
+     "action": "Liste 10 marques de ta niche dont tu utilises déjà les produits.",
+     "jour": 21,
+     "module": "m1"
+    },
+    {
+     "id": "m1-11",
+     "ebook": 4,
+     "titre": "Ton média kit et ton premier message",
+     "duree": 5,
+     "resume": "Te présenter aux marques et les contacter toi-même.",
+     "corps": "## Le média kit, en une page\nC'est ta carte de visite pour les marques. Il contient :\n1. qui tu es et ta niche, en 2 lignes ;\n2. tes chiffres : abonnés, vues moyennes des 30 derniers jours, part de ton audience en France ;\n3. 3 de tes meilleures vidéos (liens) ;\n4. ce que tu proposes (vidéo, série, live) ;\n5. ton contact.\n\nTu peux le faire en une page sur Canva. Mets-le à jour chaque mois.\n\n## Contacter une marque\nN'attends pas qu'on te trouve. Écris en message privé ou par e-mail, avec un message **court et précis** :\n- pourquoi cette marque (tu l'utilises, elle correspond à ton audience) ;\n- une idée de vidéo concrète ;\n- ton média kit en lien.\n\nUn modèle prêt à copier t'attend dans **Outils > Modèles**.\n\n> Relance une seule fois, une semaine plus tard. Sans réponse, passe à la suivante : c'est un jeu de volume.",
+     "action": "Crée ton média kit d'une page et envoie ton premier message à une marque.",
+     "jour": 23,
+     "module": "m1"
+    },
+    {
+     "id": "m1-12",
+     "ebook": 4,
+     "titre": "Fixer ton prix et livrer",
+     "duree": 4,
+     "resume": "Combien demander, et comment livrer une vidéo sponsorisée.",
+     "corps": "## Fixer ton prix\nIl n'y a pas de grille officielle. Pour démarrer, base-toi sur **tes vues moyennes** plutôt que sur tes abonnés, et ajuste selon :\n- le travail demandé (tournage, montage, nombre de vidéos) ;\n- les droits demandés (la marque peut-elle réutiliser ta vidéo en publicité ? c'est plus cher) ;\n- l'exclusivité (interdiction de travailler avec un concurrent : plus cher).\n\n> Au début, accepte quelques collaborations contre produit pour te constituer des exemples. Dès que tu as des résultats à montrer, demande une rémunération.\n\n## Avant de tourner\nMets par écrit, même par e-mail : le nombre de vidéos, la date de publication, le prix, le délai de paiement, les droits de réutilisation.\n\n## La vidéo\nUne vidéo sponsorisée qui marche ressemble à **tes autres vidéos**. Garde ton ton et ton format. Les gens décrochent dès que ça sonne comme une publicité.\n\n!! En France, une vidéo payée par une marque (argent ou produit offert) doit afficher clairement **« Publicité »** ou **« Collaboration commerciale »**, du début à la fin. Active aussi l'option « contenu commercial » de TikTok. Tout est détaillé dans la partie « Côté légal et argent ».",
+     "action": "Écris tes 3 conditions minimales pour accepter une collaboration (prix, délai, droits).",
+     "jour": 25,
+     "module": "m1"
+    },
+    {
+     "id": "m1-13",
+     "ebook": 5,
+     "titre": "Revenu passif : le vrai et le faux",
+     "duree": 4,
+     "resume": "Ce qui tourne sans toi, et ce qui demande du travail.",
+     "corps": "« Gagne de l'argent pendant que tu dors » : la formule est séduisante, mais un revenu vraiment passif n'existe presque jamais au départ.\n\n## Ce qui est vrai\nCertaines sources continuent de rapporter **après** le travail :\n- une vidéo affiliée qui continue de vendre des semaines après sa publication ;\n- un produit digital (guide, modèle) vendu automatiquement ;\n- une vidéo longue qui continue d'accumuler des vues.\n\n## Ce qui est faux\n- Il n'existe pas de système qui rapporte sans publier. Sur TikTok, ce qui ne publie plus disparaît du fil.\n- Les promesses de « revenus automatiques » sans effort sont presque toujours des arnaques.\n\n## La bonne façon de voir les choses\nPense **actifs** plutôt que passif : chaque vidéo, chaque produit est un actif qui peut continuer à travailler pour toi. Ton but est d'en construire un peu chaque semaine.",
+     "action": "Identifie ta vidéo la plus ancienne qui fait encore des vues : c'est un actif à reproduire.",
+     "jour": 26,
+     "module": "m1"
+    },
+    {
+     "id": "m1-14",
+     "ebook": 5,
+     "titre": "Vendre ton propre produit digital",
+     "duree": 5,
+     "resume": "Créer un petit produit et le vendre depuis TikTok.",
+     "corps": "C'est souvent la source la plus rentable : tu gardes presque tout le prix de vente, et aucun seuil d'abonnés n'est nécessaire.\n\n## Quel produit ?\nPars des **questions qu'on te pose** en commentaire. Ce qu'on te demande souvent, quelqu'un est prêt à le payer.\n- un **guide** de quelques pages ;\n- un **modèle** (planning, budget, programme) ;\n- une **liste** (meilleurs produits, outils, recettes) ;\n- un **appel** ou un accompagnement court.\n\n## Le vendre\n- Une page de vente simple (plateformes comme Gumroad, Stan, ou ton propre site).\n- Le lien dans ta bio.\n- Des vidéos qui donnent **une partie** de la réponse, et renvoient vers le produit pour le reste.\n\n## Le prix\nPour un premier produit simple, un petit prix facilite la décision. Tu augmenteras quand tu auras des avis.\n\n!! Vendre ton produit fait de toi un vendeur : tu dois déclarer ces revenus et respecter les règles de vente en ligne (mentions légales, conditions de vente). Voir la partie « Côté légal et argent ».",
+     "action": "Note les 3 questions qu'on te pose le plus souvent en commentaire : ce sont tes idées de produit.",
+     "jour": 28,
+     "module": "m1"
+    },
+    {
+     "id": "m1-15",
+     "ebook": 5,
+     "titre": "Automatiser sans perdre en qualité",
+     "duree": 4,
+     "resume": "Les outils qui te font gagner du temps chaque semaine.",
+     "corps": "Automatiser ne veut pas dire tout déléguer à une machine. Ça veut dire **supprimer les tâches répétitives** pour garder ton énergie pour la création.\n\n## Ce qu'on peut automatiser\n- **La publication** : programme tes vidéos à l'avance (TikTok Studio sur ordinateur le permet).\n- **Les idées** : garde une note avec toutes tes idées de vidéos, alimentée au fil de la journée.\n- **Le montage** : modèles CapCut réutilisables, sous-titres automatiques.\n- **Les réponses fréquentes** : prépare des réponses types pour les questions qui reviennent.\n\n## Ce qu'il ne faut pas automatiser\n- Les **commentaires** : répondre toi-même fait vivre ton compte.\n- Ta **voix** et ton angle : c'est ce qui te distingue.\n\n## L'IA, avec prudence\nL'IA aide à trouver des idées, écrire un premier jet de script, générer des sous-titres. Mais une vidéo entièrement générée et sans personnalité performe rarement.\n\n!! En France, une image réaliste générée ou retouchée par IA dans un contenu commercial doit porter la mention **« Images virtuelles »**.\n\n## Ta routine de la semaine\n- **1 session d'idées** (30 min) ;\n- **1 à 2 sessions de tournage** groupé ;\n- **1 session de montage** ;\n- publication programmée, et 15 minutes par jour pour les commentaires.",
+     "action": "Bloque dans ton agenda une session de tournage groupé cette semaine.",
+     "jour": 30,
+     "module": "m1"
+    }
+   ]
+  },
+  {
+   "id": "m2",
+   "titre": "TikTok Shop",
+   "sous": "Vendre des produits sans stock, en affiliation.",
+   "lecons": [
+    {
+     "id": "m2-1",
+     "ebook": 6,
+     "titre": "Comment marche l'affiliation TikTok Shop",
+     "duree": 4,
+     "resume": "Le principe, et qui fait quoi.",
+     "corps": "TikTok Shop permet d'acheter sans quitter l'appli. En **affiliation**, tu ne vends pas tes propres produits : tu mets en avant ceux des vendeurs, et tu touches une **commission** sur chaque vente.\n\n## Qui fait quoi\n- **Le vendeur** : il stocke, expédie et gère le service client.\n- **TikTok** : il gère le paiement et la livraison suivie.\n- **Toi** : tu crées la vidéo (ou le live) avec le produit épinglé, et tu touches un pourcentage du prix.\n\n## Pourquoi c'est intéressant pour démarrer\n- **Pas de stock** ni d'avance d'argent.\n- L'achat se fait **en deux clics** depuis ta vidéo, sans lien externe.\n- Une seule vidéo peut continuer à vendre longtemps.\n\n## Ce que ça demande\n- un compte éligible à l'affiliation (seuil d'abonnés variable selon les comptes, à vérifier dans l'appli) ;\n- d'avoir 18 ans ;\n- des vidéos qui donnent envie d'acheter, pas des publicités.\n\nTikTok Shop est disponible en France depuis le printemps 2025. Les règles évoluent vite : la référence reste ton appli et le centre d'aide TikTok Shop.",
+     "action": "Ouvre TikTok Studio et regarde si l'onglet TikTok Shop ou Affiliation t'est proposé.",
+     "jour": 32,
+     "module": "m2"
+    },
+    {
+     "id": "m2-2",
+     "ebook": 6,
+     "titre": "Activer ton accès et t'y retrouver",
+     "duree": 4,
+     "resume": "Les étapes pour démarrer, et les écrans à connaître.",
+     "corps": "## Activer l'affiliation\n1. Passe ton compte en **compte professionnel**.\n2. Dans **TikTok Studio**, cherche la section **TikTok Shop** ou **Affiliation**.\n3. Vérifie ton identité et ton âge quand l'appli le demande.\n4. Ajoute tes informations de paiement pour recevoir tes commissions.\n\n!! Si l'option n'apparaît pas, ton compte ne remplit pas encore les conditions. Continue à publier dans ta niche : l'accès s'ouvre souvent avec la croissance du compte.\n\n## Les écrans à connaître\n- **La vitrine produits** (Marketplace) : là où tu cherches des produits à promouvoir et leur commission.\n- **Ta vitrine** : les produits que tu as ajoutés, visibles sur ton profil.\n- **Les commandes** : ce que tes vidéos ont vendu.\n- **Les statistiques** : ventes, commissions et vidéos qui vendent le mieux.\n\n> Prends 15 minutes pour parcourir chaque écran avant ta première vidéo produit. Tu seras plus à l'aise le jour où une vidéo vend.",
+     "action": "Ajoute 3 produits de ta niche à ta vitrine (ou note-les si l'accès n'est pas encore ouvert).",
+     "jour": 34,
+     "module": "m2"
+    },
+    {
+     "id": "m2-3",
+     "ebook": 6,
+     "titre": "Commissions, paiements et règles",
+     "duree": 5,
+     "resume": "Ce que tu touches, quand, et ce qui est interdit.",
+     "corps": "## Les commissions\n- Chaque produit affiche son **taux de commission**, fixé par le vendeur.\n- Certains vendeurs proposent un **taux plus élevé** aux créateurs qui vendent bien : c'est négociable.\n- La commission est calculée sur le prix payé, hors frais de livraison en général.\n\n## Les paiements\n- La commission est validée **après la livraison** et la fin du délai de retour.\n- Un produit retourné ou remboursé **annule** la commission.\n- Tu retires ensuite ton solde vers ton compte bancaire.\n\n## Les règles à respecter\n- Montre le **vrai produit**, dans de vraies conditions.\n- Pas de **fausses promesses** : santé, minceur, résultats garantis.\n- Pas de **faux avis** ni de fausse urgence (« plus que 2 en stock » si c'est faux).\n- Respecte les **catégories interdites** de TikTok Shop.\n\n!! Une vidéo qui enfreint ces règles est retirée, et le compte peut perdre l'accès à TikTok Shop. En France, mettre en avant un produit contre commission relève aussi de la loi Influenceurs : signale clairement le caractère commercial (voir la partie légale).",
+     "action": "Choisis un produit et calcule ce que tu toucherais pour 10 ventes avec son taux de commission.",
+     "jour": 36,
+     "module": "m2"
+    },
+    {
+     "id": "m2-4",
+     "ebook": 7,
+     "titre": "Les critères d'un produit qui se vend",
+     "duree": 5,
+     "resume": "Comment reconnaître un bon produit avant de filmer.",
+     "corps": "Une bonne vidéo ne sauve pas un mauvais produit. Avant de filmer, passe chaque produit au crible de ces critères.\n\n## Les 7 critères\n1. **Il se comprend en 3 secondes** : on voit tout de suite à quoi il sert.\n2. **Il résout un problème visible** : désordre, fatigue, perte de temps.\n3. **Il se démontre** : il y a un avant et un après, ou un effet visible.\n4. **Le prix favorise l'achat impulsif** : en général sous 40 €.\n5. **La commission vaut le coup** : regarde le gain réel par vente, pas seulement le pourcentage.\n6. **Le vendeur est sérieux** : bonnes notes, délais de livraison corrects, peu de retours.\n7. **Il correspond à ta niche** : ton audience doit avoir une raison de l'acheter chez toi.\n\n## La note sur 7\nDonne un point par critère rempli. **5 ou plus** : filme. **Moins de 5** : passe au suivant.\n\n> Commande le produit avant d'en parler. Tu feras de meilleures vidéos, et tu éviteras de recommander quelque chose de mauvais.",
+     "action": "Note sur 7 les 3 produits de ta vitrine et garde le meilleur pour ta première vidéo.",
+     "jour": 37,
+     "module": "m2"
+    },
+    {
+     "id": "m2-5",
+     "ebook": 7,
+     "titre": "Trouver des produits dans la vitrine",
+     "duree": 4,
+     "resume": "Utiliser la Marketplace et repérer les tendances.",
+     "corps": "## Dans la vitrine produits (Marketplace)\n- **Filtre par catégorie** de ta niche.\n- **Trie par ventes** pour voir ce qui part déjà.\n- Regarde les **vidéos des autres créateurs** sur ce produit : si elles vendent, le produit a fait ses preuves.\n- Vérifie la **note du vendeur** et les **avis clients**.\n\n## Repérer ce qui monte\n- Dans ton fil « Pour toi », note les produits que tu vois revenir plusieurs fois en peu de temps.\n- Cherche le nom du produit dans la barre de recherche : beaucoup de vidéos récentes = tendance en cours.\n- Les fêtes et les saisons (rentrée, Noël, été) changent ce qui se vend : anticipe d'un mois.\n\n## Produits durables ou produits tendance\n- **Durables** : se vendent toute l'année (rangement, soin, accessoires du quotidien). Moins d'explosion, mais des ventes régulières.\n- **Tendance** : ventes fortes pendant quelques semaines. Il faut arriver tôt.\n\n> Garde un équilibre : une majorité de produits durables, et quelques produits tendance pour les pics.",
+     "action": "Repère dans la vitrine 5 produits de ta niche triés par ventes, et note celui qui a le meilleur vendeur.",
+     "jour": 39,
+     "module": "m2"
+    },
+    {
+     "id": "m2-6",
+     "ebook": 7,
+     "titre": "Éviter les produits pièges",
+     "duree": 4,
+     "resume": "Les signaux qui doivent te faire passer ton chemin.",
+     "corps": "Recommander un mauvais produit te coûte la confiance de ton audience, des retours (donc des commissions annulées) et parfois ton accès à TikTok Shop.\n\n## Les signaux d'alerte\n- **Note du vendeur faible** ou beaucoup d'avis négatifs récents.\n- **Délais de livraison longs** : les acheteurs annulent ou se plaignent.\n- **Promesses trop belles** sur la fiche produit (minceur rapide, effets médicaux).\n- **Photos qui ne correspondent pas** au produit reçu.\n- **Commission anormalement élevée** sur un produit de mauvaise qualité.\n\n## Les catégories à éviter\n- compléments et produits « santé » avec des promesses ;\n- produits réglementés ou interdits par TikTok Shop ;\n- contrefaçons et imitations de marques.\n\n## La règle simple\nSi tu ne le conseillerais pas à un ami, ne le mets pas dans ta vitrine.",
+     "action": "Retire de ta vitrine tout produit que tu n'as pas testé ou dont le vendeur a une note faible.",
+     "jour": 41,
+     "module": "m2"
+    },
+    {
+     "id": "m2-7",
+     "ebook": 8,
+     "titre": "Pourquoi une vidéo produit vend",
+     "duree": 5,
+     "resume": "La structure qui transforme une vue en achat.",
+     "corps": "La plupart des vidéos produits ne vendent pas parce qu'elles **montrent** le produit au lieu de montrer **ce qu'il change**.\n\n## La structure qui vend\n1. **Le hook** (0 à 3 s) : le problème ou le résultat, tout de suite.\n2. **Le problème** : la situation que ton audience connaît.\n3. **La solution** : le produit en action, filmé de près.\n4. **La preuve** : le résultat, un avant et un après, ton avis honnête.\n5. **L'appel à l'action** : ce qu'il faut faire maintenant.\n\n## Ce qui déclenche l'achat\n- **Se reconnaître** dans le problème.\n- **Voir** le produit fonctionner, pas seulement l'entendre décrit.\n- **La confiance** : un avis honnête, avec un point faible, rassure plus qu'un avis parfait.\n- **La facilité** : « c'est épinglé juste en dessous ».\n\n> Montre le produit dans ta vraie vie, avec ta vraie lumière. Les vidéos trop léchées ressemblent à des publicités, et les gens les passent.",
+     "action": "Écris le plan en 5 étapes d'une vidéo pour ton meilleur produit.",
+     "jour": 43,
+     "module": "m2"
+    },
+    {
+     "id": "m2-8",
+     "ebook": 8,
+     "titre": "Les formats qui vendent",
+     "duree": 4,
+     "resume": "8 formats de vidéo produit à alterner.",
+     "corps": "Alterner les formats évite que ton audience se lasse, et te montre ce qui marche le mieux pour toi.\n\n## Les 8 formats\n1. **Avant / après** : l'effet visible du produit.\n2. **Test honnête** : tu testes, tu donnes les points forts et un point faible.\n3. **Démonstration** : comment s'en servir, étape par étape.\n4. **Comparaison** : ce produit face à un autre, ou face à la version chère.\n5. **Déballage** : la première impression, à chaud.\n6. **Routine** : le produit dans ta routine du matin, du soir, de sport.\n7. **Réponse à un commentaire** : « on m'a demandé si ça valait le coup… ».\n8. **Classement** : « mes 3 achats préférés du mois ».\n\n## Comment choisir\nCommence par **le test honnête** et **l'avant / après** : ce sont les plus simples et souvent les plus efficaces. Ensuite, regarde dans tes statistiques lesquels vendent le plus, et fais-en davantage.\n\n> Les **20 scripts** de la boîte à outils couvrent tous ces formats, prêts à adapter.",
+     "action": "Choisis 2 formats et tourne une vidéo pour chacun avec le même produit.",
+     "jour": 45,
+     "module": "m2"
+    },
+    {
+     "id": "m2-9",
+     "ebook": 8,
+     "titre": "L'appel à l'action et les scripts",
+     "duree": 4,
+     "resume": "Finir une vidéo pour qu'on clique, sans forcer.",
+     "corps": "Une bonne vidéo sans appel à l'action laisse le spectateur repartir. Un appel trop insistant le fait fuir.\n\n## Un bon appel à l'action\n- **Un seul** : ne demande pas à la fois de cliquer, commenter et s'abonner.\n- **Concret** : « le produit est épinglé juste en dessous ».\n- **Naturel** : dit sur ton ton habituel, pas récité.\n- **Placé à la fin**, et rappelé à l'écran.\n\n## Exemples\n- « Je l'ai épinglé en dessous si tu veux le voir. »\n- « Le lien est dans la vidéo, dis-moi si tu l'essaies. »\n- « Je te mets celui que j'utilise juste en dessous. »\n\n## À éviter\n- La fausse urgence (« plus que quelques heures ») si ce n'est pas vrai.\n- Les faux chiffres d'avis ou de ventes.\n\n## Tes 20 scripts\nDans **Outils > Scripts**, tu trouves 20 scripts complets : avant / après, test, comparaison, routine, réponse à un commentaire… Remplace les crochets par ton produit et tes vrais chiffres.",
+     "action": "Ouvre Outils > Scripts, choisis un script et adapte-le à ton produit.",
+     "jour": 46,
+     "module": "m2"
+    },
+    {
+     "id": "m2-10",
+     "ebook": 9,
+     "titre": "Les 4 leviers pour vendre plus",
+     "duree": 5,
+     "resume": "Ce qui fait passer de quelques ventes à beaucoup plus.",
+     "corps": "Quand tes premières vidéos vendent, quatre leviers permettent d'aller plus loin. Travaille-les **un par un**.\n\n## 1. Plus de vidéos sur ce qui marche\nTon produit qui vend le mieux mérite **5 à 10 vidéos** différentes : autres hooks, autres formats, autres angles.\n\n## 2. Une meilleure conversion\nCompare tes vidéos : à vues égales, laquelle vend le plus ? Reprends son hook, sa durée et son appel à l'action.\n\n## 3. Plus de valeur par vente\nMets en avant des produits **complémentaires** (« celui-là va avec ») ou des lots. Négocie un meilleur taux avec les vendeurs pour qui tu vends beaucoup.\n\n## 4. Plus de sources de trafic\nLes lives shopping, les vidéos longues et ta vitrine sur ton profil multiplient les occasions d'achat.\n\n> Ne lance pas les 4 leviers en même temps. Concentre-toi sur le premier pendant deux semaines, puis passe au suivant.",
+     "action": "Repère ta vidéo produit qui a le plus vendu et prévois 3 nouvelles versions avec d'autres hooks.",
+     "jour": 48,
+     "module": "m2"
+    },
+    {
+     "id": "m2-11",
+     "ebook": 9,
+     "titre": "Les lives shopping",
+     "duree": 4,
+     "resume": "Vendre en direct en présentant des produits.",
+     "corps": "Un live shopping, c'est un live où des produits sont épinglés et achetables pendant que tu les présentes.\n\n## Pourquoi ça marche\n- Les spectateurs posent leurs **questions en direct**.\n- Tu peux **montrer** le produit sous tous les angles.\n- L'effet de groupe rassure : d'autres achètent en même temps.\n\n## La préparation\n- **3 à 5 produits** maximum, que tu connais bien.\n- Un **ordre de passage**, avec le produit phare au milieu, quand le live est plein.\n- Les **réponses aux questions fréquentes** (taille, utilisation, livraison) préparées à l'avance.\n\n## Pendant le live\n- Présente chaque produit pendant **5 à 10 minutes**, puis reviens dessus plus tard pour les nouveaux arrivants.\n- Montre-le **en action**, pas seulement en main.\n- Réponds aux questions **en citant le pseudo**.\n\n!! Pas de fausse promo ni de faux compte à rebours : les lives shopping sont surveillés par TikTok.",
+     "action": "Choisis les 3 produits de ton premier live shopping et prépare 3 réponses à des questions probables.",
+     "jour": 50,
+     "module": "m2"
+    },
+    {
+     "id": "m2-12",
+     "ebook": 9,
+     "titre": "Grandir sans t'épuiser",
+     "duree": 4,
+     "resume": "Tenir le rythme sur la durée.",
+     "corps": "Beaucoup de créateurs abandonnent non pas parce que ça ne marche pas, mais parce qu'ils s'épuisent.\n\n## Les règles pour tenir\n- **Un rythme que tu peux garder 6 mois**, pas un rythme héroïque pendant 2 semaines.\n- **Tourner en groupe** : 5 vidéos en une session plutôt qu'une par jour au dernier moment.\n- **Un jour off** par semaine, sans culpabilité.\n- **Des objectifs de régularité** (« 5 vidéos par semaine ») plutôt que de résultats (« 1 000 € ce mois-ci »), que tu ne contrôles pas.\n\n## Les paliers\n- **Au début** : apprendre ce qui vend, une vidéo par jour.\n- **Quand ça vend régulièrement** : doubler sur les produits gagnants, ajouter les lives.\n- **Quand tu manques de temps** : déléguer le montage ou la recherche de produits.\n\n> Note chaque semaine ton nombre de vidéos et tes ventes dans le tableau de suivi (Outils > Modèles). Voir ta progression aide à tenir.",
+     "action": "Fixe ton objectif de vidéos par semaine pour les 4 prochaines semaines.",
+     "jour": 52,
+     "module": "m2"
+    },
+    {
+     "id": "m2-13",
+     "ebook": 10,
+     "titre": "Ton système de la semaine",
+     "duree": 4,
+     "resume": "Une organisation simple qui tourne toute seule.",
+     "corps": "Un système, c'est une semaine type que tu répètes sans réfléchir. Voici un exemple à adapter.\n\n## Une semaine type\n- **Lundi** : recherche de produits et idées (45 min).\n- **Mardi** : tournage groupé de 4 à 6 vidéos.\n- **Mercredi** : montage.\n- **Jeudi à dimanche** : publication programmée, réponses aux commentaires (15 min par jour).\n- **Un soir** : live shopping.\n- **Dimanche** : bilan de la semaine (15 min).\n\n## Le bilan du dimanche\nTrois questions seulement :\n1. Quelle vidéo a le mieux marché, et pourquoi ?\n2. Quel produit a le plus vendu ?\n3. Qu'est-ce que je refais la semaine prochaine ?\n\n> Un calendrier prêt à copier t'attend dans Outils > Modèles.",
+     "action": "Copie le calendrier de la semaine depuis Outils > Modèles et remplis ta semaine prochaine.",
+     "jour": 54,
+     "module": "m2"
+    },
+    {
+     "id": "m2-14",
+     "ebook": 10,
+     "titre": "Les outils IA vraiment utiles",
+     "duree": 4,
+     "resume": "Gagner du temps avec l'IA, sans perdre ta personnalité.",
+     "corps": "## Ce que l'IA fait bien\n- **Trouver des idées** : « 10 angles de vidéos pour un organiseur de tiroir ».\n- **Écrire un premier jet** de script, que tu réécris ensuite avec tes mots.\n- **Sous-titrer** automatiquement (CapCut le fait très bien).\n- **Résumer** les avis clients d'un produit pour trouver les arguments qui reviennent.\n\n## Ce qu'elle fait mal\n- Parler avec **ta voix** et ton humour.\n- Donner un **avis vécu** sur un produit que tu as testé.\n- Connaître les **règles récentes** de TikTok : vérifie toujours.\n\n## Comment t'en servir\nUtilise-la au début (idées) et à la fin (sous-titres, description), jamais au milieu (ton avis, ta démonstration).\n\n!! Une image ou une vidéo réaliste générée par IA dans un contenu commercial doit porter la mention « Images virtuelles » en France. Et un avis inventé par IA sur un produit que tu n'as pas testé est une pratique trompeuse.",
+     "action": "Demande à une IA 10 angles de vidéos pour ton meilleur produit, et garde les 3 meilleurs.",
+     "jour": 55,
+     "module": "m2"
+    },
+    {
+     "id": "m2-15",
+     "ebook": 10,
+     "titre": "Protéger ton activité",
+     "duree": 4,
+     "resume": "Ne pas tout perdre du jour au lendemain.",
+     "corps": "Ton activité repose sur un compte que tu ne contrôles pas totalement. Quelques précautions évitent de tout perdre.\n\n## Les risques\n- **Une vidéo signalée** qui fait perdre l'accès à TikTok Shop.\n- **Un compte suspendu** après plusieurs avertissements.\n- **Un changement de règles** qui réduit les commissions d'une catégorie.\n\n## Les protections\n- **Respecte les règles** : pas de fausses promesses, pas de faux avis, pas de catégories interdites. C'est la meilleure assurance.\n- **Sécurise ton compte** : mot de passe unique, validation en deux étapes activée.\n- **Diversifie** : plusieurs produits, plusieurs vendeurs, et au moins une autre source (partenariats, produit à toi).\n- **Garde le contact** avec ton audience en dehors de TikTok : une liste e-mail ou un autre réseau.\n\n> Ne mets jamais tous tes revenus sur un seul produit ou un seul vendeur. Si un vendeur arrête, tu dois pouvoir continuer.",
+     "action": "Active la validation en deux étapes sur ton compte TikTok (Paramètres > Sécurité).",
+     "jour": 57,
+     "module": "m2"
+    }
+   ]
+  },
+  {
+   "id": "m3",
+   "titre": "Viralité et croissance",
+   "sous": "Hooks, montage, publication et abonnés.",
+   "lecons": [
+    {
+     "id": "m3-1",
+     "ebook": 11,
+     "titre": "Comment une vidéo est distribuée",
+     "duree": 4,
+     "resume": "Les cercles successifs de diffusion.",
+     "corps": "Chaque vidéo passe par une série de tests, comme des cercles de plus en plus grands.\n\n## Les étapes\n1. **Le premier cercle** : quelques centaines de personnes, choisies selon le sujet de ta vidéo et leurs centres d'intérêt.\n2. **L'évaluation** : TikTok regarde comment elles réagissent (visionnage complet, revisionnages, partages, commentaires).\n3. **Les cercles suivants** : si les réactions sont bonnes, la vidéo est montrée à plus de monde. Sinon, la diffusion ralentit.\n\n## Ce que ça implique\n- **Chaque vidéo repart de zéro** : une mauvaise vidéo ne « casse » pas ton compte.\n- **Les premières secondes décident de tout** : c'est là que se joue le premier cercle.\n- **Une vidéo peut repartir** des jours plus tard, si elle continue de bien réagir.\n\n> Ne supprime pas une vidéo qui démarre lentement. Laisse-lui au moins 48 heures.",
+     "action": "Regarde les statistiques de tes 3 dernières vidéos et note le pourcentage de visionnage complet.",
+     "jour": 59,
+     "module": "m3"
+    },
+    {
+     "id": "m3-2",
+     "ebook": 11,
+     "titre": "Les signaux qui comptent",
+     "duree": 4,
+     "resume": "Ce qui pousse une vidéo, et ce qui la freine.",
+     "corps": "## Les signaux qui poussent\n- **Regardée jusqu'au bout**, et encore mieux, **revue**.\n- **Partagée** (en message ou en story).\n- **Enregistrée** dans les favoris.\n- **Commentée**, surtout quand une discussion démarre.\n- **Un abonnement** après la vidéo.\n\n## Les signaux qui freinent\n- **Passée en moins de 2 secondes**.\n- Signalée « Pas intéressé ».\n- Contenu repris d'un autre réseau avec un **filigrane** visible.\n- Son de mauvaise qualité, image floue.\n- Contenu qui enfreint les règles (même légèrement).\n\n## Comment provoquer les bons signaux\n- **Partages** : fais des vidéos qu'on a envie d'envoyer à quelqu'un (« tag la personne qui… »).\n- **Enregistrements** : donne une liste, une astuce, une étape à garder pour plus tard.\n- **Commentaires** : termine par une vraie question, ou laisse un petit débat ouvert.\n\n> Sur notre compte, les partages ont progressé plus vite que les j'aime sur 60 jours (25,4 K partages, en hausse). C'est souvent le signe de contenus utiles qu'on a envie d'envoyer.",
+     "action": "Prévois ta prochaine vidéo pour provoquer un enregistrement : une liste ou une astuce à garder.",
+     "jour": 61,
+     "module": "m3"
+    },
+    {
+     "id": "m3-3",
+     "ebook": 11,
+     "titre": "Être trouvé par la recherche",
+     "duree": 4,
+     "resume": "TikTok est aussi un moteur de recherche.",
+     "corps": "Beaucoup de gens utilisent TikTok comme Google : « meilleur sérum peau grasse », « recette rapide ». Tes vidéos peuvent ressortir longtemps dans ces recherches.\n\n## Comment TikTok comprend ta vidéo\n- **Ce que tu dis** (il transcrit l'audio).\n- **Le texte à l'écran**.\n- **La description**.\n- Quelques **hashtags** précis.\n\n## Les bons réflexes\n1. **Trouve le mot-clé** : tape ton sujet dans la recherche TikTok et regarde les suggestions qui apparaissent.\n2. **Dis-le** dans les premières secondes de la vidéo.\n3. **Écris-le** à l'écran et dans la description.\n4. Ajoute **3 à 5 hashtags** précis, plutôt que des hashtags très généraux.\n\n> Une vidéo bien référencée peut faire des vues pendant des mois. C'est la version TikTok du revenu « durable ».",
+     "action": "Tape le sujet de ta prochaine vidéo dans la recherche TikTok et note 3 suggestions à utiliser.",
+     "jour": 63,
+     "module": "m3"
+    },
+    {
+     "id": "m3-4",
+     "ebook": 12,
+     "titre": "Les 3 premières secondes",
+     "duree": 4,
+     "resume": "Pourquoi tout se joue au début.",
+     "corps": "Dans le fil « Pour toi », une vidéo a environ **une seconde et demie** pour arrêter le pouce. Si elle n'y arrive pas, rien d'autre ne compte.\n\n## Les 3 couches d'un hook\n1. **Le visuel** : la première image doit intriguer même sans le son (un geste, un résultat, un objet inattendu).\n2. **Le texte à l'écran** : une phrase courte, lisible en une seconde.\n3. **La phrase dite** : elle complète le texte, sans le répéter mot pour mot.\n\n## Les erreurs classiques\n- Commencer par « Salut » ou « Aujourd'hui je vais vous parler de… ».\n- Annoncer le sujet au lieu de créer l'envie.\n- Un hook vague (« quelques conseils pour TikTok »).\n- Promettre ce que la vidéo ne tient pas : les gens partent, et TikTok le voit.\n\n> Commence par la fin : le résultat, la conséquence, le moment le plus fort. L'explication vient après.",
+     "action": "Réécris le début de ta dernière vidéo en commençant par son moment le plus fort.",
+     "jour": 65,
+     "module": "m3"
+    },
+    {
+     "id": "m3-5",
+     "ebook": 12,
+     "titre": "Les 10 types de hooks",
+     "duree": 5,
+     "resume": "Des structures de phrases qui arrêtent le scroll.",
+     "corps": "Les hooks qui marchent suivent des structures qui se répètent. Garde cette liste sous la main.\n\n1. **Le résultat** : « Voilà ce que [produit] a changé en 30 jours. »\n2. **L'erreur** : « Tu fais sûrement cette erreur avec [sujet]. »\n3. **L'identification** : « Si toi aussi tu [problème], regarde ça. »\n4. **Le secret** : « Ce que [experts] ne te disent pas sur [sujet]. »\n5. **Le test** : « J'ai testé [chose] pendant [durée]. Voilà la vérité. »\n6. **La comparaison** : « [Option chère] contre [option pas chère] : la différence. »\n7. **Le classement** : « Les 3 meilleurs [produits] que j'ai testés. »\n8. **La contradiction** : « J'ai arrêté [habitude populaire]. Voilà pourquoi. »\n9. **La question** : « Pourquoi [problème courant] alors que [effort] ? »\n10. **L'histoire** : « Il y a 6 mois, [situation de départ]… »\n\n## Comment les utiliser\nPour chaque vidéo, écris **3 hooks** avec 3 structures différentes, et garde le plus fort. Les **100 hooks** classés par niche sont dans **Outils > Hooks**.\n\n!! Un hook doit rester vrai. « J'ai testé pendant 30 jours » seulement si tu l'as fait.",
+     "action": "Écris 3 hooks avec 3 structures différentes pour ta prochaine vidéo.",
+     "jour": 66,
+     "module": "m3"
+    },
+    {
+     "id": "m3-6",
+     "ebook": 12,
+     "titre": "Tester et améliorer tes hooks",
+     "duree": 4,
+     "resume": "Trouver ton hook signature grâce aux statistiques.",
+     "corps": "Un hook n'est jamais parfait, il est meilleur que le précédent. La méthode :\n\n## Le test en 4 étapes\n1. Pour un même sujet, prépare **3 versions** du début de la vidéo.\n2. Publie-les **à des jours différents**, à la même heure.\n3. Après **48 heures**, compare la **rétention** à 3 secondes et le visionnage complet.\n4. Garde la structure gagnante comme modèle pour tes prochaines vidéos.\n\n## Où lire les chiffres\nTikTok Studio > ta vidéo > **Rétention** : tu vois à quel moment les gens partent. Si la courbe chute avant 3 secondes, c'est le hook. Si elle chute au milieu, c'est le rythme.\n\n## Ta bibliothèque de hooks\nNote dans un fichier chaque hook qui a bien marché, avec son score. Au bout de quelques mois, tu as tes propres modèles prouvés, adaptés à ton audience.",
+     "action": "Prépare 3 débuts différents pour une même vidéo et programme-les sur 3 jours.",
+     "jour": 68,
+     "module": "m3"
+    },
+    {
+     "id": "m3-7",
+     "ebook": 13,
+     "titre": "Le rythme et les coupes",
+     "duree": 4,
+     "resume": "Le montage qui garde l'attention jusqu'au bout.",
+     "corps": "Le montage est invisible quand il est bien fait. Les gens ne le remarquent pas, ils restent.\n\n## Le rythme\n- **Change d'image toutes les 2 à 4 secondes** : nouveau plan, zoom, texte, angle.\n- **Coupe les silences** et les « euh », sans pitié.\n- **Accélère les passages lents** plutôt que de les garder.\n\n## Les coupes utiles\n- **La coupe sur le geste** : tu coupes au milieu d'un mouvement, la suite continue dans le plan suivant.\n- **Le zoom léger** pour insister sur une phrase.\n- **Le saut** : tu enlèves le milieu d'une action pour aller directement au résultat.\n\n## La fin\n- Termine **juste après** la chute, sans traîner.\n- Une fin qui **boucle** sur le début (la dernière phrase relance la première image) donne envie de revoir.",
+     "action": "Remonte ta dernière vidéo en coupant tous les silences, et compare sa durée avant et après.",
+     "jour": 70,
+     "module": "m3"
+    },
+    {
+     "id": "m3-8",
+     "ebook": 13,
+     "titre": "Texte à l'écran et son",
+     "duree": 4,
+     "resume": "Être compris même sans le son.",
+     "corps": "Beaucoup de gens regardent sans le son, et tout le monde lit plus vite qu'il n'écoute.\n\n## Le texte à l'écran\n- **Sous-titres** systématiques, en gros, au centre de l'écran.\n- **Une idée par écran**, pas un paragraphe.\n- **Contraste** fort : texte blanc avec contour noir, ou l'inverse.\n- Laisse de la place en bas et à droite : les boutons de TikTok cachent une partie de l'image.\n\n## Le son\n- **Ta voix d'abord** : un micro-cravate bon marché change tout, sinon parle près du téléphone, dans une pièce calme.\n- **La musique en fond**, nettement plus basse que ta voix.\n- Les **sons tendance** aident la diffusion, mais seulement s'ils vont avec ta vidéo.\n\n!! Pour une vidéo commerciale (produit, partenariat), utilise les sons de la bibliothèque commerciale de TikTok : les musiques populaires ne sont pas toujours autorisées dans un contenu sponsorisé.",
+     "action": "Ajoute des sous-titres automatiques à ta prochaine vidéo et vérifie qu'ils restent lisibles au-dessus des boutons.",
+     "jour": 72,
+     "module": "m3"
+    },
+    {
+     "id": "m3-9",
+     "ebook": 13,
+     "titre": "Monter vite avec CapCut",
+     "duree": 4,
+     "resume": "Un flux de montage en 15 minutes par vidéo.",
+     "corps": "## Le flux en 6 étapes\n1. **Importe** tes rushes dans l'ordre du script.\n2. **Coupe** le début et la fin de chaque plan, puis les silences.\n3. **Ajoute les sous-titres** automatiques et corrige les erreurs.\n4. **Ajoute le texte du hook** sur les 3 premières secondes.\n5. **Pose la musique** et baisse son volume sous ta voix.\n6. **Exporte** en vertical (9:16), en haute qualité.\n\n## Gagner du temps\n- Crée un **modèle** avec ta police, tes couleurs et ta position de texte, et réutilise-le.\n- Monte **plusieurs vidéos à la suite** plutôt qu'une par jour.\n- Garde un dossier de **plans de transition** (mains, produit, écran) réutilisables.\n\n> Ton objectif : 15 minutes de montage par vidéo. Au début ce sera plus long, c'est normal.",
+     "action": "Crée ton modèle CapCut (police, couleurs, position des sous-titres) et enregistre-le.",
+     "jour": 74,
+     "module": "m3"
+    },
+    {
+     "id": "m3-10",
+     "ebook": 14,
+     "titre": "Quand et à quelle fréquence publier",
+     "duree": 4,
+     "resume": "Trouver tes horaires, sans te fier aux recettes toutes faites.",
+     "corps": "Les « meilleures heures pour publier » qu'on trouve en ligne sont des moyennes. **Tes** meilleures heures dépendent de ton audience.\n\n## Trouver tes horaires\n1. Va dans **TikTok Studio > Statistiques > Followers** : la section « activité » montre les heures où ton audience est connectée.\n2. Publie **1 à 2 heures avant** le pic.\n3. Teste deux créneaux pendant 2 semaines et garde le meilleur.\n\n## La fréquence\n- **Au début** : une vidéo par jour, pour apprendre vite ce qui marche.\n- **Ensuite** : la fréquence que tu peux tenir **sans baisser la qualité**.\n- Mieux vaut **4 bonnes vidéos** par semaine que 14 vidéos bâclées.\n\n> La régularité compte plus que l'heure exacte. Publier aux mêmes jours aide ton audience à te retrouver.",
+     "action": "Relève dans tes statistiques les heures où ton audience est la plus active.",
+     "jour": 75,
+     "module": "m3"
+    },
+    {
+     "id": "m3-11",
+     "ebook": 14,
+     "titre": "Ton calendrier de la semaine",
+     "duree": 4,
+     "resume": "Planifier tes vidéos pour ne jamais être à court d'idées.",
+     "corps": "Un calendrier évite la panique du « je ne sais pas quoi publier ».\n\n## Les 3 types de vidéos à alterner\n- **Attirer** (40 %) : des vidéos larges qui font découvrir ton compte (tendances, hooks forts, sujets populaires).\n- **Aider** (40 %) : des vidéos utiles qui créent la confiance (astuces, tutoriels, tests).\n- **Vendre** (20 %) : des vidéos produits, partenariats ou ton offre.\n\n## Une semaine type\n- Lundi : aider ;\n- Mardi : attirer ;\n- Mercredi : vendre ;\n- Jeudi : aider ;\n- Vendredi : attirer ;\n- Samedi : live ou vidéo en série ;\n- Dimanche : repos et bilan.\n\n> Un calendrier prêt à copier est dans **Outils > Modèles**. Remplis-le chaque dimanche pour la semaine suivante.",
+     "action": "Remplis ton calendrier de la semaine prochaine avec 5 idées de vidéos (2 attirer, 2 aider, 1 vendre).",
+     "jour": 77,
+     "module": "m3"
+    },
+    {
+     "id": "m3-12",
+     "ebook": 14,
+     "titre": "Description, hashtags et tendances",
+     "duree": 4,
+     "resume": "Les finitions qui aident ta vidéo à circuler.",
+     "corps": "## La description\n- **Une phrase** qui complète la vidéo, avec ton mot-clé.\n- Une **question** pour lancer les commentaires.\n\n## Les hashtags\n- **3 à 5**, précis, liés à ton sujet.\n- Évite les hashtags vides de sens comme #pourtoi ou #fyp : ils n'aident pas TikTok à comprendre ta vidéo.\n- Pour un contenu commercial, ajoute la mention exigée (voir la partie légale) en plus de l'option « contenu commercial ».\n\n## Les tendances\n- Une tendance dure souvent **quelques jours** : sois rapide.\n- **Adapte-la à ta niche** au lieu de la copier.\n- Vérifie que le son ou le format est compatible avec un contenu commercial si tu montres un produit.\n\n> Garde un dossier « tendances » sur ton téléphone : enregistre celles qui pourraient coller à ta niche, et pioches-y le jour du tournage.",
+     "action": "Enregistre 3 tendances du moment et note comment tu les adapterais à ta niche.",
+     "jour": 79,
+     "module": "m3"
+    },
+    {
+     "id": "m3-13",
+     "ebook": 15,
+     "titre": "Un profil qui donne envie de s'abonner",
+     "duree": 4,
+     "resume": "Transformer un visiteur en abonné.",
+     "corps": "Quand une vidéo plaît, les gens vont voir ton profil. Ils décident en quelques secondes de s'abonner ou non.\n\n## Ce qu'ils regardent\n1. **Ta photo et ton nom** : clairs, cohérents avec ta niche.\n2. **Ta bio** : ce qu'ils gagnent à te suivre, en une phrase.\n3. **Tes 9 dernières vidéos** : un thème clair et des couvertures lisibles.\n4. **Tes vidéos épinglées** : tes 3 meilleures, qui résument ton compte.\n\n## Les réglages rapides\n- Épingle **tes 3 vidéos les plus vues** ou les plus représentatives.\n- Mets un **texte de couverture** lisible sur chaque vidéo.\n- Ajoute ton **lien** (vitrine, produit, contact) quand l'option t'est proposée.\n\n> Un profil cohérent peut transformer une vidéo virale en des milliers d'abonnés. Un profil confus laisse les visiteurs repartir.",
+     "action": "Épingle tes 3 meilleures vidéos et vérifie que leurs couvertures sont lisibles.",
+     "jour": 81,
+     "module": "m3"
+    },
+    {
+     "id": "m3-14",
+     "ebook": 15,
+     "titre": "De 0 à 1 000, puis 10 000 abonnés",
+     "duree": 5,
+     "resume": "Ce qu'il faut faire à chaque palier.",
+     "corps": "## De 0 à 1 000 abonnés : trouver ce qui marche\n- **1 vidéo par jour**, dans ta niche.\n- Teste beaucoup de **hooks** et de **formats**.\n- Réponds à **tous** les commentaires.\n- Objectif : repérer les 2 ou 3 types de vidéos qui font le plus de vues.\n\n## De 1 000 à 5 000 : répéter ce qui marche\n- Fais **plus de vidéos** sur les formats gagnants.\n- Lance des **séries** (épisode 1, 2, 3…) : les gens s'abonnent pour la suite.\n- Commence les **lives** si l'option est ouverte.\n\n## De 5 000 à 10 000 : élargir\n- Collabore avec des créateurs de **taille proche** (duos, réponses, lives à deux).\n- Ajoute des sujets **voisins** de ta niche pour toucher un public plus large.\n- Commence à monétiser : TikTok Shop, partenariats, ton produit.\n\n> Les paliers ne sont pas des examens. Certains comptes passent 1 000 abonnés en une semaine, d'autres en trois mois. Ce qui compte, c'est la régularité.",
+     "action": "Identifie ton palier actuel et note l'action prioritaire de ce palier pour les 2 prochaines semaines.",
+     "jour": 83,
+     "module": "m3"
+    },
+    {
+     "id": "m3-15",
+     "ebook": 15,
+     "titre": "Analyser et ajuster : l'exemple de notre compte",
+     "duree": 5,
+     "resume": "Lire tes statistiques, avec nos vrais chiffres en exemple.",
+     "corps": "Voici comment lire tes statistiques, avec les chiffres réels de notre compte sur 60 jours (du 23 avril au 21 juin) comme exemple.\n\n![Statistiques sur 60 jours : vues, j'aime, partages](/assets/stats/stat-60-jours-overview.jpg)\n\n## Ce que montrent ces chiffres\n- **3,1 M de vues** de publication, **129,3 K j'aime**, **25,4 K partages**, **2,8 K commentaires**.\n- La courbe montre **un énorme pic** début mai : une seule vidéo a fait une grande partie des vues de la période. Le reste du temps, les vues sont bien plus basses.\n- Les **partages ont augmenté** alors que les j'aime ont baissé : les vidéos de la période étaient moins « likées », mais plus envoyées. C'est un signe de contenu utile.\n\n![Statistiques abonnés : 30 844 abonnés](/assets/stats/stat-60-jours-followers.jpg)\n\n- **+9,9 K abonnés** en 60 jours, pour un total de **30 844**. La courbe monte surtout juste après le pic de vues : une vidéo virale apporte des abonnés seulement si le profil donne envie de rester.\n\n## Ce qu'on en retient pour toi\n1. **Un succès ne se planifie pas, mais se reproduit** : quand une vidéo explose, refais-en 3 à 5 variantes rapidement.\n2. **Regarde les partages et les enregistrements**, pas seulement les j'aime.\n3. **Ton profil doit être prêt** avant le pic (leçon précédente).\n\n## Ton bilan hebdomadaire\nChaque dimanche, note : tes vues totales, ta meilleure vidéo et pourquoi, tes nouveaux abonnés, tes ventes. En 4 semaines, tu verras clairement ce qui marche pour toi.\n\n!! Ces chiffres sont ceux de notre compte. Ils illustrent la méthode, ils ne garantissent pas tes résultats.",
+     "action": "Fais ton premier bilan : note tes vues, ta meilleure vidéo et tes nouveaux abonnés des 7 derniers jours.",
+     "jour": 85,
+     "module": "m3"
+    }
+   ]
+  },
+  {
+   "id": "m4",
+   "titre": "Côté légal et argent",
+   "sous": "Déclarer tes revenus et rester dans les règles, en France.",
+   "lecons": [
+    {
+     "id": "m4-1",
+     "ebook": null,
+     "titre": "Déclarer tes revenus : micro-entreprise et URSSAF",
+     "duree": 5,
+     "resume": "Le statut le plus simple pour démarrer.",
+     "corps": "Dès que TikTok te rapporte de l'argent de façon régulière (cadeaux, commissions, partenariats, produits), ce sont des **revenus professionnels**. Il faut les déclarer.\n\n## Le statut le plus simple : la micro-entreprise\n- **Création gratuite** en ligne, sur le guichet unique de l'INPI (formalites.entreprises.gouv.fr).\n- Tu déclares ton **chiffre d'affaires** chaque mois ou chaque trimestre sur **autoentrepreneur.urssaf.fr**.\n- Tu paies des **cotisations** en pourcentage de ce que tu encaisses. Si tu n'encaisses rien, tu ne paies rien.\n- Tu reçois un **numéro SIRET**, demandé par les marques et certaines plateformes.\n\n## Les plafonds\nLe régime micro a un plafond de chiffre d'affaires annuel. Pour 2026, les sources indiquent environ **83 600 €** pour les prestations de services et **203 100 €** pour la vente. Au-delà, il faut changer de régime.\n\n## Quelle activité déclarer ?\nLes revenus de créateur (partenariats, Creator Rewards, cadeaux) relèvent en général des **prestations de services**. La vente de tes propres produits peut relever de la **vente**. Si tu combines les deux, précise-le à la création.\n\n!! Les montants et taux changent chaque année. Vérifie-les sur **autoentrepreneur.urssaf.fr** et **impots.gouv.fr**, et n'hésite pas à demander à un expert-comptable dès que tes revenus deviennent réguliers.",
+     "action": "Va sur autoentrepreneur.urssaf.fr et lis la page « Créer mon auto-entreprise » (sans t'engager).",
+     "jour": 86,
+     "module": "m4"
+    },
+    {
+     "id": "m4-2",
+     "ebook": null,
+     "titre": "TVA et paiements",
+     "duree": 4,
+     "resume": "Quand la TVA s'applique, et comment suivre ton argent.",
+     "corps": "## La franchise de TVA\nEn micro-entreprise, tu ne factures **pas de TVA** tant que tu restes sous un seuil de chiffre d'affaires, appelé **franchise en base**. Pour les services, les sources donnent **37 500 €** pour 2026 (seuil majoré à 41 250 €). Ce seuil est **bien plus bas** que le plafond de la micro-entreprise : c'est une erreur fréquente.\n\nSur tes factures, tant que tu es en franchise, ajoute la mention : « TVA non applicable, art. 293 B du CGI ».\n\n## Les paiements de TikTok\n- TikTok et TikTok Shop te paient depuis l'étranger : garde **chaque relevé** de paiement.\n- Les marques te paient sur **facture** : numérote-les et garde-les.\n- Ouvre un **compte bancaire dédié** à ton activité : c'est obligatoire au-delà d'un certain montant pendant deux années de suite, et ça simplifie tout.\n\n## Le suivi simple\nChaque mois, note dans un tableau : la date, la source (TikTok Shop, marque, cadeaux, produit), le montant encaissé. C'est ce montant que tu déclares à l'URSSAF.\n\n!! Les seuils de TVA font l'objet de réformes régulières. Vérifie le seuil en vigueur sur **impots.gouv.fr** avant de te fier à ces chiffres.",
+     "action": "Crée ton tableau de suivi des encaissements (date, source, montant) : un modèle est dans Outils > Modèles.",
+     "jour": 88,
+     "module": "m4"
+    },
+    {
+     "id": "m4-3",
+     "ebook": null,
+     "titre": "La loi Influenceurs : ce que tu dois afficher",
+     "duree": 5,
+     "resume": "Les mentions obligatoires sur tes contenus commerciaux.",
+     "corps": "En France, la **loi du 9 juin 2023** encadre l'influence commerciale. Elle s'applique dès que tu fais la promotion d'un produit ou d'un service **en échange d'un avantage** : argent, produit offert, commission.\n\n## Ce que tu dois afficher\n- La mention **« Publicité »** ou **« Collaboration commerciale »**, de façon **claire, lisible et visible pendant toute la vidéo**, quel que soit le format.\n- Sur TikTok, active aussi l'option **« contenu commercial »** au moment de publier.\n- Pour une image ou une vidéo réaliste **générée ou retouchée par IA**, la mention **« Images virtuelles »**.\n- Pour une image dont la silhouette ou le visage ont été **retouchés**, la mention **« Image retouchée »**.\n\n## Et l'affiliation TikTok Shop ?\nTu touches une commission sur les ventes : c'est un avantage. Par prudence, signale clairement le caractère commercial de tes vidéos produits.\n\n## Ce qui est interdit de promouvoir\nLa loi interdit notamment la promotion de la chirurgie esthétique, de l'abstention thérapeutique, de certains produits financiers risqués et des jeux d'argent auprès des mineurs. La liste est longue : en cas de doute, ne le fais pas.\n\n## Les sanctions\nNe pas respecter ces règles peut être sanctionné comme une **pratique commerciale trompeuse** : les sanctions vont jusqu'à de la prison et de fortes amendes.\n\n!! Cette leçon est un résumé, pas un conseil juridique. Pour un partenariat important, lis le guide de bonne conduite publié par le ministère de l'Économie (economie.gouv.fr) ou demande à un juriste.",
+     "action": "Prépare un texte « Collaboration commerciale » dans ton modèle CapCut pour l'ajouter en un clic à tes vidéos sponsorisées.",
+     "jour": 90,
+     "module": "m4"
+    }
+   ]
+  }
+ ],
+ "outils": {
+  "hooks": [
+   {
+    "niche": "Beauté et soin",
+    "texte": "Ce sérum sur mes taches après [durée] : photos sans filtre"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Si toi aussi tu dépenses une fortune en crèmes sans résultats, regarde ça"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "La routine que les dermatologues gardent pour eux"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "J'ai arrêté le retinol. Voilà pourquoi et ce que j'utilise maintenant"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Ce que les marques de luxe copient des laboratoires coréens à 3€"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "La seule chose que tu dois changer dans ta routine beauté ce soir"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "J'ai testé 47 sérums. Il n'en reste qu'un seul dans ma salle de bain"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "La vérité sur l'acide hyaluronique que personne ne te dit"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Avant ma routine vs après 30 jours : le temps réel sans filtre ni maquillage"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Ce 'défaut' de peau que tu essaies de cacher depuis des années ? J'ai la solution"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Comment ma peau a changé en arrêtant ce produit très populaire"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Le soin à 8€ qui remplace ma crème à 80€ : test honnête sur 3 mois"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Les 3 ingrédients que je vérifie toujours avant d'acheter une crème"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Savais-tu que cette habitude quotidienne vieillit ta peau prématurément ?"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Ce que font les Coréennes que nous ne faisons absolument pas en France"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Ma peau à 25 ans vs ma peau à 35 ans : ce que j'ai changé entre les deux"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Le SPF invisible que j'utilise depuis 5 ans et que je ne remplace jamais"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "Pourquoi ta crème hydratante est peut-être en train d'assécher ta peau"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "La routine anti-âge que j'aurais aimé commencer à 20 ans"
+   },
+   {
+    "niche": "Beauté et soin",
+    "texte": "J'ai essayé le massage du visage gua sha pendant 30 jours : bilan honnête"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "[Ton résultat réel] sans aller à la salle : voilà ce que j'ai fait"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "L'erreur que tu fais probablement à chaque séance et qui sabote tes résultats"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Comment j'ai récupéré 2h par semaine sans perdre un gramme de muscle"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "L'exercice que je fais chaque matin pour [ton objectif]"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Savais-tu que faire ça juste après ton entraînement efface tous tes efforts ?"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "J'ai suivi le programme d'un champion olympique pendant 30 jours exactement"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Ce que mon coach m'a appris dès la première séance"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Tu ne verras jamais de résultats si tu continues à faire ça à la salle"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Comment j'ai progressé plus en 3 mois qu'en 3 ans d'entraînement classique"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Le petit-déjeuner qui change tout pour tes performances sportives selon la science"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "5 minutes par jour qui ont transformé ma posture en 6 semaines chrono"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "J'ai arrêté les abdominaux classiques. Voilà ce qui fonctionne vraiment"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Ce que les personnes naturellement minces font sans effort que nous ignorons"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "La vraie raison pour laquelle tu ne perds pas de poids malgré le sport"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Mon programme de récupération qui a éliminé mes douleurs chroniques"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "L'équipement à 15€ qui remplace 3 appareils de salle de sport coûteux"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Pourquoi tu es épuisé après ta séance alors que tu devrais être énergisé"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "L'échauffement de 5 minutes que je ne saute jamais"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "J'ai testé le jeûne intermittent pendant 60 jours : voilà le bilan honnête"
+   },
+   {
+    "niche": "Sport et forme",
+    "texte": "Ce que tu ne sais pas sur la musculation après 40 ans va tout changer pour toi"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Ce que TikTok m'a vraiment rapporté ce mois-ci : [montant réel]"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Une compétence qui se vend bien et qui s'apprend en ligne"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Ce que les entrepreneurs qui réussissent font avant 8h du matin"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "J'avais 0 client et 0 idée. Voilà la seule chose qui a tout changé"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "L'erreur financière que 90% des moins de 35 ans font sans s'en rendre compte"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Si j'avais su ça à 20 ans j'aurais économisé des dizaines de milliers d'euros"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Comment transformer n'importe quelle passion en source de revenus en 2026"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Le modèle business que personne ne t'enseigne à l'école mais qui génère des milliers"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "J'ai arrêté de chercher un emploi. Voilà exactement ce que j'ai fait à la place"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "La différence concrète entre ceux qui réussissent et les autres : en 60 secondes"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Ce que font les freelances qui ne manquent jamais de clients"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Savais-tu que cette compétence s'apprend gratuitement ?"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "5 sources de revenus que tu peux lancer ce week-end depuis chez toi"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "La règle d'argent que j'aurais aimé connaître plus tôt"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Ma vraie journée de travail depuis chez moi, sans filtre"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "L'application que tous les entrepreneurs utilisent mais que personne ne recommande"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "Ce que tu dois savoir sur les impôts avant de lancer ton activité en ligne"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "La stratégie de pricing qui a multiplié mes revenus par 3 sans plus de clients"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "J'ai fait une erreur qui m'a coûté 5 000€. Voilà ce que tu dois éviter"
+   },
+   {
+    "niche": "Business et argent",
+    "texte": "L'habitude qui a changé ma façon de gérer mon argent"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Mon appartement était un chaos total. Voilà comment j'ai tout transformé en 2h"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Si tu fais ça dans ta cuisine, tu perds au moins 1h par jour sans le savoir"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "La méthode japonaise KonMari qui a transformé mon rapport au rangement"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Le truc à 8€ qui a radicalement changé ma façon d'organiser mon bureau"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Savais-tu que ton désordre affecte directement ta santé mentale et ta productivité ?"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "J'ai arrêté d'acheter ces produits ménagers. Voilà ce que j'utilise maintenant"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "La transformation de mon bureau : avant vs après 3 heures de travail"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "5 achats à moins de 30€ qui ont changé mon quotidien pour toujours"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "L'organisation qui me fait économiser 45 minutes par jour sans effort"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Ce que les personnes les plus organisées font le dimanche soir sans exception"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "La raison pour laquelle tu retombes toujours dans le désordre malgré tes efforts"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Comment j'ai rendu mon appartement de 40m² aussi fonctionnel qu'un 80m²"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Le système d'organisation qui a éliminé mon stress matinal en 1 semaine"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "3 zones de la maison qui te volent du temps sans que tu t'en rendes compte"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "J'ai arrêté d'acheter des meubles de rangement. Voilà pourquoi"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "La transformation de ma salle de bain : 1h et 25€ de budget total"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Ce que j'ai appris en visitant 50 appartements très bien organisés"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "L'astuce des hôtels 5 étoiles que tu peux appliquer chez toi ce soir"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Pourquoi ton placard déborde toujours malgré tes sessions de tri régulières"
+   },
+   {
+    "niche": "Maison et organisation",
+    "texte": "Comment passer d'une maison en désordre à une maison zen en 7 jours"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Je dormais mal depuis 5 ans. Voilà la seule chose qui a vraiment tout changé"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Les signes de fatigue que j'ai appris à écouter"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce que j'aurais aimé savoir avant de commencer le jeûne intermittent"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "La vraie raison pour laquelle tu es fatigué même après 8h de sommeil complet"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "J'ai arrêté le café pendant 30 jours. Voilà ce qui s'est passé dans mon corps"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce que mon médecin m'a conseillé pour mieux dormir, et ce qui a marché pour moi"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Pourquoi j'ai fait vérifier ma vitamine D, et ce que j'ai appris"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "La routine du soir en 15 minutes qui a transformé ma qualité de sommeil"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce que j'ai appris en consultant 5 spécialistes de la santé différents"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Pourquoi tu es tout le temps fatigué malgré une bonne alimentation et du sport"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Les 3 aliments que tu manges probablement tous les jours qui épuisent ton énergie"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce qui m'aide quand le stress monte (mon expérience, pas un avis médical)"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Le rapport entre ton intestin et ton cerveau que la médecine commence à reconnaître"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce que font les centenaires en bonne santé que nous ignorons complètement"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "La différence entre être fatigué et être épuisé : et comment sortir des deux"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "J'ai suivi les recommandations de santé officielles pendant 1 an. Voilà le bilan"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce que le stress faisait à mon sommeil, et ce que j'ai changé"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "L'habitude qui m'aide à rester concentré toute la matinée"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce que j'ai appris avant d'acheter des compléments alimentaires"
+   },
+   {
+    "niche": "Santé et bien-être",
+    "texte": "Ce qui se passe dans ton corps quand tu bois de l'eau le matin à jeun"
+   }
+  ],
+  "scripts": [
+   {
+    "titre": "Avant / après soin",
+    "format": "Avant / après",
+    "etapes": [
+     {
+      "t": "Image",
+      "x": "Commence en montrant ta peau sans maquillage, en lumière naturelle."
+     },
+     {
+      "t": "Hook",
+      "x": "« Si toi aussi tu te bats contre [problème de peau], regarde ça. »"
+     },
+     {
+      "t": "Problème",
+      "x": "« J'avais [ton problème] et rien ne marchait vraiment. »"
+     },
+     {
+      "t": "Solution",
+      "x": "« J'ai essayé [Nom du produit] pendant [durée réelle]. Voilà le résultat. » Montre l'avant et l'après, même lumière."
+     },
+     {
+      "t": "Preuve",
+      "x": "« Il a [nombre réel] avis, avec une note de [note réelle]. Mon avis honnête : [un point fort, un point faible]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Je l'ai épinglé juste en dessous si tu veux le voir. »"
+     }
+    ]
+   },
+   {
+    "titre": "Routine du soir pour mieux dormir",
+    "format": "Routine",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Ma routine du soir depuis [durée], pour arriver au lit plus détendu. »"
+     },
+     {
+      "t": "Contexte",
+      "x": "« Je me couchais avec le téléphone et je dormais mal. »"
+     },
+     {
+      "t": "Routine",
+      "x": "Montre les étapes : lumière tamisée, [Nom du produit] et ce qu'il apporte concrètement, lecture."
+     },
+     {
+      "t": "Avis honnête",
+      "x": "« Ce qui a changé pour moi : [ton ressenti]. Ce n'est pas un médicament, c'est ce qui marche pour moi. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Le [produit] est épinglé en dessous. Et toi, c'est quoi ta routine ? »"
+     }
+    ]
+   },
+   {
+    "titre": "Comparaison de prix",
+    "format": "Comparaison",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« [Produit cher] contre sa version à [prix] : j'ai comparé. »"
+     },
+     {
+      "t": "Comparaison",
+      "x": "Montre les deux côte à côte : matière, finition, utilisation."
+     },
+     {
+      "t": "Verdict",
+      "x": "« Pour [usage], la version à [prix] fait le travail. Pour [autre usage], je garderais l'autre. »"
+     },
+     {
+      "t": "Preuve",
+      "x": "Montre-la portée ou utilisée dans ta vraie vie."
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« La version à [prix] est épinglée en dessous. »"
+     }
+    ]
+   },
+   {
+    "titre": "Test en conditions réelles",
+    "format": "Test honnête",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Ils disent que ça tient [promesse]. J'ai testé pendant [durée]. »"
+     },
+     {
+      "t": "Test",
+      "x": "Montre le début du test, puis passe directement à la fin."
+     },
+     {
+      "t": "Résultat",
+      "x": "« Après [durée], voilà le résultat. »"
+     },
+     {
+      "t": "Avis honnête",
+      "x": "« Ce qui m'a surpris : [point positif]. Ce qui est moins bien : [point négatif]. »"
+     },
+     {
+      "t": "Conclusion",
+      "x": "« Je le recommande si [condition]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous. Dis-moi si tu l'essaies. »"
+     }
+    ]
+   },
+   {
+    "titre": "Transformation d'un espace",
+    "format": "Avant / après",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Mon [bureau/placard/entrée] était un chaos. Voilà ce que j'ai fait en [durée réelle]. »"
+     },
+     {
+      "t": "Avant",
+      "x": "Montre l'espace en désordre, sans rien cacher."
+     },
+     {
+      "t": "Installation",
+      "x": "Installe les produits un par un, en accéléré."
+     },
+     {
+      "t": "Après",
+      "x": "Montre le résultat, même angle que l'avant."
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Tout ce que j'ai utilisé est épinglé en dessous. »"
+     }
+    ]
+   },
+   {
+    "titre": "Avis honnête avec défauts",
+    "format": "Test honnête",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Mon avis honnête sur [Produit], y compris ce qui ne va pas. »"
+     },
+     {
+      "t": "Point fort 1",
+      "x": "[Bénéfice principal, montré à l'image]"
+     },
+     {
+      "t": "Point fort 2",
+      "x": "[Bénéfice secondaire]"
+     },
+     {
+      "t": "Point faible",
+      "x": "« Ce que j'aurais aimé savoir avant : [défaut réel]. »"
+     },
+     {
+      "t": "Conclusion",
+      "x": "« Malgré ça, je le recommande parce que [raison]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous, pose tes questions en commentaire. »"
+     }
+    ]
+   },
+   {
+    "titre": "Série jour 1, jour 14, jour 30",
+    "format": "Série",
+    "etapes": [
+     {
+      "t": "Jour 1",
+      "x": "« Je commence [Produit] aujourd'hui. Mon problème : [description]. Mon objectif : [objectif]. »"
+     },
+     {
+      "t": "Jour 14",
+      "x": "« Deux semaines plus tard, voilà où j'en suis : [résultats honnêtes, même s'ils sont faibles]. »"
+     },
+     {
+      "t": "Jour 30",
+      "x": "« Bilan après 30 jours : [avant / après]. Ma conclusion : [recommandation]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Si tu veux essayer, il est épinglé en dessous. »"
+     }
+    ]
+   },
+   {
+    "titre": "La question qu'on me pose",
+    "format": "Réponse",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« La question que tout le monde me pose sur [Produit] : [question]. »"
+     },
+     {
+      "t": "Réponse courte",
+      "x": "[La réponse en une phrase]"
+     },
+     {
+      "t": "Démonstration",
+      "x": "[Montre la réponse en action]"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Je l'ai épinglé en dessous. Pose tes autres questions en commentaire. »"
+     }
+    ]
+   },
+   {
+    "titre": "Classement de 3 produits",
+    "format": "Classement",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« J'ai testé 3 [type de produit] pendant [durée]. Voilà mon classement. »"
+     },
+     {
+      "t": "Numéro 3",
+      "x": "[Nom + pourquoi il est dernier]"
+     },
+     {
+      "t": "Numéro 2",
+      "x": "[Nom + ses points forts et ses limites]"
+     },
+     {
+      "t": "Numéro 1",
+      "x": "[Nom + pourquoi il gagne]"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Le gagnant est épinglé en dessous. »"
+     }
+    ]
+   },
+   {
+    "titre": "Idée cadeau",
+    "format": "Déballage",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Le cadeau parfait pour [occasion] à moins de [budget]. »"
+     },
+     {
+      "t": "Présentation",
+      "x": "« C'est idéal pour [type de personne] parce que [raison]. »"
+     },
+     {
+      "t": "Déballage",
+      "x": "Montre le produit et son emballage."
+     },
+     {
+      "t": "3 raisons",
+      "x": "[Trois raisons concrètes pour lesquelles ça fera plaisir]"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous. Vérifie les délais de livraison avant [date]. »"
+     }
+    ]
+   },
+   {
+    "titre": "L'astuce avec le produit",
+    "format": "Démonstration",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« L'astuce que j'aurais aimé connaître plus tôt pour [résultat]. »"
+     },
+     {
+      "t": "Contexte",
+      "x": "« La plupart des gens font [méthode habituelle]. Le problème : [limite]. »"
+     },
+     {
+      "t": "Astuce",
+      "x": "« Avec [Produit], je fais [méthode] et j'obtiens [résultat]. »"
+     },
+     {
+      "t": "Démonstration",
+      "x": "[Montre l'astuce en action]"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous. Essaie et dis-moi si ça marche pour toi. »"
+     }
+    ]
+   },
+   {
+    "titre": "Réponse à un commentaire",
+    "format": "Réponse",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "Réponds en vidéo au commentaire : « Est-ce que [Produit] vaut vraiment son prix ? »"
+     },
+     {
+      "t": "Calcul",
+      "x": "« À [prix], ça fait [calcul par jour ou par utilisation]. »"
+     },
+     {
+      "t": "Comparaison",
+      "x": "« Pour comparer : [équivalent du quotidien]. »"
+     },
+     {
+      "t": "Conclusion",
+      "x": "« Oui si [condition], non si [autre condition]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous. Pose tes questions, je réponds. »"
+     }
+    ]
+   },
+   {
+    "titre": "Produit de saison",
+    "format": "Routine",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Mon indispensable de [saison] depuis [durée]. »"
+     },
+     {
+      "t": "Problème",
+      "x": "[Le problème typique de cette saison]"
+     },
+     {
+      "t": "Solution",
+      "x": "[Le produit et comment il règle ce problème]"
+     },
+     {
+      "t": "Utilisation",
+      "x": "« Voilà comment je l'utilise pendant [saison]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous si tu veux l'avoir pour [saison]. »"
+     }
+    ]
+   },
+   {
+    "titre": "Pour les sceptiques",
+    "format": "Histoire",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Je ne croyais pas aux [type de produit]. Voilà ce qui m'a fait changer d'avis. »"
+     },
+     {
+      "t": "Scepticisme",
+      "x": "« J'avais essayé [alternatives] sans résultat. »"
+     },
+     {
+      "t": "Déclic",
+      "x": "« Puis [ce qui t'a convaincu d'essayer] [Produit]. »"
+     },
+     {
+      "t": "Résultat",
+      "x": "« Après [durée], voilà ce qui a changé : [résultats concrets]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Je partage mon vrai résultat, pas une promesse. Il est épinglé en dessous. »"
+     }
+    ]
+   },
+   {
+    "titre": "Le produit qu'on n'ose pas acheter",
+    "format": "Démonstration",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Le [type de produit] que beaucoup n'osent pas acheter, et pourtant. »"
+     },
+     {
+      "t": "Normaliser",
+      "x": "« Il n'y a aucune raison de se priver de [bénéfice]. »"
+     },
+     {
+      "t": "Présentation",
+      "x": "[Le produit, montré en situation]"
+     },
+     {
+      "t": "Résultat",
+      "x": "« Après [durée], voilà ce que j'ai remarqué : [constat]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous. »"
+     }
+    ]
+   },
+   {
+    "titre": "Les économies réalisées",
+    "format": "Comparaison",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Ce petit changement m'a fait économiser [montant réel] ce mois-ci. »"
+     },
+     {
+      "t": "Avant",
+      "x": "« Je dépensais [montant] par mois en [habitude]. »"
+     },
+     {
+      "t": "Changement",
+      "x": "« Avec [Produit] à [prix], j'ai remplacé [habitude]. »"
+     },
+     {
+      "t": "Calcul",
+      "x": "« Sur un an, ça fait [calcul]. »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous, fais le calcul pour toi. »"
+     }
+    ]
+   },
+   {
+    "titre": "Ma routine complète",
+    "format": "Routine",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Ma routine [du matin / du soir / de sport] avec les produits que j'utilise vraiment. »"
+     },
+     {
+      "t": "Produit 1",
+      "x": "[Nom + à quoi il sert + depuis quand tu l'utilises]"
+     },
+     {
+      "t": "Produit 2",
+      "x": "[Nom + à quoi il sert + depuis quand tu l'utilises]"
+     },
+     {
+      "t": "Produit 3",
+      "x": "[Nom + à quoi il sert + depuis quand tu l'utilises]"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Tout est épinglé en dessous. Lequel tu essaierais en premier ? »"
+     }
+    ]
+   },
+   {
+    "titre": "Le défi",
+    "format": "Série",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Je lance le défi [nom du défi]. Tu viens ? »"
+     },
+     {
+      "t": "Règle",
+      "x": "« Pendant [durée], j'utilise [Produit] chaque jour et je montre les résultats. »"
+     },
+     {
+      "t": "Invitation",
+      "x": "« Si tu veux le faire avec moi, il est épinglé en dessous. »"
+     },
+     {
+      "t": "Point d'étape",
+      "x": "« Jour [X] : voilà où j'en suis. » [Résultats honnêtes]"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Identifie-moi dans tes vidéos de résultats. »"
+     }
+    ]
+   },
+   {
+    "titre": "Questions et réponses",
+    "format": "Réponse",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« Vous m'avez posé plein de questions sur [Produit]. Voilà les réponses. »"
+     },
+     {
+      "t": "Question 1",
+      "x": "[Question fréquente + réponse courte]"
+     },
+     {
+      "t": "Question 2",
+      "x": "[Question fréquente + réponse courte]"
+     },
+     {
+      "t": "Question 3",
+      "x": "[Question fréquente + réponse courte]"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Les autres questions en commentaire, et il est épinglé en dessous. »"
+     }
+    ]
+   },
+   {
+    "titre": "Bilan après 6 mois",
+    "format": "Test honnête",
+    "etapes": [
+     {
+      "t": "Hook",
+      "x": "« J'utilise [Produit] depuis 6 mois. Mon bilan honnête. »"
+     },
+     {
+      "t": "Évolution",
+      "x": "« Mois 1 : [constat]. Mois 3 : [constat]. Aujourd'hui : [constat]. »"
+     },
+     {
+      "t": "Durée",
+      "x": "« Est-ce que l'effet a tenu ? [Réponse honnête] »"
+     },
+     {
+      "t": "Verdict",
+      "x": "« Si c'était à refaire, je le rachèterais ? [Réponse et raison] »"
+     },
+     {
+      "t": "Appel à l'action",
+      "x": "« Il est épinglé en dessous. »"
+     }
+    ]
+   }
+  ],
+  "modeles": [
+   {
+    "titre": "Calendrier de la semaine",
+    "usage": "À remplir chaque dimanche pour la semaine suivante.",
+    "texte": "CALENDRIER DE LA SEMAINE DU [date]\n\nLundi (aider) : [idée de vidéo]\nMardi (attirer) : [idée de vidéo]\nMercredi (vendre) : [produit ou offre]\nJeudi (aider) : [idée de vidéo]\nVendredi (attirer) : [tendance adaptée à ma niche]\nSamedi (live ou série) : [sujet]\nDimanche : repos et bilan\n\nSession de tournage : [jour et heure]\nSession de montage : [jour et heure]"
+   },
+   {
+    "titre": "Fiche « ma niche »",
+    "usage": "À remplir une fois, à relire chaque mois.",
+    "texte": "MA NICHE EN UNE PHRASE\n[Je montre / j'explique ... pour ...]\n\nMON AUDIENCE\nQui : [âge, situation]\nSon problème principal : [...]\nCe qu'elle achète déjà : [...]\n\nMES 3 PILIERS DE CONTENU\n1. [...]\n2. [...]\n3. [...]\n\nCE QUE JE NE FAIS PAS\n[sujets hors niche à éviter]"
+   },
+   {
+    "titre": "Message à une marque",
+    "usage": "Premier contact en message privé ou par e-mail.",
+    "texte": "Bonjour [prénom ou équipe de la marque],\n\nJe m'appelle [prénom], je crée du contenu [ta niche] sur TikTok (@[pseudo]), suivi par [nombre] personnes, surtout en France.\n\nJ'utilise déjà [produit de la marque] et je pense qu'il parlerait à mon audience, parce que [raison précise].\n\nIdée de vidéo : [une idée concrète en une phrase].\n\nMon média kit : [lien]\n\nSeriez-vous ouverts à une collaboration ? Je peux vous proposer [format : 1 vidéo, une série, un live].\n\nMerci et belle journée,\n[prénom]"
+   },
+   {
+    "titre": "Relance d'une marque",
+    "usage": "Une seule relance, une semaine après.",
+    "texte": "Bonjour [prénom],\n\nJe me permets de revenir vers vous au sujet de mon message de [date] pour une collaboration autour de [produit].\n\nDepuis, j'ai publié [vidéo ou résultat récent, avec lien].\n\nJe reste disponible si le sujet vous intéresse.\n\nBonne journée,\n[prénom]"
+   },
+   {
+    "titre": "Suivi des ventes et encaissements",
+    "usage": "Une ligne par encaissement. Le total du mois est ce que tu déclares.",
+    "texte": "MOIS : [mois et année]\n\nDate | Source | Détail | Montant encaissé\n[jj/mm] | TikTok Shop | [produit] | [montant] €\n[jj/mm] | Marque | [nom de la marque] | [montant] €\n[jj/mm] | Cadeaux live | [date du live] | [montant] €\n[jj/mm] | Mon produit | [nom du produit] | [montant] €\n\nTOTAL DU MOIS : [total] €\nDéclaré à l'URSSAF le : [date]"
+   },
+   {
+    "titre": "Bilan du dimanche",
+    "usage": "15 minutes chaque dimanche.",
+    "texte": "BILAN DE LA SEMAINE DU [date]\n\nVidéos publiées : [nombre]\nVues totales : [nombre]\nNouveaux abonnés : [nombre]\nVentes / encaissements : [montant] €\n\nMa meilleure vidéo : [titre]\nPourquoi elle a marché : [hook, format, sujet]\n\nCe que je refais la semaine prochaine : [...]\nCe que j'arrête : [...]"
+   },
+   {
+    "titre": "Mentions légales à coller",
+    "usage": "À ajouter à l'écran et en description, selon le cas.",
+    "texte": "Vidéo payée ou produit offert :\nCollaboration commerciale\n\nVidéo avec lien affilié / TikTok Shop :\nPublicité · lien affilié\n\nImage réaliste générée par IA :\nImages virtuelles\n\nFacture en franchise de TVA :\nTVA non applicable, art. 293 B du CGI"
+   }
+  ]
+ },
+ "quiz": {
+  "m1": [
+   {
+    "q": "Quel programme a remplacé le Creator Fund ?",
+    "o": [
+     "Le Creator Rewards Program",
+     "TikTok Shop",
+     "Le programme Lives"
+    ],
+    "r": 0,
+    "e": "Le Creator Fund a fermé fin 2023. Le Creator Rewards Program rémunère les vidéos de plus d'une minute."
+   },
+   {
+    "q": "Avec moins de 1 000 abonnés, quelle source est déjà ouverte ?",
+    "o": [
+     "Les cadeaux en live",
+     "Les partenariats avec des marques",
+     "Le Creator Rewards Program"
+    ],
+    "r": 1,
+    "e": "Il n'y a pas de minimum officiel pour les partenariats : une audience précise compte plus que le nombre."
+   },
+   {
+    "q": "Que doit afficher une vidéo payée par une marque en France ?",
+    "o": [
+     "Rien de particulier",
+     "Un hashtag #pub suffit",
+     "« Publicité » ou « Collaboration commerciale », visible toute la vidéo"
+    ],
+    "r": 2,
+    "e": "C'est une obligation de la loi du 9 juin 2023."
+   }
+  ],
+  "m2": [
+   {
+    "q": "En affiliation TikTok Shop, qui expédie le produit ?",
+    "o": [
+     "Toi",
+     "Le vendeur",
+     "Le client va le chercher"
+    ],
+    "r": 1,
+    "e": "Tu ne gères ni stock ni envoi : tu touches une commission sur la vente."
+   },
+   {
+    "q": "Que devient ta commission si le produit est retourné ?",
+    "o": [
+     "Elle est annulée",
+     "Tu la gardes",
+     "Elle est doublée"
+    ],
+    "r": 0,
+    "e": "Les commissions sont validées après la livraison et le délai de retour."
+   },
+   {
+    "q": "Quel format est conseillé pour tes premières vidéos produits ?",
+    "o": [
+     "Une publicité très léchée",
+     "Le test honnête ou l'avant / après",
+     "Une vidéo sans montrer le produit"
+    ],
+    "r": 1,
+    "e": "Ce sont les formats les plus simples et souvent les plus efficaces."
+   }
+  ],
+  "m3": [
+   {
+    "q": "Combien de temps environ une vidéo a-t-elle pour arrêter le scroll ?",
+    "o": [
+     "Environ une seconde et demie",
+     "10 secondes",
+     "30 secondes"
+    ],
+    "r": 0,
+    "e": "D'où l'importance du hook visuel, écrit et parlé dès la première image."
+   },
+   {
+    "q": "Quel signal est le plus fort pour l'algorithme ?",
+    "o": [
+     "Le nombre d'abonnés",
+     "Le nombre de hashtags",
+     "Le visionnage jusqu'au bout"
+    ],
+    "r": 2,
+    "e": "Les visionnages complets et les revisionnages font passer ta vidéo aux cercles suivants."
+   },
+   {
+    "q": "Une vidéo démarre lentement. Que fais-tu ?",
+    "o": [
+     "Je la supprime tout de suite",
+     "Je lui laisse au moins 48 heures",
+     "Je la republie le soir même"
+    ],
+    "r": 1,
+    "e": "Une vidéo peut continuer d'être testée et repartir des jours après sa publication."
+   }
+  ],
+  "m4": [
+   {
+    "q": "En micro-entreprise, que déclares-tu à l'URSSAF ?",
+    "o": [
+     "Ton bénéfice",
+     "Ton chiffre d'affaires encaissé",
+     "Rien tant que tu n'as pas 10 000 abonnés"
+    ],
+    "r": 1,
+    "e": "Tu déclares ce que tu encaisses, chaque mois ou chaque trimestre."
+   },
+   {
+    "q": "Quel seuil est atteint en premier pour une activité de services ?",
+    "o": [
+     "La franchise de TVA",
+     "Le plafond de la micro-entreprise",
+     "Les deux en même temps"
+    ],
+    "r": 0,
+    "e": "Le seuil de franchise de TVA (environ 37 500 €) est bien plus bas que le plafond micro (environ 83 600 €)."
+   },
+   {
+    "q": "Une image réaliste générée par IA dans un contenu commercial doit porter :",
+    "o": [
+     "Aucune mention",
+     "« Images virtuelles »",
+     "« Fait maison »"
+    ],
+    "r": 1,
+    "e": "C'est l'une des mentions prévues par la loi Influenceurs."
+   }
+  ]
+ }
+}

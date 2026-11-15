@@ -130,7 +130,7 @@ footer a:hover{color:var(--wh)}
     <div class="prod-card" id="card-formation">
       
       <div><div class="prod-badge badge-pu">Formation</div><div class="prod-title">Formation TikTok Expert</div></div>
-      <div class="prod-desc">15 ebooks · 3 modules complets · Accès à vie</div>
+      <div class="prod-desc">50 leçons courtes · 100 hooks · 20 scripts · accès à vie</div>
       <a href="/formation/" class="prod-btn btn-pu">Accéder à la formation →</a>
     </div>
     <div class="prod-card" id="card-shop">
@@ -157,9 +157,9 @@ footer a:hover{color:var(--wh)}
       <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
       <div class="prog-sub" id="prog-sub">0 actions complétées</div>
       <div class="modules-grid">
-        <div class="mod-mini"><div class="mod-name">Module 1</div><div class="mod-bar"><div class="mod-fill fill-pu" id="fill-m1" style="width:0%"></div></div><div class="mod-pct" id="pct-m1">0%</div></div>
-        <div class="mod-mini"><div class="mod-name">Module 2</div><div class="mod-bar"><div class="mod-fill fill-or" id="fill-m2" style="width:0%"></div></div><div class="mod-pct" id="pct-m2">0%</div></div>
-        <div class="mod-mini"><div class="mod-name">Module 3</div><div class="mod-bar"><div class="mod-fill fill-gr" id="fill-m3" style="width:0%"></div></div><div class="mod-pct" id="pct-m3">0%</div></div>
+        <div class="mod-mini"><div class="mod-name">Monétisation</div><div class="mod-bar"><div class="mod-fill fill-pu" id="fill-m1" style="width:0%"></div></div><div class="mod-pct" id="pct-m1">0%</div></div>
+        <div class="mod-mini"><div class="mod-name">TikTok Shop</div><div class="mod-bar"><div class="mod-fill fill-or" id="fill-m2" style="width:0%"></div></div><div class="mod-pct" id="pct-m2">0%</div></div>
+        <div class="mod-mini"><div class="mod-name">Viralité</div><div class="mod-bar"><div class="mod-fill fill-gr" id="fill-m3" style="width:0%"></div></div><div class="mod-pct" id="pct-m3">0%</div></div>
       </div>
     </div>
   </div>
@@ -195,15 +195,23 @@ async function init(){
   if(!access||!access.has_accompagnement)document.getElementById('card-accompagnement').classList.add('locked');
 }
 function loadProgress(){
-  var CL_COUNTS={m1:5,m2:5,m3:5};var total=0,done=0;var modDone=[0,0,0],modTotal=[0,0,0];
-  ['m1','m2','m3'].forEach(function(m,mi){
-    for(var i=1;i<=5;i++){var s=JSON.parse(localStorage.getItem('vyrashop_cl-'+m+'-e'+i)||'{}');modTotal[mi]+=4;total+=4;for(var j=0;j<4;j++){if(s[j]){done++;modDone[mi]++;}}}
-  });
-  var pct=total?Math.round(done/total*100):0;
-  document.getElementById('prog-fill').style.width=pct+'%';document.getElementById('prog-pct').textContent=pct+'%';
-  document.getElementById('prog-sub').textContent=done+' actions complétées sur '+total;
-  ['m1','m2','m3'].forEach(function(m,i){var p=modTotal[i]?Math.round(modDone[i]/modTotal[i]*100):0;document.getElementById('fill-'+m).style.width=p+'%';document.getElementById('pct-'+m).textContent=p+'%';});
+  // Progression de la nouvelle formation en leçons : le serveur fait foi, le navigateur sert de repli.
+  var MODS={m0:2,m1:15,m2:15,m3:15,m4:3},TOTAL=50;
+  function afficher(faits){
+    var set=new Set(faits),done=0;Object.keys(MODS).forEach(function(m){for(var i=1;i<=MODS[m];i++){if(set.has(m+'-'+i))done++;}});
+    var pct=Math.round(done/TOTAL*100);
+    document.getElementById('prog-fill').style.width=pct+'%';document.getElementById('prog-pct').textContent=pct+'%';
+    document.getElementById('prog-sub').textContent=done+' leçons faites sur '+TOTAL;
+    ['m1','m2','m3'].forEach(function(m){var d=0;for(var i=1;i<=MODS[m];i++){if(set.has(m+'-'+i))d++;}var p=Math.round(d/MODS[m]*100);document.getElementById('fill-'+m).style.width=p+'%';document.getElementById('pct-'+m).textContent=p+'%';});
+  }
+  var local=[];try{local=JSON.parse(localStorage.getItem('vs_formation_faits')||'[]');}catch(e){}
+  afficher(local);
+  sb.auth.getSession().then(function(r){var t=r.data&&r.data.session&&r.data.session.access_token;if(!t)return;
+    return fetch('/.netlify/functions/formation',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_token:t,action:'progression'})})
+      .then(function(x){return x.json();}).then(function(d){if(d&&d.stockage)afficher(d.faits);});
+  }).catch(function(){});
 }
+
 async function logout(){await sb.auth.signOut();localStorage.removeItem('vyrashop_access');window.location.href='/espace-membre/login.html';}
 async function loadMFAStatus(){
   var actionsEl=document.getElementById('mfa-actions');var statusEl=document.getElementById('mfa-status-text');

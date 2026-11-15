@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Leçon · VyraShop</title>
+<meta name="robots" content="noindex"/>
+<meta name="theme-color" content="#09090d"/>
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/assets/fonts/fonts.css"/>
+<link rel="stylesheet" href="/assets/formation/app.css"/>
+</head>
+<body>
+<nav>
+  <div class="col">
+    <a href="/" aria-label="Accueil VyraShop"><img src="/assets/brand/logo-icone-144.png" alt="VyraShop" width="34" height="34"/></a>
+    <span class="sp"></span>
+    <a href="/formation/">Parcours</a>
+    <a href="/formation/outils.html">Outils</a>
+    <a href="/espace-membre/">Mon espace</a>
+  </div>
+</nav>
+
+<main class="col" id="app">
+  <p class="loading">Chargement de la leçon…</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/formation/app.js"></script>
+<script>
+(async function () {
+  var app = document.getElementById('app');
+  var id = new URLSearchParams(location.search).get('id') || 'm0-1';
+  var d;
+  try {
+    d = await VS.api('lecon', { id: id });
+    await VS.chargerProgression();
+  } catch (e) {
+    if (e.code === 404) { app.innerHTML = '<div class="gate"><h1>Leçon<span>introuvable.</span></h1><div class="acts"><a class="btn btn-rose" href="/formation/">Retour au parcours</a></div></div>'; return; }
+    VS.afficherAcces(app, e.code); return;
+  }
+  var l = d.lecon;
+  document.title = l.titre + ' · VyraShop';
+
+  var h = '<div class="crumb"><a href="/formation/#' + d.module.id + '">← ' + VS.esc(d.module.titre) + '</a><span>Leçon ' + d.module.rang + ' sur ' + d.module.total + '</span></div>';
+  h += '<article class="lesson"><h1>' + VS.esc(l.titre) + '</h1><p class="meta">Jour ' + l.jour + ' · ' + l.duree + ' min de lecture</p>';
+  h += '<div class="body">' + VS.rendre(l.corps) + '</div>';
+  h += '<section class="action" aria-labelledby="act-k"><span class="k" id="act-k">Ton action</span><p>' + VS.esc(l.action) + '</p>';
+  h += '<label class="check" id="chk-wrap"><input type="checkbox" id="chk"/> C\'est fait</label></section>';
+
+  if (d.quiz) {
+    h += '<section class="quiz" id="quiz"><h2>Quiz du module</h2><p>3 questions pour vérifier que l\'essentiel est acquis.</p>';
+    d.quiz.questions.forEach(function (q, qi) {
+      h += '<div class="q" data-q="' + qi + '"><p>' + (qi + 1) + '. ' + VS.esc(q.q) + '</p><div class="opts">';
+      q.o.forEach(function (o, oi) { h += '<button class="opt" type="button" data-o="' + oi + '">' + VS.esc(o) + '</button>'; });
+      h += '</div><p class="expl" hidden></p></div>';
+    });
+    h += '<p class="score" id="score" aria-live="polite"></p></section>';
+  }
+  h += '</article><div class="pager">';
+  if (d.precedente) h += '<a href="/formation/lecon.html?id=' + d.precedente.id + '"><small>← Précédente</small><b>' + VS.esc(d.precedente.titre) + '</b></a>';
+  if (d.suivante) h += '<a class="nx" href="/formation/lecon.html?id=' + d.suivante.id + '"><small>Suivante →</small><b>' + VS.esc(d.suivante.titre) + '</b></a>';
+  else h += '<a class="nx" href="/formation/"><small>Fin du parcours</small><b>Retour au parcours</b></a>';
+  h += '</div>';
+  app.innerHTML = h;
+  window.scrollTo(0, 0);
+  if (location.hash === '#quiz' && d.quiz) document.getElementById('quiz').scrollIntoView();
+
+  // Action « C'est fait »
+  var chk = document.getElementById('chk'), wrap = document.getElementById('chk-wrap');
+  chk.checked = VS.estFait(l.id); wrap.classList.toggle('ok', chk.checked);
+  chk.addEventListener('change', function () {
+    VS.marquer(l.id, chk.checked); wrap.classList.toggle('ok', chk.checked);
+    if (chk.checked) VS.toast(d.suivante ? 'Bien joué. Leçon suivante quand tu veux.' : 'Bien joué !');
+  });
+
+  // Quiz
+  if (d.quiz) {
+    var bonnes = 0, repondues = 0;
+    document.querySelectorAll('.q').forEach(function (qEl) {
+      var q = d.quiz.questions[+qEl.dataset.q];
+      qEl.querySelectorAll('.opt').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (qEl.dataset.done) return; qEl.dataset.done = '1'; repondues++;
+          var ok = +b.dataset.o === q.r; if (ok) bonnes++;
+          b.classList.add(ok ? 'good' : 'bad');
+          qEl.querySelectorAll('.opt').forEach(function (x) { x.disabled = true; if (+x.dataset.o === q.r) x.classList.add('good'); });
+          var ex = qEl.querySelector('.expl'); ex.textContent = (ok ? 'Exact. ' : 'Pas tout à fait. ') + q.e; ex.hidden = false;
+          if (repondues === d.quiz.questions.length) {
+            document.getElementById('score').textContent = bonnes + ' / ' + d.quiz.questions.length + (bonnes === d.quiz.questions.length ? ' : module validé.' : ' : relis les leçons concernées si besoin, le module est quand même validé.');
+            VS.marquer(d.quiz.id, true);
+          }
+        });
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
