@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Admin — VyraShop</title>
+<title>Admin · VyraShop</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0d0d12;--card:#20202a;--bord:rgba(253,136,157,.22);--pu:#fc5674;--pl:#a8faf8;--or:#40f7f1;--wh:#fff;--tx:#e4e4e8;--gr:#44e4df;--red:#f87171}
@@ -56,6 +56,7 @@ input:focus,textarea:focus{border-color:var(--pu)}
 </style>
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png"/>
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/assets/vs-espace.css"/>
 </head>
 <body>
 
@@ -64,7 +65,7 @@ input:focus,textarea:focus{border-color:var(--pu)}
      (effacée à la fermeture de l'onglet). -->
 <div id="admin-gate">
   <div class="gate-card">
-    <h2>🔒 Accès admin</h2>
+    <h2>Accès admin</h2>
     <input type="password" id="gate-key" placeholder="Clé admin" autocomplete="off" onkeydown="if(event.key==='Enter')adminLogin()"/>
     <input type="text" id="gate-totp" placeholder="Code à 6 chiffres (si MFA activée)" autocomplete="off" inputmode="numeric" maxlength="6" style="margin-top:10px;display:none" onkeydown="if(event.key==='Enter')adminLogin()"/>
     <button class="btn" onclick="adminLogin()" id="gate-btn" style="width:100%">Se connecter</button>
@@ -83,15 +84,15 @@ input:focus,textarea:focus{border-color:var(--pu)}
   <input type="email" id="a-email" placeholder="client@email.com"/>
   <div style="margin-top:14px">
     <div class="toggle-row">
-      <span class="toggle-label">📚 Formation TikTok Expert</span>
+      <span class="toggle-label">Formation TikTok Expert</span>
       <label class="toggle"><input type="checkbox" id="a-formation"/><span class="slider"></span></label>
     </div>
     <div class="toggle-row">
-      <span class="toggle-label">🛍️ Accès TikTok Shop</span>
+      <span class="toggle-label">Accès TikTok Shop</span>
       <label class="toggle"><input type="checkbox" id="a-shop"/><span class="slider"></span></label>
     </div>
     <div class="toggle-row">
-      <span class="toggle-label">💬 Accompagnement WhatsApp</span>
+      <span class="toggle-label">Accompagnement WhatsApp</span>
       <label class="toggle"><input type="checkbox" id="a-accomp"/><span class="slider"></span></label>
     </div>
   </div>
@@ -249,7 +250,7 @@ async function saveAccess() {
       has_shop: document.getElementById('a-shop').checked,
       has_accompagnement: document.getElementById('a-accomp').checked
     });
-    showMsg('a-msg', 'ok', 'Accès enregistrés pour ' + email + ' ✅');
+    showMsg('a-msg', 'ok', 'Accès enregistrés pour ' + email + '');
   } catch (err) {
     showMsg('a-msg', 'err', 'Erreur : ' + err.message);
   }
@@ -270,7 +271,7 @@ async function deliverShop() {
       shop_password: document.getElementById('s-pwd').value.trim(),
       shop_notes: document.getElementById('s-notes').value.trim()
     });
-    showMsg('s-msg', 'ok', 'Identifiants livrés à ' + email + ' ✅');
+    showMsg('s-msg', 'ok', 'Identifiants livrés à ' + email + '');
   } catch (err) {
     showMsg('s-msg', 'err', 'Erreur : ' + err.message);
   }
@@ -287,7 +288,7 @@ async function loadShopCreds() {
     document.getElementById('s-login').value = data.shop_login || '';
     document.getElementById('s-pwd').value = data.shop_password || '';
     document.getElementById('s-notes').value = data.shop_notes || '';
-    showMsg('s-msg', 'ok', data.shop_login ? 'Identifiants chargés ✅' : 'Aucun identifiant enregistré pour cet email.');
+    showMsg('s-msg', 'ok', data.shop_login ? 'Identifiants chargés' : 'Aucun identifiant enregistré pour cet email.');
   } catch (err) {
     showMsg('s-msg', 'err', 'Erreur : ' + err.message);
   }
