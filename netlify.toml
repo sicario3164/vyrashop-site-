@@ -48,3 +48,62 @@
 # Rules / Rate Limiting) se configure depuis l'UI Netlify, pas depuis ce fichier — voir
 # le rapport Phase 3 pour le détail.
 
+
+# ── Dossiers internes : jamais servis en public ─────────────────────────────────
+# Le site est publié depuis la racine (publish = "."), donc sans ces règles les PDF et
+# le contenu de la formation (netlify/functions/_assets/), la doc interne et les
+# migrations seraient téléchargeables en direct, sans contrôle d'accès.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/supabase-migrations/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.env.example"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# ── Anciennes pages de modules : remplacées par le parcours en leçons ───────────
+[[redirects]]
+  from = "/formation/module1.html"
+  to = "/formation/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/formation/module2.html"
+  to = "/formation/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/formation/module3.html"
+  to = "/formation/"
+  status = 301
+  force = true
